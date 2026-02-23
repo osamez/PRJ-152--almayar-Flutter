@@ -36,6 +36,10 @@ class OnboardingIndicatorsAndNextButton extends StatelessWidget {
                 AppElevatedButton(
                   text: LocaleKeys.next.tr(),
                   onPressed: () {
+                    if (state == onBoardingData.length - 1) {
+                      context.pushNamed(Routes.login);
+                      return;
+                    }
                     context.read<OnboardingCubit>().nextPage();
                   },
                   width: AppSizes.w102,

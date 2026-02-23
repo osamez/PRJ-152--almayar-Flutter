@@ -65,5 +65,8 @@ abstract class  LocaleKeys {
   static const verify_otp = 'verify_otp';
   static const resend_after = 'resend_after';
   static const resend_code = 'resend_code';
+  static const reset_password_title = 'reset_password_title';
+  static const save_and_set_password = 'save_and_set_password';
+  static const passwords_not_matching = 'passwords_not_matching';
 
 }

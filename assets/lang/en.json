@@ -60,5 +60,8 @@
     "otp_subtitle": "Enter the verification code sent to your account phone number",
     "verify_otp": "Verify OTP Code",
     "resend_after": "Resend after ({time})",
-    "resend_code": "Resend"
+    "resend_code": "Resend",
+    "reset_password_title": "Set New Password",
+    "save_and_set_password": "Save & Set Password",
+    "passwords_not_matching": "Passwords do not match"
 }

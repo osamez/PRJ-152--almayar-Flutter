@@ -113,6 +113,10 @@ class AppTextFormField extends StatelessWidget {
                     weight: FontWeight.w400,
                     color: AppColors.orange,
                   ),
+                ).onTap(
+                  function: () {
+                    context.push(Routes.forgetPassword);
+                  },
                 ),
               ],
             ],

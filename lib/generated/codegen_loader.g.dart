@@ -76,7 +76,10 @@ class CodegenLoader extends AssetLoader{
   "otp_subtitle": "ادخل رمز التحقق المرسل على رقم هاتفكم الخاص بالحساب",
   "verify_otp": "مطابقة رمز التحقق",
   "resend_after": "إعادة الإرسال بعد ({time})",
-  "resend_code": "إعادة الإرسال"
+  "resend_code": "إعادة الإرسال",
+  "reset_password_title": "تعيين كلمة مرور جديدة",
+  "save_and_set_password": "حفظ وتعيين كلمة المرور",
+  "passwords_not_matching": "كلمة المرور غير مطابقة"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -140,7 +143,10 @@ static const Map<String,dynamic> _en = {
   "otp_subtitle": "Enter the verification code sent to your account phone number",
   "verify_otp": "Verify OTP Code",
   "resend_after": "Resend after ({time})",
-  "resend_code": "Resend"
+  "resend_code": "Resend",
+  "reset_password_title": "Set New Password",
+  "save_and_set_password": "Save & Set Password",
+  "passwords_not_matching": "Passwords do not match"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

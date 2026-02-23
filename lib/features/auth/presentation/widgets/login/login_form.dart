@@ -76,7 +76,9 @@ class LoginForm extends StatelessWidget {
             ).center,
             verticalSpace(AppSizes.h16),
             AppElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                context.push(Routes.register);
+              },
               text: LocaleKeys.create_new_account.tr(),
               textColor: AppColors.deepViolet,
               backgroundColor: const Color(0xff3A2A85).withValues(alpha: 0.3),

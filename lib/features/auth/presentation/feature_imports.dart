@@ -34,3 +34,6 @@ part 'widgets/otp/otp_view_body.dart';
 part 'widgets/otp/otp_form.dart';
 part 'widgets/otp/otp_pin_input.dart';
 part 'widgets/otp/otp_timer_text.dart';
+part 'views/reset_password_view.dart';
+part 'widgets/reset_password/reset_password_view_body.dart';
+part 'widgets/reset_password/reset_password_form.dart';

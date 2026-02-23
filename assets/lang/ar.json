@@ -60,5 +60,8 @@
     "otp_subtitle": "ادخل رمز التحقق المرسل على رقم هاتفكم الخاص بالحساب",
     "verify_otp": "مطابقة رمز التحقق",
     "resend_after": "إعادة الإرسال بعد ({time})",
-    "resend_code": "إعادة الإرسال"
+    "resend_code": "إعادة الإرسال",
+    "reset_password_title": "تعيين كلمة مرور جديدة",
+    "save_and_set_password": "حفظ وتعيين كلمة المرور",
+    "passwords_not_matching": "كلمة المرور غير مطابقة"
 }
