@@ -71,7 +71,12 @@ class CodegenLoader extends AssetLoader{
   "forget_password_title": "طلب إعادة تعيين كلمة المرور",
   "phone_not_found_error": "رقم الهاتف المدخل لا يتنمي لأي حساب لدينا",
   "request_verification_code": "طلب رمز التحقق",
-  "already_have_account": "لديك حساب بالفعل؟"
+  "already_have_account": "لديك حساب بالفعل؟",
+  "otp_title": "مطابقة رمز التحقق",
+  "otp_subtitle": "ادخل رمز التحقق المرسل على رقم هاتفكم الخاص بالحساب",
+  "verify_otp": "مطابقة رمز التحقق",
+  "resend_after": "إعادة الإرسال بعد ({time})",
+  "resend_code": "إعادة الإرسال"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -130,7 +135,12 @@ static const Map<String,dynamic> _en = {
   "forget_password_title": "Request Password Reset",
   "phone_not_found_error": "The entered phone number does not belong to any account",
   "request_verification_code": "Request Verification Code",
-  "already_have_account": "Already have an account?"
+  "already_have_account": "Already have an account?",
+  "otp_title": "Verify OTP Code",
+  "otp_subtitle": "Enter the verification code sent to your account phone number",
+  "verify_otp": "Verify OTP Code",
+  "resend_after": "Resend after ({time})",
+  "resend_code": "Resend"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

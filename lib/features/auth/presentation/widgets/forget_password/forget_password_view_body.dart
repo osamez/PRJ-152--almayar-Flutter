@@ -7,7 +7,9 @@ class ForgetPasswordViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
-        const ForgetPasswordHeader().toSliver,
+        AuthHeader(
+          title: LocaleKeys.forget_password_title.tr(),
+        ).withPadding(top: AppSizes.h56, horizontal: AppSizes.w20).toSliver,
         verticalSpace(AppSizes.h40).toSliver,
         const ForgetPasswordForm(),
       ],

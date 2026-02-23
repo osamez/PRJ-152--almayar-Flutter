@@ -60,5 +60,10 @@ abstract class  LocaleKeys {
   static const phone_not_found_error = 'phone_not_found_error';
   static const request_verification_code = 'request_verification_code';
   static const already_have_account = 'already_have_account';
+  static const otp_title = 'otp_title';
+  static const otp_subtitle = 'otp_subtitle';
+  static const verify_otp = 'verify_otp';
+  static const resend_after = 'resend_after';
+  static const resend_code = 'resend_code';
 
 }

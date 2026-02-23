@@ -1,17 +1,17 @@
 part of '../../feature_imports.dart';
 
-class LoginViewBody extends StatelessWidget {
-  const LoginViewBody({super.key});
+class OtpViewBody extends StatelessWidget {
+  const OtpViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
         AuthHeader(
-          title: LocaleKeys.please_login.tr(),
+          title: LocaleKeys.otp_title.tr(),
         ).withPadding(top: AppSizes.h56, horizontal: AppSizes.w20).toSliver,
         verticalSpace(AppSizes.h40).toSliver,
-        const LoginForm(),
+        const OtpForm(),
       ],
     );
   }

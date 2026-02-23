@@ -4,7 +4,7 @@ import 'package:almeyar/features/onboarding/presentation/feature_imports.dart';
 import 'package:go_router/go_router.dart';
 
 final router = GoRouter(
-  initialLocation: Routes.forgetPassword,
+  initialLocation: Routes.otp,
   routes: [
     GoRoute(
       path: Routes.onboarding,
@@ -25,6 +25,11 @@ final router = GoRouter(
       path: Routes.forgetPassword,
       name: Routes.forgetPassword,
       builder: (context, state) => const ForgetPasswordView(),
+    ),
+    GoRoute(
+      path: Routes.otp,
+      name: Routes.otp,
+      builder: (context, state) => const OtpView(),
     ),
   ],
 );

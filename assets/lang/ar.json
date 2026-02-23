@@ -55,5 +55,10 @@
     "forget_password_title": "طلب إعادة تعيين كلمة المرور",
     "phone_not_found_error": "رقم الهاتف المدخل لا يتنمي لأي حساب لدينا",
     "request_verification_code": "طلب رمز التحقق",
-    "already_have_account": "لديك حساب بالفعل؟"
+    "already_have_account": "لديك حساب بالفعل؟",
+    "otp_title": "مطابقة رمز التحقق",
+    "otp_subtitle": "ادخل رمز التحقق المرسل على رقم هاتفكم الخاص بالحساب",
+    "verify_otp": "مطابقة رمز التحقق",
+    "resend_after": "إعادة الإرسال بعد ({time})",
+    "resend_code": "إعادة الإرسال"
 }

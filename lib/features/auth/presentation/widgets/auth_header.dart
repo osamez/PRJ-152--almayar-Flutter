@@ -1,7 +1,9 @@
-part of '../../feature_imports.dart';
+part of '../feature_imports.dart';
 
-class RegisterHeader extends StatelessWidget {
-  const RegisterHeader({super.key});
+class AuthHeader extends StatelessWidget {
+  const AuthHeader({super.key, required this.title});
+
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class RegisterHeader extends StatelessWidget {
           ),
         ).center,
         Text(
-          LocaleKeys.open_new_account.tr(),
+          title,
           textAlign: TextAlign.center,
           style: AppTextStyleFactory.create(
             size: 24,
