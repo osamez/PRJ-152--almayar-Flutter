@@ -11,14 +11,11 @@ class ImagePreview extends StatelessWidget {
     return Stack(
       fit: StackFit.expand,
       children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(AppSizes.radiusXxs),
-          child: Image.file(
-            image,
-            fit: BoxFit.cover,
-            alignment: Alignment.center,
-          ),
-        ),
+        Image.file(
+          image,
+          fit: BoxFit.cover,
+          alignment: Alignment.center,
+        ).clipRRect(all: AppSizes.radiusXxs),
         Positioned(
           bottom: AppSizes.h8,
           left: AppSizes.w8,
