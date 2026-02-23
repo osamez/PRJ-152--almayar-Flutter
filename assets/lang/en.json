@@ -48,5 +48,8 @@
     "id_photo_format_hint": "The image must be in format (jpg, jpeg, png, pdf)",
     "id_photo_size_hint": "The file size must not exceed 2MB.",
     "tap_to_upload_id": "Tap to upload ID proof",
-    "complete_registration": "Complete Account Registration"
+    "complete_registration": "Complete Account Registration",
+    "remove_image": "Remove Image",
+    "gallery": "Gallery",
+    "camera": "Camera"
 }

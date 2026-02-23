@@ -53,5 +53,8 @@ abstract class  LocaleKeys {
   static const id_photo_size_hint = 'id_photo_size_hint';
   static const tap_to_upload_id = 'tap_to_upload_id';
   static const complete_registration = 'complete_registration';
+  static const remove_image = 'remove_image';
+  static const gallery = 'gallery';
+  static const camera = 'camera';
 
 }

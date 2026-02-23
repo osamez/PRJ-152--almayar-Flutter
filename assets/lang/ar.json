@@ -48,5 +48,8 @@
     "id_photo_format_hint": "يجب ان تكون الصورة بصيغة (jpg, jpeg, png, pdf)",
     "id_photo_size_hint": "يجب ان لا يزيد حجم الملف اكثر من 2MB.",
     "tap_to_upload_id": "انقر لرفع اثبات الهوية",
-    "complete_registration": "إكمال تسجيل الحساب"
+    "complete_registration": "إكمال تسجيل الحساب",
+    "remove_image": "حذف الصورة",
+    "gallery": "المعرض",
+    "camera": "الكاميرا"
 }

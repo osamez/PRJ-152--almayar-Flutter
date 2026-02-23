@@ -12,6 +12,8 @@ class AppAssets {
 
   static const String svgOnboardingLogo = "assets/svg/onboarding_logo.svg";
 
+  static const String svgTrashDuotone = "assets/svg/trash-duotone.svg";
+
   static const String svgUpload = "assets/svg/upload.svg";
 }
 

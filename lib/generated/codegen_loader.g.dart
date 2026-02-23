@@ -64,7 +64,10 @@ class CodegenLoader extends AssetLoader{
   "id_photo_format_hint": "يجب ان تكون الصورة بصيغة (jpg, jpeg, png, pdf)",
   "id_photo_size_hint": "يجب ان لا يزيد حجم الملف اكثر من 2MB.",
   "tap_to_upload_id": "انقر لرفع اثبات الهوية",
-  "complete_registration": "إكمال تسجيل الحساب"
+  "complete_registration": "إكمال تسجيل الحساب",
+  "remove_image": "حذف الصورة",
+  "gallery": "المعرض",
+  "camera": "الكاميرا"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -116,7 +119,10 @@ static const Map<String,dynamic> _en = {
   "id_photo_format_hint": "The image must be in format (jpg, jpeg, png, pdf)",
   "id_photo_size_hint": "The file size must not exceed 2MB.",
   "tap_to_upload_id": "Tap to upload ID proof",
-  "complete_registration": "Complete Account Registration"
+  "complete_registration": "Complete Account Registration",
+  "remove_image": "Remove Image",
+  "gallery": "Gallery",
+  "camera": "Camera"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }
