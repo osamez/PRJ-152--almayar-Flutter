@@ -51,5 +51,9 @@
     "complete_registration": "إكمال تسجيل الحساب",
     "remove_image": "حذف الصورة",
     "gallery": "المعرض",
-    "camera": "الكاميرا"
+    "camera": "الكاميرا",
+    "forget_password_title": "طلب إعادة تعيين كلمة المرور",
+    "phone_not_found_error": "رقم الهاتف المدخل لا يتنمي لأي حساب لدينا",
+    "request_verification_code": "طلب رمز التحقق",
+    "already_have_account": "لديك حساب بالفعل؟"
 }

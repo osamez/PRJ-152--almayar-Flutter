@@ -51,5 +51,9 @@
     "complete_registration": "Complete Account Registration",
     "remove_image": "Remove Image",
     "gallery": "Gallery",
-    "camera": "Camera"
+    "camera": "Camera",
+    "forget_password_title": "Request Password Reset",
+    "phone_not_found_error": "The entered phone number does not belong to any account",
+    "request_verification_code": "Request Verification Code",
+    "already_have_account": "Already have an account?"
 }

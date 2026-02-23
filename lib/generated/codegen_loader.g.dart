@@ -67,7 +67,11 @@ class CodegenLoader extends AssetLoader{
   "complete_registration": "إكمال تسجيل الحساب",
   "remove_image": "حذف الصورة",
   "gallery": "المعرض",
-  "camera": "الكاميرا"
+  "camera": "الكاميرا",
+  "forget_password_title": "طلب إعادة تعيين كلمة المرور",
+  "phone_not_found_error": "رقم الهاتف المدخل لا يتنمي لأي حساب لدينا",
+  "request_verification_code": "طلب رمز التحقق",
+  "already_have_account": "لديك حساب بالفعل؟"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -122,7 +126,11 @@ static const Map<String,dynamic> _en = {
   "complete_registration": "Complete Account Registration",
   "remove_image": "Remove Image",
   "gallery": "Gallery",
-  "camera": "Camera"
+  "camera": "Camera",
+  "forget_password_title": "Request Password Reset",
+  "phone_not_found_error": "The entered phone number does not belong to any account",
+  "request_verification_code": "Request Verification Code",
+  "already_have_account": "Already have an account?"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

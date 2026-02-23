@@ -56,5 +56,9 @@ abstract class  LocaleKeys {
   static const remove_image = 'remove_image';
   static const gallery = 'gallery';
   static const camera = 'camera';
+  static const forget_password_title = 'forget_password_title';
+  static const phone_not_found_error = 'phone_not_found_error';
+  static const request_verification_code = 'request_verification_code';
+  static const already_have_account = 'already_have_account';
 
 }

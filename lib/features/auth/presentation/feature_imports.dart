@@ -24,3 +24,7 @@ part 'widgets/register/register_third_step.dart';
 part 'widgets/register/register_id_upload_area.dart';
 part 'widgets/register/upload_placeholder.dart';
 part 'widgets/register/image_preview.dart';
+part 'views/forget_password_view.dart';
+part 'widgets/forget_password/forget_password_view_body.dart';
+part 'widgets/forget_password/forget_password_header.dart';
+part 'widgets/forget_password/forget_password_form.dart';
