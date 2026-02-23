@@ -9,7 +9,7 @@ class RegisterViewBody extends StatelessWidget {
       slivers: [
         Column(
           children: [
-            const RegisterHeader(),
+            AuthHeader(title: LocaleKeys.open_new_account.tr()),
             verticalSpace(AppSizes.h16),
             const RegisterStepIndicator(),
           ],

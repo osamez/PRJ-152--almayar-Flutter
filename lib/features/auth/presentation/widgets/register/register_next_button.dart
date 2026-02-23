@@ -9,7 +9,13 @@ class RegisterNextButton extends StatelessWidget {
       selector: (state) => state.isLastStep,
       builder: (context, isLastStep) {
         return AppElevatedButton(
-          onPressed: () => context.read<RegisterCubit>().nextStep(),
+          onPressed: () {
+            if (isLastStep) {
+              context.pushNamed(Routes.otp);
+            } else {
+              context.read<RegisterCubit>().nextStep();
+            }
+          },
           text: isLastStep
               ? LocaleKeys.complete_registration.tr()
               : LocaleKeys.next_step.tr(),

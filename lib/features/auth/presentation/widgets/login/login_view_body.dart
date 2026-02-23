@@ -7,33 +7,8 @@ class LoginViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
-        Column(
-          children: [
-            Image.asset(
-              AppAssets.imagesLogo,
-              width: AppSizes.w180,
-              height: AppSizes.h90,
-            ),
-            verticalSpace(AppSizes.h20),
-            Text(
-              LocaleKeys.welcome_message.tr(),
-              textAlign: TextAlign.center,
-              style: AppTextStyleFactory.create(
-                size: 19,
-                weight: FontWeight.w400,
-                color: AppColors.lightSmallText,
-              ),
-            ).center,
-            Text(
-              LocaleKeys.please_login.tr(),
-              textAlign: TextAlign.center,
-              style: AppTextStyleFactory.create(
-                size: 24,
-                weight: FontWeight.w400,
-                color: AppColors.darkBlueText,
-              ),
-            ).center,
-          ],
+        AuthHeader(
+          title: LocaleKeys.please_login.tr(),
         ).withPadding(top: AppSizes.h56, horizontal: AppSizes.w20).toSliver,
         verticalSpace(AppSizes.h40).toSliver,
         const LoginForm(),

@@ -51,5 +51,17 @@
     "complete_registration": "Complete Account Registration",
     "remove_image": "Remove Image",
     "gallery": "Gallery",
-    "camera": "Camera"
+    "camera": "Camera",
+    "forget_password_title": "Request Password Reset",
+    "phone_not_found_error": "The entered phone number does not belong to any account",
+    "request_verification_code": "Request Verification Code",
+    "already_have_account": "Already have an account?",
+    "otp_title": "Verify OTP Code",
+    "otp_subtitle": "Enter the verification code sent to your account phone number",
+    "verify_otp": "Verify OTP Code",
+    "resend_after": "Resend after ({time})",
+    "resend_code": "Resend",
+    "reset_password_title": "Set New Password",
+    "save_and_set_password": "Save & Set Password",
+    "passwords_not_matching": "Passwords do not match"
 }

@@ -18,6 +18,7 @@ class AppSizes {
   static late double w8;
   static late double w10;
   static late double w12;
+  static late double w14;
   static late double w15;
   static late double w16;
   static late double w18;
@@ -35,6 +36,7 @@ class AppSizes {
   static late double w48;
   static late double w50;
   static late double w56;
+  static late double w60;
   static late double w66;
   static late double w80;
   static late double w82;
@@ -63,6 +65,7 @@ class AppSizes {
   static late double h8;
   static late double h10;
   static late double h12;
+  static late double h14;
   static late double h15;
   static late double h16;
   static late double h18;
@@ -80,6 +83,7 @@ class AppSizes {
   static late double h48;
   static late double h50;
   static late double h56;
+  static late double h60;
   static late double h66;
   static late double h80;
   static late double h82;
@@ -119,6 +123,7 @@ class AppSizes {
     w8 = 8.w;
     w10 = 10.w;
     w12 = 12.w;
+    w14 = 14.w;
     w15 = 15.w;
     w18 = 18.w;
     w16 = 16.w;
@@ -136,6 +141,7 @@ class AppSizes {
     w48 = 48.w;
     w50 = 50.w;
     w56 = 56.w;
+    w60 = 60.w;
     w66 = 66.w;
     w80 = 80.w;
     w82 = 82.w;
@@ -165,6 +171,7 @@ class AppSizes {
     h8 = 8.h;
     h10 = 10.h;
     h12 = 12.h;
+    h14 = 14.h;
     h15 = 15.h;
     h18 = 18.h;
     h16 = 16.h;
@@ -182,6 +189,7 @@ class AppSizes {
     h48 = 48.h;
     h50 = 50.h;
     h56 = 56.h;
+    h60 = 60.h;
     h66 = 66.h;
     h80 = 80.h;
     h82 = 82.h;

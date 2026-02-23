@@ -56,5 +56,17 @@ abstract class  LocaleKeys {
   static const remove_image = 'remove_image';
   static const gallery = 'gallery';
   static const camera = 'camera';
+  static const forget_password_title = 'forget_password_title';
+  static const phone_not_found_error = 'phone_not_found_error';
+  static const request_verification_code = 'request_verification_code';
+  static const already_have_account = 'already_have_account';
+  static const otp_title = 'otp_title';
+  static const otp_subtitle = 'otp_subtitle';
+  static const verify_otp = 'verify_otp';
+  static const resend_after = 'resend_after';
+  static const resend_code = 'resend_code';
+  static const reset_password_title = 'reset_password_title';
+  static const save_and_set_password = 'save_and_set_password';
+  static const passwords_not_matching = 'passwords_not_matching';
 
 }
