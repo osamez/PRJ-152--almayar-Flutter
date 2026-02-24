@@ -79,7 +79,27 @@ class CodegenLoader extends AssetLoader{
   "resend_code": "إعادة الإرسال",
   "reset_password_title": "تعيين كلمة مرور جديدة",
   "save_and_set_password": "حفظ وتعيين كلمة المرور",
-  "passwords_not_matching": "كلمة المرور غير مطابقة"
+  "passwords_not_matching": "كلمة المرور غير مطابقة",
+  "home_search_hint": "بحث بكود الشحنة أو الرحلة",
+  "home_shipping_addresses": "عناوين الشحن",
+  "home_shipping_addresses_desc": "عناوين الشحن في كل دولة",
+  "home_request_shipment": "طلب إستلام شحنة",
+  "home_request_shipment_desc": "تسجيل بيانات شحنة قادمة لغرض المطابقة",
+  "home_track_shipments": "تتبع الشحنات",
+  "home_track_shipments_desc": "تابع حاله شحنتك لحظة بلحظة حتى وصولها",
+  "home_price_calculator": "حاسبة الأسعار",
+  "home_delivery_orders": "طلبات التسليم",
+  "home_shopping_service": "خدمة الشراء",
+  "home_shopping_service_desc": "تقدر تشري من أي موقع عالمي، بدون تعقيدات في الدفع. اعطينا رابط الدفع وخلي الباقي علينا.\nنكفلك الشراء وندفع مباشرة من محفظتك.",
+  "home_purchase_orders": "طلبات الشراء",
+  "home_purchase_orders_desc": "إدارة طلبات الشراء",
+  "home_shopping_websites": "مواقع التسوق",
+  "home_shopping_websites_desc": "اكتشف قائمة المواقع",
+  "home_financial_transfers": "الحوالات المالية",
+  "home_financial_transfers_desc": "إدارة طلبات الحوالات المالية للموردين",
+  "home_orders": "الطلبات",
+  "home_tracking": "التتبع",
+  "home_account": "حسابي"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -146,7 +166,27 @@ static const Map<String,dynamic> _en = {
   "resend_code": "Resend",
   "reset_password_title": "Set New Password",
   "save_and_set_password": "Save & Set Password",
-  "passwords_not_matching": "Passwords do not match"
+  "passwords_not_matching": "Passwords do not match",
+  "home_search_hint": "Search by shipment or trip code",
+  "home_shipping_addresses": "Shipping Addresses",
+  "home_shipping_addresses_desc": "Shipping addresses in every country",
+  "home_request_shipment": "Request Shipment Pickup",
+  "home_request_shipment_desc": "Register incoming shipment data for matching",
+  "home_track_shipments": "Track Shipments",
+  "home_track_shipments_desc": "Track your shipment moment by moment until arrival",
+  "home_price_calculator": "Price Calculator",
+  "home_delivery_orders": "Delivery Orders",
+  "home_shopping_service": "Shopping Service",
+  "home_shopping_service_desc": "You can buy from any global website without payment complications. Give us the payment link and leave the rest to us.\nWe guarantee the purchase and pay directly from your wallet.",
+  "home_purchase_orders": "Purchase Orders",
+  "home_purchase_orders_desc": "Manage purchase orders",
+  "home_shopping_websites": "Shopping Websites",
+  "home_shopping_websites_desc": "Discover the list of websites",
+  "home_financial_transfers": "Financial Transfers",
+  "home_financial_transfers_desc": "Manage supplier financial transfer requests",
+  "home_orders": "Orders",
+  "home_tracking": "Tracking",
+  "home_account": "My Account"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

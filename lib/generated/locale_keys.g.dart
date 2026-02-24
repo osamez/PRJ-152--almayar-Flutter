@@ -68,5 +68,25 @@ abstract class  LocaleKeys {
   static const reset_password_title = 'reset_password_title';
   static const save_and_set_password = 'save_and_set_password';
   static const passwords_not_matching = 'passwords_not_matching';
+  static const home_search_hint = 'home_search_hint';
+  static const home_shipping_addresses = 'home_shipping_addresses';
+  static const home_shipping_addresses_desc = 'home_shipping_addresses_desc';
+  static const home_request_shipment = 'home_request_shipment';
+  static const home_request_shipment_desc = 'home_request_shipment_desc';
+  static const home_track_shipments = 'home_track_shipments';
+  static const home_track_shipments_desc = 'home_track_shipments_desc';
+  static const home_price_calculator = 'home_price_calculator';
+  static const home_delivery_orders = 'home_delivery_orders';
+  static const home_shopping_service = 'home_shopping_service';
+  static const home_shopping_service_desc = 'home_shopping_service_desc';
+  static const home_purchase_orders = 'home_purchase_orders';
+  static const home_purchase_orders_desc = 'home_purchase_orders_desc';
+  static const home_shopping_websites = 'home_shopping_websites';
+  static const home_shopping_websites_desc = 'home_shopping_websites_desc';
+  static const home_financial_transfers = 'home_financial_transfers';
+  static const home_financial_transfers_desc = 'home_financial_transfers_desc';
+  static const home_orders = 'home_orders';
+  static const home_tracking = 'home_tracking';
+  static const home_account = 'home_account';
 
 }

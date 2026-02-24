@@ -12,4 +12,11 @@ final class AppColors {
   static const Color lightHeadingText = Color(0xff4B465C);
   static const Color deepViolet = Color(0xff1F4284);
   static const Color notActive = Color(0xff9DB2CE);
+  static const Color blueGradientStart = Color(0xff1A3F7D);
+  static const Color blueGradientEnd = Color(0xff3B6CB8);
+  static const Color lightCardBg = Color(0xffF5F7FB);
+  static const Color lightCardBorder = Color(0xffE8ECF2);
+  static const Color tealGreen = Color(0xff2DB38F);
+  static const Color pinkRed = Color(0xffE91E63);
+  static const Color scaffoldBg = Color(0xffF0F3FA);
 }

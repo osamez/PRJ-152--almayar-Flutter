@@ -64,7 +64,12 @@ class LoginForm extends StatelessWidget {
               title: LocaleKeys.password.tr(),
             ),
             verticalSpace(AppSizes.h36),
-            AppElevatedButton(onPressed: () {}, text: LocaleKeys.login.tr()),
+            AppElevatedButton(
+              onPressed: () {
+                context.push(Routes.main);
+              },
+              text: LocaleKeys.login.tr(),
+            ),
             verticalSpace(AppSizes.h16),
             Text(
               LocaleKeys.no_account.tr(),
