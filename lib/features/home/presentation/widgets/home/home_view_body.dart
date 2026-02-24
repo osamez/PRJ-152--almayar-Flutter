@@ -1,4 +1,3 @@
-import 'package:almeyar/core/utils/exports.dart';
 import 'package:almeyar/features/home/presentation/feature_imports.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -22,7 +21,7 @@ class HomeViewBody extends StatelessWidget {
                   subtitle: LocaleKeys.home_track_shipments_desc,
                   svgIcon: AppAssets.svgShippingAddresses,
                   onTap: () {
-                    context.pushNamed(Routes.shipmentAddresses);
+                    context.push(Routes.shipmentAddresses);
                   },
                 ),
                 verticalSpace(AppSizes.h10),

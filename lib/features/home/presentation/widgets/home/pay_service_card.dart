@@ -67,8 +67,8 @@ class PayServiceCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-            width: 44.w,
-            height: 44.h,
+            width: AppSizes.w44,
+            height: AppSizes.h44,
             padding: EdgeInsets.symmetric(
               horizontal: AppSizes.w10,
               vertical: AppSizes.h10,
@@ -77,7 +77,11 @@ class PayServiceCard extends StatelessWidget {
               color: iconBackgroundColor,
               borderRadius: BorderRadius.circular(AppSizes.radiusMd),
             ),
-            child: SvgPicture.asset(svgIcon, width: 24.w, height: 24.h),
+            child: SvgPicture.asset(
+              svgIcon,
+              width: AppSizes.w24,
+              height: AppSizes.h24,
+            ),
           ),
           verticalSpace(AppSizes.h12),
           Text(
@@ -99,8 +103,8 @@ class PayServiceCard extends StatelessWidget {
           ),
           verticalSpace(AppSizes.h10),
           Container(
-            width: 36.w,
-            height: 36.h,
+            width: AppSizes.w36,
+            height: AppSizes.h36,
             padding: EdgeInsets.symmetric(
               horizontal: AppSizes.w10,
               vertical: AppSizes.h10,

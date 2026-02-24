@@ -31,8 +31,8 @@ class HomeVerticalCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            width: 42.w,
-            height: 42.h,
+            width: AppSizes.w42,
+            height: AppSizes.h42,
             padding: EdgeInsets.symmetric(
               horizontal: AppSizes.w10,
               vertical: AppSizes.h10,
@@ -41,7 +41,11 @@ class HomeVerticalCard extends StatelessWidget {
               color: AppColors.grey97,
               borderRadius: BorderRadius.circular(AppSizes.radiusMd),
             ),
-            child: SvgPicture.asset(svgIcon, width: 24.w, height: 24.h),
+            child: SvgPicture.asset(
+              svgIcon,
+              width: AppSizes.w24,
+              height: AppSizes.h24,
+            ),
           ),
           verticalSpace(AppSizes.h8),
           Text(

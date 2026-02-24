@@ -30,8 +30,8 @@ class MoneyTransfers extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      width: 44.w,
-                      height: 44.h,
+                      width: AppSizes.w44,
+                      height: AppSizes.h44,
                       padding: EdgeInsets.symmetric(
                         horizontal: AppSizes.w10,
                         vertical: AppSizes.h10,
@@ -42,8 +42,8 @@ class MoneyTransfers extends StatelessWidget {
                       ),
                       child: SvgPicture.asset(
                         AppAssets.svgSwap,
-                        width: 24.w,
-                        height: 24.h,
+                        width: AppSizes.w24,
+                        height: AppSizes.h24,
                       ),
                     ),
                     verticalSpace(AppSizes.h8),
@@ -67,8 +67,8 @@ class MoneyTransfers extends StatelessWidget {
                 ),
               ),
               Container(
-                width: 36.w,
-                height: 36.h,
+                width: AppSizes.w36,
+                height: AppSizes.h36,
                 padding: EdgeInsets.symmetric(
                   horizontal: AppSizes.w10,
                   vertical: AppSizes.h10,

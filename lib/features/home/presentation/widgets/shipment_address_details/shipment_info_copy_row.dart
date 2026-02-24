@@ -54,8 +54,8 @@ class ShipmentInfoCopyRow extends StatelessWidget {
                 onTap: () => _copyToClipboard(context),
                 child: SvgPicture.asset(
                   AppAssets.svgCopy,
-                  width: 22.w,
-                  height: 22.h,
+                  width: AppSizes.w22,
+                  height: AppSizes.h22,
                 ),
               ),
             ],

@@ -33,6 +33,7 @@ export 'package:almeyar/core/widgets/app_text_form_field.dart';
 export 'package:almeyar/core/widgets/custom_app_bar.dart';
 export 'package:almeyar/core/widgets/custom_inkwell_widget.dart';
 export 'package:almeyar/generated/locale_keys.g.dart';
+export 'package:almeyar/core/routing/routes.dart';
 
 // Local exports
 export 'cubit/home_cubit.dart';
