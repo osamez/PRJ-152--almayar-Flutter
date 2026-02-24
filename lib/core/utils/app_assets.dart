@@ -26,6 +26,8 @@ class AppAssets {
 
   static const String svgCalculator = "assets/svg/calculator.svg";
 
+  static const String svgCopy = "assets/svg/copy.svg";
+
   static const String svgFlagTest = "assets/svg/flag_test.svg";
 
   static const String svgHome = "assets/svg/home.svg";

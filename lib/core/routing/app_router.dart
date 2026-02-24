@@ -48,5 +48,10 @@ final router = GoRouter(
       name: Routes.shipmentAddresses,
       builder: (context, state) => const ShipmentsAddressesView(),
     ),
+    GoRoute(
+      path: Routes.shipmentAddressDetails,
+      name: Routes.shipmentAddressDetails,
+      builder: (context, state) => const ShipmentAddressDetailsView(),
+    ),
   ],
 );

@@ -90,5 +90,17 @@
     "shipments_air_filter": "Air Shipping Addresses",
     "shipments_sea_filter": "Sea Shipping Addresses",
     "shipments_search_country_title": "Search address by country",
-    "shipments_search_country_hint": "Enter country name"
+    "shipments_search_country_hint": "Enter country name",
+    "shipment_details_important_note": "Important Note",
+    "shipment_details_important_note_desc": "Please notify the supplier or delivery company not to leave the parcel in front of the building and to deliver it inside. Also, please review the prohibited materials list before sending the order.",
+    "shipment_details_shipping_type": "Shipping Type",
+    "shipment_details_select_shipping_type": "Select the required shipping type",
+    "shipment_details_customer_name": "Customer Name",
+    "shipment_details_main_address": "Main Address",
+    "shipment_details_sub_address": "Sub Address",
+    "shipment_details_city": "City",
+    "shipment_details_region": "Region",
+    "shipment_details_postal_code": "Postal Code",
+    "shipment_details_phone_number": "Phone Number",
+    "shipment_details_copy_all": "Copy All"
 }

@@ -99,7 +99,26 @@ class CodegenLoader extends AssetLoader{
   "home_financial_transfers_desc": "إدارة طلبات الحوالات المالية للموردين",
   "home_orders": "الطلبات",
   "home_tracking": "التتبع",
-  "home_account": "حسابي"
+  "home_account": "حسابي",
+  "shipments_international_title": "عناوين الشحن الدولي",
+  "shipments_addresses_heading": "العناوين",
+  "shipments_addresses_card_desc": "استكشف عناوين الشحن الدولية الخاصة بنا حسب نوع الشحن، نغطي شبكة واسعة من العناوين حول العالم",
+  "shipments_air_filter": "عناوين الشحن الجوي",
+  "shipments_sea_filter": "عناوين الشحن البحري",
+  "shipments_search_country_title": "البحث عن عنوان حسب الدولة",
+  "shipments_search_country_hint": "ادخل اسم الدولة",
+  "shipment_details_important_note": "ملاحظة هامة",
+  "shipment_details_important_note_desc": "يجب تنبيه المورد او شركة التوصيل بعدم ترك الطرد امام المبنى وتسليمه داخل المبنى، ايضا نرجو مراجعة لائحة المواد المحظورة قبل ارسال الطلب.",
+  "shipment_details_shipping_type": "نوع الشحن",
+  "shipment_details_select_shipping_type": "اختر نوع الشحن المطلوب",
+  "shipment_details_customer_name": "اسم العميل",
+  "shipment_details_main_address": "العنوان الرئيسي",
+  "shipment_details_sub_address": "العنوان الفرعي",
+  "shipment_details_city": "المدينة",
+  "shipment_details_region": "المنطقة",
+  "shipment_details_postal_code": "الرمز البريدي",
+  "shipment_details_phone_number": "رقم الهاتف",
+  "shipment_details_copy_all": "نسخ الكل"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -186,7 +205,26 @@ static const Map<String,dynamic> _en = {
   "home_financial_transfers_desc": "Manage supplier financial transfer requests",
   "home_orders": "Orders",
   "home_tracking": "Tracking",
-  "home_account": "My Account"
+  "home_account": "My Account",
+  "shipments_international_title": "International Shipping Addresses",
+  "shipments_addresses_heading": "Addresses",
+  "shipments_addresses_card_desc": "Explore our international shipping addresses by shipment type, we cover a wide network of addresses around the world",
+  "shipments_air_filter": "Air Shipping Addresses",
+  "shipments_sea_filter": "Sea Shipping Addresses",
+  "shipments_search_country_title": "Search address by country",
+  "shipments_search_country_hint": "Enter country name",
+  "shipment_details_important_note": "Important Note",
+  "shipment_details_important_note_desc": "Please notify the supplier or delivery company not to leave the parcel in front of the building and to deliver it inside. Also, please review the prohibited materials list before sending the order.",
+  "shipment_details_shipping_type": "Shipping Type",
+  "shipment_details_select_shipping_type": "Select the required shipping type",
+  "shipment_details_customer_name": "Customer Name",
+  "shipment_details_main_address": "Main Address",
+  "shipment_details_sub_address": "Sub Address",
+  "shipment_details_city": "City",
+  "shipment_details_region": "Region",
+  "shipment_details_postal_code": "Postal Code",
+  "shipment_details_phone_number": "Phone Number",
+  "shipment_details_copy_all": "Copy All"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

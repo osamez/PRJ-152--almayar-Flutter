@@ -2,7 +2,7 @@
 
 // ignore_for_file: constant_identifier_names
 
-abstract class LocaleKeys {
+abstract class  LocaleKeys {
   static const app_name = 'app_name';
   static const home = 'home';
   static const settings = 'settings';
@@ -93,7 +93,19 @@ abstract class LocaleKeys {
   static const shipments_addresses_card_desc = 'shipments_addresses_card_desc';
   static const shipments_air_filter = 'shipments_air_filter';
   static const shipments_sea_filter = 'shipments_sea_filter';
-  static const shipments_search_country_title =
-      'shipments_search_country_title';
+  static const shipments_search_country_title = 'shipments_search_country_title';
   static const shipments_search_country_hint = 'shipments_search_country_hint';
+  static const shipment_details_important_note = 'shipment_details_important_note';
+  static const shipment_details_important_note_desc = 'shipment_details_important_note_desc';
+  static const shipment_details_shipping_type = 'shipment_details_shipping_type';
+  static const shipment_details_select_shipping_type = 'shipment_details_select_shipping_type';
+  static const shipment_details_customer_name = 'shipment_details_customer_name';
+  static const shipment_details_main_address = 'shipment_details_main_address';
+  static const shipment_details_sub_address = 'shipment_details_sub_address';
+  static const shipment_details_city = 'shipment_details_city';
+  static const shipment_details_region = 'shipment_details_region';
+  static const shipment_details_postal_code = 'shipment_details_postal_code';
+  static const shipment_details_phone_number = 'shipment_details_phone_number';
+  static const shipment_details_copy_all = 'shipment_details_copy_all';
+
 }
