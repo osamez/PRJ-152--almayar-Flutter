@@ -83,5 +83,12 @@
     "home_financial_transfers_desc": "Manage supplier financial transfer requests",
     "home_orders": "Orders",
     "home_tracking": "Tracking",
-    "home_account": "My Account"
+    "home_account": "My Account",
+    "shipments_international_title": "International Shipping Addresses",
+    "shipments_addresses_heading": "Addresses",
+    "shipments_addresses_card_desc": "Explore our international shipping addresses by shipment type, we cover a wide network of addresses around the world",
+    "shipments_air_filter": "Air Shipping Addresses",
+    "shipments_sea_filter": "Sea Shipping Addresses",
+    "shipments_search_country_title": "Search address by country",
+    "shipments_search_country_hint": "Enter country name"
 }

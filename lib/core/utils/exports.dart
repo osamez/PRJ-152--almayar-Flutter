@@ -15,3 +15,5 @@ export 'package:skeletonizer/skeletonizer.dart';
 export 'package:almeyar/core/widgets/app_elevated_button.dart';
 export 'package:almeyar/generated/locale_keys.g.dart';
 export 'package:almeyar/core/widgets/app_text_form_field.dart';
+export 'package:almeyar/core/widgets/custom_inkwell_widget.dart';
+export 'package:almeyar/core/widgets/custom_app_bar.dart';

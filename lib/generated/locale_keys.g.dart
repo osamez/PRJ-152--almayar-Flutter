@@ -2,7 +2,7 @@
 
 // ignore_for_file: constant_identifier_names
 
-abstract class  LocaleKeys {
+abstract class LocaleKeys {
   static const app_name = 'app_name';
   static const home = 'home';
   static const settings = 'settings';
@@ -88,5 +88,12 @@ abstract class  LocaleKeys {
   static const home_orders = 'home_orders';
   static const home_tracking = 'home_tracking';
   static const home_account = 'home_account';
-
+  static const shipments_international_title = 'shipments_international_title';
+  static const shipments_addresses_heading = 'shipments_addresses_heading';
+  static const shipments_addresses_card_desc = 'shipments_addresses_card_desc';
+  static const shipments_air_filter = 'shipments_air_filter';
+  static const shipments_sea_filter = 'shipments_sea_filter';
+  static const shipments_search_country_title =
+      'shipments_search_country_title';
+  static const shipments_search_country_hint = 'shipments_search_country_hint';
 }

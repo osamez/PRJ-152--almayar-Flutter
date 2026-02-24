@@ -83,5 +83,12 @@
     "home_financial_transfers_desc": "إدارة طلبات الحوالات المالية للموردين",
     "home_orders": "الطلبات",
     "home_tracking": "التتبع",
-    "home_account": "حسابي"
+    "home_account": "حسابي",
+    "shipments_international_title": "عناوين الشحن الدولي",
+    "shipments_addresses_heading": "العناوين",
+    "shipments_addresses_card_desc": "استكشف عناوين الشحن الدولية الخاصة بنا حسب نوع الشحن، نغطي شبكة واسعة من العناوين حول العالم",
+    "shipments_air_filter": "عناوين الشحن الجوي",
+    "shipments_sea_filter": "عناوين الشحن البحري",
+    "shipments_search_country_title": "البحث عن عنوان حسب الدولة",
+    "shipments_search_country_hint": "ادخل اسم الدولة"
 }

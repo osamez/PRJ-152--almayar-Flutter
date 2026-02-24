@@ -1,3 +1,4 @@
+import 'package:almeyar/core/utils/exports.dart';
 import 'package:almeyar/features/home/presentation/feature_imports.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -14,12 +15,15 @@ class HomeViewBody extends StatelessWidget {
             margin: EdgeInsets.only(top: 0.32.sh, bottom: AppSizes.h50),
             child: Column(
               children: [
-                const HomeHorizontalCard(
+                HomeHorizontalCard(
                   color1: AppColors.lightOrange,
                   color2: AppColors.orange,
                   title: LocaleKeys.home_track_shipments,
                   subtitle: LocaleKeys.home_track_shipments_desc,
                   svgIcon: AppAssets.svgShippingAddresses,
+                  onTap: () {
+                    context.pushNamed(Routes.shipmentAddresses);
+                  },
                 ),
                 verticalSpace(AppSizes.h10),
                 const HomeHorizontalCard(

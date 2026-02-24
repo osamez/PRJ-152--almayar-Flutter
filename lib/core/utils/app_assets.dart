@@ -18,11 +18,15 @@ class AppAssets {
 
   static const String imagesSplash12Logo = "assets/images/splash_12_logo.png";
 
+  static const String svgBackArrow = "assets/svg/back_arrow.svg";
+
   static const String svgBarcode = "assets/svg/barcode.svg";
 
   static const String svgBasket = "assets/svg/basket.svg";
 
   static const String svgCalculator = "assets/svg/calculator.svg";
+
+  static const String svgFlagTest = "assets/svg/flag_test.svg";
 
   static const String svgHome = "assets/svg/home.svg";
 
@@ -37,6 +41,8 @@ class AppAssets {
   static const String svgReciveOrder = "assets/svg/recive_order.svg";
 
   static const String svgRedCircle = "assets/svg/red_circle.svg";
+
+  static const String svgSearch = "assets/svg/search.svg";
 
   static const String svgShipments = "assets/svg/shipments.svg";
 
