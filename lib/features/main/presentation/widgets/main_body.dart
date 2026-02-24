@@ -9,7 +9,7 @@ class MainBody extends StatelessWidget {
       builder: (context, selectedIndex) {
         switch (selectedIndex) {
           case 0:
-            return const Center(child: Text("Home"));
+            return const HomeView();
           case 1:
             return const Center(child: Text("Orders"));
           case 2:
