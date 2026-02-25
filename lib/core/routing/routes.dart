@@ -7,4 +7,7 @@ class Routes {
   static const String forgetPassword = '/forget-password';
   static const String otp = '/otp';
   static const String resetPassword = '/reset-password';
+  static const String main = '/main';
+  static const String shipmentAddresses = '/shipment-addresses';
+  static const String shipmentAddressDetails = '/shipment-address-details';
 }
