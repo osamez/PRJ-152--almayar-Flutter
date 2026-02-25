@@ -107,5 +107,12 @@ abstract class  LocaleKeys {
   static const shipment_details_postal_code = 'shipment_details_postal_code';
   static const shipment_details_phone_number = 'shipment_details_phone_number';
   static const shipment_details_copy_all = 'shipment_details_copy_all';
+  static const request_shipment_air_title = 'request_shipment_air_title';
+  static const request_shipment_air_desc = 'request_shipment_air_desc';
+  static const request_shipment_air_subtitle = 'request_shipment_air_subtitle';
+  static const request_shipment_sea_title = 'request_shipment_sea_title';
+  static const request_shipment_sea_desc = 'request_shipment_sea_desc';
+  static const request_shipment_sea_subtitle = 'request_shipment_sea_subtitle';
+  static const request_shipment_prohibited_materials = 'request_shipment_prohibited_materials';
 
 }

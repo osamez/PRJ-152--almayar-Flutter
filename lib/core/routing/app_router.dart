@@ -3,6 +3,7 @@ import 'package:almeyar/features/auth/presentation/feature_imports.dart';
 import 'package:almeyar/features/home/presentation/feature_imports.dart';
 import 'package:almeyar/features/main/presentation/features_imports.dart';
 import 'package:almeyar/features/onboarding/presentation/feature_imports.dart';
+import 'package:almeyar/features/pickup_request/presentation/feature_imports.dart';
 import 'package:go_router/go_router.dart';
 
 final router = GoRouter(
@@ -52,6 +53,11 @@ final router = GoRouter(
       path: Routes.shipmentAddressDetails,
       name: Routes.shipmentAddressDetails,
       builder: (context, state) => const ShipmentAddressDetailsView(),
+    ),
+    GoRoute(
+      path: Routes.requestReceiveShipmentView,
+      name: Routes.requestReceiveShipmentView,
+      builder: (context, state) => const RequestReceiveShipmentView(),
     ),
   ],
 );

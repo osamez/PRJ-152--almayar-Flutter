@@ -102,5 +102,12 @@
     "shipment_details_region": "المنطقة",
     "shipment_details_postal_code": "الرمز البريدي",
     "shipment_details_phone_number": "رقم الهاتف",
-    "shipment_details_copy_all": "نسخ الكل"
+    "shipment_details_copy_all": "نسخ الكل",
+    "request_shipment_air_title": "الشحن الجوي",
+    "request_shipment_air_desc": "اسرع وسيلة شحن للطرود من جميع انحاء العالم نوفر عروض متنوعة للشحن السريع والشحن الإقتصادي",
+    "request_shipment_air_subtitle": "للشحن الجوي السريع و الإقتصادي",
+    "request_shipment_sea_title": "الشحن البحري",
+    "request_shipment_sea_desc": "أوفر طريقة لشحن البضائع من جميع أنحاء العالم. نوفر عروض متنوعة للشحن البحري المشترك LCL و الخاص FCL.",
+    "request_shipment_sea_subtitle": "للشحن البحري المشترك والخاص",
+    "request_shipment_prohibited_materials": "المواد المحظورة"
 }

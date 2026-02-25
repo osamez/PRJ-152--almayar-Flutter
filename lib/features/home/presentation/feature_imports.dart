@@ -1,6 +1,7 @@
 import 'package:almeyar/core/routing/routes.dart';
 import 'package:almeyar/core/utils/exports.dart';
 import 'package:almeyar/core/widgets/custom_inkwell_widget.dart';
+import 'package:almeyar/core/widgets/custom_rounder_arrow.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
@@ -51,7 +52,6 @@ part 'views/shipments_addresses_view.dart';
 part 'widgets/shipments_addresses/shipments_addresses_view_body.dart';
 part 'widgets/shipments_addresses/addresses_image_card.dart';
 part 'widgets/shipments_addresses/shipment_addresses_filters.dart';
-part 'widgets/shipments_addresses/custom_rounder_arrow.dart';
 part 'widgets/shipments_addresses/shipments_address_list_item.dart';
 
 // Shipment address details

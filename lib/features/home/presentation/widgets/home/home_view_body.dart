@@ -25,12 +25,15 @@ class HomeViewBody extends StatelessWidget {
                   },
                 ),
                 verticalSpace(AppSizes.h10),
-                const HomeHorizontalCard(
+                HomeHorizontalCard(
                   color1: AppColors.lightViolet,
                   color2: AppColors.deepViolet,
                   title: LocaleKeys.home_request_shipment,
                   subtitle: LocaleKeys.home_request_shipment_desc,
                   svgIcon: AppAssets.svgReciveOrder,
+                  onTap: () {
+                    context.push(Routes.requestReceiveShipmentView);
+                  },
                 ),
                 verticalSpace(AppSizes.h10),
                 const HomeHorizontalCard(

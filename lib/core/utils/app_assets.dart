@@ -2,6 +2,8 @@
 class AppAssets {
   AppAssets._();
   
+  static const String imagesFlight = "assets/images/flight.png";
+
   static const String imagesHomeBanner = "assets/images/home_banner.png";
 
   static const String imagesHomeBanner2 = "assets/images/home_banner2.png";
@@ -16,6 +18,8 @@ class AppAssets {
 
   static const String imagesOnboardingOverlay = "assets/images/onboarding_overlay.png";
 
+  static const String imagesSea = "assets/images/sea.png";
+
   static const String imagesSplash12Logo = "assets/images/splash_12_logo.png";
 
   static const String svgBackArrow = "assets/svg/back_arrow.svg";
@@ -23,6 +27,8 @@ class AppAssets {
   static const String svgBarcode = "assets/svg/barcode.svg";
 
   static const String svgBasket = "assets/svg/basket.svg";
+
+  static const String svgBlocked = "assets/svg/blocked.svg";
 
   static const String svgCalculator = "assets/svg/calculator.svg";
 

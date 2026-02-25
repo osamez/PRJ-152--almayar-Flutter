@@ -118,7 +118,14 @@ class CodegenLoader extends AssetLoader{
   "shipment_details_region": "المنطقة",
   "shipment_details_postal_code": "الرمز البريدي",
   "shipment_details_phone_number": "رقم الهاتف",
-  "shipment_details_copy_all": "نسخ الكل"
+  "shipment_details_copy_all": "نسخ الكل",
+  "request_shipment_air_title": "الشحن الجوي",
+  "request_shipment_air_desc": "اسرع وسيلة شحن للطرود من جميع انحاء العالم نوفر عروض متنوعة للشحن السريع والشحن الإقتصادي",
+  "request_shipment_air_subtitle": "للشحن الجوي السريع و الإقتصادي",
+  "request_shipment_sea_title": "الشحن البحري",
+  "request_shipment_sea_desc": "أوفر طريقة لشحن البضائع من جميع أنحاء العالم. نوفر عروض متنوعة للشحن البحري المشترك LCL و الخاص FCL.",
+  "request_shipment_sea_subtitle": "للشحن البحري المشترك والخاص",
+  "request_shipment_prohibited_materials": "المواد المحظورة"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -224,7 +231,14 @@ static const Map<String,dynamic> _en = {
   "shipment_details_region": "Region",
   "shipment_details_postal_code": "Postal Code",
   "shipment_details_phone_number": "Phone Number",
-  "shipment_details_copy_all": "Copy All"
+  "shipment_details_copy_all": "Copy All",
+  "request_shipment_air_title": "Air Shipping",
+  "request_shipment_air_desc": "The fastest way to ship parcels from all over the world. We offer various deals for express and economy shipping.",
+  "request_shipment_air_subtitle": "For fast and economy air shipping",
+  "request_shipment_sea_title": "Sea Shipping",
+  "request_shipment_sea_desc": "The most affordable way to ship goods from all over the world. We offer various deals for shared LCL and private FCL sea shipping.",
+  "request_shipment_sea_subtitle": "For shared and private sea shipping",
+  "request_shipment_prohibited_materials": "Prohibited Materials"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

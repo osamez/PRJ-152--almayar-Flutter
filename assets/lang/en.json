@@ -102,5 +102,12 @@
     "shipment_details_region": "Region",
     "shipment_details_postal_code": "Postal Code",
     "shipment_details_phone_number": "Phone Number",
-    "shipment_details_copy_all": "Copy All"
+    "shipment_details_copy_all": "Copy All",
+    "request_shipment_air_title": "Air Shipping",
+    "request_shipment_air_desc": "The fastest way to ship parcels from all over the world. We offer various deals for express and economy shipping.",
+    "request_shipment_air_subtitle": "For fast and economy air shipping",
+    "request_shipment_sea_title": "Sea Shipping",
+    "request_shipment_sea_desc": "The most affordable way to ship goods from all over the world. We offer various deals for shared LCL and private FCL sea shipping.",
+    "request_shipment_sea_subtitle": "For shared and private sea shipping",
+    "request_shipment_prohibited_materials": "Prohibited Materials"
 }
