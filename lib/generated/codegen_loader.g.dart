@@ -157,7 +157,20 @@ class CodegenLoader extends AssetLoader{
   "receive_shipment_add_photos": "اضف صور متعلقة بالشحنة هنا",
   "receive_shipment_documents": "مستندات الشحنة",
   "receive_shipment_add_documents": "اضف مستندات متعلقة بالشحنة هنا",
-  "receive_shipment_create_request": "انشاء طلب"
+  "receive_shipment_create_request": "انشاء طلب",
+  "pickup_requests_title": "طلبات إستلام الشحنات",
+  "pickup_requests_search_hint": "بحث بكود الشحن",
+  "pickup_requests_air_shipping": "الشحن الجوي",
+  "pickup_requests_sea_shipping": "الشحن البحري",
+  "pickup_requests_filter_title": "تصفية الطلبات",
+  "pickup_requests_results_found": "تم العثور على {count} نتائج",
+  "pickup_requests_status_received": "تم الإستلام",
+  "pickup_requests_status_rejected": "مرفوض",
+  "pickup_requests_status_pending": "في الإنتظار",
+  "pickup_requests_air_express": "جوي سريع",
+  "pickup_requests_boxes_count": "عدد الصناديق:",
+  "pickup_requests_total_volume": "إجمالي الحجم:",
+  "pickup_requests_total_weight": "إجمالي الوزن:"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -302,7 +315,20 @@ static const Map<String,dynamic> _en = {
   "receive_shipment_add_photos": "Add shipment related photos here",
   "receive_shipment_documents": "Shipment Documents",
   "receive_shipment_add_documents": "Add shipment related documents here",
-  "receive_shipment_create_request": "Create Request"
+  "receive_shipment_create_request": "Create Request",
+  "pickup_requests_title": "Shipment Pickup Requests",
+  "pickup_requests_search_hint": "Search by shipping code",
+  "pickup_requests_air_shipping": "Air Shipping",
+  "pickup_requests_sea_shipping": "Sea Shipping",
+  "pickup_requests_filter_title": "Filter Requests",
+  "pickup_requests_results_found": "{count} results found",
+  "pickup_requests_status_received": "Received",
+  "pickup_requests_status_rejected": "Rejected",
+  "pickup_requests_status_pending": "Pending",
+  "pickup_requests_air_express": "Air Express",
+  "pickup_requests_boxes_count": "Number of Boxes:",
+  "pickup_requests_total_volume": "Total Volume:",
+  "pickup_requests_total_weight": "Total Weight:"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

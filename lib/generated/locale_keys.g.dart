@@ -146,5 +146,18 @@ abstract class  LocaleKeys {
   static const receive_shipment_documents = 'receive_shipment_documents';
   static const receive_shipment_add_documents = 'receive_shipment_add_documents';
   static const receive_shipment_create_request = 'receive_shipment_create_request';
+  static const pickup_requests_title = 'pickup_requests_title';
+  static const pickup_requests_search_hint = 'pickup_requests_search_hint';
+  static const pickup_requests_air_shipping = 'pickup_requests_air_shipping';
+  static const pickup_requests_sea_shipping = 'pickup_requests_sea_shipping';
+  static const pickup_requests_filter_title = 'pickup_requests_filter_title';
+  static const pickup_requests_results_found = 'pickup_requests_results_found';
+  static const pickup_requests_status_received = 'pickup_requests_status_received';
+  static const pickup_requests_status_rejected = 'pickup_requests_status_rejected';
+  static const pickup_requests_status_pending = 'pickup_requests_status_pending';
+  static const pickup_requests_air_express = 'pickup_requests_air_express';
+  static const pickup_requests_boxes_count = 'pickup_requests_boxes_count';
+  static const pickup_requests_total_volume = 'pickup_requests_total_volume';
+  static const pickup_requests_total_weight = 'pickup_requests_total_weight';
 
 }

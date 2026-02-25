@@ -68,7 +68,9 @@ class _ReceiveShipmentViewBodyState extends State<ReceiveShipmentViewBody> {
           verticalSpace(AppSizes.h24),
           AppElevatedButton(
             text: LocaleKeys.receive_shipment_create_request.tr(),
-            onPressed: () {},
+            onPressed: () {
+              context.pushNamed(Routes.shipmentPickupRequests);
+            },
           ),
           verticalSpace(AppSizes.h20),
         ],

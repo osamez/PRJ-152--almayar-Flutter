@@ -141,5 +141,18 @@
     "receive_shipment_add_photos": "Add shipment related photos here",
     "receive_shipment_documents": "Shipment Documents",
     "receive_shipment_add_documents": "Add shipment related documents here",
-    "receive_shipment_create_request": "Create Request"
+    "receive_shipment_create_request": "Create Request",
+    "pickup_requests_title": "Shipment Pickup Requests",
+    "pickup_requests_search_hint": "Search by shipping code",
+    "pickup_requests_air_shipping": "Air Shipping",
+    "pickup_requests_sea_shipping": "Sea Shipping",
+    "pickup_requests_filter_title": "Filter Requests",
+    "pickup_requests_results_found": "{count} results found",
+    "pickup_requests_status_received": "Received",
+    "pickup_requests_status_rejected": "Rejected",
+    "pickup_requests_status_pending": "Pending",
+    "pickup_requests_air_express": "Air Express",
+    "pickup_requests_boxes_count": "Number of Boxes:",
+    "pickup_requests_total_volume": "Total Volume:",
+    "pickup_requests_total_weight": "Total Weight:"
 }

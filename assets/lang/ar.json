@@ -141,5 +141,18 @@
     "receive_shipment_add_photos": "اضف صور متعلقة بالشحنة هنا",
     "receive_shipment_documents": "مستندات الشحنة",
     "receive_shipment_add_documents": "اضف مستندات متعلقة بالشحنة هنا",
-    "receive_shipment_create_request": "انشاء طلب"
+    "receive_shipment_create_request": "انشاء طلب",
+    "pickup_requests_title": "طلبات إستلام الشحنات",
+    "pickup_requests_search_hint": "بحث بكود الشحن",
+    "pickup_requests_air_shipping": "الشحن الجوي",
+    "pickup_requests_sea_shipping": "الشحن البحري",
+    "pickup_requests_filter_title": "تصفية الطلبات",
+    "pickup_requests_results_found": "تم العثور على {count} نتائج",
+    "pickup_requests_status_received": "تم الإستلام",
+    "pickup_requests_status_rejected": "مرفوض",
+    "pickup_requests_status_pending": "في الإنتظار",
+    "pickup_requests_air_express": "جوي سريع",
+    "pickup_requests_boxes_count": "عدد الصناديق:",
+    "pickup_requests_total_volume": "إجمالي الحجم:",
+    "pickup_requests_total_weight": "إجمالي الوزن:"
 }

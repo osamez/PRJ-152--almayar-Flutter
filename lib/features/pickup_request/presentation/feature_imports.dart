@@ -26,3 +26,19 @@ part 'widgets/receive_shipment/boxes_and_contents_section.dart';
 part 'widgets/receive_shipment/weight_volume_section.dart';
 part 'widgets/receive_shipment/inspection_note_field.dart';
 part 'widgets/receive_shipment/upload_section.dart';
+
+// Shipment Pickup Requests
+part 'views/shipment_pickup_requests_view.dart';
+part 'widgets/shipment_pickup_requests/shipment_pickup_requests_view_body.dart';
+part 'widgets/shipment_pickup_requests/pickup_search_bar.dart';
+part 'widgets/shipment_pickup_requests/pickup_shipping_type_tabs.dart';
+part 'widgets/shipment_pickup_requests/pickup_filter_header.dart';
+part 'widgets/shipment_pickup_requests/pickup_request_status.dart';
+part 'widgets/shipment_pickup_requests/pickup_request_card.dart';
+part 'widgets/shipment_pickup_requests/pickup_request_card_header.dart';
+part 'widgets/shipment_pickup_requests/pickup_request_status_badge.dart';
+part 'widgets/shipment_pickup_requests/pickup_request_route_section.dart';
+part 'widgets/shipment_pickup_requests/route_location_label.dart';
+part 'widgets/shipment_pickup_requests/route_divider_with_icon.dart';
+part 'widgets/shipment_pickup_requests/pickup_request_stats_section.dart';
+part 'widgets/shipment_pickup_requests/pickup_request_stat_item.dart';
