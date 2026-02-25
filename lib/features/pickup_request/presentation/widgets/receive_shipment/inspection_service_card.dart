@@ -31,7 +31,7 @@ class _InspectionServiceCardState extends State<InspectionServiceCard> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  LocaleKeys.receive_air_inspection_service.tr(),
+                  LocaleKeys.receive_shipment_inspection_service.tr(),
                   style: AppTextStyleFactory.create(
                     size: 16,
                     weight: FontWeight.w700,
@@ -41,7 +41,8 @@ class _InspectionServiceCardState extends State<InspectionServiceCard> {
                 verticalSpace(AppSizes.h8),
                 Text.rich(
                   TextSpan(
-                    text: LocaleKeys.receive_air_inspection_service_desc.tr(),
+                    text: LocaleKeys.receive_shipment_inspection_service_desc
+                        .tr(),
 
                     style: AppTextStyleFactory.create(
                       size: 12,
@@ -79,9 +80,13 @@ class _InspectionServiceCardState extends State<InspectionServiceCard> {
                 child: Switch(
                   value: _isEnabled,
                   activeThumbColor: AppColors.green,
-                  inactiveThumbColor: AppColors.gray,
+                  inactiveThumbColor: AppColors.deepViolet,
                   activeTrackColor: AppColors.green.withValues(alpha: 0.5),
                   inactiveTrackColor: AppColors.white,
+                  trackOutlineColor: WidgetStateProperty.all(
+                    _isEnabled ? AppColors.green : AppColors.deepViolet,
+                  ),
+
                   onChanged: (value) {
                     setState(() {
                       _isEnabled = value;

@@ -1,16 +1,17 @@
 part of '../../feature_imports.dart';
 
-class ReceiveAirShipmentViewBody extends StatefulWidget {
-  const ReceiveAirShipmentViewBody({super.key});
+class ReceiveShipmentViewBody extends StatefulWidget {
+  const ReceiveShipmentViewBody({super.key, required this.shipmentType});
+
+  final ShipmentType shipmentType;
 
   @override
-  State<ReceiveAirShipmentViewBody> createState() =>
-      _ReceiveAirShipmentViewBodyState();
+  State<ReceiveShipmentViewBody> createState() =>
+      _ReceiveShipmentViewBodyState();
 }
 
-class _ReceiveAirShipmentViewBodyState
-    extends State<ReceiveAirShipmentViewBody> {
-  bool _isExpressShipping = true;
+class _ReceiveShipmentViewBodyState extends State<ReceiveShipmentViewBody> {
+  bool _isPrimarySelected = true;
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +24,11 @@ class _ReceiveAirShipmentViewBodyState
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ShippingTypeSection(
-            isExpressSelected: _isExpressShipping,
-            onExpressSelected: () => setState(() => _isExpressShipping = true),
-            onEconomySelected: () => setState(() => _isExpressShipping = false),
+            shipmentType: widget.shipmentType,
+            isPrimarySelected: _isPrimarySelected,
+            onPrimarySelected: () => setState(() => _isPrimarySelected = true),
+            onSecondarySelected: () =>
+                setState(() => _isPrimarySelected = false),
           ),
           verticalSpace(AppSizes.h20),
           const PickupBranchField(),
@@ -48,23 +51,23 @@ class _ReceiveAirShipmentViewBodyState
           verticalSpace(AppSizes.h24),
           const InspectionServiceCard(),
           verticalSpace(AppSizes.h20),
-          const InspectionNoteField(),
+          if (widget.shipmentType == ShipmentType.air)
+            const InspectionNoteField(),
           verticalSpace(AppSizes.h20),
-
           UploadSection(
-            title: LocaleKeys.receive_air_shipment_photos.tr(),
-            hint: LocaleKeys.receive_air_add_photos.tr(),
+            title: LocaleKeys.receive_shipment_photos.tr(),
+            hint: LocaleKeys.receive_shipment_add_photos.tr(),
             onTap: () {},
           ),
           verticalSpace(AppSizes.h16),
           UploadSection(
-            title: LocaleKeys.receive_air_shipment_documents.tr(),
-            hint: LocaleKeys.receive_air_add_documents.tr(),
+            title: LocaleKeys.receive_shipment_documents.tr(),
+            hint: LocaleKeys.receive_shipment_add_documents.tr(),
             onTap: () {},
           ),
           verticalSpace(AppSizes.h24),
           AppElevatedButton(
-            text: LocaleKeys.receive_air_create_request.tr(),
+            text: LocaleKeys.receive_shipment_create_request.tr(),
             onPressed: () {},
           ),
           verticalSpace(AppSizes.h20),

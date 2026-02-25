@@ -10,7 +10,7 @@ class SupplierPhoneField extends StatelessWidget {
       children: [
         Expanded(
           child: AppTextFormField(
-            title: LocaleKeys.receive_air_supplier_phone.tr(),
+            title: LocaleKeys.receive_shipment_supplier_phone.tr(),
             hintText: LocaleKeys.enter_phone_number.tr(),
             validator: (value) => null,
             keyboardType: TextInputType.phone,

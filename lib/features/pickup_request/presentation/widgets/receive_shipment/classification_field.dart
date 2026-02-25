@@ -1,13 +1,13 @@
 part of '../../feature_imports.dart';
 
-class DeliveryBranchField extends StatelessWidget {
-  const DeliveryBranchField({super.key});
+class ClassificationField extends StatelessWidget {
+  const ClassificationField({super.key});
 
   @override
   Widget build(BuildContext context) {
     return AppTextFormField(
-      title: LocaleKeys.receive_air_delivery_branch.tr(),
-      hintText: LocaleKeys.receive_air_select_branch.tr(),
+      title: LocaleKeys.receive_shipment_classification.tr(),
+      hintText: LocaleKeys.receive_shipment_select_classification.tr(),
       validator: (value) => null,
       readOnly: true,
       suffixIcon: const Icon(

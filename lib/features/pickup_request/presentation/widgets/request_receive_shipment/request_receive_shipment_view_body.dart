@@ -13,7 +13,10 @@ class RequestReceiveShipmentViewBody extends StatelessWidget {
             title: LocaleKeys.request_shipment_air_title.tr(),
             description: LocaleKeys.request_shipment_air_desc.tr(),
             onTap: () {
-              context.pushNamed(Routes.receiveAirShipment);
+              context.pushNamed(
+                Routes.receiveShipment,
+                extra: ShipmentType.air,
+              );
             },
             subTitle: LocaleKeys.request_shipment_air_subtitle.tr(),
             prohibitedOnTap: () {},
@@ -23,7 +26,12 @@ class RequestReceiveShipmentViewBody extends StatelessWidget {
             imagePath: AppAssets.imagesSea,
             title: LocaleKeys.request_shipment_sea_title.tr(),
             description: LocaleKeys.request_shipment_sea_desc.tr(),
-            onTap: () {},
+            onTap: () {
+              context.pushNamed(
+                Routes.receiveShipment,
+                extra: ShipmentType.sea,
+              );
+            },
             subTitle: LocaleKeys.request_shipment_sea_subtitle.tr(),
             prohibitedOnTap: () {},
           ),

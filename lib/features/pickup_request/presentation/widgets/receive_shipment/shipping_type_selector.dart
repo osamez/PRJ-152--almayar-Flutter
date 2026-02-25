@@ -3,14 +3,16 @@ part of '../../feature_imports.dart';
 class ShippingTypeSelector extends StatelessWidget {
   const ShippingTypeSelector({
     super.key,
-    required this.isExpressSelected,
-    required this.onExpressSelected,
-    required this.onEconomySelected,
+    required this.shipmentType,
+    required this.isPrimarySelected,
+    required this.onPrimarySelected,
+    required this.onSecondarySelected,
   });
 
-  final bool isExpressSelected;
-  final VoidCallback onExpressSelected;
-  final VoidCallback onEconomySelected;
+  final ShipmentType shipmentType;
+  final bool isPrimarySelected;
+  final VoidCallback onPrimarySelected;
+  final VoidCallback onSecondarySelected;
 
   @override
   Widget build(BuildContext context) {
@@ -18,17 +20,17 @@ class ShippingTypeSelector extends StatelessWidget {
       children: [
         Expanded(
           child: _ShippingTypeButton(
-            text: LocaleKeys.receive_air_express_shipping.tr(),
-            isSelected: isExpressSelected,
-            onTap: onExpressSelected,
+            text: shipmentType.primaryOptionLabel,
+            isSelected: isPrimarySelected,
+            onTap: onPrimarySelected,
           ),
         ),
         horizontalSpace(AppSizes.w10),
         Expanded(
           child: _ShippingTypeButton(
-            text: LocaleKeys.receive_air_economy_shipping.tr(),
-            isSelected: !isExpressSelected,
-            onTap: onEconomySelected,
+            text: shipmentType.secondaryOptionLabel,
+            isSelected: !isPrimarySelected,
+            onTap: onSecondarySelected,
           ),
         ),
       ],

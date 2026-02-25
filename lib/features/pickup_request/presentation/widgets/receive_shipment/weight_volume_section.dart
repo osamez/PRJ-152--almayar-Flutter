@@ -9,8 +9,8 @@ class WeightVolumeSection extends StatelessWidget {
       children: [
         Expanded(
           child: AppTextFormField(
-            title: LocaleKeys.receive_air_total_volume.tr(),
-            hintText: LocaleKeys.receive_air_enter_total_volume.tr(),
+            title: LocaleKeys.receive_shipment_total_volume.tr(),
+            hintText: LocaleKeys.receive_shipment_enter_total_volume.tr(),
             validator: (value) => null,
             keyboardType: TextInputType.number,
             titleColor: AppColors.lightHeadingText,
@@ -19,8 +19,8 @@ class WeightVolumeSection extends StatelessWidget {
         horizontalSpace(AppSizes.w8),
         Expanded(
           child: AppTextFormField(
-            title: LocaleKeys.receive_air_total_weight.tr(),
-            hintText: LocaleKeys.receive_air_enter_total_weight.tr(),
+            title: LocaleKeys.receive_shipment_total_weight.tr(),
+            hintText: LocaleKeys.receive_shipment_enter_total_weight.tr(),
             validator: (value) => null,
             keyboardType: TextInputType.number,
             titleColor: AppColors.lightHeadingText,

@@ -60,9 +60,12 @@ final router = GoRouter(
       builder: (context, state) => const RequestReceiveShipmentView(),
     ),
     GoRoute(
-      path: Routes.receiveAirShipment,
-      name: Routes.receiveAirShipment,
-      builder: (context, state) => const ReceiveAirShipmentView(),
+      path: Routes.receiveShipment,
+      name: Routes.receiveShipment,
+      builder: (context, state) {
+        final shipmentType = state.extra as ShipmentType;
+        return ReceiveShipmentView(shipmentType: shipmentType);
+      },
     ),
   ],
 );
