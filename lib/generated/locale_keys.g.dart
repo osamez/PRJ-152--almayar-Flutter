@@ -114,5 +114,34 @@ abstract class  LocaleKeys {
   static const request_shipment_sea_desc = 'request_shipment_sea_desc';
   static const request_shipment_sea_subtitle = 'request_shipment_sea_subtitle';
   static const request_shipment_prohibited_materials = 'request_shipment_prohibited_materials';
+  static const receive_air_shipment_title = 'receive_air_shipment_title';
+  static const receive_air_shipping_type = 'receive_air_shipping_type';
+  static const receive_air_express_shipping = 'receive_air_express_shipping';
+  static const receive_air_economy_shipping = 'receive_air_economy_shipping';
+  static const receive_air_pickup_branch = 'receive_air_pickup_branch';
+  static const receive_air_select_branch = 'receive_air_select_branch';
+  static const receive_air_delivery_branch = 'receive_air_delivery_branch';
+  static const receive_air_supplier_phone = 'receive_air_supplier_phone';
+  static const receive_air_tracking_code = 'receive_air_tracking_code';
+  static const receive_air_enter_tracking_code = 'receive_air_enter_tracking_code';
+  static const receive_air_shipment_classification = 'receive_air_shipment_classification';
+  static const receive_air_select_classification = 'receive_air_select_classification';
+  static const receive_air_boxes_count = 'receive_air_boxes_count';
+  static const receive_air_enter_boxes_count = 'receive_air_enter_boxes_count';
+  static const receive_air_shipment_contents = 'receive_air_shipment_contents';
+  static const receive_air_select_from_list = 'receive_air_select_from_list';
+  static const receive_air_total_volume = 'receive_air_total_volume';
+  static const receive_air_total_weight = 'receive_air_total_weight';
+  static const receive_air_enter_total_volume = 'receive_air_enter_total_volume';
+  static const receive_air_enter_total_weight = 'receive_air_enter_total_weight';
+  static const receive_air_inspection_service = 'receive_air_inspection_service';
+  static const receive_air_inspection_service_desc = 'receive_air_inspection_service_desc';
+  static const receive_air_inspection_note = 'receive_air_inspection_note';
+  static const receive_air_note_hint = 'receive_air_note_hint';
+  static const receive_air_shipment_photos = 'receive_air_shipment_photos';
+  static const receive_air_add_photos = 'receive_air_add_photos';
+  static const receive_air_shipment_documents = 'receive_air_shipment_documents';
+  static const receive_air_add_documents = 'receive_air_add_documents';
+  static const receive_air_create_request = 'receive_air_create_request';
 
 }

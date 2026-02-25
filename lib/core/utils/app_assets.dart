@@ -2,6 +2,8 @@
 class AppAssets {
   AppAssets._();
   
+  static const String imagesBoxes = "assets/images/boxes.png";
+
   static const String imagesFlight = "assets/images/flight.png";
 
   static const String imagesHomeBanner = "assets/images/home_banner.png";
@@ -34,6 +36,8 @@ class AppAssets {
 
   static const String svgCopy = "assets/svg/copy.svg";
 
+  static const String svgCube = "assets/svg/cube.svg";
+
   static const String svgFlagTest = "assets/svg/flag_test.svg";
 
   static const String svgHome = "assets/svg/home.svg";
@@ -45,6 +49,8 @@ class AppAssets {
   static const String svgNotification = "assets/svg/notification.svg";
 
   static const String svgOnboardingLogo = "assets/svg/onboarding_logo.svg";
+
+  static const String svgPaperclip = "assets/svg/paperclip.svg";
 
   static const String svgReciveOrder = "assets/svg/recive_order.svg";
 

@@ -12,7 +12,9 @@ class RequestReceiveShipmentViewBody extends StatelessWidget {
             imagePath: AppAssets.imagesFlight,
             title: LocaleKeys.request_shipment_air_title.tr(),
             description: LocaleKeys.request_shipment_air_desc.tr(),
-            onTap: () {},
+            onTap: () {
+              context.pushNamed(Routes.receiveAirShipment);
+            },
             subTitle: LocaleKeys.request_shipment_air_subtitle.tr(),
             prohibitedOnTap: () {},
           ),

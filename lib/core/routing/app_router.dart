@@ -59,5 +59,10 @@ final router = GoRouter(
       name: Routes.requestReceiveShipmentView,
       builder: (context, state) => const RequestReceiveShipmentView(),
     ),
+    GoRoute(
+      path: Routes.receiveAirShipment,
+      name: Routes.receiveAirShipment,
+      builder: (context, state) => const ReceiveAirShipmentView(),
+    ),
   ],
 );
