@@ -181,5 +181,32 @@ abstract class  LocaleKeys {
   static const shipment_details_shipment_documents = 'shipment_details_shipment_documents';
   static const shipment_details_order_date = 'shipment_details_order_date';
   static const shipment_details_sea_shipping = 'shipment_details_sea_shipping';
+  static const price_calculator_title = 'price_calculator_title';
+  static const price_calculator_shipping_type = 'price_calculator_shipping_type';
+  static const price_calculator_sea_shipping = 'price_calculator_sea_shipping';
+  static const price_calculator_air_shipping = 'price_calculator_air_shipping';
+  static const price_calculator_shipping_method = 'price_calculator_shipping_method';
+  static const price_calculator_air_express = 'price_calculator_air_express';
+  static const price_calculator_air_economy = 'price_calculator_air_economy';
+  static const price_calculator_sea_private = 'price_calculator_sea_private';
+  static const price_calculator_sea_shared = 'price_calculator_sea_shared';
+  static const price_calculator_pickup_branch = 'price_calculator_pickup_branch';
+  static const price_calculator_select_branch = 'price_calculator_select_branch';
+  static const price_calculator_delivery_branch = 'price_calculator_delivery_branch';
+  static const price_calculator_classification = 'price_calculator_classification';
+  static const price_calculator_select_classification = 'price_calculator_select_classification';
+  static const price_calculator_boxes_count = 'price_calculator_boxes_count';
+  static const price_calculator_enter_boxes_count = 'price_calculator_enter_boxes_count';
+  static const price_calculator_contents = 'price_calculator_contents';
+  static const price_calculator_select_from_list = 'price_calculator_select_from_list';
+  static const price_calculator_total_volume = 'price_calculator_total_volume';
+  static const price_calculator_enter_total_volume = 'price_calculator_enter_total_volume';
+  static const price_calculator_total_weight = 'price_calculator_total_weight';
+  static const price_calculator_enter_total_weight = 'price_calculator_enter_total_weight';
+  static const price_calculator_calculate_button = 'price_calculator_calculate_button';
+  static const price_calculator_result_title = 'price_calculator_result_title';
+  static const price_calculator_cost_per_kg = 'price_calculator_cost_per_kg';
+  static const price_calculator_total_initial_cost = 'price_calculator_total_initial_cost';
+  static const price_calculator_go_back = 'price_calculator_go_back';
 
 }
