@@ -154,5 +154,9 @@
     "pickup_requests_air_express": "جوي سريع",
     "pickup_requests_boxes_count": "عدد الصناديق:",
     "pickup_requests_total_volume": "إجمالي الحجم:",
-    "pickup_requests_total_weight": "إجمالي الوزن:"
+    "pickup_requests_total_weight": "إجمالي الوزن:",
+    "pickup_requests_filter_all_air": "كل الشحنات الجوية",
+    "pickup_requests_filter_economy": "الشحن الجوي الإقتصادي",
+    "pickup_requests_filter_express": "الشحن الجوي السريع",
+    "pickup_requests_filter_apply": "تصفية"
 }

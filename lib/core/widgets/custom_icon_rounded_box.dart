@@ -7,11 +7,13 @@ class CustomIconRoundedBox extends StatelessWidget {
     this.width,
     this.height,
     this.backgroundColor,
+    this.iconColor,
   });
   final String iconPath;
   final double? width;
   final double? height;
   final Color? backgroundColor;
+  final Color? iconColor;
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +32,10 @@ class CustomIconRoundedBox extends StatelessWidget {
         iconPath,
         width: AppSizes.w32,
         height: AppSizes.h32,
+        colorFilter: ColorFilter.mode(
+          iconColor ?? AppColors.hintColor,
+          BlendMode.srcIn,
+        ),
       ),
     );
   }

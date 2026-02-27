@@ -170,7 +170,11 @@ class CodegenLoader extends AssetLoader{
   "pickup_requests_air_express": "جوي سريع",
   "pickup_requests_boxes_count": "عدد الصناديق:",
   "pickup_requests_total_volume": "إجمالي الحجم:",
-  "pickup_requests_total_weight": "إجمالي الوزن:"
+  "pickup_requests_total_weight": "إجمالي الوزن:",
+  "pickup_requests_filter_all_air": "كل الشحنات الجوية",
+  "pickup_requests_filter_economy": "الشحن الجوي الإقتصادي",
+  "pickup_requests_filter_express": "الشحن الجوي السريع",
+  "pickup_requests_filter_apply": "تصفية"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -328,7 +332,11 @@ static const Map<String,dynamic> _en = {
   "pickup_requests_air_express": "Air Express",
   "pickup_requests_boxes_count": "Number of Boxes:",
   "pickup_requests_total_volume": "Total Volume:",
-  "pickup_requests_total_weight": "Total Weight:"
+  "pickup_requests_total_weight": "Total Weight:",
+  "pickup_requests_filter_all_air": "All Air Shipments",
+  "pickup_requests_filter_economy": "Air Economy Shipping",
+  "pickup_requests_filter_express": "Air Express Shipping",
+  "pickup_requests_filter_apply": "Filter"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

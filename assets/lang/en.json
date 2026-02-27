@@ -154,5 +154,9 @@
     "pickup_requests_air_express": "Air Express",
     "pickup_requests_boxes_count": "Number of Boxes:",
     "pickup_requests_total_volume": "Total Volume:",
-    "pickup_requests_total_weight": "Total Weight:"
+    "pickup_requests_total_weight": "Total Weight:",
+    "pickup_requests_filter_all_air": "All Air Shipments",
+    "pickup_requests_filter_economy": "Air Economy Shipping",
+    "pickup_requests_filter_express": "Air Express Shipping",
+    "pickup_requests_filter_apply": "Filter"
 }

@@ -33,6 +33,8 @@ part 'widgets/shipment_pickup_requests/shipment_pickup_requests_view_body.dart';
 part 'widgets/shipment_pickup_requests/pickup_search_bar.dart';
 part 'widgets/shipment_pickup_requests/pickup_shipping_type_tabs.dart';
 part 'widgets/shipment_pickup_requests/pickup_filter_header.dart';
+part 'widgets/shipment_pickup_requests/pickup_filter_option_item.dart';
+part 'widgets/shipment_pickup_requests/pickup_filter_bottom_sheet.dart';
 part 'widgets/shipment_pickup_requests/pickup_request_status.dart';
 part 'widgets/shipment_pickup_requests/pickup_request_card.dart';
 part 'widgets/shipment_pickup_requests/pickup_request_card_header.dart';

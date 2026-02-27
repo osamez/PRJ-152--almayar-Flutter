@@ -35,7 +35,12 @@ class PickupFilterHeader extends StatelessWidget {
         ),
         const Spacer(),
 
-        SvgPicture.asset(AppAssets.svgFilter),
+        CustomInkWellWidget(
+          onTap: () => PickupFilterBottomSheet.show(context),
+          radius: 12,
+          padding: const EdgeInsets.all(2),
+          child: SvgPicture.asset(AppAssets.svgFilter),
+        ),
       ],
     );
   }

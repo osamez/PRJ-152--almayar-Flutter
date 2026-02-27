@@ -159,5 +159,9 @@ abstract class  LocaleKeys {
   static const pickup_requests_boxes_count = 'pickup_requests_boxes_count';
   static const pickup_requests_total_volume = 'pickup_requests_total_volume';
   static const pickup_requests_total_weight = 'pickup_requests_total_weight';
+  static const pickup_requests_filter_all_air = 'pickup_requests_filter_all_air';
+  static const pickup_requests_filter_economy = 'pickup_requests_filter_economy';
+  static const pickup_requests_filter_express = 'pickup_requests_filter_express';
+  static const pickup_requests_filter_apply = 'pickup_requests_filter_apply';
 
 }
