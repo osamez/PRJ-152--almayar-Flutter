@@ -58,7 +58,11 @@ class AppAssets {
 
   static const String svgHomeSolid = "assets/svg/home_solid.svg";
 
+  static const String svgInvoice = "assets/svg/invoice.svg";
+
   static const String svgMoney = "assets/svg/money.svg";
+
+  static const String svgMoneyWavy = "assets/svg/money-wavy.svg";
 
   static const String svgNotification = "assets/svg/notification.svg";
 

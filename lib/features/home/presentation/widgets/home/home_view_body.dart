@@ -51,17 +51,21 @@ class HomeViewBody extends StatelessWidget {
                 verticalSpace(AppSizes.h10),
                 Row(
                   spacing: AppSizes.w10,
-                  children: const [
-                    Expanded(
-                      child: HomeVerticalCard(
-                        title: LocaleKeys.home_delivery_orders,
-                        svgIcon: AppAssets.svgTruck,
-                      ),
-                    ),
+                  children: [
                     Expanded(
                       child: HomeVerticalCard(
                         title: LocaleKeys.home_price_calculator,
                         svgIcon: AppAssets.svgCalculator,
+                        onTap: () {
+                          context.push(Routes.priceCalculator);
+                        },
+                      ),
+                    ),
+                    Expanded(
+                      child: HomeVerticalCard(
+                        title: LocaleKeys.home_delivery_orders,
+                        svgIcon: AppAssets.svgTruck,
+                        onTap: () {},
                       ),
                     ),
                   ],
