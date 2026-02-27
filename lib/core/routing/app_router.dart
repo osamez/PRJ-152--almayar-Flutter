@@ -3,6 +3,7 @@ import 'package:almeyar/features/auth/presentation/feature_imports.dart';
 import 'package:almeyar/features/home/presentation/feature_imports.dart';
 import 'package:almeyar/features/main/presentation/features_imports.dart';
 import 'package:almeyar/features/onboarding/presentation/feature_imports.dart';
+import 'package:almeyar/features/pickup_request/presentation/feature_imports.dart';
 import 'package:go_router/go_router.dart';
 
 final router = GoRouter(
@@ -52,6 +53,29 @@ final router = GoRouter(
       path: Routes.shipmentAddressDetails,
       name: Routes.shipmentAddressDetails,
       builder: (context, state) => const ShipmentAddressDetailsView(),
+    ),
+    GoRoute(
+      path: Routes.requestReceiveShipmentView,
+      name: Routes.requestReceiveShipmentView,
+      builder: (context, state) => const RequestReceiveShipmentView(),
+    ),
+    GoRoute(
+      path: Routes.receiveShipment,
+      name: Routes.receiveShipment,
+      builder: (context, state) {
+        final shipmentType = state.extra as ShipmentType;
+        return ReceiveShipmentView(shipmentType: shipmentType);
+      },
+    ),
+    GoRoute(
+      path: Routes.shipmentPickupRequests,
+      name: Routes.shipmentPickupRequests,
+      builder: (context, state) => const ShipmentPickupRequestsView(),
+    ),
+    GoRoute(
+      path: Routes.shipmentPickupDetails,
+      name: Routes.shipmentPickupDetails,
+      builder: (context, state) => const ShipmentPickupDetailsView(),
     ),
   ],
 );

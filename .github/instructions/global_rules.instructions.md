@@ -34,6 +34,15 @@ Widgets Folder (widgets/): The ScreenNameViewBody implementation goes here.
 
 Multiple Screens Rule: If the feature has more than one screen, you MUST create separated sub-folders inside widgets/. Each sub-folder MUST be named after the screen to hold all widgets related to that specific screen.
 
+One Widget Per File Rule: NEVER define helper/private widgets (e.g., _InfoRow, _CustomCard) inside the same file as the parent widget that uses them. Every widget — no matter how small — MUST live in its OWN dedicated file.
+
+Workflow:
+1. Create a new file in the same widgets sub-folder with a descriptive snake_case name (e.g., info_row.dart).
+2. The new file MUST use `part of '../../feature_imports.dart';` as its only import.
+3. The widget class MUST be public (no underscore prefix) so it can be referenced from other parts.
+4. Add the corresponding `part` statement in the feature's feature_imports.dart barrel file.
+5. Use the extracted widget in the parent file by its public class name.
+
 4. UI Refactoring & ScreenUtil Sizing Rules (AppSizes)
 When refactoring or creating UI screens/widgets, you MUST NEVER leave hardcoded flutter_screenutil values (e.g., 10.w, 15.h, 20.r) inside the UI code. You must use the centrally managed AppSizes class located in utils/app_sizes.dart.
 

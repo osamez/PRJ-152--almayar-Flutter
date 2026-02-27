@@ -1,4 +1,4 @@
-part of '../../feature_imports.dart';
+import 'package:almeyar/core/utils/exports.dart';
 
 class CustomRounderArrow extends StatelessWidget {
   const CustomRounderArrow({

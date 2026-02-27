@@ -2,6 +2,10 @@
 class AppAssets {
   AppAssets._();
   
+  static const String imagesBoxes = "assets/images/boxes.png";
+
+  static const String imagesFlight = "assets/images/flight.png";
+
   static const String imagesHomeBanner = "assets/images/home_banner.png";
 
   static const String imagesHomeBanner2 = "assets/images/home_banner2.png";
@@ -16,17 +20,37 @@ class AppAssets {
 
   static const String imagesOnboardingOverlay = "assets/images/onboarding_overlay.png";
 
+  static const String imagesSea = "assets/images/sea.png";
+
   static const String imagesSplash12Logo = "assets/images/splash_12_logo.png";
+
+  static const String svgAirplane = "assets/svg/airplane.svg";
 
   static const String svgBackArrow = "assets/svg/back_arrow.svg";
 
+  static const String svgBarbell = "assets/svg/barbell.svg";
+
   static const String svgBarcode = "assets/svg/barcode.svg";
+
+  static const String svgBarcode2 = "assets/svg/barcode2.svg";
 
   static const String svgBasket = "assets/svg/basket.svg";
 
+  static const String svgBlocked = "assets/svg/blocked.svg";
+
+  static const String svgBoat = "assets/svg/boat.svg";
+
+  static const String svgBox = "assets/svg/box.svg";
+
   static const String svgCalculator = "assets/svg/calculator.svg";
 
+  static const String svgCalendar = "assets/svg/calendar.svg";
+
   static const String svgCopy = "assets/svg/copy.svg";
+
+  static const String svgCube = "assets/svg/cube.svg";
+
+  static const String svgFilter = "assets/svg/filter.svg";
 
   static const String svgFlagTest = "assets/svg/flag_test.svg";
 
@@ -39,6 +63,8 @@ class AppAssets {
   static const String svgNotification = "assets/svg/notification.svg";
 
   static const String svgOnboardingLogo = "assets/svg/onboarding_logo.svg";
+
+  static const String svgPaperclip = "assets/svg/paperclip.svg";
 
   static const String svgReciveOrder = "assets/svg/recive_order.svg";
 
@@ -53,6 +79,8 @@ class AppAssets {
   static const String svgShippingAddresses = "assets/svg/shipping_addresses.svg";
 
   static const String svgSwap = "assets/svg/swap.svg";
+
+  static const String svgThree = "assets/svg/three.svg";
 
   static const String svgTrashDuotone = "assets/svg/trash-duotone.svg";
 
