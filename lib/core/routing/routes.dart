@@ -13,4 +13,5 @@ class Routes {
   static const String requestReceiveShipmentView = '/request-receive-shipment';
   static const String receiveShipment = '/receive-shipment';
   static const String shipmentPickupRequests = '/shipment-pickup-requests';
+  static const String shipmentPickupDetails = '/shipment-pickup-details';
 }

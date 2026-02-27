@@ -44,3 +44,14 @@ part 'widgets/shipment_pickup_requests/route_location_label.dart';
 part 'widgets/shipment_pickup_requests/route_divider_with_icon.dart';
 part 'widgets/shipment_pickup_requests/pickup_request_stats_section.dart';
 part 'widgets/shipment_pickup_requests/pickup_request_stat_item.dart';
+
+// Shipment Pickup Details
+part 'views/shipment_pickup_details_view.dart';
+part 'widgets/shipment_pickup_details/shipment_pickup_details_view_body.dart';
+part 'widgets/shipment_pickup_details/details_header_card.dart';
+part 'widgets/shipment_pickup_details/details_stats_row.dart';
+part 'widgets/shipment_pickup_details/details_info_section.dart';
+part 'widgets/shipment_pickup_details/info_row.dart';
+part 'widgets/shipment_pickup_details/details_inspection_card.dart';
+part 'widgets/shipment_pickup_details/details_note_card.dart';
+part 'widgets/shipment_pickup_details/details_media_grid.dart';

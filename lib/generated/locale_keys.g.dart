@@ -163,5 +163,23 @@ abstract class  LocaleKeys {
   static const pickup_requests_filter_economy = 'pickup_requests_filter_economy';
   static const pickup_requests_filter_express = 'pickup_requests_filter_express';
   static const pickup_requests_filter_apply = 'pickup_requests_filter_apply';
+  static const shipment_details_title = 'shipment_details_title';
+  static const shipment_details_order_code = 'shipment_details_order_code';
+  static const shipment_details_shipment_details = 'shipment_details_shipment_details';
+  static const shipment_details_boxes_count = 'shipment_details_boxes_count';
+  static const shipment_details_volume_cbm = 'shipment_details_volume_cbm';
+  static const shipment_details_weight_kg = 'shipment_details_weight_kg';
+  static const shipment_details_tracking_code = 'shipment_details_tracking_code';
+  static const shipment_details_supplier_phone = 'shipment_details_supplier_phone';
+  static const shipment_details_classification = 'shipment_details_classification';
+  static const shipment_details_contents = 'shipment_details_contents';
+  static const shipment_details_inspection_service = 'shipment_details_inspection_service';
+  static const shipment_details_inspection_enabled = 'shipment_details_inspection_enabled';
+  static const shipment_details_inspection_disabled = 'shipment_details_inspection_disabled';
+  static const shipment_details_inspection_note = 'shipment_details_inspection_note';
+  static const shipment_details_shipment_photos = 'shipment_details_shipment_photos';
+  static const shipment_details_shipment_documents = 'shipment_details_shipment_documents';
+  static const shipment_details_order_date = 'shipment_details_order_date';
+  static const shipment_details_sea_shipping = 'shipment_details_sea_shipping';
 
 }

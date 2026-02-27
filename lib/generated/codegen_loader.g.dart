@@ -174,7 +174,25 @@ class CodegenLoader extends AssetLoader{
   "pickup_requests_filter_all_air": "كل الشحنات الجوية",
   "pickup_requests_filter_economy": "الشحن الجوي الإقتصادي",
   "pickup_requests_filter_express": "الشحن الجوي السريع",
-  "pickup_requests_filter_apply": "تصفية"
+  "pickup_requests_filter_apply": "تصفية",
+  "shipment_details_title": "تفاصيل طلب الإستلام",
+  "shipment_details_order_code": "كود الطلب",
+  "shipment_details_shipment_details": "تفاصيل الشحنة",
+  "shipment_details_boxes_count": "عدد الصناديق",
+  "shipment_details_volume_cbm": "الحجم (CBM)",
+  "shipment_details_weight_kg": "الوزن (KG)",
+  "shipment_details_tracking_code": "كود التتبع",
+  "shipment_details_supplier_phone": "رقم هاتف المورد",
+  "shipment_details_classification": "تصنيف الشحنة",
+  "shipment_details_contents": "محتويات الشحنة",
+  "shipment_details_inspection_service": "خدمة التفتيش والمطابقة",
+  "shipment_details_inspection_enabled": "مفعلة",
+  "shipment_details_inspection_disabled": "غير مفعلة",
+  "shipment_details_inspection_note": "ملاحظة:",
+  "shipment_details_shipment_photos": "صور الشحنة",
+  "shipment_details_shipment_documents": "مستندات الشحنة",
+  "shipment_details_order_date": "تاريخ الطلب",
+  "shipment_details_sea_shipping": "شحن بحري"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -336,7 +354,25 @@ static const Map<String,dynamic> _en = {
   "pickup_requests_filter_all_air": "All Air Shipments",
   "pickup_requests_filter_economy": "Air Economy Shipping",
   "pickup_requests_filter_express": "Air Express Shipping",
-  "pickup_requests_filter_apply": "Filter"
+  "pickup_requests_filter_apply": "Filter",
+  "shipment_details_title": "Pickup Request Details",
+  "shipment_details_order_code": "Order Code",
+  "shipment_details_shipment_details": "Shipment Details",
+  "shipment_details_boxes_count": "Boxes Count",
+  "shipment_details_volume_cbm": "Volume (CBM)",
+  "shipment_details_weight_kg": "Weight (KG)",
+  "shipment_details_tracking_code": "Tracking Code",
+  "shipment_details_supplier_phone": "Supplier Phone",
+  "shipment_details_classification": "Shipment Classification",
+  "shipment_details_contents": "Shipment Contents",
+  "shipment_details_inspection_service": "Inspection & Matching Service",
+  "shipment_details_inspection_enabled": "Enabled",
+  "shipment_details_inspection_disabled": "Disabled",
+  "shipment_details_inspection_note": "Note:",
+  "shipment_details_shipment_photos": "Shipment Photos",
+  "shipment_details_shipment_documents": "Shipment Documents",
+  "shipment_details_order_date": "Order Date",
+  "shipment_details_sea_shipping": "Sea Shipping"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

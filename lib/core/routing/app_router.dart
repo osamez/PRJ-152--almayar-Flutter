@@ -72,5 +72,10 @@ final router = GoRouter(
       name: Routes.shipmentPickupRequests,
       builder: (context, state) => const ShipmentPickupRequestsView(),
     ),
+    GoRoute(
+      path: Routes.shipmentPickupDetails,
+      name: Routes.shipmentPickupDetails,
+      builder: (context, state) => const ShipmentPickupDetailsView(),
+    ),
   ],
 );

@@ -10,8 +10,8 @@ class SectionTitle extends StatelessWidget {
     return Text(
       title,
       style: AppTextStyleFactory.create(
-        size: 14,
-        weight: FontWeight.w600,
+        size: 16,
+        weight: FontWeight.w700,
         color: AppColors.deepViolet,
       ),
     );

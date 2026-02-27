@@ -38,9 +38,13 @@ class AppAssets {
 
   static const String svgBlocked = "assets/svg/blocked.svg";
 
+  static const String svgBoat = "assets/svg/boat.svg";
+
   static const String svgBox = "assets/svg/box.svg";
 
   static const String svgCalculator = "assets/svg/calculator.svg";
+
+  static const String svgCalendar = "assets/svg/calendar.svg";
 
   static const String svgCopy = "assets/svg/copy.svg";
 
