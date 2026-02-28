@@ -44,6 +44,7 @@ class _ShipmentPickupRequestsViewBodyState
                 boxesCount: '2002',
                 totalVolume: '20 CMB',
                 totalWeight: '2000 KG',
+                onTap: () => context.push(Routes.shipmentPickupDetails),
               );
             },
           ),

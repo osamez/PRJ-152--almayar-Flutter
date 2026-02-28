@@ -15,6 +15,7 @@ class PickupCard extends StatelessWidget {
     required this.boxesCount,
     required this.totalVolume,
     required this.totalWeight,
+    required this.onTap,
   });
 
   final PickupRequestStatus status;
@@ -28,11 +29,12 @@ class PickupCard extends StatelessWidget {
   final String boxesCount;
   final String totalVolume;
   final String totalWeight;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     return CustomInkWellWidget(
-      onTap: () => context.push(Routes.shipmentPickupDetails),
+      onTap: onTap,
       radius: AppSizes.radiusMd,
       child: Container(
         decoration: BoxDecoration(

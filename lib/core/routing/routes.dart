@@ -16,4 +16,5 @@ class Routes {
   static const String shipmentPickupDetails = '/shipment-pickup-details';
   static const String priceCalculator = '/price-calculator';
   static const String shipmentsTracking = '/shipments-tracking';
+  static const String shipmentsType = '/shipments-type';
 }

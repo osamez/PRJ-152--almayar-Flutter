@@ -14,28 +14,32 @@ class ShipmentsTrackingAllShipmentsCard extends StatelessWidget {
         ),
         borderRadius: BorderRadius.circular(AppSizes.radiusMd),
       ),
-      padding: EdgeInsets.symmetric(
-        horizontal: AppSizes.w16,
-        vertical: AppSizes.h16,
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            LocaleKeys.shipment_tracking_all_shipments.tr(),
-            style: AppTextStyleFactory.create(
-              size: 16,
-              weight: FontWeight.w700,
-              color: AppColors.white,
+      child: CustomInkWellWidget(
+        onTap: () => context.push(Routes.shipmentsType),
+        radius: AppSizes.radiusMd,
+        padding: EdgeInsets.symmetric(
+          horizontal: AppSizes.w16,
+          vertical: AppSizes.h16,
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              LocaleKeys.shipment_tracking_all_shipments.tr(),
+              style: AppTextStyleFactory.create(
+                size: 16,
+                weight: FontWeight.w700,
+                color: AppColors.white,
+              ),
+              textAlign: TextAlign.center,
             ),
-            textAlign: TextAlign.center,
-          ),
-          verticalSpace(AppSizes.h12),
-          const CustomRounderArrow(
-            arrowBackgroundColor: AppColors.white,
-            arrowColor: AppColors.orange,
-          ),
-        ],
+            verticalSpace(AppSizes.h12),
+            const CustomRounderArrow(
+              arrowBackgroundColor: AppColors.white,
+              arrowColor: AppColors.orange,
+            ),
+          ],
+        ),
       ),
     );
   }

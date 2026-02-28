@@ -20,7 +20,7 @@ class ShipmentsTrackingStatusCard extends StatelessWidget {
 
       child: CustomInkWellWidget(
         onTap: () {
-          // Handle card tap
+          context.push(Routes.shipmentsType);
         },
         padding: EdgeInsets.symmetric(
           horizontal: AppSizes.w16,

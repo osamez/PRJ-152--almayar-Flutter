@@ -1,6 +1,7 @@
 import 'package:almeyar/core/utils/exports.dart';
 import 'package:almeyar/core/widgets/custom_icon_rounded_box.dart';
 import 'package:almeyar/core/widgets/custom_rounder_arrow.dart';
+import 'package:almeyar/core/widgets/pickup_filter_bottom_sheet.dart';
 
 import '../../../core/widgets/pickup_card.dart';
 
@@ -35,8 +36,6 @@ part 'widgets/shipment_pickup_requests/shipment_pickup_requests_view_body.dart';
 part 'widgets/shipment_pickup_requests/pickup_search_bar.dart';
 part 'widgets/shipment_pickup_requests/pickup_shipping_type_tabs.dart';
 part 'widgets/shipment_pickup_requests/pickup_filter_header.dart';
-part 'widgets/shipment_pickup_requests/pickup_filter_option_item.dart';
-part 'widgets/shipment_pickup_requests/pickup_filter_bottom_sheet.dart';
 part 'widgets/shipment_pickup_requests/pickup_request_status.dart';
 part 'widgets/shipment_pickup_requests/pickup_request_card_header.dart';
 part 'widgets/shipment_pickup_requests/pickup_request_status_badge.dart';
@@ -47,12 +46,12 @@ part 'widgets/shipment_pickup_requests/pickup_request_stats_section.dart';
 part 'widgets/shipment_pickup_requests/pickup_request_stat_item.dart';
 
 // Shipment Pickup Details
-part 'views/shipment_pickup_details_view.dart';
-part 'widgets/shipment_pickup_details/shipment_pickup_details_view_body.dart';
-part 'widgets/shipment_pickup_details/details_header_card.dart';
-part 'widgets/shipment_pickup_details/details_stats_row.dart';
-part 'widgets/shipment_pickup_details/details_info_section.dart';
-part 'widgets/shipment_pickup_details/info_row.dart';
-part 'widgets/shipment_pickup_details/details_inspection_card.dart';
-part 'widgets/shipment_pickup_details/details_note_card.dart';
-part 'widgets/shipment_pickup_details/details_media_grid.dart';
+part 'views/shipment_request_pickup_details_view.dart';
+part 'widgets/shipment_request_pickup_details/shipment_request_pickup_details_view_body.dart';
+part 'widgets/shipment_request_pickup_details/details_header_card.dart';
+part 'widgets/shipment_request_pickup_details/details_stats_row.dart';
+part 'widgets/shipment_request_pickup_details/details_info_section.dart';
+part 'widgets/shipment_request_pickup_details/info_row.dart';
+part 'widgets/shipment_request_pickup_details/details_inspection_card.dart';
+part 'widgets/shipment_request_pickup_details/details_note_card.dart';
+part 'widgets/shipment_request_pickup_details/details_media_grid.dart';

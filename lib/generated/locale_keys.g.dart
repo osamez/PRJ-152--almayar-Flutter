@@ -219,5 +219,9 @@ abstract class  LocaleKeys {
   static const shipment_tracking_at_delivery_point = 'shipment_tracking_at_delivery_point';
   static const shipment_tracking_cancelled = 'shipment_tracking_cancelled';
   static const shipment_tracking_all_shipments = 'shipment_tracking_all_shipments';
+  static const shipment_tracking_search_hint = 'shipment_tracking_search_hint';
+  static const shipment_tracking_filter_title = 'shipment_tracking_filter_title';
+  static const shipment_tracking_results_found = 'shipment_tracking_results_found';
+  static const shipment_tracking_air_express = 'shipment_tracking_air_express';
 
 }

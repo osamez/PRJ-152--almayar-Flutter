@@ -77,7 +77,7 @@ final router = GoRouter(
     GoRoute(
       path: Routes.shipmentPickupDetails,
       name: Routes.shipmentPickupDetails,
-      builder: (context, state) => const ShipmentPickupDetailsView(),
+      builder: (context, state) => const PickupRequestDetailsView(),
     ),
     GoRoute(
       path: Routes.priceCalculator,
@@ -88,6 +88,11 @@ final router = GoRouter(
       path: Routes.shipmentsTracking,
       name: Routes.shipmentsTracking,
       builder: (context, state) => const ShipmentsTrackingView(),
+    ),
+    GoRoute(
+      path: Routes.shipmentsType,
+      name: Routes.shipmentsType,
+      builder: (context, state) => const ShipmentsTypeView(),
     ),
   ],
 );

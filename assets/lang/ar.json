@@ -215,5 +215,9 @@
     "shipment_tracking_ready_for_delivery": "جاهزة للتسليم",
     "shipment_tracking_at_delivery_point": "في نقطة التسليم",
     "shipment_tracking_cancelled": "تم الإلغاء",
-    "shipment_tracking_all_shipments": "كل الشحنات"
+    "shipment_tracking_all_shipments": "كل الشحنات",
+    "shipment_tracking_search_hint": "بحث بكود الشحنة",
+    "shipment_tracking_filter_title": "تصفية الطلبات",
+    "shipment_tracking_results_found": "تم العثور على {count} نتائج",
+    "shipment_tracking_air_express": "جوي سريع"
 }

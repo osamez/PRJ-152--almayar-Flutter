@@ -215,5 +215,9 @@
     "shipment_tracking_ready_for_delivery": "Ready for Delivery",
     "shipment_tracking_at_delivery_point": "At Delivery Point",
     "shipment_tracking_cancelled": "Cancelled",
-    "shipment_tracking_all_shipments": "All Shipments"
+    "shipment_tracking_all_shipments": "All Shipments",
+    "shipment_tracking_search_hint": "Search by shipment code",
+    "shipment_tracking_filter_title": "Filter Orders",
+    "shipment_tracking_results_found": "Found {count} results",
+    "shipment_tracking_air_express": "Air Express"
 }
