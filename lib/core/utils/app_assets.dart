@@ -50,6 +50,10 @@ class AppAssets {
 
   static const String svgCube = "assets/svg/cube.svg";
 
+  static const String svgDot = "assets/svg/dot.svg";
+
+  static const String svgEyes = "assets/svg/eyes.svg";
+
   static const String svgFilter = "assets/svg/filter.svg";
 
   static const String svgFlagTest = "assets/svg/flag_test.svg";
@@ -73,6 +77,8 @@ class AppAssets {
   static const String svgReciveOrder = "assets/svg/recive_order.svg";
 
   static const String svgRedCircle = "assets/svg/red_circle.svg";
+
+  static const String svgSealPercent = "assets/svg/seal-percent.svg";
 
   static const String svgSearch = "assets/svg/search.svg";
 

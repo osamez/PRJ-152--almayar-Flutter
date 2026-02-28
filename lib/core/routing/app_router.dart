@@ -94,5 +94,10 @@ final router = GoRouter(
       name: Routes.shipmentsType,
       builder: (context, state) => const ShipmentsTypeView(),
     ),
+    GoRoute(
+      path: Routes.shipmentDetails,
+      name: Routes.shipmentDetails,
+      builder: (context, state) => const ShipmentDetailsView(),
+    ),
   ],
 );

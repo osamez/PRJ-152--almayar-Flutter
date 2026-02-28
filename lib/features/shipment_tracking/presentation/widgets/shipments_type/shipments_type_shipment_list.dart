@@ -27,7 +27,9 @@ class ShipmentsTypeShipmentList extends StatelessWidget {
           boxesCount: '2002',
           totalVolume: '20 CMB',
           totalWeight: '2000 KG',
-          onTap: () {},
+          onTap: () {
+            context.push(Routes.shipmentDetails);
+          },
         );
       },
     );
