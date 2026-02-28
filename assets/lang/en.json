@@ -204,5 +204,16 @@
     "price_calculator_result_title": "Shipping Cost",
     "price_calculator_cost_per_kg": "Cost per 1 KG",
     "price_calculator_total_initial_cost": "Total Initial Order Cost",
-    "price_calculator_go_back": "Go Back"
+    "price_calculator_go_back": "Go Back",
+    "shipment_tracking_title": "Track Shipments",
+    "shipment_tracking_air_shipping": "Air Shipping",
+    "shipment_tracking_sea_shipping": "Sea Shipping",
+    "shipment_tracking_being_prepared": "Being Prepared",
+    "shipment_tracking_at_pickup_point": "At Pickup Point",
+    "shipment_tracking_being_shipped": "Being Shipped",
+    "shipment_tracking_prepared": "Prepared",
+    "shipment_tracking_ready_for_delivery": "Ready for Delivery",
+    "shipment_tracking_at_delivery_point": "At Delivery Point",
+    "shipment_tracking_cancelled": "Cancelled",
+    "shipment_tracking_all_shipments": "All Shipments"
 }

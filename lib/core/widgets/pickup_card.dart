@@ -1,7 +1,8 @@
-part of '../../feature_imports.dart';
+import 'package:almeyar/core/utils/exports.dart';
+import 'package:almeyar/features/pickup_request/presentation/feature_imports.dart';
 
-class PickupRequestCard extends StatelessWidget {
-  const PickupRequestCard({
+class PickupCard extends StatelessWidget {
+  const PickupCard({
     super.key,
     required this.status,
     required this.shipmentCode,

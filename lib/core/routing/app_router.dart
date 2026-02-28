@@ -5,6 +5,7 @@ import 'package:almeyar/features/main/presentation/features_imports.dart';
 import 'package:almeyar/features/onboarding/presentation/feature_imports.dart';
 import 'package:almeyar/features/pickup_request/presentation/feature_imports.dart';
 import 'package:almeyar/features/price_calculator/presentation/feature_imports.dart';
+import 'package:almeyar/features/shipment_tracking/presentation/feature_imports.dart';
 import 'package:go_router/go_router.dart';
 
 final router = GoRouter(
@@ -82,6 +83,11 @@ final router = GoRouter(
       path: Routes.priceCalculator,
       name: Routes.priceCalculator,
       builder: (context, state) => const PriceCalculatorView(),
+    ),
+    GoRoute(
+      path: Routes.shipmentsTracking,
+      name: Routes.shipmentsTracking,
+      builder: (context, state) => const ShipmentsTrackingView(),
     ),
   ],
 );

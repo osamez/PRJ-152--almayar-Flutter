@@ -219,7 +219,18 @@ class CodegenLoader extends AssetLoader{
   "price_calculator_result_title": "تكلفة الشحن",
   "price_calculator_cost_per_kg": "تكلفة الوزن لكل 1 KG",
   "price_calculator_total_initial_cost": "إجمالي تكلفة المبدئية الطلب",
-  "price_calculator_go_back": "الرجوع"
+  "price_calculator_go_back": "الرجوع",
+  "shipment_tracking_title": "تتبع الشحنات",
+  "shipment_tracking_air_shipping": "الشحن الجوي",
+  "shipment_tracking_sea_shipping": "الشحن البحري",
+  "shipment_tracking_being_prepared": "قيد التجهيز",
+  "shipment_tracking_at_pickup_point": "في نقطة الإلتقاط",
+  "shipment_tracking_being_shipped": "قيد الشحن",
+  "shipment_tracking_prepared": "مجهزة",
+  "shipment_tracking_ready_for_delivery": "جاهزة للتسليم",
+  "shipment_tracking_at_delivery_point": "في نقطة التسليم",
+  "shipment_tracking_cancelled": "تم الإلغاء",
+  "shipment_tracking_all_shipments": "كل الشحنات"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -426,7 +437,18 @@ static const Map<String,dynamic> _en = {
   "price_calculator_result_title": "Shipping Cost",
   "price_calculator_cost_per_kg": "Cost per 1 KG",
   "price_calculator_total_initial_cost": "Total Initial Order Cost",
-  "price_calculator_go_back": "Go Back"
+  "price_calculator_go_back": "Go Back",
+  "shipment_tracking_title": "Track Shipments",
+  "shipment_tracking_air_shipping": "Air Shipping",
+  "shipment_tracking_sea_shipping": "Sea Shipping",
+  "shipment_tracking_being_prepared": "Being Prepared",
+  "shipment_tracking_at_pickup_point": "At Pickup Point",
+  "shipment_tracking_being_shipped": "Being Shipped",
+  "shipment_tracking_prepared": "Prepared",
+  "shipment_tracking_ready_for_delivery": "Ready for Delivery",
+  "shipment_tracking_at_delivery_point": "At Delivery Point",
+  "shipment_tracking_cancelled": "Cancelled",
+  "shipment_tracking_all_shipments": "All Shipments"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

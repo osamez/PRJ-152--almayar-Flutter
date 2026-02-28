@@ -2,6 +2,8 @@ import 'package:almeyar/core/utils/exports.dart';
 import 'package:almeyar/core/widgets/custom_icon_rounded_box.dart';
 import 'package:almeyar/core/widgets/custom_rounder_arrow.dart';
 
+import '../../../core/widgets/pickup_card.dart';
+
 part 'views/request_receive_shipment_view.dart';
 part 'widgets/request_receive_shipment/request_receive_shipment_view_body.dart';
 part 'widgets/request_receive_shipment/request_receive_shipment_item.dart';
@@ -36,7 +38,6 @@ part 'widgets/shipment_pickup_requests/pickup_filter_header.dart';
 part 'widgets/shipment_pickup_requests/pickup_filter_option_item.dart';
 part 'widgets/shipment_pickup_requests/pickup_filter_bottom_sheet.dart';
 part 'widgets/shipment_pickup_requests/pickup_request_status.dart';
-part 'widgets/shipment_pickup_requests/pickup_request_card.dart';
 part 'widgets/shipment_pickup_requests/pickup_request_card_header.dart';
 part 'widgets/shipment_pickup_requests/pickup_request_status_badge.dart';
 part 'widgets/shipment_pickup_requests/pickup_request_route_section.dart';

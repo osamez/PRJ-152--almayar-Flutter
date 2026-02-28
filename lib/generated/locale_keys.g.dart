@@ -208,5 +208,16 @@ abstract class  LocaleKeys {
   static const price_calculator_cost_per_kg = 'price_calculator_cost_per_kg';
   static const price_calculator_total_initial_cost = 'price_calculator_total_initial_cost';
   static const price_calculator_go_back = 'price_calculator_go_back';
+  static const shipment_tracking_title = 'shipment_tracking_title';
+  static const shipment_tracking_air_shipping = 'shipment_tracking_air_shipping';
+  static const shipment_tracking_sea_shipping = 'shipment_tracking_sea_shipping';
+  static const shipment_tracking_being_prepared = 'shipment_tracking_being_prepared';
+  static const shipment_tracking_at_pickup_point = 'shipment_tracking_at_pickup_point';
+  static const shipment_tracking_being_shipped = 'shipment_tracking_being_shipped';
+  static const shipment_tracking_prepared = 'shipment_tracking_prepared';
+  static const shipment_tracking_ready_for_delivery = 'shipment_tracking_ready_for_delivery';
+  static const shipment_tracking_at_delivery_point = 'shipment_tracking_at_delivery_point';
+  static const shipment_tracking_cancelled = 'shipment_tracking_cancelled';
+  static const shipment_tracking_all_shipments = 'shipment_tracking_all_shipments';
 
 }
