@@ -262,5 +262,22 @@ abstract class  LocaleKeys {
   static const shipment_details_due_amount = 'shipment_details_due_amount';
   static const shipment_details_shared_sea = 'shipment_details_shared_sea';
   static const shipment_details_ready_for_delivery = 'shipment_details_ready_for_delivery';
+  static const delivery_requests_title = 'delivery_requests_title';
+  static const delivery_requests_search_hint = 'delivery_requests_search_hint';
+  static const delivery_requests_personal_pickup = 'delivery_requests_personal_pickup';
+  static const delivery_requests_delivery_service = 'delivery_requests_delivery_service';
+  static const delivery_requests_results_found = 'delivery_requests_results_found';
+  static const delivery_requests_delivering = 'delivery_requests_delivering';
+  static const delivery_requests_completed = 'delivery_requests_completed';
+  static const delivery_requests_unpaid = 'delivery_requests_unpaid';
+  static const delivery_requests_paid = 'delivery_requests_paid';
+  static const delivery_requests_delivery_order = 'delivery_requests_delivery_order';
+  static const delivery_requests_personal_pickup_order = 'delivery_requests_personal_pickup_order';
+  static const delivery_requests_address = 'delivery_requests_address';
+  static const delivery_requests_delivery_branch = 'delivery_requests_delivery_branch';
+  static const delivery_requests_delivery_date = 'delivery_requests_delivery_date';
+  static const delivery_requests_boxes_count = 'delivery_requests_boxes_count';
+  static const delivery_requests_order_value = 'delivery_requests_order_value';
+  static const delivery_requests_delivery_cost = 'delivery_requests_delivery_cost';
 
 }

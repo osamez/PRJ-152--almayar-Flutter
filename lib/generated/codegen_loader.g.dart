@@ -273,7 +273,24 @@ class CodegenLoader extends AssetLoader{
   "shipment_details_discount_label": "التخفيض",
   "shipment_details_due_amount": "المستحق",
   "shipment_details_shared_sea": "بحري مشترك",
-  "shipment_details_ready_for_delivery": "جاهزة للتسليم"
+  "shipment_details_ready_for_delivery": "جاهزة للتسليم",
+  "delivery_requests_title": "طلبات التسليم",
+  "delivery_requests_search_hint": "بحث برقم الطلب",
+  "delivery_requests_personal_pickup": "إستلام شخصي",
+  "delivery_requests_delivery_service": "خدمة توصيل",
+  "delivery_requests_results_found": "تم العثور على {count} نتائج",
+  "delivery_requests_delivering": "قيد التوصيل",
+  "delivery_requests_completed": "مكتمل",
+  "delivery_requests_unpaid": "غير مدفوع",
+  "delivery_requests_paid": "مدفوع",
+  "delivery_requests_delivery_order": "طلب توصيل",
+  "delivery_requests_personal_pickup_order": "إستلام شخصي",
+  "delivery_requests_address": "العنوان",
+  "delivery_requests_delivery_branch": "فرع التسليم",
+  "delivery_requests_delivery_date": "تاريخ التسليم",
+  "delivery_requests_boxes_count": "عدد الصناديق",
+  "delivery_requests_order_value": "قيمة الطلب",
+  "delivery_requests_delivery_cost": "قيمة التوصيل"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -534,7 +551,24 @@ static const Map<String,dynamic> _en = {
   "shipment_details_discount_label": "Discount",
   "shipment_details_due_amount": "Due Amount",
   "shipment_details_shared_sea": "Shared Sea",
-  "shipment_details_ready_for_delivery": "Ready for Delivery"
+  "shipment_details_ready_for_delivery": "Ready for Delivery",
+  "delivery_requests_title": "Delivery Requests",
+  "delivery_requests_search_hint": "Search by order number",
+  "delivery_requests_personal_pickup": "Personal Pickup",
+  "delivery_requests_delivery_service": "Delivery Service",
+  "delivery_requests_results_found": "Found {count} results",
+  "delivery_requests_delivering": "Delivering",
+  "delivery_requests_completed": "Completed",
+  "delivery_requests_unpaid": "Unpaid",
+  "delivery_requests_paid": "Paid",
+  "delivery_requests_delivery_order": "Delivery Order",
+  "delivery_requests_personal_pickup_order": "Personal Pickup",
+  "delivery_requests_address": "Address",
+  "delivery_requests_delivery_branch": "Delivery Branch",
+  "delivery_requests_delivery_date": "Delivery Date",
+  "delivery_requests_boxes_count": "Boxes Count",
+  "delivery_requests_order_value": "Order Value",
+  "delivery_requests_delivery_cost": "Delivery Cost"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

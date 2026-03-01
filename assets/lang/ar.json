@@ -258,5 +258,22 @@
     "shipment_details_discount_label": "التخفيض",
     "shipment_details_due_amount": "المستحق",
     "shipment_details_shared_sea": "بحري مشترك",
-    "shipment_details_ready_for_delivery": "جاهزة للتسليم"
+    "shipment_details_ready_for_delivery": "جاهزة للتسليم",
+    "delivery_requests_title": "طلبات التسليم",
+    "delivery_requests_search_hint": "بحث برقم الطلب",
+    "delivery_requests_personal_pickup": "إستلام شخصي",
+    "delivery_requests_delivery_service": "خدمة توصيل",
+    "delivery_requests_results_found": "تم العثور على {count} نتائج",
+    "delivery_requests_delivering": "قيد التوصيل",
+    "delivery_requests_completed": "مكتمل",
+    "delivery_requests_unpaid": "غير مدفوع",
+    "delivery_requests_paid": "مدفوع",
+    "delivery_requests_delivery_order": "طلب توصيل",
+    "delivery_requests_personal_pickup_order": "إستلام شخصي",
+    "delivery_requests_address": "العنوان",
+    "delivery_requests_delivery_branch": "فرع التسليم",
+    "delivery_requests_delivery_date": "تاريخ التسليم",
+    "delivery_requests_boxes_count": "عدد الصناديق",
+    "delivery_requests_order_value": "قيمة الطلب",
+    "delivery_requests_delivery_cost": "قيمة التوصيل"
 }

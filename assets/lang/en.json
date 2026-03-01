@@ -258,5 +258,22 @@
     "shipment_details_discount_label": "Discount",
     "shipment_details_due_amount": "Due Amount",
     "shipment_details_shared_sea": "Shared Sea",
-    "shipment_details_ready_for_delivery": "Ready for Delivery"
+    "shipment_details_ready_for_delivery": "Ready for Delivery",
+    "delivery_requests_title": "Delivery Requests",
+    "delivery_requests_search_hint": "Search by order number",
+    "delivery_requests_personal_pickup": "Personal Pickup",
+    "delivery_requests_delivery_service": "Delivery Service",
+    "delivery_requests_results_found": "Found {count} results",
+    "delivery_requests_delivering": "Delivering",
+    "delivery_requests_completed": "Completed",
+    "delivery_requests_unpaid": "Unpaid",
+    "delivery_requests_paid": "Paid",
+    "delivery_requests_delivery_order": "Delivery Order",
+    "delivery_requests_personal_pickup_order": "Personal Pickup",
+    "delivery_requests_address": "Address",
+    "delivery_requests_delivery_branch": "Delivery Branch",
+    "delivery_requests_delivery_date": "Delivery Date",
+    "delivery_requests_boxes_count": "Boxes Count",
+    "delivery_requests_order_value": "Order Value",
+    "delivery_requests_delivery_cost": "Delivery Cost"
 }
