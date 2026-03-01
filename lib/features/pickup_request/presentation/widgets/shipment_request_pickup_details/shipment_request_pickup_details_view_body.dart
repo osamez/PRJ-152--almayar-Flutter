@@ -1,7 +1,7 @@
 part of '../../feature_imports.dart';
 
-class ShipmentPickupDetailsViewBody extends StatelessWidget {
-  const ShipmentPickupDetailsViewBody({super.key});
+class ShipmentRequestPickupDetailsViewBody extends StatelessWidget {
+  const ShipmentRequestPickupDetailsViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {

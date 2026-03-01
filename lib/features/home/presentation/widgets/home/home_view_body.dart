@@ -17,8 +17,8 @@ class HomeViewBody extends StatelessWidget {
                 HomeHorizontalCard(
                   color1: AppColors.lightOrange,
                   color2: AppColors.orange,
-                  title: LocaleKeys.home_track_shipments,
-                  subtitle: LocaleKeys.home_track_shipments_desc,
+                  title: LocaleKeys.home_shipping_addresses,
+                  subtitle: LocaleKeys.home_shipping_addresses_desc,
                   svgIcon: AppAssets.svgShippingAddresses,
                   onTap: () {
                     context.push(Routes.shipmentAddresses);
@@ -36,17 +36,20 @@ class HomeViewBody extends StatelessWidget {
                   },
                 ),
                 verticalSpace(AppSizes.h10),
-                const HomeHorizontalCard(
+                HomeHorizontalCard(
                   color1: AppColors.white,
                   color2: AppColors.white,
                   showShadow: true,
-                  title: LocaleKeys.home_request_shipment,
+                  title: LocaleKeys.shipment_tracking_title,
                   titleColor: AppColors.deepViolet,
                   subtitleColor: AppColors.darkSlate,
                   iconBackgroundColor: AppColors.grey97,
                   arrowBackgroundColor: AppColors.grey98,
-                  subtitle: LocaleKeys.home_request_shipment_desc,
-                  svgIcon: AppAssets.svgReciveOrder,
+                  subtitle: 'تابع حالة شحنتك لحظة بلحظة حتى وصولها',
+                  svgIcon: AppAssets.svgBox,
+                  onTap: () {
+                    context.push(Routes.shipmentsTracking);
+                  },
                 ),
                 verticalSpace(AppSizes.h10),
                 Row(

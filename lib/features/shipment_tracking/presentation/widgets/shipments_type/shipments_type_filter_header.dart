@@ -1,0 +1,48 @@
+part of '../../feature_imports.dart';
+
+class ShipmentsTypeFilterHeader extends StatelessWidget {
+  const ShipmentsTypeFilterHeader({super.key, required this.resultCount});
+
+  final int resultCount;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              LocaleKeys.shipment_tracking_filter_title.tr(),
+              style: AppTextStyleFactory.create(
+                size: 16,
+                weight: FontWeight.w700,
+                color: AppColors.darkSlate,
+              ),
+            ),
+            verticalSpace(AppSizes.h4),
+            Text(
+              LocaleKeys.shipment_tracking_results_found.tr(
+                namedArgs: {'count': resultCount.toString()},
+              ),
+              style: AppTextStyleFactory.create(
+                size: 14,
+                weight: FontWeight.w400,
+                color: AppColors.hintColor,
+              ),
+            ),
+          ],
+        ),
+        const Spacer(),
+        CustomInkWellWidget(
+          onTap: () {
+            PickupFilterBottomSheet.show(context);
+          },
+          radius: 12,
+          padding: const EdgeInsets.all(2),
+          child: SvgPicture.asset(AppAssets.svgFilter),
+        ),
+      ],
+    );
+  }
+}

@@ -32,7 +32,7 @@ class _ShipmentPickupRequestsViewBodyState
             itemCount: 3,
             separatorBuilder: (_, _) => verticalSpace(AppSizes.h16),
             itemBuilder: (BuildContext context, int index) {
-              return PickupRequestCard(
+              return PickupCard(
                 status: PickupRequestStatus.values[index],
                 shipmentCode: 'RH2053',
                 date: '2026-01-01',
@@ -44,6 +44,7 @@ class _ShipmentPickupRequestsViewBodyState
                 boxesCount: '2002',
                 totalVolume: '20 CMB',
                 totalWeight: '2000 KG',
+                onTap: () => context.push(Routes.shipmentPickupDetails),
               );
             },
           ),

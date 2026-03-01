@@ -22,6 +22,7 @@ class PickupRequestCardHeader extends StatelessWidget {
         vertical: AppSizes.h12,
       ),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CustomIconRoundedBox(
             iconPath: AppAssets.svgAirplane,
@@ -37,9 +38,12 @@ class PickupRequestCardHeader extends StatelessWidget {
               children: [
                 Text(
                   shipmentCode,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                   style: AppTextStyleFactory.create(
                     size: 16,
                     weight: FontWeight.w700,
+
                     color: AppColors.darkSlate,
                   ),
                 ),
@@ -90,6 +94,7 @@ class PickupRequestCardHeader extends StatelessWidget {
               ],
             ),
           ),
+          horizontalSpace(AppSizes.w8),
 
           PickupRequestStatusBadge(status: status),
         ],
