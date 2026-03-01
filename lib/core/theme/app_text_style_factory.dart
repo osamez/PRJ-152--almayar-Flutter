@@ -2,10 +2,11 @@ import 'package:almeyar/core/utils/app_constants.dart';
 import 'package:almeyar/core/utils/exports.dart';
 
 abstract final class AppTextStyleFactory {
-  static late Map<String, TextStyle> _cache;
+  static final Map<String, TextStyle> _cache = {};
 
   static void initialize() {
-    _cache = {};
+    // No-op: kept for backward compatibility.
+    // Cache is self-invalidating via computed .sp values in keys.
   }
 
   static TextStyle create({
@@ -13,9 +14,13 @@ abstract final class AppTextStyleFactory {
     required FontWeight weight,
     Color color = AppColors.black,
   }) {
-    final key = '$size-${weight.value}-${color.toString()}';
+    final computedSize = size.sp;
+    // Include computedSize in key so stale entries (e.g. fontSize 0
+    // from an early frame before ScreenUtil is ready) are never reused.
+    final key =
+        '$computedSize-${weight.value}-${color.a}-${color.r}-${color.g}-${color.b}';
     return _cache[key] ??= TextStyle(
-      fontSize: size.sp,
+      fontSize: computedSize,
       fontWeight: weight,
       color: color,
       fontFamily: AppConstants.fontFamily,

@@ -17,8 +17,8 @@ class HomeViewBody extends StatelessWidget {
                 HomeHorizontalCard(
                   color1: AppColors.lightOrange,
                   color2: AppColors.orange,
-                  title: LocaleKeys.home_track_shipments,
-                  subtitle: LocaleKeys.home_track_shipments_desc,
+                  title: LocaleKeys.home_shipping_addresses,
+                  subtitle: LocaleKeys.home_shipping_addresses_desc,
                   svgIcon: AppAssets.svgShippingAddresses,
                   onTap: () {
                     context.push(Routes.shipmentAddresses);

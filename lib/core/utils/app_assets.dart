@@ -88,6 +88,8 @@ class AppAssets {
 
   static const String svgShippingAddresses = "assets/svg/shipping_addresses.svg";
 
+  static const String svgSpan = "assets/svg/span.svg";
+
   static const String svgSwap = "assets/svg/swap.svg";
 
   static const String svgThree = "assets/svg/three.svg";

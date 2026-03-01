@@ -19,6 +19,7 @@ class HomeBanner extends StatelessWidget {
           right: AppSizes.w24,
           left: AppSizes.w24,
           child: Row(
+            spacing: AppSizes.w12,
             children: [
               Expanded(
                 child: Container(
@@ -43,13 +44,34 @@ class HomeBanner extends StatelessWidget {
                             color: AppColors.white,
                           ),
                         ),
-                        const Icon(
-                          Icons.search,
-                          size: 20,
-                          color: AppColors.white,
-                        ),
+                        SvgPicture.asset(AppAssets.svgBarcode),
                       ],
                     ),
+                  ),
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.symmetric(
+                  horizontal: AppSizes.w8,
+                  vertical: AppSizes.h10,
+                ),
+                height: AppSizes.h46,
+                width: AppSizes.w50,
+                decoration: BoxDecoration(
+                  color: const Color(0xff000000).withValues(alpha: 0.24),
+                  borderRadius: BorderRadius.circular(AppSizes.radiusSm),
+                ),
+                child: Center(
+                  child: Stack(
+                    clipBehavior: Clip.none,
+                    children: [
+                      SvgPicture.asset(AppAssets.svgNotification),
+                      Positioned(
+                        top: -AppSizes.h4,
+                        right: -AppSizes.w4,
+                        child: SvgPicture.asset(AppAssets.svgSpan),
+                      ),
+                    ],
                   ),
                 ),
               ),

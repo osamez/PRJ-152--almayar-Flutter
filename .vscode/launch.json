@@ -1,7 +1,21 @@
 {
   "version": "0.2.0",
   "configurations": [
-    
+    {
+      "name": "almeyar (debug)",
+      "type": "dart",
+      "request": "launch",
+      "program": "lib/main.dart",
+      "args": ["--no-tree-shake-icons"]
+    },
+    {
+      "name": "almeyar (release)",
+      "type": "dart",
+      "request": "launch",
+      "program": "lib/main.dart",
+      "flutterMode": "release",
+      "args": ["--no-tree-shake-icons"]
+    },
     {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
