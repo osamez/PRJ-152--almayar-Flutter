@@ -324,5 +324,16 @@
     "purchase_orders_all_orders": "كل الطلبات",
     "purchase_orders_in_progress": "قيد التنفيذ",
     "purchase_orders_purchased": "تم الشراء",
-    "purchase_orders_filter_apply": "تصفية"
+    "purchase_orders_filter_apply": "تصفية",
+
+    "add_purchase_order_title": "طلب شراء",
+    "add_purchase_order_shopping_site": "موقع التسوق",
+    "add_purchase_order_shopping_site_hint": "اختر من قائمة مواقع التسوق",
+    "add_purchase_order_payment_link": "رابط الدفع",
+    "add_purchase_order_payment_link_hint": "ادخل رابط الدفع كاملاً",
+    "add_purchase_order_value_in_dollars": "القيمة بالدولار",
+    "add_purchase_order_value_in_dollars_hint": "ادخل القيمة بالدولار",
+    "add_purchase_order_payment_wallet": "المحفظة المخصصة للدفع",
+    "add_purchase_order_payment_wallet_hint": "اختر من قائمة المحافظ الخاصة بك",
+    "add_purchase_order_submit": "انشاء طلب"
 }

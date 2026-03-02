@@ -327,5 +327,15 @@ abstract class  LocaleKeys {
   static const purchase_orders_in_progress = 'purchase_orders_in_progress';
   static const purchase_orders_purchased = 'purchase_orders_purchased';
   static const purchase_orders_filter_apply = 'purchase_orders_filter_apply';
+  static const add_purchase_order_title = 'add_purchase_order_title';
+  static const add_purchase_order_shopping_site = 'add_purchase_order_shopping_site';
+  static const add_purchase_order_shopping_site_hint = 'add_purchase_order_shopping_site_hint';
+  static const add_purchase_order_payment_link = 'add_purchase_order_payment_link';
+  static const add_purchase_order_payment_link_hint = 'add_purchase_order_payment_link_hint';
+  static const add_purchase_order_value_in_dollars = 'add_purchase_order_value_in_dollars';
+  static const add_purchase_order_value_in_dollars_hint = 'add_purchase_order_value_in_dollars_hint';
+  static const add_purchase_order_payment_wallet = 'add_purchase_order_payment_wallet';
+  static const add_purchase_order_payment_wallet_hint = 'add_purchase_order_payment_wallet_hint';
+  static const add_purchase_order_submit = 'add_purchase_order_submit';
 
 }

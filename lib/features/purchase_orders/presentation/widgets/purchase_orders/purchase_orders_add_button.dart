@@ -7,7 +7,7 @@ class PurchaseOrdersAddButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppElevatedButton(
       text: LocaleKeys.purchase_orders_add_order.tr(),
-      onPressed: () {},
+      onPressed: () => context.push(Routes.addPurchaseOrder),
       backgroundColor: AppColors.orange,
       iconPath: AppAssets.svgAdd,
       iconHeight: AppSizes.h24,

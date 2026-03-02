@@ -12,6 +12,17 @@ part 'widgets/shopping_sites/shopping_sites_search_bar.dart';
 part 'widgets/shopping_sites/shopping_sites_grid.dart';
 part 'widgets/shopping_sites/shopping_site_card.dart';
 
+// Views - add_purchase_order
+part 'views/add_purchase_order_view.dart';
+
+// Widgets - add_purchase_order
+part 'widgets/add_purchase_order/add_purchase_order_view_body.dart';
+part 'widgets/add_purchase_order/add_purchase_order_shopping_site_field.dart';
+part 'widgets/add_purchase_order/add_purchase_order_payment_link_field.dart';
+part 'widgets/add_purchase_order/add_purchase_order_value_field.dart';
+part 'widgets/add_purchase_order/add_purchase_order_wallet_field.dart';
+part 'widgets/add_purchase_order/add_purchase_order_submit_button.dart';
+
 // Widgets - purchase_orders
 part 'widgets/purchase_orders/purchase_orders_view_body.dart';
 part 'widgets/purchase_orders/purchase_orders_search_bar.dart';

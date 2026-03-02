@@ -338,7 +338,17 @@ class CodegenLoader extends AssetLoader{
   "purchase_orders_all_orders": "كل الطلبات",
   "purchase_orders_in_progress": "قيد التنفيذ",
   "purchase_orders_purchased": "تم الشراء",
-  "purchase_orders_filter_apply": "تصفية"
+  "purchase_orders_filter_apply": "تصفية",
+  "add_purchase_order_title": "طلب شراء",
+  "add_purchase_order_shopping_site": "موقع التسوق",
+  "add_purchase_order_shopping_site_hint": "اختر من قائمة مواقع التسوق",
+  "add_purchase_order_payment_link": "رابط الدفع",
+  "add_purchase_order_payment_link_hint": "ادخل رابط الدفع كاملاً",
+  "add_purchase_order_value_in_dollars": "القيمة بالدولار",
+  "add_purchase_order_value_in_dollars_hint": "ادخل القيمة بالدولار",
+  "add_purchase_order_payment_wallet": "المحفظة المخصصة للدفع",
+  "add_purchase_order_payment_wallet_hint": "اختر من قائمة المحافظ الخاصة بك",
+  "add_purchase_order_submit": "انشاء طلب"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -664,7 +674,17 @@ static const Map<String,dynamic> _en = {
   "purchase_orders_all_orders": "All Orders",
   "purchase_orders_in_progress": "In Progress",
   "purchase_orders_purchased": "Purchased",
-  "purchase_orders_filter_apply": "Filter"
+  "purchase_orders_filter_apply": "Filter",
+  "add_purchase_order_title": "Purchase Order",
+  "add_purchase_order_shopping_site": "Shopping Site",
+  "add_purchase_order_shopping_site_hint": "Choose from shopping sites list",
+  "add_purchase_order_payment_link": "Payment Link",
+  "add_purchase_order_payment_link_hint": "Enter full payment link",
+  "add_purchase_order_value_in_dollars": "Value in Dollars",
+  "add_purchase_order_value_in_dollars_hint": "Enter value in dollars",
+  "add_purchase_order_payment_wallet": "Payment Wallet",
+  "add_purchase_order_payment_wallet_hint": "Choose from your wallets list",
+  "add_purchase_order_submit": "Create Order"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }
