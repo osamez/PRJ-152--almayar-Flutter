@@ -68,7 +68,9 @@ class HomeViewBody extends StatelessWidget {
                       child: HomeVerticalCard(
                         title: LocaleKeys.home_delivery_orders,
                         svgIcon: AppAssets.svgTruck,
-                        onTap: () {},
+                        onTap: () {
+                          context.push(Routes.deliveryRequests);
+                        },
                       ),
                     ),
                   ],

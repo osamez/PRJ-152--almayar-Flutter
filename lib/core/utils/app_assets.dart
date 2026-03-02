@@ -58,11 +58,15 @@ class AppAssets {
 
   static const String svgFlagTest = "assets/svg/flag_test.svg";
 
+  static const String svgHand = "assets/svg/hand.svg";
+
   static const String svgHome = "assets/svg/home.svg";
 
   static const String svgHomeSolid = "assets/svg/home_solid.svg";
 
   static const String svgInvoice = "assets/svg/invoice.svg";
+
+  static const String svgMapPinArea = "assets/svg/map-pin-area.svg";
 
   static const String svgMoney = "assets/svg/money.svg";
 
@@ -73,6 +77,8 @@ class AppAssets {
   static const String svgOnboardingLogo = "assets/svg/onboarding_logo.svg";
 
   static const String svgPaperclip = "assets/svg/paperclip.svg";
+
+  static const String svgPerson = "assets/svg/person.svg";
 
   static const String svgReciveOrder = "assets/svg/recive_order.svg";
 
