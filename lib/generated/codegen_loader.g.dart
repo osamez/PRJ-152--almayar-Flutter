@@ -320,7 +320,9 @@ class CodegenLoader extends AssetLoader{
   "delivery_request_details_amount_paid_usd": "المبلغ المدفوع بالدولار",
   "delivery_request_details_amount_paid_lyd": "المبلغ المدفوع بالدينار",
   "delivery_request_details_cash_from_delivery": "النقد المأخوذ من التوصيل",
-  "delivery_request_details_box": "صندوق"
+  "delivery_request_details_box": "صندوق",
+  "shopping_sites_title": "مواقع التسوق",
+  "shopping_sites_search_hint": "بحث باسم الموقع"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -628,7 +630,9 @@ static const Map<String,dynamic> _en = {
   "delivery_request_details_amount_paid_usd": "Amount Paid (USD)",
   "delivery_request_details_amount_paid_lyd": "Amount Paid (LYD)",
   "delivery_request_details_cash_from_delivery": "Cash from Delivery",
-  "delivery_request_details_box": "Box"
+  "delivery_request_details_box": "Box",
+  "shopping_sites_title": "Shopping Sites",
+  "shopping_sites_search_hint": "Search by site name"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

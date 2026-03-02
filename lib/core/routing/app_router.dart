@@ -6,6 +6,7 @@ import 'package:almeyar/features/onboarding/presentation/feature_imports.dart';
 import 'package:almeyar/features/pickup_request/presentation/feature_imports.dart';
 import 'package:almeyar/features/price_calculator/presentation/feature_imports.dart';
 import 'package:almeyar/features/delivery-requests/presentation/feature_imports.dart';
+import 'package:almeyar/features/purchase_orders/presentation/feature_imports.dart';
 import 'package:almeyar/features/shipment_tracking/presentation/feature_imports.dart';
 import 'package:go_router/go_router.dart';
 
@@ -109,6 +110,11 @@ final router = GoRouter(
       path: Routes.deliveryRequestsDetails,
       name: Routes.deliveryRequestsDetails,
       builder: (context, state) => const DeliveryRequestItemDetailsView(),
+    ),
+    GoRoute(
+      path: Routes.shoppingSites,
+      name: Routes.shoppingSites,
+      builder: (context, state) => const ShoppingSitesView(),
     ),
   ],
 );

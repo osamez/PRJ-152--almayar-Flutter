@@ -305,5 +305,7 @@
     "delivery_request_details_amount_paid_usd": "Amount Paid (USD)",
     "delivery_request_details_amount_paid_lyd": "Amount Paid (LYD)",
     "delivery_request_details_cash_from_delivery": "Cash from Delivery",
-    "delivery_request_details_box": "Box"
+    "delivery_request_details_box": "Box",
+    "shopping_sites_title": "Shopping Sites",
+    "shopping_sites_search_hint": "Search by site name"
 }

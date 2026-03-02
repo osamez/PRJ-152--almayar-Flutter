@@ -309,5 +309,7 @@ abstract class  LocaleKeys {
   static const delivery_request_details_amount_paid_lyd = 'delivery_request_details_amount_paid_lyd';
   static const delivery_request_details_cash_from_delivery = 'delivery_request_details_cash_from_delivery';
   static const delivery_request_details_box = 'delivery_request_details_box';
+  static const shopping_sites_title = 'shopping_sites_title';
+  static const shopping_sites_search_hint = 'shopping_sites_search_hint';
 
 }
