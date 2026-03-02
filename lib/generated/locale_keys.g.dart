@@ -279,5 +279,35 @@ abstract class  LocaleKeys {
   static const delivery_requests_boxes_count = 'delivery_requests_boxes_count';
   static const delivery_requests_order_value = 'delivery_requests_order_value';
   static const delivery_requests_delivery_cost = 'delivery_requests_delivery_cost';
+  static const delivery_request_details_title = 'delivery_request_details_title';
+  static const delivery_request_details_basic_data_tab = 'delivery_request_details_basic_data_tab';
+  static const delivery_request_details_financial_data_tab = 'delivery_request_details_financial_data_tab';
+  static const delivery_request_details_boxes_data_tab = 'delivery_request_details_boxes_data_tab';
+  static const delivery_request_details_basic_data_title = 'delivery_request_details_basic_data_title';
+  static const delivery_request_details_order_number = 'delivery_request_details_order_number';
+  static const delivery_request_details_boxes_count = 'delivery_request_details_boxes_count';
+  static const delivery_request_details_delegate = 'delivery_request_details_delegate';
+  static const delivery_request_details_order_status = 'delivery_request_details_order_status';
+  static const delivery_request_details_delivery_date = 'delivery_request_details_delivery_date';
+  static const delivery_request_details_failure_reason = 'delivery_request_details_failure_reason';
+  static const delivery_request_details_no_value = 'delivery_request_details_no_value';
+  static const delivery_request_details_financial_data_title = 'delivery_request_details_financial_data_title';
+  static const delivery_request_details_delivery_cost = 'delivery_request_details_delivery_cost';
+  static const delivery_request_details_total_boxes_shipping_cost = 'delivery_request_details_total_boxes_shipping_cost';
+  static const delivery_request_details_bundle_discount = 'delivery_request_details_bundle_discount';
+  static const delivery_request_details_coupon_discount = 'delivery_request_details_coupon_discount';
+  static const delivery_request_details_gift_card_discount = 'delivery_request_details_gift_card_discount';
+  static const delivery_request_details_admin_discount = 'delivery_request_details_admin_discount';
+  static const delivery_request_details_financial_summary = 'delivery_request_details_financial_summary';
+  static const delivery_request_details_total_boxes_cost = 'delivery_request_details_total_boxes_cost';
+  static const delivery_request_details_total_discounts = 'delivery_request_details_total_discounts';
+  static const delivery_request_details_amount_due = 'delivery_request_details_amount_due';
+  static const delivery_request_details_payment_info = 'delivery_request_details_payment_info';
+  static const delivery_request_details_payment_method = 'delivery_request_details_payment_method';
+  static const delivery_request_details_payment_currency = 'delivery_request_details_payment_currency';
+  static const delivery_request_details_amount_paid_usd = 'delivery_request_details_amount_paid_usd';
+  static const delivery_request_details_amount_paid_lyd = 'delivery_request_details_amount_paid_lyd';
+  static const delivery_request_details_cash_from_delivery = 'delivery_request_details_cash_from_delivery';
+  static const delivery_request_details_box = 'delivery_request_details_box';
 
 }

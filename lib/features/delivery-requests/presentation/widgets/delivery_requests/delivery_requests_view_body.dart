@@ -43,7 +43,9 @@ class _DeliveryRequestsViewBodyState extends State<DeliveryRequestsViewBody> {
                 deliveryCost: isDelivery
                     ? '80 \u062f.\u0644'
                     : '0 \u062f.\u0644',
-                onTap: () {},
+                onTap: () {
+                  context.pushNamed(Routes.deliveryRequestsDetails);
+                },
               );
             },
           ),

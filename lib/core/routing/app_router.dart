@@ -105,5 +105,10 @@ final router = GoRouter(
       name: Routes.deliveryRequests,
       builder: (context, state) => const DeliveryRequestsView(),
     ),
+    GoRoute(
+      path: Routes.deliveryRequestsDetails,
+      name: Routes.deliveryRequestsDetails,
+      builder: (context, state) => const DeliveryRequestItemDetailsView(),
+    ),
   ],
 );

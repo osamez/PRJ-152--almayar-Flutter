@@ -19,4 +19,5 @@ class Routes {
   static const String shipmentsType = '/shipments-type';
   static const String shipmentDetails = '/shipment-details';
   static const String deliveryRequests = '/delivery-requests';
+  static const String deliveryRequestsDetails = '/delivery-requests-details';
 }
