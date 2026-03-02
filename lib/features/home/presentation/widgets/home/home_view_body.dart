@@ -117,7 +117,9 @@ class HomeViewBody extends StatelessWidget {
                             isLeftRadius: true,
                             isGradient: true,
                             gradientColor: AppColors.lightViolet,
-                            onTap: () {},
+                            onTap: () {
+                              context.pushNamed(Routes.purchaseOrders);
+                            },
                           ),
                         ),
                       ],

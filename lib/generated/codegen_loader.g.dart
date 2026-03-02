@@ -322,7 +322,23 @@ class CodegenLoader extends AssetLoader{
   "delivery_request_details_cash_from_delivery": "النقد المأخوذ من التوصيل",
   "delivery_request_details_box": "صندوق",
   "shopping_sites_title": "مواقع التسوق",
-  "shopping_sites_search_hint": "بحث باسم الموقع"
+  "shopping_sites_search_hint": "بحث باسم الموقع",
+  "purchase_orders_title": "طلبات الشراء",
+  "purchase_orders_search_hint": "بحث بكود الطلب",
+  "purchase_orders_add_order": "إضافة طلب شراء",
+  "purchase_orders_filter_title": "تصفية الطلبات",
+  "purchase_orders_results_found": "تم العثور على {count} نتائج",
+  "purchase_orders_order_number": "رقم الطلب:",
+  "purchase_orders_creation_date": "تاريخ إنشاء الطلب:",
+  "purchase_orders_purchase_date": "تاريخ شراء الطلب:",
+  "purchase_orders_order_value": "قيمة الطلب:",
+  "purchase_orders_amount_paid": "المدفوع:",
+  "purchase_orders_website": "الموقع:",
+  "purchase_orders_under_review": "قيد المراجعة",
+  "purchase_orders_all_orders": "كل الطلبات",
+  "purchase_orders_in_progress": "قيد التنفيذ",
+  "purchase_orders_purchased": "تم الشراء",
+  "purchase_orders_filter_apply": "تصفية"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -632,7 +648,23 @@ static const Map<String,dynamic> _en = {
   "delivery_request_details_cash_from_delivery": "Cash from Delivery",
   "delivery_request_details_box": "Box",
   "shopping_sites_title": "Shopping Sites",
-  "shopping_sites_search_hint": "Search by site name"
+  "shopping_sites_search_hint": "Search by site name",
+  "purchase_orders_title": "Purchase Orders",
+  "purchase_orders_search_hint": "Search by order code",
+  "purchase_orders_add_order": "Add Purchase Order",
+  "purchase_orders_filter_title": "Filter Orders",
+  "purchase_orders_results_found": "Found {count} results",
+  "purchase_orders_order_number": "Order Number:",
+  "purchase_orders_creation_date": "Order Creation Date:",
+  "purchase_orders_purchase_date": "Order Purchase Date:",
+  "purchase_orders_order_value": "Order Value:",
+  "purchase_orders_amount_paid": "Paid:",
+  "purchase_orders_website": "Website:",
+  "purchase_orders_under_review": "Under Review",
+  "purchase_orders_all_orders": "All Orders",
+  "purchase_orders_in_progress": "In Progress",
+  "purchase_orders_purchased": "Purchased",
+  "purchase_orders_filter_apply": "Filter"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

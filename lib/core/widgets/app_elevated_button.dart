@@ -18,6 +18,8 @@ class AppElevatedButton extends StatelessWidget {
     this.hoverColor,
     this.iconPath,
     this.isDisabled = false,
+    this.iconWidth,
+    this.iconHeight,
   });
   final VoidCallback? onPressed;
   final String text;
@@ -34,6 +36,8 @@ class AppElevatedButton extends StatelessWidget {
   final Color? hoverColor;
   final String? iconPath;
   final bool isDisabled;
+  final double? iconWidth;
+  final double? iconHeight;
 
   @override
   Widget build(BuildContext context) {
@@ -86,8 +90,8 @@ class AppElevatedButton extends StatelessWidget {
                 if (iconPath != null) ...[
                   SvgPicture.asset(
                     iconPath!,
-                    width: 16.w,
-                    height: 16.h,
+                    width: iconWidth ?? 16.w,
+                    height: iconHeight ?? 16.h,
                     colorFilter: ColorFilter.mode(
                       textColor ?? AppColors.offWhite,
                       BlendMode.srcIn,

@@ -311,5 +311,21 @@ abstract class  LocaleKeys {
   static const delivery_request_details_box = 'delivery_request_details_box';
   static const shopping_sites_title = 'shopping_sites_title';
   static const shopping_sites_search_hint = 'shopping_sites_search_hint';
+  static const purchase_orders_title = 'purchase_orders_title';
+  static const purchase_orders_search_hint = 'purchase_orders_search_hint';
+  static const purchase_orders_add_order = 'purchase_orders_add_order';
+  static const purchase_orders_filter_title = 'purchase_orders_filter_title';
+  static const purchase_orders_results_found = 'purchase_orders_results_found';
+  static const purchase_orders_order_number = 'purchase_orders_order_number';
+  static const purchase_orders_creation_date = 'purchase_orders_creation_date';
+  static const purchase_orders_purchase_date = 'purchase_orders_purchase_date';
+  static const purchase_orders_order_value = 'purchase_orders_order_value';
+  static const purchase_orders_amount_paid = 'purchase_orders_amount_paid';
+  static const purchase_orders_website = 'purchase_orders_website';
+  static const purchase_orders_under_review = 'purchase_orders_under_review';
+  static const purchase_orders_all_orders = 'purchase_orders_all_orders';
+  static const purchase_orders_in_progress = 'purchase_orders_in_progress';
+  static const purchase_orders_purchased = 'purchase_orders_purchased';
+  static const purchase_orders_filter_apply = 'purchase_orders_filter_apply';
 
 }
