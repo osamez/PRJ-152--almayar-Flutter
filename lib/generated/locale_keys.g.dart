@@ -377,5 +377,36 @@ abstract class  LocaleKeys {
   static const money_transfer_details_amount_in_yuan = 'money_transfer_details_amount_in_yuan';
   static const money_transfer_details_due_in_dollars = 'money_transfer_details_due_in_dollars';
   static const money_transfer_details_invoice_and_proof = 'money_transfer_details_invoice_and_proof';
+  static const profile_change_password = 'profile_change_password';
+  static const profile_support_tickets = 'profile_support_tickets';
+  static const profile_gift_cards = 'profile_gift_cards';
+  static const profile_terms_and_conditions = 'profile_terms_and_conditions';
+  static const profile_terms_and_conditions_content = 'profile_terms_and_conditions_content';
+  static const profile_privacy_policy = 'profile_privacy_policy';
+  static const profile_about_app = 'profile_about_app';
+  static const edit_profile_title = 'edit_profile_title';
+  static const edit_profile_change_photo = 'edit_profile_change_photo';
+  static const edit_profile_name = 'edit_profile_name';
+  static const edit_profile_code = 'edit_profile_code';
+  static const edit_profile_country = 'edit_profile_country';
+  static const edit_profile_city = 'edit_profile_city';
+  static const edit_profile_phone = 'edit_profile_phone';
+  static const edit_profile_whatsapp = 'edit_profile_whatsapp';
+  static const edit_profile_update_account_data = 'edit_profile_update_account_data';
+  static const edit_profile_whatsapp_number = 'edit_profile_whatsapp_number';
+  static const edit_profile_save_data = 'edit_profile_save_data';
+  static const change_password_current = 'change_password_current';
+  static const change_password_new = 'change_password_new';
+  static const change_password_confirm = 'change_password_confirm';
+  static const change_password_save = 'change_password_save';
+  static const gift_cards_title = 'gift_cards_title';
+  static const gift_cards_gift_card = 'gift_cards_gift_card';
+  static const gift_cards_card_value = 'gift_cards_card_value';
+  static const gift_cards_current_balance = 'gift_cards_current_balance';
+  static const gift_cards_usage_limit = 'gift_cards_usage_limit';
+  static const gift_cards_expiry_date = 'gift_cards_expiry_date';
+  static const gift_cards_status_valid = 'gift_cards_status_valid';
+  static const gift_cards_status_expired = 'gift_cards_status_expired';
+  static const gift_cards_currency = 'gift_cards_currency';
 
 }

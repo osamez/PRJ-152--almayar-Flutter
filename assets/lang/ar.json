@@ -378,5 +378,40 @@
     "money_transfer_details_transfer_data": "بيانات الحوالة المالية",
     "money_transfer_details_amount_in_yuan": "المبلغ باليوان",
     "money_transfer_details_due_in_dollars": "المستحق بالدولار",
-    "money_transfer_details_invoice_and_proof": "الفاتورة المرفقة وإثبات الدفع"
+    "money_transfer_details_invoice_and_proof": "الفاتورة المرفقة وإثبات الدفع",
+
+    "profile_change_password": "تغيير كلمة المرور",
+    "profile_support_tickets": "تذاكر الدعم",
+    "profile_gift_cards": "بطاقات الهدايا",
+    "profile_terms_and_conditions": "الشروط و الأحكام",
+    "profile_terms_and_conditions_content": "ما هو لوريم ايبسوم Lorem ipsum\nلوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل ليتصور طريقه وضع النصوص بالتصاميم سواء كانت تصاميم مطبوعه ... بروشور او فلاير على سبيل المثال ...\nاو نماذج مواقع انترنت ...\nوعند موافقه العميل المبدئيه على التصميم يتم ازالة هذا النص من التصميم ويتم وضع النصوص النهائية المطلوبة للتصميم ويقول البعض ان وضع النصوص التجريبية بالتصميم قد تشغل المشاهد عن وضع الكثير من الملاحظات او الانتقادات للتصميم الاساسي.\nوخلافاً للاعتقاد السائد فإن لوريم إيبسوم ليس نصاً عشوائياً، بل إن له جذور في الأدب اللاتيني الكلاسيكي منذ العام 45 قبل الميلاد. من كتاب \"حول أقاصي الخير والشر\"",
+    "profile_privacy_policy": "سياسة الخصوصية",
+    "profile_about_app": "عن التطبيق",
+
+    "edit_profile_title": "الملف الشخصي",
+    "edit_profile_change_photo": "تغيير الصورة الشخصية",
+    "edit_profile_name": "الإسم",
+    "edit_profile_code": "الكود",
+    "edit_profile_country": "الدولة",
+    "edit_profile_city": "المدينة",
+    "edit_profile_phone": "رقم الهاتف",
+    "edit_profile_whatsapp": "رقم الواتس اب",
+    "edit_profile_update_account_data": "تحديث بيانات الحساب",
+    "edit_profile_whatsapp_number": "رقم واتساب ({number})",
+    "edit_profile_save_data": "حفظ البيانات",
+
+    "change_password_current": "كلمة المرور الحالية",
+    "change_password_new": "كلمة المرور الجديدة",
+    "change_password_confirm": "تأكيد كلمة المرور الجديدة",
+    "change_password_save": "حفظ البيانات",
+
+    "gift_cards_title": "بطاقات الهدايا",
+    "gift_cards_gift_card": "بطاقة هدايا",
+    "gift_cards_card_value": "قيمة البطاقة:",
+    "gift_cards_current_balance": "الرصيد الحالي:",
+    "gift_cards_usage_limit": "سقف الإستخدام:",
+    "gift_cards_expiry_date": "تاريخ الإنتهاء:",
+    "gift_cards_status_valid": "صالحة",
+    "gift_cards_status_expired": "منتهية",
+    "gift_cards_currency": "دينار ليبي"
 }

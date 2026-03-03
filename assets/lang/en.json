@@ -378,5 +378,40 @@
     "money_transfer_details_transfer_data": "Transfer Data",
     "money_transfer_details_amount_in_yuan": "Amount in Yuan",
     "money_transfer_details_due_in_dollars": "Due in Dollars",
-    "money_transfer_details_invoice_and_proof": "Invoice & Payment Proof"
+    "money_transfer_details_invoice_and_proof": "Invoice & Payment Proof",
+
+    "profile_change_password": "Change Password",
+    "profile_support_tickets": "Support Tickets",
+    "profile_gift_cards": "Gift Cards",
+    "profile_terms_and_conditions": "Terms & Conditions",
+    "profile_terms_and_conditions_content": "What is Lorem Ipsum\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\nIt has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.\nIt was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\nContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.",
+    "profile_privacy_policy": "Privacy Policy",
+    "profile_about_app": "About App",
+
+    "edit_profile_title": "Profile",
+    "edit_profile_change_photo": "Change Profile Photo",
+    "edit_profile_name": "Name",
+    "edit_profile_code": "Code",
+    "edit_profile_country": "Country",
+    "edit_profile_city": "City",
+    "edit_profile_phone": "Phone Number",
+    "edit_profile_whatsapp": "WhatsApp Number",
+    "edit_profile_update_account_data": "Update Account Data",
+    "edit_profile_whatsapp_number": "WhatsApp Number ({number})",
+    "edit_profile_save_data": "Save Data",
+
+    "change_password_current": "Current Password",
+    "change_password_new": "New Password",
+    "change_password_confirm": "Confirm New Password",
+    "change_password_save": "Save Data",
+
+    "gift_cards_title": "Gift Cards",
+    "gift_cards_gift_card": "Gift Card",
+    "gift_cards_card_value": "Card Value:",
+    "gift_cards_current_balance": "Current Balance:",
+    "gift_cards_usage_limit": "Usage Limit:",
+    "gift_cards_expiry_date": "Expiry Date:",
+    "gift_cards_status_valid": "Valid",
+    "gift_cards_status_expired": "Expired",
+    "gift_cards_currency": "Libyan Dinar"
 }

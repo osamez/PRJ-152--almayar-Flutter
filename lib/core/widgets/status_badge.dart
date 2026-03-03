@@ -1,11 +1,7 @@
-part of '../../feature_imports.dart';
+import 'package:almeyar/core/utils/exports.dart';
 
-class ShipmentDetailsStatusBadge extends StatelessWidget {
-  const ShipmentDetailsStatusBadge({
-    super.key,
-    required this.label,
-    required this.color,
-  });
+class StatusBadge extends StatelessWidget {
+  const StatusBadge({super.key, required this.label, required this.color});
 
   final String label;
   final Color color;
@@ -18,7 +14,7 @@ class ShipmentDetailsStatusBadge extends StatelessWidget {
         vertical: AppSizes.h4,
       ),
       decoration: BoxDecoration(
-        color: color.withValues(alpha: 0.1),
+        color: color.withValues(alpha: 0.2),
         borderRadius: BorderRadius.circular(6),
       ),
       child: Row(

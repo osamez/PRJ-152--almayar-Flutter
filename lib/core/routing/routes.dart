@@ -27,4 +27,9 @@ class Routes {
   static const String moneyTransfers = '/money-transfers';
   static const String addNewMoneyTransfer = '/add-new-money-transfer';
   static const String moneyTransferDetails = '/money-transfer-details';
+  static const String profile = '/profile';
+  static const String editProfile = '/edit-profile';
+  static const String changePassword = '/change-password';
+  static const String termsAndConditions = '/terms-and-conditions';
+  static const String giftCards = '/gift-cards';
 }

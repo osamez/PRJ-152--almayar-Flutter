@@ -48,6 +48,7 @@ class AppSizes {
   static late double w70;
   static late double w80;
   static late double w82;
+  static late double w90;
   static late double w93;
   static late double w96;
   static late double w98;
@@ -182,6 +183,7 @@ class AppSizes {
     w70 = 70.w;
     w80 = 80.w;
     w82 = 82.w;
+    w90 = 90.w;
     w93 = 93.w;
     w96 = 96.w;
     w98 = 98.w;
