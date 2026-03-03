@@ -33,89 +33,92 @@ class PayServiceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: AppSizes.w20,
-        vertical: AppSizes.h20,
-      ),
-      decoration: BoxDecoration(
-        color: backgroundColor,
-        gradient: isGradient
-            ? LinearGradient(
-                colors: [gradientColor ?? backgroundColor, backgroundColor],
-                begin: Alignment.bottomRight,
-                end: Alignment.topLeft,
-              )
-            : null,
-        boxShadow: [
-          BoxShadow(
-            color: const Color(0xffC0C0C0).withValues(alpha: 0.15),
-            blurRadius: 10,
-            offset: const Offset(0, 2.77),
-          ),
-        ],
-        borderRadius: BorderRadius.only(
-          bottomLeft: isLeftRadius
-              ? Radius.circular(AppSizes.radiusLg)
-              : Radius.zero,
-          bottomRight: isLeftRadius
-              ? Radius.zero
-              : Radius.circular(AppSizes.radiusLg),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: EdgeInsets.symmetric(
+          horizontal: AppSizes.w20,
+          vertical: AppSizes.h20,
         ),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Container(
-            width: AppSizes.w44,
-            height: AppSizes.h44,
-            padding: EdgeInsets.symmetric(
-              horizontal: AppSizes.w10,
-              vertical: AppSizes.h10,
+        decoration: BoxDecoration(
+          color: backgroundColor,
+          gradient: isGradient
+              ? LinearGradient(
+                  colors: [gradientColor ?? backgroundColor, backgroundColor],
+                  begin: Alignment.bottomRight,
+                  end: Alignment.topLeft,
+                )
+              : null,
+          boxShadow: [
+            BoxShadow(
+              color: const Color(0xffC0C0C0).withValues(alpha: 0.15),
+              blurRadius: 10,
+              offset: const Offset(0, 2.77),
             ),
-            decoration: BoxDecoration(
-              color: iconBackgroundColor,
-              borderRadius: BorderRadius.circular(AppSizes.radiusMd),
-            ),
-            child: SvgPicture.asset(
-              svgIcon,
-              width: AppSizes.w24,
-              height: AppSizes.h24,
-            ),
+          ],
+          borderRadius: BorderRadius.only(
+            bottomLeft: isLeftRadius
+                ? Radius.circular(AppSizes.radiusLg)
+                : Radius.zero,
+            bottomRight: isLeftRadius
+                ? Radius.zero
+                : Radius.circular(AppSizes.radiusLg),
           ),
-          verticalSpace(AppSizes.h12),
-          Text(
-            title.tr(),
-            style: AppTextStyleFactory.create(
-              size: 16,
-              weight: FontWeight.w700,
-              color: titleColor,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              width: AppSizes.w44,
+              height: AppSizes.h44,
+              padding: EdgeInsets.symmetric(
+                horizontal: AppSizes.w10,
+                vertical: AppSizes.h10,
+              ),
+              decoration: BoxDecoration(
+                color: iconBackgroundColor,
+                borderRadius: BorderRadius.circular(AppSizes.radiusMd),
+              ),
+              child: SvgPicture.asset(
+                svgIcon,
+                width: AppSizes.w24,
+                height: AppSizes.h24,
+              ),
             ),
-          ),
-          verticalSpace(AppSizes.h8),
-          Text(
-            subtitle.tr(),
-            style: AppTextStyleFactory.create(
-              size: 12,
-              weight: FontWeight.w400,
-              color: subtitleColor,
+            verticalSpace(AppSizes.h12),
+            Text(
+              title.tr(),
+              style: AppTextStyleFactory.create(
+                size: 16,
+                weight: FontWeight.w700,
+                color: titleColor,
+              ),
             ),
-          ),
-          verticalSpace(AppSizes.h10),
-          Container(
-            width: AppSizes.w36,
-            height: AppSizes.h36,
-            padding: EdgeInsets.symmetric(
-              horizontal: AppSizes.w10,
-              vertical: AppSizes.h10,
+            verticalSpace(AppSizes.h8),
+            Text(
+              subtitle.tr(),
+              style: AppTextStyleFactory.create(
+                size: 12,
+                weight: FontWeight.w400,
+                color: subtitleColor,
+              ),
             ),
-            decoration: BoxDecoration(
-              color: arrowBackgroundColor,
-              shape: BoxShape.circle,
+            verticalSpace(AppSizes.h10),
+            Container(
+              width: AppSizes.w36,
+              height: AppSizes.h36,
+              padding: EdgeInsets.symmetric(
+                horizontal: AppSizes.w10,
+                vertical: AppSizes.h10,
+              ),
+              decoration: BoxDecoration(
+                color: arrowBackgroundColor,
+                shape: BoxShape.circle,
+              ),
+              child: Icon(Icons.arrow_forward, size: 16, color: arrowColor),
             ),
-            child: Icon(Icons.arrow_forward, size: 16, color: arrowColor),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

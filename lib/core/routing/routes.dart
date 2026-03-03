@@ -20,4 +20,8 @@ class Routes {
   static const String shipmentDetails = '/shipment-details';
   static const String deliveryRequests = '/delivery-requests';
   static const String deliveryRequestsDetails = '/delivery-requests-details';
+  static const String shoppingSites = '/shopping-sites';
+  static const String purchaseOrders = '/purchase-orders';
+  static const String addPurchaseOrder = '/add-purchase-order';
+  static const String purchaseOrderDetails = '/purchase-order-details';
 }

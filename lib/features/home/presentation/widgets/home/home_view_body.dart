@@ -98,7 +98,9 @@ class HomeViewBody extends StatelessWidget {
                             arrowBackgroundColor: AppColors.grey98,
                             arrowColor: AppColors.orange,
                             backgroundColor: AppColors.white,
-                            onTap: () {},
+                            onTap: () {
+                              context.push(Routes.shoppingSites);
+                            },
                           ),
                         ),
                         Expanded(
@@ -115,7 +117,9 @@ class HomeViewBody extends StatelessWidget {
                             isLeftRadius: true,
                             isGradient: true,
                             gradientColor: AppColors.lightViolet,
-                            onTap: () {},
+                            onTap: () {
+                              context.pushNamed(Routes.purchaseOrders);
+                            },
                           ),
                         ),
                       ],
