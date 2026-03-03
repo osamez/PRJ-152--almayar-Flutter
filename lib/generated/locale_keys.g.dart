@@ -373,5 +373,9 @@ abstract class  LocaleKeys {
   static const add_money_transfer_notes = 'add_money_transfer_notes';
   static const add_money_transfer_notes_hint = 'add_money_transfer_notes_hint';
   static const add_money_transfer_submit = 'add_money_transfer_submit';
+  static const money_transfer_details_transfer_data = 'money_transfer_details_transfer_data';
+  static const money_transfer_details_amount_in_yuan = 'money_transfer_details_amount_in_yuan';
+  static const money_transfer_details_due_in_dollars = 'money_transfer_details_due_in_dollars';
+  static const money_transfer_details_invoice_and_proof = 'money_transfer_details_invoice_and_proof';
 
 }

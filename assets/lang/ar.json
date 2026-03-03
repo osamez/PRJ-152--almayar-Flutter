@@ -373,5 +373,10 @@
     "add_money_transfer_exchange_rate_warning": "قيمة الفاتورة {amount} $ ولشراء هذه القيمة يرجى سداد {due} ليرا وهذه القيمة متغيرة بحسب تغير سعر الصرف للعملات",
     "add_money_transfer_notes": "ملاحظات",
     "add_money_transfer_notes_hint": "ادخل ملاحظة",
-    "add_money_transfer_submit": "حفظ البيانات"
+    "add_money_transfer_submit": "حفظ البيانات",
+
+    "money_transfer_details_transfer_data": "بيانات الحوالة المالية",
+    "money_transfer_details_amount_in_yuan": "المبلغ باليوان",
+    "money_transfer_details_due_in_dollars": "المستحق بالدولار",
+    "money_transfer_details_invoice_and_proof": "الفاتورة المرفقة وإثبات الدفع"
 }

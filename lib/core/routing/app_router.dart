@@ -142,5 +142,10 @@ final router = GoRouter(
       name: Routes.addNewMoneyTransfer,
       builder: (context, state) => const AddNewMoneyTransferView(),
     ),
+    GoRoute(
+      path: Routes.moneyTransferDetails,
+      name: Routes.moneyTransferDetails,
+      builder: (context, state) => const MoneyTransferDetailsView(),
+    ),
   ],
 );

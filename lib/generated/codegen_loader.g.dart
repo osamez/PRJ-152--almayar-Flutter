@@ -384,7 +384,11 @@ class CodegenLoader extends AssetLoader{
   "add_money_transfer_exchange_rate_warning": "قيمة الفاتورة {amount} $ ولشراء هذه القيمة يرجى سداد {due} ليرا وهذه القيمة متغيرة بحسب تغير سعر الصرف للعملات",
   "add_money_transfer_notes": "ملاحظات",
   "add_money_transfer_notes_hint": "ادخل ملاحظة",
-  "add_money_transfer_submit": "حفظ البيانات"
+  "add_money_transfer_submit": "حفظ البيانات",
+  "money_transfer_details_transfer_data": "بيانات الحوالة المالية",
+  "money_transfer_details_amount_in_yuan": "المبلغ باليوان",
+  "money_transfer_details_due_in_dollars": "المستحق بالدولار",
+  "money_transfer_details_invoice_and_proof": "الفاتورة المرفقة وإثبات الدفع"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -756,7 +760,11 @@ static const Map<String,dynamic> _en = {
   "add_money_transfer_exchange_rate_warning": "Invoice value is {amount} $ and to purchase this value please pay {due} lira. This value is variable depending on the exchange rate.",
   "add_money_transfer_notes": "Notes",
   "add_money_transfer_notes_hint": "Enter a note",
-  "add_money_transfer_submit": "Save Data"
+  "add_money_transfer_submit": "Save Data",
+  "money_transfer_details_transfer_data": "Transfer Data",
+  "money_transfer_details_amount_in_yuan": "Amount in Yuan",
+  "money_transfer_details_due_in_dollars": "Due in Dollars",
+  "money_transfer_details_invoice_and_proof": "Invoice & Payment Proof"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }
