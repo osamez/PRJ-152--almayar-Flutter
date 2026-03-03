@@ -378,5 +378,12 @@
     "money_transfer_details_transfer_data": "Transfer Data",
     "money_transfer_details_amount_in_yuan": "Amount in Yuan",
     "money_transfer_details_due_in_dollars": "Due in Dollars",
-    "money_transfer_details_invoice_and_proof": "Invoice & Payment Proof"
+    "money_transfer_details_invoice_and_proof": "Invoice & Payment Proof",
+
+    "profile_change_password": "Change Password",
+    "profile_support_tickets": "Support Tickets",
+    "profile_gift_cards": "Gift Cards",
+    "profile_terms_and_conditions": "Terms & Conditions",
+    "profile_privacy_policy": "Privacy Policy",
+    "profile_about_app": "About App"
 }

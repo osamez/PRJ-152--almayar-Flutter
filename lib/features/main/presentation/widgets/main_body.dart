@@ -11,11 +11,11 @@ class MainBody extends StatelessWidget {
           case 0:
             return const HomeView();
           case 1:
-            return const Center(child: Text("Orders"));
+            return const ShipmentsTrackingView();
           case 2:
             return const Center(child: Text("Alerts"));
           case 3:
-            return const Center(child: Text("Profile"));
+            return const ProfileView();
           default:
             return const SizedBox.shrink();
         }

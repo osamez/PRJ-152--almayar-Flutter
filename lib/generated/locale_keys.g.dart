@@ -377,5 +377,11 @@ abstract class  LocaleKeys {
   static const money_transfer_details_amount_in_yuan = 'money_transfer_details_amount_in_yuan';
   static const money_transfer_details_due_in_dollars = 'money_transfer_details_due_in_dollars';
   static const money_transfer_details_invoice_and_proof = 'money_transfer_details_invoice_and_proof';
+  static const profile_change_password = 'profile_change_password';
+  static const profile_support_tickets = 'profile_support_tickets';
+  static const profile_gift_cards = 'profile_gift_cards';
+  static const profile_terms_and_conditions = 'profile_terms_and_conditions';
+  static const profile_privacy_policy = 'profile_privacy_policy';
+  static const profile_about_app = 'profile_about_app';
 
 }

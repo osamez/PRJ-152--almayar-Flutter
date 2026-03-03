@@ -9,6 +9,7 @@ import 'package:almeyar/features/delivery-requests/presentation/feature_imports.
 import 'package:almeyar/features/purchase_orders/presentation/feature_imports.dart';
 import 'package:almeyar/features/shipment_tracking/presentation/feature_imports.dart';
 import 'package:almeyar/features/money_transfers/presentation/feature_imports.dart';
+import 'package:almeyar/features/profile/presentation/feature_imports.dart';
 import 'package:go_router/go_router.dart';
 
 final router = GoRouter(
@@ -146,6 +147,11 @@ final router = GoRouter(
       path: Routes.moneyTransferDetails,
       name: Routes.moneyTransferDetails,
       builder: (context, state) => const MoneyTransferDetailsView(),
+    ),
+    GoRoute(
+      path: Routes.profile,
+      name: Routes.profile,
+      builder: (context, state) => const ProfileView(),
     ),
   ],
 );

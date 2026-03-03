@@ -378,5 +378,12 @@
     "money_transfer_details_transfer_data": "بيانات الحوالة المالية",
     "money_transfer_details_amount_in_yuan": "المبلغ باليوان",
     "money_transfer_details_due_in_dollars": "المستحق بالدولار",
-    "money_transfer_details_invoice_and_proof": "الفاتورة المرفقة وإثبات الدفع"
+    "money_transfer_details_invoice_and_proof": "الفاتورة المرفقة وإثبات الدفع",
+
+    "profile_change_password": "تغيير كلمة المرور",
+    "profile_support_tickets": "تذاكر الدعم",
+    "profile_gift_cards": "بطاقات الهدايا",
+    "profile_terms_and_conditions": "الشروط و الأحكام",
+    "profile_privacy_policy": "سياسة الخصوصية",
+    "profile_about_app": "عن التطبيق"
 }

@@ -388,7 +388,13 @@ class CodegenLoader extends AssetLoader{
   "money_transfer_details_transfer_data": "بيانات الحوالة المالية",
   "money_transfer_details_amount_in_yuan": "المبلغ باليوان",
   "money_transfer_details_due_in_dollars": "المستحق بالدولار",
-  "money_transfer_details_invoice_and_proof": "الفاتورة المرفقة وإثبات الدفع"
+  "money_transfer_details_invoice_and_proof": "الفاتورة المرفقة وإثبات الدفع",
+  "profile_change_password": "تغيير كلمة المرور",
+  "profile_support_tickets": "تذاكر الدعم",
+  "profile_gift_cards": "بطاقات الهدايا",
+  "profile_terms_and_conditions": "الشروط و الأحكام",
+  "profile_privacy_policy": "سياسة الخصوصية",
+  "profile_about_app": "عن التطبيق"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -764,7 +770,13 @@ static const Map<String,dynamic> _en = {
   "money_transfer_details_transfer_data": "Transfer Data",
   "money_transfer_details_amount_in_yuan": "Amount in Yuan",
   "money_transfer_details_due_in_dollars": "Due in Dollars",
-  "money_transfer_details_invoice_and_proof": "Invoice & Payment Proof"
+  "money_transfer_details_invoice_and_proof": "Invoice & Payment Proof",
+  "profile_change_password": "Change Password",
+  "profile_support_tickets": "Support Tickets",
+  "profile_gift_cards": "Gift Cards",
+  "profile_terms_and_conditions": "Terms & Conditions",
+  "profile_privacy_policy": "Privacy Policy",
+  "profile_about_app": "About App"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

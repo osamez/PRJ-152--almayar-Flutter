@@ -20,6 +20,8 @@ class AppAssets {
 
   static const String imagesOnboardingOverlay = "assets/images/onboarding_overlay.png";
 
+  static const String imagesProfile = "assets/images/profile.jpg";
+
   static const String imagesSea = "assets/images/sea.png";
 
   static const String imagesSplash12Logo = "assets/images/splash_12_logo.png";
@@ -64,6 +66,10 @@ class AppAssets {
 
   static const String svgFlagTest = "assets/svg/flag_test.svg";
 
+  static const String svgGavel = "assets/svg/gavel.svg";
+
+  static const String svgGift = "assets/svg/gift.svg";
+
   static const String svgGlobel = "assets/svg/globel.svg";
 
   static const String svgHand = "assets/svg/hand.svg";
@@ -74,7 +80,11 @@ class AppAssets {
 
   static const String svgImagePlaceholder = "assets/svg/image_placeholder.svg";
 
+  static const String svgInfo = "assets/svg/info.svg";
+
   static const String svgInvoice = "assets/svg/invoice.svg";
+
+  static const String svgKeyhole = "assets/svg/keyhole.svg";
 
   static const String svgMapPinArea = "assets/svg/map-pin-area.svg";
 
@@ -87,6 +97,8 @@ class AppAssets {
   static const String svgOnboardingLogo = "assets/svg/onboarding_logo.svg";
 
   static const String svgPaperclip = "assets/svg/paperclip.svg";
+
+  static const String svgPassword = "assets/svg/password.svg";
 
   static const String svgPdfFile = "assets/svg/pdf_file.svg";
 
@@ -106,11 +118,15 @@ class AppAssets {
 
   static const String svgShippingAddresses = "assets/svg/shipping_addresses.svg";
 
+  static const String svgSignOut = "assets/svg/sign-out.svg";
+
   static const String svgSpan = "assets/svg/span.svg";
 
   static const String svgSwap = "assets/svg/swap.svg";
 
   static const String svgThree = "assets/svg/three.svg";
+
+  static const String svgTicket = "assets/svg/ticket.svg";
 
   static const String svgTrashDuotone = "assets/svg/trash-duotone.svg";
 
@@ -119,6 +135,8 @@ class AppAssets {
   static const String svgUpload = "assets/svg/upload.svg";
 
   static const String svgUser = "assets/svg/user.svg";
+
+  static const String svgUserProfile = "assets/svg/user_profile.svg";
 
   static const String svgUserSolid = "assets/svg/user_solid.svg";
 
