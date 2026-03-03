@@ -352,5 +352,26 @@
     "money_transfers_add_new_transfer": "إضافة حوالة جديدة",
     "money_transfers_invoice_value": "قيمة الفاتورة:",
     "money_transfers_payment_currency": "العملة السداد:",
-    "money_transfers_due_amount": "المستحق:"
+    "money_transfers_due_amount": "المستحق:",
+
+    "add_money_transfer_title": "الحوالات المالية",
+    "add_money_transfer_heading": "إضافة حوالة جديدة",
+    "add_money_transfer_supplier_name": "اسم المورد",
+    "add_money_transfer_supplier_name_hint": "ادخل اسم المورد",
+    "add_money_transfer_supplier_address": "عنوان المورد",
+    "add_money_transfer_supplier_address_hint": "ادخل عنوان المورد",
+    "add_money_transfer_supplier_phone": "رقم الهاتف المورد",
+    "add_money_transfer_supplier_phone_hint": "ادخل رقم الهاتف",
+    "add_money_transfer_invoice": "الفاتورة",
+    "add_money_transfer_invoice_upload_hint": "قم بتحميل ملف مرفق هنا",
+    "add_money_transfer_invoice_value": "قيمة الفاتورة",
+    "add_money_transfer_invoice_value_hint": "ادخل قيمة الفاتورة",
+    "add_money_transfer_invoice_currency": "عملة الفاتورة",
+    "add_money_transfer_invoice_currency_hint": "اختر عملة الفاتورة",
+    "add_money_transfer_payment_currency": "العملة المستخدمة للدفع",
+    "add_money_transfer_payment_currency_hint": "اختر العملة المستخدمة للدفع",
+    "add_money_transfer_exchange_rate_warning": "قيمة الفاتورة {amount} $ ولشراء هذه القيمة يرجى سداد {due} ليرا وهذه القيمة متغيرة بحسب تغير سعر الصرف للعملات",
+    "add_money_transfer_notes": "ملاحظات",
+    "add_money_transfer_notes_hint": "ادخل ملاحظة",
+    "add_money_transfer_submit": "حفظ البيانات"
 }

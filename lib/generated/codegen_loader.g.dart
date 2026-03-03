@@ -364,7 +364,27 @@ class CodegenLoader extends AssetLoader{
   "money_transfers_add_new_transfer": "إضافة حوالة جديدة",
   "money_transfers_invoice_value": "قيمة الفاتورة:",
   "money_transfers_payment_currency": "العملة السداد:",
-  "money_transfers_due_amount": "المستحق:"
+  "money_transfers_due_amount": "المستحق:",
+  "add_money_transfer_title": "الحوالات المالية",
+  "add_money_transfer_heading": "إضافة حوالة جديدة",
+  "add_money_transfer_supplier_name": "اسم المورد",
+  "add_money_transfer_supplier_name_hint": "ادخل اسم المورد",
+  "add_money_transfer_supplier_address": "عنوان المورد",
+  "add_money_transfer_supplier_address_hint": "ادخل عنوان المورد",
+  "add_money_transfer_supplier_phone": "رقم الهاتف المورد",
+  "add_money_transfer_supplier_phone_hint": "ادخل رقم الهاتف",
+  "add_money_transfer_invoice": "الفاتورة",
+  "add_money_transfer_invoice_upload_hint": "قم بتحميل ملف مرفق هنا",
+  "add_money_transfer_invoice_value": "قيمة الفاتورة",
+  "add_money_transfer_invoice_value_hint": "ادخل قيمة الفاتورة",
+  "add_money_transfer_invoice_currency": "عملة الفاتورة",
+  "add_money_transfer_invoice_currency_hint": "اختر عملة الفاتورة",
+  "add_money_transfer_payment_currency": "العملة المستخدمة للدفع",
+  "add_money_transfer_payment_currency_hint": "اختر العملة المستخدمة للدفع",
+  "add_money_transfer_exchange_rate_warning": "قيمة الفاتورة {amount} $ ولشراء هذه القيمة يرجى سداد {due} ليرا وهذه القيمة متغيرة بحسب تغير سعر الصرف للعملات",
+  "add_money_transfer_notes": "ملاحظات",
+  "add_money_transfer_notes_hint": "ادخل ملاحظة",
+  "add_money_transfer_submit": "حفظ البيانات"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -716,7 +736,27 @@ static const Map<String,dynamic> _en = {
   "money_transfers_add_new_transfer": "Add New Transfer",
   "money_transfers_invoice_value": "Invoice Value:",
   "money_transfers_payment_currency": "Payment Currency:",
-  "money_transfers_due_amount": "Due Amount:"
+  "money_transfers_due_amount": "Due Amount:",
+  "add_money_transfer_title": "Financial Transfers",
+  "add_money_transfer_heading": "Add New Transfer",
+  "add_money_transfer_supplier_name": "Supplier Name",
+  "add_money_transfer_supplier_name_hint": "Enter supplier name",
+  "add_money_transfer_supplier_address": "Supplier Address",
+  "add_money_transfer_supplier_address_hint": "Enter supplier address",
+  "add_money_transfer_supplier_phone": "Supplier Phone Number",
+  "add_money_transfer_supplier_phone_hint": "Enter phone number",
+  "add_money_transfer_invoice": "Invoice",
+  "add_money_transfer_invoice_upload_hint": "Upload an attachment file here",
+  "add_money_transfer_invoice_value": "Invoice Value",
+  "add_money_transfer_invoice_value_hint": "Enter invoice value",
+  "add_money_transfer_invoice_currency": "Invoice Currency",
+  "add_money_transfer_invoice_currency_hint": "Select invoice currency",
+  "add_money_transfer_payment_currency": "Payment Currency",
+  "add_money_transfer_payment_currency_hint": "Select payment currency",
+  "add_money_transfer_exchange_rate_warning": "Invoice value is {amount} $ and to purchase this value please pay {due} lira. This value is variable depending on the exchange rate.",
+  "add_money_transfer_notes": "Notes",
+  "add_money_transfer_notes_hint": "Enter a note",
+  "add_money_transfer_submit": "Save Data"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }
