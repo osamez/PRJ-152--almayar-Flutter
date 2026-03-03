@@ -345,5 +345,37 @@ abstract class  LocaleKeys {
   static const purchase_order_details_creation_date = 'purchase_order_details_creation_date';
   static const purchase_order_details_purchase_date = 'purchase_order_details_purchase_date';
   static const purchase_order_details_payment_proof = 'purchase_order_details_payment_proof';
+  static const money_transfers_title = 'money_transfers_title';
+  static const money_transfers_new_transfer = 'money_transfers_new_transfer';
+  static const money_transfers_deducted = 'money_transfers_deducted';
+  static const money_transfers_completed = 'money_transfers_completed';
+  static const money_transfers_add_new_transfer = 'money_transfers_add_new_transfer';
+  static const money_transfers_invoice_value = 'money_transfers_invoice_value';
+  static const money_transfers_payment_currency = 'money_transfers_payment_currency';
+  static const money_transfers_due_amount = 'money_transfers_due_amount';
+  static const add_money_transfer_title = 'add_money_transfer_title';
+  static const add_money_transfer_heading = 'add_money_transfer_heading';
+  static const add_money_transfer_supplier_name = 'add_money_transfer_supplier_name';
+  static const add_money_transfer_supplier_name_hint = 'add_money_transfer_supplier_name_hint';
+  static const add_money_transfer_supplier_address = 'add_money_transfer_supplier_address';
+  static const add_money_transfer_supplier_address_hint = 'add_money_transfer_supplier_address_hint';
+  static const add_money_transfer_supplier_phone = 'add_money_transfer_supplier_phone';
+  static const add_money_transfer_supplier_phone_hint = 'add_money_transfer_supplier_phone_hint';
+  static const add_money_transfer_invoice = 'add_money_transfer_invoice';
+  static const add_money_transfer_invoice_upload_hint = 'add_money_transfer_invoice_upload_hint';
+  static const add_money_transfer_invoice_value = 'add_money_transfer_invoice_value';
+  static const add_money_transfer_invoice_value_hint = 'add_money_transfer_invoice_value_hint';
+  static const add_money_transfer_invoice_currency = 'add_money_transfer_invoice_currency';
+  static const add_money_transfer_invoice_currency_hint = 'add_money_transfer_invoice_currency_hint';
+  static const add_money_transfer_payment_currency = 'add_money_transfer_payment_currency';
+  static const add_money_transfer_payment_currency_hint = 'add_money_transfer_payment_currency_hint';
+  static const add_money_transfer_exchange_rate_warning = 'add_money_transfer_exchange_rate_warning';
+  static const add_money_transfer_notes = 'add_money_transfer_notes';
+  static const add_money_transfer_notes_hint = 'add_money_transfer_notes_hint';
+  static const add_money_transfer_submit = 'add_money_transfer_submit';
+  static const money_transfer_details_transfer_data = 'money_transfer_details_transfer_data';
+  static const money_transfer_details_amount_in_yuan = 'money_transfer_details_amount_in_yuan';
+  static const money_transfer_details_due_in_dollars = 'money_transfer_details_due_in_dollars';
+  static const money_transfer_details_invoice_and_proof = 'money_transfer_details_invoice_and_proof';
 
 }

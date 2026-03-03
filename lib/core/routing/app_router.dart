@@ -8,6 +8,7 @@ import 'package:almeyar/features/price_calculator/presentation/feature_imports.d
 import 'package:almeyar/features/delivery-requests/presentation/feature_imports.dart';
 import 'package:almeyar/features/purchase_orders/presentation/feature_imports.dart';
 import 'package:almeyar/features/shipment_tracking/presentation/feature_imports.dart';
+import 'package:almeyar/features/money_transfers/presentation/feature_imports.dart';
 import 'package:go_router/go_router.dart';
 
 final router = GoRouter(
@@ -130,6 +131,21 @@ final router = GoRouter(
       path: Routes.purchaseOrderDetails,
       name: Routes.purchaseOrderDetails,
       builder: (context, state) => const PurchaseOrderDetailsView(),
+    ),
+    GoRoute(
+      path: Routes.moneyTransfers,
+      name: Routes.moneyTransfers,
+      builder: (context, state) => const MoneyTransfersView(),
+    ),
+    GoRoute(
+      path: Routes.addNewMoneyTransfer,
+      name: Routes.addNewMoneyTransfer,
+      builder: (context, state) => const AddNewMoneyTransferView(),
+    ),
+    GoRoute(
+      path: Routes.moneyTransferDetails,
+      name: Routes.moneyTransferDetails,
+      builder: (context, state) => const MoneyTransferDetailsView(),
     ),
   ],
 );

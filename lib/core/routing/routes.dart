@@ -24,4 +24,7 @@ class Routes {
   static const String purchaseOrders = '/purchase-orders';
   static const String addPurchaseOrder = '/add-purchase-order';
   static const String purchaseOrderDetails = '/purchase-order-details';
+  static const String moneyTransfers = '/money-transfers';
+  static const String addNewMoneyTransfer = '/add-new-money-transfer';
+  static const String moneyTransferDetails = '/money-transfer-details';
 }
