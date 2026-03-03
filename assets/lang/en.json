@@ -335,5 +335,13 @@
     "add_purchase_order_value_in_dollars_hint": "Enter value in dollars",
     "add_purchase_order_payment_wallet": "Payment Wallet",
     "add_purchase_order_payment_wallet_hint": "Choose from your wallets list",
-    "add_purchase_order_submit": "Create Order"
+    "add_purchase_order_submit": "Create Order",
+    "purchase_order_details_title": "Purchase Order Details",
+    "purchase_order_details_basic_info": "Basic Order Details",
+    "purchase_order_details_order_number": "Order Number",
+    "purchase_order_details_order_value": "Order Value",
+    "purchase_order_details_order_status": "Order Status",
+    "purchase_order_details_creation_date": "Creation Date",
+    "purchase_order_details_purchase_date": "Purchase Date",
+    "purchase_order_details_payment_proof": "Payment Proof Attachment"
 }

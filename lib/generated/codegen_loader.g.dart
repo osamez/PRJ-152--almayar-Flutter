@@ -348,7 +348,15 @@ class CodegenLoader extends AssetLoader{
   "add_purchase_order_value_in_dollars_hint": "ادخل القيمة بالدولار",
   "add_purchase_order_payment_wallet": "المحفظة المخصصة للدفع",
   "add_purchase_order_payment_wallet_hint": "اختر من قائمة المحافظ الخاصة بك",
-  "add_purchase_order_submit": "انشاء طلب"
+  "add_purchase_order_submit": "انشاء طلب",
+  "purchase_order_details_title": "تفاصيل طلب الشراء",
+  "purchase_order_details_basic_info": "تفاصيل الطلب الأساسية",
+  "purchase_order_details_order_number": "رقم الطلب",
+  "purchase_order_details_order_value": "قيمة الطلب",
+  "purchase_order_details_order_status": "حالة الطلب",
+  "purchase_order_details_creation_date": "تاريخ الإنشاء",
+  "purchase_order_details_purchase_date": "تاريخ الشراء",
+  "purchase_order_details_payment_proof": "مرفق اثبات الدفع"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -684,7 +692,15 @@ static const Map<String,dynamic> _en = {
   "add_purchase_order_value_in_dollars_hint": "Enter value in dollars",
   "add_purchase_order_payment_wallet": "Payment Wallet",
   "add_purchase_order_payment_wallet_hint": "Choose from your wallets list",
-  "add_purchase_order_submit": "Create Order"
+  "add_purchase_order_submit": "Create Order",
+  "purchase_order_details_title": "Purchase Order Details",
+  "purchase_order_details_basic_info": "Basic Order Details",
+  "purchase_order_details_order_number": "Order Number",
+  "purchase_order_details_order_value": "Order Value",
+  "purchase_order_details_order_status": "Order Status",
+  "purchase_order_details_creation_date": "Creation Date",
+  "purchase_order_details_purchase_date": "Purchase Date",
+  "purchase_order_details_payment_proof": "Payment Proof Attachment"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

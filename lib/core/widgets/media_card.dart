@@ -1,9 +1,10 @@
-part of '../../feature_imports.dart';
+import 'package:almeyar/core/utils/exports.dart';
+import 'package:almeyar/core/widgets/media_grid.dart';
 
-class ShipmentDetailsMediaCard extends StatelessWidget {
-  const ShipmentDetailsMediaCard({super.key, required this.item});
+class MediaCard extends StatelessWidget {
+  const MediaCard({super.key, required this.item});
 
-  final ShipmentDetailsMediaItem item;
+  final MediaItem item;
 
   @override
   Widget build(BuildContext context) {
@@ -33,17 +34,18 @@ class ShipmentDetailsMediaCard extends StatelessWidget {
               ),
             ),
             child: Center(
-              child: item.isImage
-                  ? Icon(
-                      Icons.image_outlined,
-                      size: 40,
-                      color: AppColors.hintColor.withValues(alpha: 0.5),
-                    )
-                  : Icon(
-                      Icons.picture_as_pdf_outlined,
-                      size: 40,
-                      color: AppColors.orange.withValues(alpha: 0.7),
-                    ),
+              child: SvgPicture.asset(
+                item.isImage
+                    ? AppAssets.svgImagePlaceholder
+                    : AppAssets.svgPdfFile,
+                width: AppSizes.w30,
+                height: AppSizes.h30,
+                // colorFilter: item.isImage
+                //     ? null
+                //     : const ColorFilter.mode(
+                //         AppColors.red,
+                //         BlendMode.srcIn,
+              ),
             ),
           ),
           verticalSpace(AppSizes.h8),

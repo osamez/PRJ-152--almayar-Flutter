@@ -337,5 +337,13 @@ abstract class  LocaleKeys {
   static const add_purchase_order_payment_wallet = 'add_purchase_order_payment_wallet';
   static const add_purchase_order_payment_wallet_hint = 'add_purchase_order_payment_wallet_hint';
   static const add_purchase_order_submit = 'add_purchase_order_submit';
+  static const purchase_order_details_title = 'purchase_order_details_title';
+  static const purchase_order_details_basic_info = 'purchase_order_details_basic_info';
+  static const purchase_order_details_order_number = 'purchase_order_details_order_number';
+  static const purchase_order_details_order_value = 'purchase_order_details_order_value';
+  static const purchase_order_details_order_status = 'purchase_order_details_order_status';
+  static const purchase_order_details_creation_date = 'purchase_order_details_creation_date';
+  static const purchase_order_details_purchase_date = 'purchase_order_details_purchase_date';
+  static const purchase_order_details_payment_proof = 'purchase_order_details_payment_proof';
 
 }

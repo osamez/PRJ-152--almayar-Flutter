@@ -126,5 +126,10 @@ final router = GoRouter(
       name: Routes.addPurchaseOrder,
       builder: (context, state) => const AddPurchaseOrderView(),
     ),
+    GoRoute(
+      path: Routes.purchaseOrderDetails,
+      name: Routes.purchaseOrderDetails,
+      builder: (context, state) => const PurchaseOrderDetailsView(),
+    ),
   ],
 );

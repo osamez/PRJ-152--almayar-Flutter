@@ -43,10 +43,10 @@ class ShipmentDetailsBasicDataTab extends StatelessWidget {
           title: LocaleKeys.shipment_details_photos_title.tr(),
         ),
         verticalSpace(AppSizes.h16),
-        const ShipmentDetailsMediaGrid(
+        const MediaGrid(
           items: [
-            ShipmentDetailsMediaItem(fileName: 'Box_Image.jpg', isImage: true),
-            ShipmentDetailsMediaItem(fileName: 'Box_Image.jpg', isImage: true),
+            MediaItem(fileName: 'Box_Image.jpg', isImage: true),
+            MediaItem(fileName: 'Box_Image.jpg', isImage: true),
           ],
         ),
         verticalSpace(AppSizes.h24),
@@ -54,10 +54,10 @@ class ShipmentDetailsBasicDataTab extends StatelessWidget {
           title: LocaleKeys.shipment_details_documents_title.tr(),
         ),
         verticalSpace(AppSizes.h12),
-        const ShipmentDetailsMediaGrid(
+        const MediaGrid(
           items: [
-            ShipmentDetailsMediaItem(fileName: 'Box_Image.jpg', isImage: true),
-            ShipmentDetailsMediaItem(fileName: 'Invoice.pdf', isImage: false),
+            MediaItem(fileName: 'Box_Image.jpg', isImage: true),
+            MediaItem(fileName: 'Invoice.pdf', isImage: false),
           ],
         ),
       ],

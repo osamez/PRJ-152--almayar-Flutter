@@ -1,6 +1,8 @@
 import 'package:almeyar/core/helpers/helper_func.dart';
 import 'package:almeyar/core/utils/exports.dart';
 import 'package:almeyar/core/widgets/custom_icon_rounded_box.dart';
+import 'package:almeyar/core/widgets/custom_rounder_arrow.dart';
+import 'package:almeyar/core/widgets/media_grid.dart';
 
 // Views
 part 'views/shopping_sites_view.dart';
@@ -36,3 +38,14 @@ part 'widgets/purchase_orders/purchase_order_info_row.dart';
 part 'widgets/purchase_orders/purchase_order_stats_section.dart';
 part 'widgets/purchase_orders/filter_purchase_orders_bottom_sheet.dart';
 part 'widgets/purchase_orders/filter_purchase_order_option.dart';
+
+// Views - purchase_order_details
+part 'views/purchase_order_details_view.dart';
+
+// Widgets - purchase_order_details
+part 'widgets/purchase_order_details/purchase_order_details_view_body.dart';
+part 'widgets/purchase_order_details/purchase_order_details_header.dart';
+part 'widgets/purchase_order_details/purchase_order_details_info_card.dart';
+part 'widgets/purchase_order_details/purchase_order_details_section_title.dart';
+part 'widgets/purchase_order_details/purchase_order_details_info_row.dart';
+part 'widgets/purchase_order_details/purchase_order_details_info_section.dart';

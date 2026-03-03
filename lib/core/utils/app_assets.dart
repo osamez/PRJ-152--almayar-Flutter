@@ -70,6 +70,8 @@ class AppAssets {
 
   static const String svgHomeSolid = "assets/svg/home_solid.svg";
 
+  static const String svgImagePlaceholder = "assets/svg/image_placeholder.svg";
+
   static const String svgInvoice = "assets/svg/invoice.svg";
 
   static const String svgMapPinArea = "assets/svg/map-pin-area.svg";
@@ -83,6 +85,8 @@ class AppAssets {
   static const String svgOnboardingLogo = "assets/svg/onboarding_logo.svg";
 
   static const String svgPaperclip = "assets/svg/paperclip.svg";
+
+  static const String svgPdfFile = "assets/svg/pdf_file.svg";
 
   static const String svgPerson = "assets/svg/person.svg";
 
