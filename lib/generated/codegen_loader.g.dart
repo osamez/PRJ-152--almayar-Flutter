@@ -410,7 +410,16 @@ class CodegenLoader extends AssetLoader{
   "change_password_current": "كلمة المرور الحالية",
   "change_password_new": "كلمة المرور الجديدة",
   "change_password_confirm": "تأكيد كلمة المرور الجديدة",
-  "change_password_save": "حفظ البيانات"
+  "change_password_save": "حفظ البيانات",
+  "gift_cards_title": "بطاقات الهدايا",
+  "gift_cards_gift_card": "بطاقة هدايا",
+  "gift_cards_card_value": "قيمة البطاقة:",
+  "gift_cards_current_balance": "الرصيد الحالي:",
+  "gift_cards_usage_limit": "سقف الإستخدام:",
+  "gift_cards_expiry_date": "تاريخ الإنتهاء:",
+  "gift_cards_status_valid": "صالحة",
+  "gift_cards_status_expired": "منتهية",
+  "gift_cards_currency": "دينار ليبي"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -808,7 +817,16 @@ static const Map<String,dynamic> _en = {
   "change_password_current": "Current Password",
   "change_password_new": "New Password",
   "change_password_confirm": "Confirm New Password",
-  "change_password_save": "Save Data"
+  "change_password_save": "Save Data",
+  "gift_cards_title": "Gift Cards",
+  "gift_cards_gift_card": "Gift Card",
+  "gift_cards_card_value": "Card Value:",
+  "gift_cards_current_balance": "Current Balance:",
+  "gift_cards_usage_limit": "Usage Limit:",
+  "gift_cards_expiry_date": "Expiry Date:",
+  "gift_cards_status_valid": "Valid",
+  "gift_cards_status_expired": "Expired",
+  "gift_cards_currency": "Libyan Dinar"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

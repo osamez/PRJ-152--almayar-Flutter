@@ -403,5 +403,15 @@
     "change_password_current": "Current Password",
     "change_password_new": "New Password",
     "change_password_confirm": "Confirm New Password",
-    "change_password_save": "Save Data"
+    "change_password_save": "Save Data",
+
+    "gift_cards_title": "Gift Cards",
+    "gift_cards_gift_card": "Gift Card",
+    "gift_cards_card_value": "Card Value:",
+    "gift_cards_current_balance": "Current Balance:",
+    "gift_cards_usage_limit": "Usage Limit:",
+    "gift_cards_expiry_date": "Expiry Date:",
+    "gift_cards_status_valid": "Valid",
+    "gift_cards_status_expired": "Expired",
+    "gift_cards_currency": "Libyan Dinar"
 }

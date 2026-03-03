@@ -44,7 +44,7 @@ class ShipmentDetailsHeaderInfo extends StatelessWidget {
                     ),
                   ),
                   horizontalSpace(AppSizes.w8),
-                  ShipmentDetailsStatusBadge(
+                  StatusBadge(
                     label: LocaleKeys.shipment_details_ready_for_delivery.tr(),
                     color: AppColors.green,
                   ),

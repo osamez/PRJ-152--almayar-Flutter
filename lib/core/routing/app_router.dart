@@ -168,5 +168,10 @@ final router = GoRouter(
       name: Routes.termsAndConditions,
       builder: (context, state) => const TermsAndConditionsView(),
     ),
+    GoRoute(
+      path: Routes.giftCards,
+      name: Routes.giftCards,
+      builder: (context, state) => const GiftCardsView(),
+    ),
   ],
 );

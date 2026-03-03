@@ -41,7 +41,9 @@ class ProfileViewBody extends StatelessWidget {
             ProfileMenuItem(
               iconPath: AppAssets.svgGift,
               label: LocaleKeys.profile_gift_cards.tr(),
-              onTap: () {},
+              onTap: () {
+                context.push(Routes.giftCards);
+              },
             ),
             verticalSpace(AppSizes.h12),
             ProfileMenuItem(

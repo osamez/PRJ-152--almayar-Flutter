@@ -399,5 +399,14 @@ abstract class  LocaleKeys {
   static const change_password_new = 'change_password_new';
   static const change_password_confirm = 'change_password_confirm';
   static const change_password_save = 'change_password_save';
+  static const gift_cards_title = 'gift_cards_title';
+  static const gift_cards_gift_card = 'gift_cards_gift_card';
+  static const gift_cards_card_value = 'gift_cards_card_value';
+  static const gift_cards_current_balance = 'gift_cards_current_balance';
+  static const gift_cards_usage_limit = 'gift_cards_usage_limit';
+  static const gift_cards_expiry_date = 'gift_cards_expiry_date';
+  static const gift_cards_status_valid = 'gift_cards_status_valid';
+  static const gift_cards_status_expired = 'gift_cards_status_expired';
+  static const gift_cards_currency = 'gift_cards_currency';
 
 }
