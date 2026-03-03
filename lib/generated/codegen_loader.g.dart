@@ -394,7 +394,18 @@ class CodegenLoader extends AssetLoader{
   "profile_gift_cards": "بطاقات الهدايا",
   "profile_terms_and_conditions": "الشروط و الأحكام",
   "profile_privacy_policy": "سياسة الخصوصية",
-  "profile_about_app": "عن التطبيق"
+  "profile_about_app": "عن التطبيق",
+  "edit_profile_title": "الملف الشخصي",
+  "edit_profile_change_photo": "تغيير الصورة الشخصية",
+  "edit_profile_name": "الإسم",
+  "edit_profile_code": "الكود",
+  "edit_profile_country": "الدولة",
+  "edit_profile_city": "المدينة",
+  "edit_profile_phone": "رقم الهاتف",
+  "edit_profile_whatsapp": "رقم الواتس اب",
+  "edit_profile_update_account_data": "تحديث بيانات الحساب",
+  "edit_profile_whatsapp_number": "رقم واتساب ({number})",
+  "edit_profile_save_data": "حفظ البيانات"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -776,7 +787,18 @@ static const Map<String,dynamic> _en = {
   "profile_gift_cards": "Gift Cards",
   "profile_terms_and_conditions": "Terms & Conditions",
   "profile_privacy_policy": "Privacy Policy",
-  "profile_about_app": "About App"
+  "profile_about_app": "About App",
+  "edit_profile_title": "Profile",
+  "edit_profile_change_photo": "Change Profile Photo",
+  "edit_profile_name": "Name",
+  "edit_profile_code": "Code",
+  "edit_profile_country": "Country",
+  "edit_profile_city": "City",
+  "edit_profile_phone": "Phone Number",
+  "edit_profile_whatsapp": "WhatsApp Number",
+  "edit_profile_update_account_data": "Update Account Data",
+  "edit_profile_whatsapp_number": "WhatsApp Number ({number})",
+  "edit_profile_save_data": "Save Data"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

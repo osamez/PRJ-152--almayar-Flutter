@@ -19,7 +19,9 @@ class ProfileViewBody extends StatelessWidget {
             ProfileMenuItem(
               iconPath: AppAssets.svgUserProfile,
               label: LocaleKeys.profile.tr(),
-              onTap: () {},
+              onTap: () {
+                context.push(Routes.editProfile);
+              },
             ),
             verticalSpace(AppSizes.h12),
             ProfileMenuItem(

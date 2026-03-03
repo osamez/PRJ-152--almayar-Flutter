@@ -28,4 +28,5 @@ class Routes {
   static const String addNewMoneyTransfer = '/add-new-money-transfer';
   static const String moneyTransferDetails = '/money-transfer-details';
   static const String profile = '/profile';
+  static const String editProfile = '/edit-profile';
 }

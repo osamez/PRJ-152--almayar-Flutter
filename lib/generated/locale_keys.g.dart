@@ -383,5 +383,16 @@ abstract class  LocaleKeys {
   static const profile_terms_and_conditions = 'profile_terms_and_conditions';
   static const profile_privacy_policy = 'profile_privacy_policy';
   static const profile_about_app = 'profile_about_app';
+  static const edit_profile_title = 'edit_profile_title';
+  static const edit_profile_change_photo = 'edit_profile_change_photo';
+  static const edit_profile_name = 'edit_profile_name';
+  static const edit_profile_code = 'edit_profile_code';
+  static const edit_profile_country = 'edit_profile_country';
+  static const edit_profile_city = 'edit_profile_city';
+  static const edit_profile_phone = 'edit_profile_phone';
+  static const edit_profile_whatsapp = 'edit_profile_whatsapp';
+  static const edit_profile_update_account_data = 'edit_profile_update_account_data';
+  static const edit_profile_whatsapp_number = 'edit_profile_whatsapp_number';
+  static const edit_profile_save_data = 'edit_profile_save_data';
 
 }

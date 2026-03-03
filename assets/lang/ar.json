@@ -385,5 +385,17 @@
     "profile_gift_cards": "بطاقات الهدايا",
     "profile_terms_and_conditions": "الشروط و الأحكام",
     "profile_privacy_policy": "سياسة الخصوصية",
-    "profile_about_app": "عن التطبيق"
+    "profile_about_app": "عن التطبيق",
+
+    "edit_profile_title": "الملف الشخصي",
+    "edit_profile_change_photo": "تغيير الصورة الشخصية",
+    "edit_profile_name": "الإسم",
+    "edit_profile_code": "الكود",
+    "edit_profile_country": "الدولة",
+    "edit_profile_city": "المدينة",
+    "edit_profile_phone": "رقم الهاتف",
+    "edit_profile_whatsapp": "رقم الواتس اب",
+    "edit_profile_update_account_data": "تحديث بيانات الحساب",
+    "edit_profile_whatsapp_number": "رقم واتساب ({number})",
+    "edit_profile_save_data": "حفظ البيانات"
 }

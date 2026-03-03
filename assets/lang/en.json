@@ -385,5 +385,17 @@
     "profile_gift_cards": "Gift Cards",
     "profile_terms_and_conditions": "Terms & Conditions",
     "profile_privacy_policy": "Privacy Policy",
-    "profile_about_app": "About App"
+    "profile_about_app": "About App",
+
+    "edit_profile_title": "Profile",
+    "edit_profile_change_photo": "Change Profile Photo",
+    "edit_profile_name": "Name",
+    "edit_profile_code": "Code",
+    "edit_profile_country": "Country",
+    "edit_profile_city": "City",
+    "edit_profile_phone": "Phone Number",
+    "edit_profile_whatsapp": "WhatsApp Number",
+    "edit_profile_update_account_data": "Update Account Data",
+    "edit_profile_whatsapp_number": "WhatsApp Number ({number})",
+    "edit_profile_save_data": "Save Data"
 }

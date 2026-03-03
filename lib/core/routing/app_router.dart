@@ -153,5 +153,10 @@ final router = GoRouter(
       name: Routes.profile,
       builder: (context, state) => const ProfileView(),
     ),
+    GoRoute(
+      path: Routes.editProfile,
+      name: Routes.editProfile,
+      builder: (context, state) => const EditProfileView(),
+    ),
   ],
 );
