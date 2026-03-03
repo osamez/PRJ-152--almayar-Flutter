@@ -38,7 +38,7 @@ class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
         },
         icon: Icon(
           isObscure ? Icons.visibility_off_outlined : Icons.visibility_outlined,
-          color: AppColors.deepViolet,
+          color: AppColors.darkSlate,
         ),
       ),
     );

@@ -394,5 +394,9 @@ abstract class  LocaleKeys {
   static const edit_profile_update_account_data = 'edit_profile_update_account_data';
   static const edit_profile_whatsapp_number = 'edit_profile_whatsapp_number';
   static const edit_profile_save_data = 'edit_profile_save_data';
+  static const change_password_current = 'change_password_current';
+  static const change_password_new = 'change_password_new';
+  static const change_password_confirm = 'change_password_confirm';
+  static const change_password_save = 'change_password_save';
 
 }

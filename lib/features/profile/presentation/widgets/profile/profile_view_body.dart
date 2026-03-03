@@ -27,7 +27,9 @@ class ProfileViewBody extends StatelessWidget {
             ProfileMenuItem(
               iconPath: AppAssets.svgPassword,
               label: LocaleKeys.profile_change_password.tr(),
-              onTap: () {},
+              onTap: () {
+                context.push(Routes.changePassword);
+              },
             ),
             verticalSpace(AppSizes.h12),
             ProfileMenuItem(

@@ -397,5 +397,10 @@
     "edit_profile_whatsapp": "WhatsApp Number",
     "edit_profile_update_account_data": "Update Account Data",
     "edit_profile_whatsapp_number": "WhatsApp Number ({number})",
-    "edit_profile_save_data": "Save Data"
+    "edit_profile_save_data": "Save Data",
+
+    "change_password_current": "Current Password",
+    "change_password_new": "New Password",
+    "change_password_confirm": "Confirm New Password",
+    "change_password_save": "Save Data"
 }

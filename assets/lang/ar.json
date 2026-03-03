@@ -397,5 +397,10 @@
     "edit_profile_whatsapp": "رقم الواتس اب",
     "edit_profile_update_account_data": "تحديث بيانات الحساب",
     "edit_profile_whatsapp_number": "رقم واتساب ({number})",
-    "edit_profile_save_data": "حفظ البيانات"
+    "edit_profile_save_data": "حفظ البيانات",
+
+    "change_password_current": "كلمة المرور الحالية",
+    "change_password_new": "كلمة المرور الجديدة",
+    "change_password_confirm": "تأكيد كلمة المرور الجديدة",
+    "change_password_save": "حفظ البيانات"
 }
