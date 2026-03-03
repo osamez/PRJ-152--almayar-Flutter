@@ -381,6 +381,7 @@ abstract class  LocaleKeys {
   static const profile_support_tickets = 'profile_support_tickets';
   static const profile_gift_cards = 'profile_gift_cards';
   static const profile_terms_and_conditions = 'profile_terms_and_conditions';
+  static const profile_terms_and_conditions_content = 'profile_terms_and_conditions_content';
   static const profile_privacy_policy = 'profile_privacy_policy';
   static const profile_about_app = 'profile_about_app';
   static const edit_profile_title = 'edit_profile_title';

@@ -30,4 +30,5 @@ class Routes {
   static const String profile = '/profile';
   static const String editProfile = '/edit-profile';
   static const String changePassword = '/change-password';
+  static const String termsAndConditions = '/terms-and-conditions';
 }

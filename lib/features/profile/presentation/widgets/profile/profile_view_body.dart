@@ -47,7 +47,9 @@ class ProfileViewBody extends StatelessWidget {
             ProfileMenuItem(
               iconPath: AppAssets.svgGavel,
               label: LocaleKeys.profile_terms_and_conditions.tr(),
-              onTap: () {},
+              onTap: () {
+                context.push(Routes.termsAndConditions);
+              },
             ),
             verticalSpace(AppSizes.h12),
             ProfileMenuItem(

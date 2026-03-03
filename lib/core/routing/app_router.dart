@@ -163,5 +163,10 @@ final router = GoRouter(
       name: Routes.changePassword,
       builder: (context, state) => const ChangePasswordView(),
     ),
+    GoRoute(
+      path: Routes.termsAndConditions,
+      name: Routes.termsAndConditions,
+      builder: (context, state) => const TermsAndConditionsView(),
+    ),
   ],
 );
