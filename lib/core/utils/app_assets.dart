@@ -50,6 +50,8 @@ class AppAssets {
 
   static const String svgCheckCircle = "assets/svg/check-circle.svg";
 
+  static const String svgCoins = "assets/svg/coins.svg";
+
   static const String svgCopy = "assets/svg/copy.svg";
 
   static const String svgCube = "assets/svg/cube.svg";

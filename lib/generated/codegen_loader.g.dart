@@ -356,7 +356,15 @@ class CodegenLoader extends AssetLoader{
   "purchase_order_details_order_status": "حالة الطلب",
   "purchase_order_details_creation_date": "تاريخ الإنشاء",
   "purchase_order_details_purchase_date": "تاريخ الشراء",
-  "purchase_order_details_payment_proof": "مرفق اثبات الدفع"
+  "purchase_order_details_payment_proof": "مرفق اثبات الدفع",
+  "money_transfers_title": "الحوالات المالية",
+  "money_transfers_new_transfer": "حوالة جديدة",
+  "money_transfers_deducted": "تم الخصم",
+  "money_transfers_completed": "مكتمل",
+  "money_transfers_add_new_transfer": "إضافة حوالة جديدة",
+  "money_transfers_invoice_value": "قيمة الفاتورة:",
+  "money_transfers_payment_currency": "العملة السداد:",
+  "money_transfers_due_amount": "المستحق:"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -700,7 +708,15 @@ static const Map<String,dynamic> _en = {
   "purchase_order_details_order_status": "Order Status",
   "purchase_order_details_creation_date": "Creation Date",
   "purchase_order_details_purchase_date": "Purchase Date",
-  "purchase_order_details_payment_proof": "Payment Proof Attachment"
+  "purchase_order_details_payment_proof": "Payment Proof Attachment",
+  "money_transfers_title": "Financial Transfers",
+  "money_transfers_new_transfer": "New Transfer",
+  "money_transfers_deducted": "Deducted",
+  "money_transfers_completed": "Completed",
+  "money_transfers_add_new_transfer": "Add New Transfer",
+  "money_transfers_invoice_value": "Invoice Value:",
+  "money_transfers_payment_currency": "Payment Currency:",
+  "money_transfers_due_amount": "Due Amount:"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

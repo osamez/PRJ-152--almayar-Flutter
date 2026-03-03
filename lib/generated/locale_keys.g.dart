@@ -345,5 +345,13 @@ abstract class  LocaleKeys {
   static const purchase_order_details_creation_date = 'purchase_order_details_creation_date';
   static const purchase_order_details_purchase_date = 'purchase_order_details_purchase_date';
   static const purchase_order_details_payment_proof = 'purchase_order_details_payment_proof';
+  static const money_transfers_title = 'money_transfers_title';
+  static const money_transfers_new_transfer = 'money_transfers_new_transfer';
+  static const money_transfers_deducted = 'money_transfers_deducted';
+  static const money_transfers_completed = 'money_transfers_completed';
+  static const money_transfers_add_new_transfer = 'money_transfers_add_new_transfer';
+  static const money_transfers_invoice_value = 'money_transfers_invoice_value';
+  static const money_transfers_payment_currency = 'money_transfers_payment_currency';
+  static const money_transfers_due_amount = 'money_transfers_due_amount';
 
 }

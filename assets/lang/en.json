@@ -343,5 +343,14 @@
     "purchase_order_details_order_status": "Order Status",
     "purchase_order_details_creation_date": "Creation Date",
     "purchase_order_details_purchase_date": "Purchase Date",
-    "purchase_order_details_payment_proof": "Payment Proof Attachment"
+    "purchase_order_details_payment_proof": "Payment Proof Attachment",
+
+    "money_transfers_title": "Financial Transfers",
+    "money_transfers_new_transfer": "New Transfer",
+    "money_transfers_deducted": "Deducted",
+    "money_transfers_completed": "Completed",
+    "money_transfers_add_new_transfer": "Add New Transfer",
+    "money_transfers_invoice_value": "Invoice Value:",
+    "money_transfers_payment_currency": "Payment Currency:",
+    "money_transfers_due_amount": "Due Amount:"
 }
