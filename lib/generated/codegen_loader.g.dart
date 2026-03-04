@@ -431,7 +431,21 @@ class CodegenLoader extends AssetLoader{
   "support_tickets_status_closed": "مغلقة",
   "support_tickets_priority_high": "عالية",
   "support_tickets_priority_medium": "متوسطة",
-  "support_tickets_priority_low": "منخفضة"
+  "support_tickets_priority_low": "منخفضة",
+  "add_ticket_heading": "إضافة تذكرة دعم جديدة",
+  "add_ticket_title": "العنوان",
+  "add_ticket_title_hint": "ادخل عنوان التذكرة",
+  "add_ticket_directed_to": "موجهة إلى",
+  "add_ticket_directed_to_hint": "اختر الإدارة التي تريد توجيه التذكرة لها",
+  "add_ticket_priority": "الأولوية",
+  "add_ticket_priority_hint": "اختر الأولوية لهذه التذكرة",
+  "add_ticket_shipment_code": "كود الشحنة او الرحلة (اختياري)",
+  "add_ticket_shipment_code_hint": "ادخل عنوان التذكرة",
+  "add_ticket_description": "الوصف",
+  "add_ticket_description_hint": "ادخل وصف التذكرة",
+  "add_ticket_attachment": "مرفق (اختياري)",
+  "add_ticket_attachment_hint": "قم بتحميل ملف مرفق هنا",
+  "add_ticket_save": "حفظ البيانات"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -850,7 +864,21 @@ static const Map<String,dynamic> _en = {
   "support_tickets_status_closed": "Closed",
   "support_tickets_priority_high": "High",
   "support_tickets_priority_medium": "Medium",
-  "support_tickets_priority_low": "Low"
+  "support_tickets_priority_low": "Low",
+  "add_ticket_heading": "Add New Support Ticket",
+  "add_ticket_title": "Title",
+  "add_ticket_title_hint": "Enter ticket title",
+  "add_ticket_directed_to": "Directed To",
+  "add_ticket_directed_to_hint": "Select the department to direct the ticket to",
+  "add_ticket_priority": "Priority",
+  "add_ticket_priority_hint": "Select the priority for this ticket",
+  "add_ticket_shipment_code": "Shipment or Trip Code (Optional)",
+  "add_ticket_shipment_code_hint": "Enter ticket title",
+  "add_ticket_description": "Description",
+  "add_ticket_description_hint": "Enter ticket description",
+  "add_ticket_attachment": "Attachment (Optional)",
+  "add_ticket_attachment_hint": "Upload an attachment file here",
+  "add_ticket_save": "Save Data"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

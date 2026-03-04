@@ -420,5 +420,19 @@ abstract class  LocaleKeys {
   static const support_tickets_priority_high = 'support_tickets_priority_high';
   static const support_tickets_priority_medium = 'support_tickets_priority_medium';
   static const support_tickets_priority_low = 'support_tickets_priority_low';
+  static const add_ticket_heading = 'add_ticket_heading';
+  static const add_ticket_title = 'add_ticket_title';
+  static const add_ticket_title_hint = 'add_ticket_title_hint';
+  static const add_ticket_directed_to = 'add_ticket_directed_to';
+  static const add_ticket_directed_to_hint = 'add_ticket_directed_to_hint';
+  static const add_ticket_priority = 'add_ticket_priority';
+  static const add_ticket_priority_hint = 'add_ticket_priority_hint';
+  static const add_ticket_shipment_code = 'add_ticket_shipment_code';
+  static const add_ticket_shipment_code_hint = 'add_ticket_shipment_code_hint';
+  static const add_ticket_description = 'add_ticket_description';
+  static const add_ticket_description_hint = 'add_ticket_description_hint';
+  static const add_ticket_attachment = 'add_ticket_attachment';
+  static const add_ticket_attachment_hint = 'add_ticket_attachment_hint';
+  static const add_ticket_save = 'add_ticket_save';
 
 }

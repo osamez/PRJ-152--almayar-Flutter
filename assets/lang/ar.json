@@ -426,5 +426,20 @@
     "support_tickets_status_closed": "مغلقة",
     "support_tickets_priority_high": "عالية",
     "support_tickets_priority_medium": "متوسطة",
-    "support_tickets_priority_low": "منخفضة"
+    "support_tickets_priority_low": "منخفضة",
+
+    "add_ticket_heading": "إضافة تذكرة دعم جديدة",
+    "add_ticket_title": "العنوان",
+    "add_ticket_title_hint": "ادخل عنوان التذكرة",
+    "add_ticket_directed_to": "موجهة إلى",
+    "add_ticket_directed_to_hint": "اختر الإدارة التي تريد توجيه التذكرة لها",
+    "add_ticket_priority": "الأولوية",
+    "add_ticket_priority_hint": "اختر الأولوية لهذه التذكرة",
+    "add_ticket_shipment_code": "كود الشحنة او الرحلة (اختياري)",
+    "add_ticket_shipment_code_hint": "ادخل عنوان التذكرة",
+    "add_ticket_description": "الوصف",
+    "add_ticket_description_hint": "ادخل وصف التذكرة",
+    "add_ticket_attachment": "مرفق (اختياري)",
+    "add_ticket_attachment_hint": "قم بتحميل ملف مرفق هنا",
+    "add_ticket_save": "حفظ البيانات"
 }

@@ -179,5 +179,10 @@ final router = GoRouter(
       name: Routes.supportTickets,
       builder: (context, state) => const SupportTicketsView(),
     ),
+    GoRoute(
+      path: Routes.addNewTicket,
+      name: Routes.addNewTicket,
+      builder: (context, state) => const AddNewTicketView(),
+    ),
   ],
 );

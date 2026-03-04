@@ -33,4 +33,5 @@ class Routes {
   static const String termsAndConditions = '/terms-and-conditions';
   static const String giftCards = '/gift-cards';
   static const String supportTickets = '/support-tickets';
+  static const String addNewTicket = '/add-new-ticket';
 }

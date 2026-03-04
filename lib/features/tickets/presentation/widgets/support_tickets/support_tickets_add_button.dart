@@ -7,7 +7,7 @@ class SupportTicketsAddButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppElevatedButton(
       onPressed: () {
-        // TODO: Navigate to add new ticket screen
+        context.push(Routes.addNewTicket);
       },
       text: LocaleKeys.support_tickets_add_new.tr(),
       backgroundColor: AppColors.orange,
