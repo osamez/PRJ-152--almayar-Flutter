@@ -442,5 +442,13 @@ abstract class  LocaleKeys {
   static const ticket_details_description = 'ticket_details_description';
   static const ticket_details_correspondence = 'ticket_details_correspondence';
   static const ticket_details_reply_hint = 'ticket_details_reply_hint';
+  static const wallets_title = 'wallets_title';
+  static const wallets_libyan_dinar = 'wallets_libyan_dinar';
+  static const wallets_us_dollar = 'wallets_us_dollar';
+  static const wallets_turkish_lira = 'wallets_turkish_lira';
+  static const wallets_current_balance = 'wallets_current_balance';
+  static const wallets_currency_lyd = 'wallets_currency_lyd';
+  static const wallets_currency_usd = 'wallets_currency_usd';
+  static const wallets_currency_try = 'wallets_currency_try';
 
 }

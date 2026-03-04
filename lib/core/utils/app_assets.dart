@@ -142,6 +142,8 @@ class AppAssets {
 
   static const String svgWallet = "assets/svg/wallet.svg";
 
+  static const String svgWalletOutlined = "assets/svg/wallet-outlined.svg";
+
   static const String svgWalletSolid = "assets/svg/wallet_solid.svg";
 
   static const String svgWarning = "assets/svg/warning.svg";

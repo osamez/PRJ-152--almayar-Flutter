@@ -453,7 +453,15 @@ class CodegenLoader extends AssetLoader{
   "ticket_details_related_to": "متعلقة بـ",
   "ticket_details_description": "الوصف:",
   "ticket_details_correspondence": "المراسلات والردود",
-  "ticket_details_reply_hint": "اكتب ردودك هنا"
+  "ticket_details_reply_hint": "اكتب ردودك هنا",
+  "wallets_title": "المحافظ المالية",
+  "wallets_libyan_dinar": "محفظة الدينار الليبي",
+  "wallets_us_dollar": "محفظة الدولار الأمريكي",
+  "wallets_turkish_lira": "محفظة الليرة التركية",
+  "wallets_current_balance": "الرصيد الحالي: {balance} {currency}",
+  "wallets_currency_lyd": "دينار ليبي",
+  "wallets_currency_usd": "دولار امريكي",
+  "wallets_currency_try": "ليرة تركية"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -894,7 +902,15 @@ static const Map<String,dynamic> _en = {
   "ticket_details_related_to": "Related To",
   "ticket_details_description": "Description:",
   "ticket_details_correspondence": "Correspondence & Replies",
-  "ticket_details_reply_hint": "Write your reply here"
+  "ticket_details_reply_hint": "Write your reply here",
+  "wallets_title": "Financial Wallets",
+  "wallets_libyan_dinar": "Libyan Dinar Wallet",
+  "wallets_us_dollar": "US Dollar Wallet",
+  "wallets_turkish_lira": "Turkish Lira Wallet",
+  "wallets_current_balance": "Current Balance: {balance} {currency}",
+  "wallets_currency_lyd": "Libyan Dinar",
+  "wallets_currency_usd": "US Dollar",
+  "wallets_currency_try": "Turkish Lira"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

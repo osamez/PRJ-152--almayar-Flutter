@@ -450,5 +450,14 @@
     "ticket_details_related_to": "Related To",
     "ticket_details_description": "Description:",
     "ticket_details_correspondence": "Correspondence & Replies",
-    "ticket_details_reply_hint": "Write your reply here"
+    "ticket_details_reply_hint": "Write your reply here",
+
+    "wallets_title": "Financial Wallets",
+    "wallets_libyan_dinar": "Libyan Dinar Wallet",
+    "wallets_us_dollar": "US Dollar Wallet",
+    "wallets_turkish_lira": "Turkish Lira Wallet",
+    "wallets_current_balance": "Current Balance: {balance} {currency}",
+    "wallets_currency_lyd": "Libyan Dinar",
+    "wallets_currency_usd": "US Dollar",
+    "wallets_currency_try": "Turkish Lira"
 }
