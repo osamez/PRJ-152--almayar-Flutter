@@ -25,7 +25,9 @@ class WalletCard extends StatelessWidget {
         ],
       ),
       child: CustomInkWellWidget(
-        onTap: () {},
+        onTap: () {
+          context.pushNamed(Routes.accountStatement);
+        },
         padding: EdgeInsets.symmetric(
           horizontal: AppSizes.w30,
           vertical: AppSizes.h16,

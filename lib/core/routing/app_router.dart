@@ -195,5 +195,10 @@ final router = GoRouter(
       name: Routes.wallets,
       builder: (context, state) => const WalletsView(),
     ),
+    GoRoute(
+      path: Routes.accountStatement,
+      name: Routes.accountStatement,
+      builder: (context, state) => const AccountStatementView(),
+    ),
   ],
 );

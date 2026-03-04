@@ -459,5 +459,25 @@
     "wallets_current_balance": "Current Balance: {balance} {currency}",
     "wallets_currency_lyd": "Libyan Dinar",
     "wallets_currency_usd": "US Dollar",
-    "wallets_currency_try": "Turkish Lira"
+    "wallets_currency_try": "Turkish Lira",
+
+    "account_statement_title": "Account Statement",
+    "account_statement_charge_wallet": "Charge Wallet",
+    "account_statement_transfer_funds": "Transfer Funds",
+    "account_statement_filter_title": "Filter Transactions",
+    "account_statement_results_found": "{count} results found",
+    "account_statement_collection": "Collection",
+    "account_statement_disbursement": "Disbursement",
+    "account_statement_deposit_description": "Deposit to customer wallet, transaction #{transactionId}",
+    "account_statement_balance_after": "Balance after transaction: {balance} {currency}",
+    "account_statement_deduction_description": "Deduction for delivery order #{orderId}",
+    "account_statement_wallet_balance": "{balance} {currency}",
+    "account_statement_filter_sheet_title": "Filter Statement",
+    "account_statement_filter_type": "Type",
+    "account_statement_filter_type_hint": "Select type",
+    "account_statement_filter_from_date": "From Date",
+    "account_statement_filter_from_date_hint": "Enter date for search range start",
+    "account_statement_filter_to_date": "To Date",
+    "account_statement_filter_to_date_hint": "Enter date for search range end",
+    "account_statement_filter_apply": "Filter"
 }

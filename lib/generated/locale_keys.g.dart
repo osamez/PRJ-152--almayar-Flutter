@@ -450,5 +450,24 @@ abstract class  LocaleKeys {
   static const wallets_currency_lyd = 'wallets_currency_lyd';
   static const wallets_currency_usd = 'wallets_currency_usd';
   static const wallets_currency_try = 'wallets_currency_try';
+  static const account_statement_title = 'account_statement_title';
+  static const account_statement_charge_wallet = 'account_statement_charge_wallet';
+  static const account_statement_transfer_funds = 'account_statement_transfer_funds';
+  static const account_statement_filter_title = 'account_statement_filter_title';
+  static const account_statement_results_found = 'account_statement_results_found';
+  static const account_statement_collection = 'account_statement_collection';
+  static const account_statement_disbursement = 'account_statement_disbursement';
+  static const account_statement_deposit_description = 'account_statement_deposit_description';
+  static const account_statement_balance_after = 'account_statement_balance_after';
+  static const account_statement_deduction_description = 'account_statement_deduction_description';
+  static const account_statement_wallet_balance = 'account_statement_wallet_balance';
+  static const account_statement_filter_sheet_title = 'account_statement_filter_sheet_title';
+  static const account_statement_filter_type = 'account_statement_filter_type';
+  static const account_statement_filter_type_hint = 'account_statement_filter_type_hint';
+  static const account_statement_filter_from_date = 'account_statement_filter_from_date';
+  static const account_statement_filter_from_date_hint = 'account_statement_filter_from_date_hint';
+  static const account_statement_filter_to_date = 'account_statement_filter_to_date';
+  static const account_statement_filter_to_date_hint = 'account_statement_filter_to_date_hint';
+  static const account_statement_filter_apply = 'account_statement_filter_apply';
 
 }

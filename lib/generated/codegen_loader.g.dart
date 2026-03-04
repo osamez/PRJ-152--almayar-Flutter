@@ -461,7 +461,26 @@ class CodegenLoader extends AssetLoader{
   "wallets_current_balance": "الرصيد الحالي: {balance} {currency}",
   "wallets_currency_lyd": "دينار ليبي",
   "wallets_currency_usd": "دولار امريكي",
-  "wallets_currency_try": "ليرة تركية"
+  "wallets_currency_try": "ليرة تركية",
+  "account_statement_title": "كشف الحساب",
+  "account_statement_charge_wallet": "شحن المحفظة",
+  "account_statement_transfer_funds": "تحويل الأموال",
+  "account_statement_filter_title": "تصفية الشحنات",
+  "account_statement_results_found": "تم العثور على {count} نتائج",
+  "account_statement_collection": "عملية قبض",
+  "account_statement_disbursement": "عملية صرف",
+  "account_statement_deposit_description": "ايداع في محفظة العميل رقم المعاملة #{transactionId}",
+  "account_statement_balance_after": "الرصيد بعد الحركة: {balance} {currency}",
+  "account_statement_deduction_description": "خصم قيمة طلب التوصيل رقم #{orderId}",
+  "account_statement_wallet_balance": "{balance} {currency}",
+  "account_statement_filter_sheet_title": "تصفية الكشف",
+  "account_statement_filter_type": "النوع",
+  "account_statement_filter_type_hint": "اختر النوع",
+  "account_statement_filter_from_date": "من تاريخ",
+  "account_statement_filter_from_date_hint": "ادخل تاريخ لبداية نطاق البحث",
+  "account_statement_filter_to_date": "حتى تاريخ",
+  "account_statement_filter_to_date_hint": "ادخل تاريخ لنهاية نطاق البحث",
+  "account_statement_filter_apply": "تصفية"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -910,7 +929,26 @@ static const Map<String,dynamic> _en = {
   "wallets_current_balance": "Current Balance: {balance} {currency}",
   "wallets_currency_lyd": "Libyan Dinar",
   "wallets_currency_usd": "US Dollar",
-  "wallets_currency_try": "Turkish Lira"
+  "wallets_currency_try": "Turkish Lira",
+  "account_statement_title": "Account Statement",
+  "account_statement_charge_wallet": "Charge Wallet",
+  "account_statement_transfer_funds": "Transfer Funds",
+  "account_statement_filter_title": "Filter Transactions",
+  "account_statement_results_found": "{count} results found",
+  "account_statement_collection": "Collection",
+  "account_statement_disbursement": "Disbursement",
+  "account_statement_deposit_description": "Deposit to customer wallet, transaction #{transactionId}",
+  "account_statement_balance_after": "Balance after transaction: {balance} {currency}",
+  "account_statement_deduction_description": "Deduction for delivery order #{orderId}",
+  "account_statement_wallet_balance": "{balance} {currency}",
+  "account_statement_filter_sheet_title": "Filter Statement",
+  "account_statement_filter_type": "Type",
+  "account_statement_filter_type_hint": "Select type",
+  "account_statement_filter_from_date": "From Date",
+  "account_statement_filter_from_date_hint": "Enter date for search range start",
+  "account_statement_filter_to_date": "To Date",
+  "account_statement_filter_to_date_hint": "Enter date for search range end",
+  "account_statement_filter_apply": "Filter"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }
