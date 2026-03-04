@@ -22,3 +22,15 @@ part 'widgets/add_new_ticket/add_new_ticket_view_body.dart';
 part 'widgets/add_new_ticket/add_new_ticket_directed_to_field.dart';
 part 'widgets/add_new_ticket/add_new_ticket_priority_field.dart';
 part 'widgets/add_new_ticket/add_new_ticket_submit_button.dart';
+
+// Views - ticket_details
+part 'views/ticket_details_view.dart';
+
+// Widgets - ticket_details
+part 'widgets/ticket_details/ticket_details_view_body.dart';
+part 'widgets/ticket_details/ticket_details_info_section.dart';
+part 'widgets/ticket_details/ticket_details_info_row.dart';
+part 'widgets/ticket_details/ticket_details_description_card.dart';
+part 'widgets/ticket_details/ticket_details_correspondence_section.dart';
+part 'widgets/ticket_details/ticket_details_message_bubble.dart';
+part 'widgets/ticket_details/ticket_details_reply_input.dart';

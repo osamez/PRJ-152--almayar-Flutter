@@ -441,5 +441,14 @@
     "add_ticket_description_hint": "ادخل وصف التذكرة",
     "add_ticket_attachment": "مرفق (اختياري)",
     "add_ticket_attachment_hint": "قم بتحميل ملف مرفق هنا",
-    "add_ticket_save": "حفظ البيانات"
+    "add_ticket_save": "حفظ البيانات",
+
+    "ticket_details_title": "تفاصيل التذكرة",
+    "ticket_details_ticket_number": "رقم التذكرة",
+    "ticket_details_creation_date": "تاريخ الإنشاء",
+    "ticket_details_last_reply_date": "تاريخ اخر رد",
+    "ticket_details_related_to": "متعلقة بـ",
+    "ticket_details_description": "الوصف:",
+    "ticket_details_correspondence": "المراسلات والردود",
+    "ticket_details_reply_hint": "اكتب ردودك هنا"
 }

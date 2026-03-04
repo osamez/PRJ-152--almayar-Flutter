@@ -434,5 +434,13 @@ abstract class  LocaleKeys {
   static const add_ticket_attachment = 'add_ticket_attachment';
   static const add_ticket_attachment_hint = 'add_ticket_attachment_hint';
   static const add_ticket_save = 'add_ticket_save';
+  static const ticket_details_title = 'ticket_details_title';
+  static const ticket_details_ticket_number = 'ticket_details_ticket_number';
+  static const ticket_details_creation_date = 'ticket_details_creation_date';
+  static const ticket_details_last_reply_date = 'ticket_details_last_reply_date';
+  static const ticket_details_related_to = 'ticket_details_related_to';
+  static const ticket_details_description = 'ticket_details_description';
+  static const ticket_details_correspondence = 'ticket_details_correspondence';
+  static const ticket_details_reply_hint = 'ticket_details_reply_hint';
 
 }

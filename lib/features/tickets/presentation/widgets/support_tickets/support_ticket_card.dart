@@ -23,10 +23,6 @@ class SupportTicketCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: AppSizes.w14,
-        vertical: AppSizes.h14,
-      ),
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.circular(AppSizes.radiusMd),
@@ -38,25 +34,35 @@ class SupportTicketCard extends StatelessWidget {
           ),
         ],
       ),
-      child: Row(
-        children: [
-          const SupportTicketCardIcon(),
-          horizontalSpace(AppSizes.w12),
-          Expanded(
-            child: SupportTicketCardInfo(
-              title: title,
-              date: date,
-              referenceCode: referenceCode,
+      child: CustomInkWellWidget(
+        onTap: () {
+          context.pushNamed(Routes.ticketDetails);
+        },
+        radius: AppSizes.radiusMd,
+        padding: EdgeInsets.symmetric(
+          horizontal: AppSizes.w14,
+          vertical: AppSizes.h14,
+        ),
+        child: Row(
+          children: [
+            const SupportTicketCardIcon(),
+            horizontalSpace(AppSizes.w12),
+            Expanded(
+              child: SupportTicketCardInfo(
+                title: title,
+                date: date,
+                referenceCode: referenceCode,
+              ),
             ),
-          ),
-          horizontalSpace(AppSizes.w12),
-          SupportTicketCardBadges(
-            statusLabel: statusLabel,
-            statusColor: statusColor,
-            priorityLabel: priorityLabel,
-            priorityColor: priorityColor,
-          ),
-        ],
+            horizontalSpace(AppSizes.w12),
+            SupportTicketCardBadges(
+              statusLabel: statusLabel,
+              statusColor: statusColor,
+              priorityLabel: priorityLabel,
+              priorityColor: priorityColor,
+            ),
+          ],
+        ),
       ),
     );
   }

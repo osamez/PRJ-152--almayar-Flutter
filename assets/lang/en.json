@@ -441,5 +441,14 @@
     "add_ticket_description_hint": "Enter ticket description",
     "add_ticket_attachment": "Attachment (Optional)",
     "add_ticket_attachment_hint": "Upload an attachment file here",
-    "add_ticket_save": "Save Data"
+    "add_ticket_save": "Save Data",
+
+    "ticket_details_title": "Ticket Details",
+    "ticket_details_ticket_number": "Ticket Number",
+    "ticket_details_creation_date": "Creation Date",
+    "ticket_details_last_reply_date": "Last Reply Date",
+    "ticket_details_related_to": "Related To",
+    "ticket_details_description": "Description:",
+    "ticket_details_correspondence": "Correspondence & Replies",
+    "ticket_details_reply_hint": "Write your reply here"
 }

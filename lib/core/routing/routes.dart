@@ -34,4 +34,5 @@ class Routes {
   static const String giftCards = '/gift-cards';
   static const String supportTickets = '/support-tickets';
   static const String addNewTicket = '/add-new-ticket';
+  static const String ticketDetails = '/ticket-details';
 }

@@ -445,7 +445,15 @@ class CodegenLoader extends AssetLoader{
   "add_ticket_description_hint": "ادخل وصف التذكرة",
   "add_ticket_attachment": "مرفق (اختياري)",
   "add_ticket_attachment_hint": "قم بتحميل ملف مرفق هنا",
-  "add_ticket_save": "حفظ البيانات"
+  "add_ticket_save": "حفظ البيانات",
+  "ticket_details_title": "تفاصيل التذكرة",
+  "ticket_details_ticket_number": "رقم التذكرة",
+  "ticket_details_creation_date": "تاريخ الإنشاء",
+  "ticket_details_last_reply_date": "تاريخ اخر رد",
+  "ticket_details_related_to": "متعلقة بـ",
+  "ticket_details_description": "الوصف:",
+  "ticket_details_correspondence": "المراسلات والردود",
+  "ticket_details_reply_hint": "اكتب ردودك هنا"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -878,7 +886,15 @@ static const Map<String,dynamic> _en = {
   "add_ticket_description_hint": "Enter ticket description",
   "add_ticket_attachment": "Attachment (Optional)",
   "add_ticket_attachment_hint": "Upload an attachment file here",
-  "add_ticket_save": "Save Data"
+  "add_ticket_save": "Save Data",
+  "ticket_details_title": "Ticket Details",
+  "ticket_details_ticket_number": "Ticket Number",
+  "ticket_details_creation_date": "Creation Date",
+  "ticket_details_last_reply_date": "Last Reply Date",
+  "ticket_details_related_to": "Related To",
+  "ticket_details_description": "Description:",
+  "ticket_details_correspondence": "Correspondence & Replies",
+  "ticket_details_reply_hint": "Write your reply here"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }
