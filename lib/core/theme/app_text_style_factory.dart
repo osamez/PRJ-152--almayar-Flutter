@@ -12,18 +12,20 @@ abstract final class AppTextStyleFactory {
   static TextStyle create({
     required double size,
     required FontWeight weight,
+    double? height,
     Color color = AppColors.black,
   }) {
     final computedSize = size.sp;
     // Include computedSize in key so stale entries (e.g. fontSize 0
     // from an early frame before ScreenUtil is ready) are never reused.
     final key =
-        '$computedSize-${weight.value}-${color.a}-${color.r}-${color.g}-${color.b}';
+        '$computedSize-${weight.value}-${color.a}-${color.r}-${color.g}-${color.b}-$height';
     return _cache[key] ??= TextStyle(
       fontSize: computedSize,
       fontWeight: weight,
       color: color,
       fontFamily: AppConstants.fontFamily,
+      height: height,
     );
   }
 }

@@ -35,7 +35,9 @@ class ProfileViewBody extends StatelessWidget {
             ProfileMenuItem(
               iconPath: AppAssets.svgTicket,
               label: LocaleKeys.profile_support_tickets.tr(),
-              onTap: () {},
+              onTap: () {
+                context.push(Routes.supportTickets);
+              },
             ),
             verticalSpace(AppSizes.h12),
             ProfileMenuItem(

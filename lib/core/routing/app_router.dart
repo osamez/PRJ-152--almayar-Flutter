@@ -10,6 +10,7 @@ import 'package:almeyar/features/purchase_orders/presentation/feature_imports.da
 import 'package:almeyar/features/shipment_tracking/presentation/feature_imports.dart';
 import 'package:almeyar/features/money_transfers/presentation/feature_imports.dart';
 import 'package:almeyar/features/profile/presentation/feature_imports.dart';
+import 'package:almeyar/features/tickets/presentation/feature_imports.dart';
 import 'package:go_router/go_router.dart';
 
 final router = GoRouter(
@@ -172,6 +173,21 @@ final router = GoRouter(
       path: Routes.giftCards,
       name: Routes.giftCards,
       builder: (context, state) => const GiftCardsView(),
+    ),
+    GoRoute(
+      path: Routes.supportTickets,
+      name: Routes.supportTickets,
+      builder: (context, state) => const SupportTicketsView(),
+    ),
+    GoRoute(
+      path: Routes.addNewTicket,
+      name: Routes.addNewTicket,
+      builder: (context, state) => const AddNewTicketView(),
+    ),
+    GoRoute(
+      path: Routes.ticketDetails,
+      name: Routes.ticketDetails,
+      builder: (context, state) => const TicketDetailsView(),
     ),
   ],
 );
