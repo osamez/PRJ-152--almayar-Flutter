@@ -408,5 +408,17 @@ abstract class  LocaleKeys {
   static const gift_cards_status_valid = 'gift_cards_status_valid';
   static const gift_cards_status_expired = 'gift_cards_status_expired';
   static const gift_cards_currency = 'gift_cards_currency';
+  static const support_tickets_title = 'support_tickets_title';
+  static const support_tickets_open = 'support_tickets_open';
+  static const support_tickets_pending = 'support_tickets_pending';
+  static const support_tickets_closed = 'support_tickets_closed';
+  static const support_tickets_add_new = 'support_tickets_add_new';
+  static const support_tickets_very_late_shipment = 'support_tickets_very_late_shipment';
+  static const support_tickets_status_open = 'support_tickets_status_open';
+  static const support_tickets_status_pending = 'support_tickets_status_pending';
+  static const support_tickets_status_closed = 'support_tickets_status_closed';
+  static const support_tickets_priority_high = 'support_tickets_priority_high';
+  static const support_tickets_priority_medium = 'support_tickets_priority_medium';
+  static const support_tickets_priority_low = 'support_tickets_priority_low';
 
 }

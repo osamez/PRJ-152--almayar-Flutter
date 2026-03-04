@@ -413,5 +413,18 @@
     "gift_cards_expiry_date": "تاريخ الإنتهاء:",
     "gift_cards_status_valid": "صالحة",
     "gift_cards_status_expired": "منتهية",
-    "gift_cards_currency": "دينار ليبي"
+    "gift_cards_currency": "دينار ليبي",
+
+    "support_tickets_title": "تذاكر الدعم",
+    "support_tickets_open": "التذاكر المفتوحة",
+    "support_tickets_pending": "التذاكر المعلقة",
+    "support_tickets_closed": "التذاكر المغلقة",
+    "support_tickets_add_new": "إضافة تذكرة جديدة",
+    "support_tickets_very_late_shipment": "شحنة متأخرة جدا",
+    "support_tickets_status_open": "مفتوحة",
+    "support_tickets_status_pending": "معلقة",
+    "support_tickets_status_closed": "مغلقة",
+    "support_tickets_priority_high": "عالية",
+    "support_tickets_priority_medium": "متوسطة",
+    "support_tickets_priority_low": "منخفضة"
 }

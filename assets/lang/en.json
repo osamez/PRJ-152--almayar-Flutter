@@ -413,5 +413,18 @@
     "gift_cards_expiry_date": "Expiry Date:",
     "gift_cards_status_valid": "Valid",
     "gift_cards_status_expired": "Expired",
-    "gift_cards_currency": "Libyan Dinar"
+    "gift_cards_currency": "Libyan Dinar",
+
+    "support_tickets_title": "Support Tickets",
+    "support_tickets_open": "Open Tickets",
+    "support_tickets_pending": "Pending Tickets",
+    "support_tickets_closed": "Closed Tickets",
+    "support_tickets_add_new": "Add New Ticket",
+    "support_tickets_very_late_shipment": "Very Late Shipment",
+    "support_tickets_status_open": "Open",
+    "support_tickets_status_pending": "Pending",
+    "support_tickets_status_closed": "Closed",
+    "support_tickets_priority_high": "High",
+    "support_tickets_priority_medium": "Medium",
+    "support_tickets_priority_low": "Low"
 }

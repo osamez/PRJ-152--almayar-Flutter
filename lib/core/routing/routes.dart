@@ -32,4 +32,5 @@ class Routes {
   static const String changePassword = '/change-password';
   static const String termsAndConditions = '/terms-and-conditions';
   static const String giftCards = '/gift-cards';
+  static const String supportTickets = '/support-tickets';
 }

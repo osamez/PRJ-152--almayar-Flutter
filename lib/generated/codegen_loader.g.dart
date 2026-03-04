@@ -419,7 +419,19 @@ class CodegenLoader extends AssetLoader{
   "gift_cards_expiry_date": "تاريخ الإنتهاء:",
   "gift_cards_status_valid": "صالحة",
   "gift_cards_status_expired": "منتهية",
-  "gift_cards_currency": "دينار ليبي"
+  "gift_cards_currency": "دينار ليبي",
+  "support_tickets_title": "تذاكر الدعم",
+  "support_tickets_open": "التذاكر المفتوحة",
+  "support_tickets_pending": "التذاكر المعلقة",
+  "support_tickets_closed": "التذاكر المغلقة",
+  "support_tickets_add_new": "إضافة تذكرة جديدة",
+  "support_tickets_very_late_shipment": "شحنة متأخرة جدا",
+  "support_tickets_status_open": "مفتوحة",
+  "support_tickets_status_pending": "معلقة",
+  "support_tickets_status_closed": "مغلقة",
+  "support_tickets_priority_high": "عالية",
+  "support_tickets_priority_medium": "متوسطة",
+  "support_tickets_priority_low": "منخفضة"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -826,7 +838,19 @@ static const Map<String,dynamic> _en = {
   "gift_cards_expiry_date": "Expiry Date:",
   "gift_cards_status_valid": "Valid",
   "gift_cards_status_expired": "Expired",
-  "gift_cards_currency": "Libyan Dinar"
+  "gift_cards_currency": "Libyan Dinar",
+  "support_tickets_title": "Support Tickets",
+  "support_tickets_open": "Open Tickets",
+  "support_tickets_pending": "Pending Tickets",
+  "support_tickets_closed": "Closed Tickets",
+  "support_tickets_add_new": "Add New Ticket",
+  "support_tickets_very_late_shipment": "Very Late Shipment",
+  "support_tickets_status_open": "Open",
+  "support_tickets_status_pending": "Pending",
+  "support_tickets_status_closed": "Closed",
+  "support_tickets_priority_high": "High",
+  "support_tickets_priority_medium": "Medium",
+  "support_tickets_priority_low": "Low"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

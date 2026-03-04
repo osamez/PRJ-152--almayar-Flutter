@@ -1,14 +1,24 @@
 import 'package:almeyar/core/utils/exports.dart';
 
 class StatusBadge extends StatelessWidget {
-  const StatusBadge({super.key, required this.label, required this.color});
+  const StatusBadge({
+    super.key,
+    required this.label,
+    required this.color,
+    this.width,
+    this.height,
+  });
 
   final String label;
   final Color color;
+  final double? width;
+  final double? height;
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: width,
+      height: height,
       padding: EdgeInsets.symmetric(
         horizontal: AppSizes.w10,
         vertical: AppSizes.h4,
