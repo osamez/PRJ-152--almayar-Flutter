@@ -36,5 +36,6 @@ class Routes {
   static const String addNewTicket = '/add-new-ticket';
   static const String ticketDetails = '/ticket-details';
   static const String wallets = '/wallets';
+  static const String walletMoneyTransfer = '/wallet-money-transfer';
   static const String accountStatement = '/account-statement';
 }

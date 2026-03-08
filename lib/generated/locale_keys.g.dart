@@ -469,5 +469,20 @@ abstract class  LocaleKeys {
   static const account_statement_filter_to_date = 'account_statement_filter_to_date';
   static const account_statement_filter_to_date_hint = 'account_statement_filter_to_date_hint';
   static const account_statement_filter_apply = 'account_statement_filter_apply';
+  static const wallet_money_transfer_title = 'wallet_money_transfer_title';
+  static const wallet_money_transfer_customer_code = 'wallet_money_transfer_customer_code';
+  static const wallet_money_transfer_customer_code_hint = 'wallet_money_transfer_customer_code_hint';
+  static const wallet_money_transfer_amount = 'wallet_money_transfer_amount';
+  static const wallet_money_transfer_amount_hint = 'wallet_money_transfer_amount_hint';
+  static const wallet_money_transfer_insufficient_balance = 'wallet_money_transfer_insufficient_balance';
+  static const wallet_money_transfer_customer_code_label = 'wallet_money_transfer_customer_code_label';
+  static const wallet_money_transfer_beneficiary_name = 'wallet_money_transfer_beneficiary_name';
+  static const wallet_money_transfer_amount_to_transfer = 'wallet_money_transfer_amount_to_transfer';
+  static const wallet_money_transfer_submit = 'wallet_money_transfer_submit';
+  static const confirm_transfer_title = 'confirm_transfer_title';
+  static const confirm_transfer_subtitle = 'confirm_transfer_subtitle';
+  static const confirm_transfer_resend_after = 'confirm_transfer_resend_after';
+  static const confirm_transfer_resend = 'confirm_transfer_resend';
+  static const confirm_transfer_submit = 'confirm_transfer_submit';
 
 }

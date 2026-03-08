@@ -196,6 +196,11 @@ final router = GoRouter(
       builder: (context, state) => const WalletsView(),
     ),
     GoRoute(
+      path: Routes.walletMoneyTransfer,
+      name: Routes.walletMoneyTransfer,
+      builder: (context, state) => const WalletMoneyTransferView(),
+    ),
+    GoRoute(
       path: Routes.accountStatement,
       name: Routes.accountStatement,
       builder: (context, state) => const AccountStatementView(),

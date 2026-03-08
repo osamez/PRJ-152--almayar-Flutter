@@ -7,7 +7,7 @@ class AccountStatementViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        const AccountStatementWalletBanner(
+        const WalletBanner(
           walletName: 'wallets_libyan_dinar',
           balance: '0',
           currencyKey: 'wallets_currency_lyd',

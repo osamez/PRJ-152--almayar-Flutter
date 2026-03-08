@@ -11,7 +11,9 @@ class AccountStatementActionButtonsRow extends StatelessWidget {
           child: AccountStatementActionButton(
             iconPath: AppAssets.svgHandDeposit,
             label: LocaleKeys.account_statement_transfer_funds.tr(),
-            onTap: () {},
+            onTap: () {
+              context.pushNamed(Routes.walletMoneyTransfer);
+            },
           ),
         ),
         horizontalSpace(AppSizes.w12),

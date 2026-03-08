@@ -1,7 +1,7 @@
-part of '../../feature_imports.dart';
+part of '../feature_imports.dart';
 
-class AccountStatementWalletBanner extends StatelessWidget {
-  const AccountStatementWalletBanner({
+class WalletBanner extends StatelessWidget {
+  const WalletBanner({
     super.key,
     required this.walletName,
     required this.balance,

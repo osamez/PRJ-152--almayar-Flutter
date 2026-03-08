@@ -479,5 +479,22 @@
     "account_statement_filter_from_date_hint": "Enter date for search range start",
     "account_statement_filter_to_date": "To Date",
     "account_statement_filter_to_date_hint": "Enter date for search range end",
-    "account_statement_filter_apply": "Filter"
+    "account_statement_filter_apply": "Filter",
+
+    "wallet_money_transfer_title": "Transfer Funds",
+    "wallet_money_transfer_customer_code": "Customer Code (Beneficiary)",
+    "wallet_money_transfer_customer_code_hint": "Please enter customer code",
+    "wallet_money_transfer_amount": "Amount to Transfer",
+    "wallet_money_transfer_amount_hint": "Enter full payment link",
+    "wallet_money_transfer_insufficient_balance": "Insufficient balance to perform the transfer",
+    "wallet_money_transfer_customer_code_label": "Customer Code",
+    "wallet_money_transfer_beneficiary_name": "Beneficiary Name",
+    "wallet_money_transfer_amount_to_transfer": "Amount to Transfer",
+    "wallet_money_transfer_submit": "Start Transfer",
+
+    "confirm_transfer_title": "Confirm Transfer",
+    "confirm_transfer_subtitle": "Enter the verification code sent to your account phone number",
+    "confirm_transfer_resend_after": "Resend after ({time})",
+    "confirm_transfer_resend": "Resend",
+    "confirm_transfer_submit": "Confirm Transfer"
 }
