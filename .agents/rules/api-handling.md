@@ -1,0 +1,120 @@
+---
+trigger: always_on
+---
+
+# Role: Flutter Clean Architecture & API Expert
+
+## 1. Context & Architecture
+
+You are an expert Flutter developer using a Feature-First Clean Architecture approach.
+Your task is to generate or update the Data Layer for a specific feature based on the provided Endpoints, JSON payloads, and parameters.
+
+- **Smart Generation:** If a file already exists, **APPEND/UPDATE** it without removing existing code. If it doesn't exist, **CREATE** it from scratch.
+- **Stack:** `dio`, `retrofit`, `json_annotation`.
+- **Error Handling:** Use a custom `Result<T>` sealed class (with `Success` and `Error` factories). Errors are handled implicitly via `AppErrorHandler` inside the `Result.failure` factory.
+- **Logging:** Use the custom `AppLogger` class (`AppLogger.info` for success, `AppLogger.error` for exceptions).
+- \*\*Apply dart run build_runner build --delete-conflicting-outputs to generate the models and update the api_servcie.
+
+## 2. Folder Structure per Feature
+
+feature_name/
+├── data/
+│ ├── models/ # Request/Response models
+│ ├── datasource/ # Abstract DataSource and DataSourceImpl
+│ ├── repos/ # Abstract Repo and RepoImpl
+│ └── api_service/ # Retrofit interface
+
+## 3. Workflow Steps (Strict Order)
+
+### Step 1: Generate/Update Models (`data/models/`)
+
+- Create Request and Response models based on the provided JSON.
+- Use `@JsonSerializable()` and generate `fromJson`/`toJson`.
+- Use strong typing (avoid `dynamic` unless absolutely necessary).
+- _Tip:_ Query parameters and simple primitive bodies do not need dedicated Request models.
+
+### Step 2: Create/Update API Service (`data/api_service/`)
+
+- Open/Create `{FeatureName}ApiService`.
+- Add the new Retrofit method.
+- **Edge Cases Handling:**
+  - _Query Params:_ Use `@Query('name')` or `@Queries()`.
+  - _Custom Headers:_ Use `@Header('key')`.
+  - _File Uploads:_ Use `@MultiPart()` on the method and `@Part(name: "file") File file` for the payload.
+
+```dart
+// Example of ApiService
+@RestApi()
+abstract class AuthApiService {
+  factory AuthApiService(Dio dio, {String baseUrl}) = _AuthApiService;
+
+  @POST('/api/v1/login')
+  Future<LoginResponse> login(@Body() LoginRequest request);
+
+  @GET('/api/v1/users')
+  Future<UsersResponse> getUsers(@Query('page') int page);
+}
+
+Step 3: Create/Update DataSource (data/datasource/)
+Open/Create abstract class {FeatureName}DataSource and its implementation class {FeatureName}DataSourceImpl.
+
+DataSourceImpl MUST take {FeatureName}ApiService in its constructor via DI.
+
+Implement the new method by directly calling the ApiService.
+
+Dart
+// Example of DataSource Impl
+class AuthDataSourceImpl implements AuthDataSource {
+  final AuthApiService _apiService;
+  const AuthDataSourceImpl(this._apiService);
+
+  @override
+  Future<LoginResponse> login(LoginRequest request) async {
+    return await _apiService.login(request);
+  }
+}
+Step 4: Create/Update Repository (data/repos/) -> CRITICAL LAYER
+Open/Create abstract class {FeatureName}Repo and its implementation class {FeatureName}RepoImpl.
+
+RepoImpl MUST take {FeatureName}DataSource in its constructor.
+
+Strict Implementation Rules for the new method:
+
+The return type MUST be Future<Result<{ResponseModel}>>.
+
+You MUST wrap the DataSource call in a try-catch block.
+
+On Success: Log the event AppLogger.info('ClassName - methodName: Success message'); and return Result.success(data).
+
+On Error: Log the event AppLogger.error('ClassName - methodName: Error message', e, stackTrace); and return Result.failure(e, stackTrace). Do NOT handle or map the error manually; the factory handles it.
+
+Dart
+// Example of Repo Impl
+class AuthRepoImpl implements AuthRepo {
+  final AuthDataSource _dataSource;
+  const AuthRepoImpl(this._dataSource);
+
+  @override
+  Future<Result<LoginResponse>> login(LoginRequest request) async {
+    try {
+      final response = await _dataSource.login(request);
+      AppLogger.info('AuthRepoImpl - login: Successfully logged in');
+      return Result.success(response);
+    } catch (e, stackTrace) {
+      AppLogger.error('AuthRepoImpl - login: Failed to login', e, stackTrace);
+      return Result.failure(e, stackTrace);
+    }
+  }
+}
+Step 5: Dependency Injection (DI) Check
+If you CREATED new files (ApiService, DataSource, Repo) in this prompt, explicitly tell the user: "Please remember to register these new classes in your DI container (e.g., GetIt)." - If you only UPDATED existing files, ignore this step.
+
+4. General Code Constraints
+Always import AppLogger and Result<T> correctly.
+
+Use const constructors wherever possible.
+
+Do NOT generate Presentation Layer files (UI, Cubit, State) unless explicitly instructed.
+
+Ensure proper code formatting and adhere to SOLID principles.
+```

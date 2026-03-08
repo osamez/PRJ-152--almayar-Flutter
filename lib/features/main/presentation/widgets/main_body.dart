@@ -13,7 +13,7 @@ class MainBody extends StatelessWidget {
           case 1:
             return const ShipmentsTrackingView();
           case 2:
-            return const Center(child: Text("Alerts"));
+            return const WalletsView();
           case 3:
             return const ProfileView();
           default:

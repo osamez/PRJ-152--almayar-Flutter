@@ -74,6 +74,8 @@ class AppAssets {
 
   static const String svgHand = "assets/svg/hand.svg";
 
+  static const String svgHandDeposit = "assets/svg/hand-deposit.svg";
+
   static const String svgHome = "assets/svg/home.svg";
 
   static const String svgHomeSolid = "assets/svg/home_solid.svg";
@@ -130,6 +132,10 @@ class AppAssets {
 
   static const String svgTrashDuotone = "assets/svg/trash-duotone.svg";
 
+  static const String svgTrendDown = "assets/svg/trend-down.svg";
+
+  static const String svgTrendUp = "assets/svg/trend-up.svg";
+
   static const String svgTruck = "assets/svg/truck.svg";
 
   static const String svgUpload = "assets/svg/upload.svg";
@@ -141,6 +147,8 @@ class AppAssets {
   static const String svgUserSolid = "assets/svg/user_solid.svg";
 
   static const String svgWallet = "assets/svg/wallet.svg";
+
+  static const String svgWalletOutlined = "assets/svg/wallet-outlined.svg";
 
   static const String svgWalletSolid = "assets/svg/wallet_solid.svg";
 
