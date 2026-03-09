@@ -1,4 +1,5 @@
 import 'package:almeyar/core/network/auth_interceptor.dart';
+import 'package:almeyar/core/utils/env_variables.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
@@ -25,7 +26,7 @@ class DioFactory {
 
       // 1. Base Configuration
       _dio!.options = BaseOptions(
-        baseUrl: "https://api.yourdomain.com/v1", // Add your Base URL here
+        baseUrl: Env.apiUrl, // Add your Base URL here
         connectTimeout: _kConnectTimeout,
         receiveTimeout: _kReceiveTimeout,
         sendTimeout: _kSendTimeout,
