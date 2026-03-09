@@ -495,7 +495,10 @@ class CodegenLoader extends AssetLoader{
   "confirm_transfer_subtitle": "ادخل رمز التحقق المرسل على رقم هاتفكم الخاص بالحساب",
   "confirm_transfer_resend_after": "إعادة الإرسال بعد ({time})",
   "confirm_transfer_resend": "إعادة الإرسال",
-  "confirm_transfer_submit": "تأكيد التحويل"
+  "confirm_transfer_submit": "تأكيد التحويل",
+  "phone_required": "رقم الهاتف مطلوب",
+  "password_required": "كلمة المرور مطلوبة",
+  "password_too_short": "كلمة المرور يجب أن تكون 6 أحرف على الأقل"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -978,7 +981,10 @@ static const Map<String,dynamic> _en = {
   "confirm_transfer_subtitle": "Enter the verification code sent to your account phone number",
   "confirm_transfer_resend_after": "Resend after ({time})",
   "confirm_transfer_resend": "Resend",
-  "confirm_transfer_submit": "Confirm Transfer"
+  "confirm_transfer_submit": "Confirm Transfer",
+  "phone_required": "Phone number is required",
+  "password_required": "Password is required",
+  "password_too_short": "Password must be at least 6 characters"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

@@ -484,5 +484,8 @@ abstract class  LocaleKeys {
   static const confirm_transfer_resend_after = 'confirm_transfer_resend_after';
   static const confirm_transfer_resend = 'confirm_transfer_resend';
   static const confirm_transfer_submit = 'confirm_transfer_submit';
+  static const phone_required = 'phone_required';
+  static const password_required = 'password_required';
+  static const password_too_short = 'password_too_short';
 
 }
