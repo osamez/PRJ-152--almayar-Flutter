@@ -2,6 +2,10 @@
 class AppAssets {
   AppAssets._();
   
+  static const String animationsLoading = "assets/animations/loading.json";
+
+  static const String animationsSuccess = "assets/animations/success.json";
+
   static const String imagesBoxes = "assets/images/boxes.png";
 
   static const String imagesFlight = "assets/images/flight.png";

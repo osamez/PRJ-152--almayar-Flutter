@@ -1,4 +1,3 @@
-import 'package:almeyar/core/routing/routes.dart';
 import 'package:almeyar/features/auth/presentation/feature_imports.dart';
 import 'package:almeyar/features/home/presentation/feature_imports.dart';
 import 'package:almeyar/features/main/presentation/features_imports.dart';
@@ -12,9 +11,11 @@ import 'package:almeyar/features/money_transfers/presentation/feature_imports.da
 import 'package:almeyar/features/profile/presentation/feature_imports.dart';
 import 'package:almeyar/features/tickets/presentation/feature_imports.dart';
 import 'package:almeyar/features/wallets/presentation/feature_imports.dart';
-import 'package:go_router/go_router.dart';
+
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 final router = GoRouter(
+  navigatorKey: navigatorKey,
   initialLocation: Routes.login,
   routes: [
     GoRoute(
