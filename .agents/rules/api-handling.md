@@ -26,6 +26,25 @@ feature_name/
 
 ## 3. Workflow Steps (Strict Order)
 
+### Step 0: Add Endpoint to `ApiConstants` (`core/network/api_constants.dart`)
+
+- **EVERY** endpoint string MUST be defined as a `static const String` in the `ApiConstants` class located at `lib/core/network/api_constants.dart`.
+- **NEVER** hardcode endpoint strings directly in the ApiService. Always reference them via `ApiConstants.endpointName`.
+- Group constants by feature with a comment header.
+
+```dart
+// Example of ApiConstants
+class ApiConstants {
+  const ApiConstants._();
+
+  // Auth
+  static const String login = 'user/auth/login';
+
+  // Users
+  static const String getUsers = 'api/v1/users';
+}
+```
+
 ### Step 1: Generate/Update Models (`data/models/`)
 
 - Create Request and Response models based on the provided JSON.
@@ -37,6 +56,7 @@ feature_name/
 
 - Open/Create `{FeatureName}ApiService`.
 - Add the new Retrofit method.
+- **CRITICAL:** Use `ApiConstants.endpointName` for the endpoint path. NEVER hardcode the URL string.
 - **Edge Cases Handling:**
   - _Query Params:_ Use `@Query('name')` or `@Queries()`.
   - _Custom Headers:_ Use `@Header('key')`.
@@ -48,10 +68,10 @@ feature_name/
 abstract class AuthApiService {
   factory AuthApiService(Dio dio, {String baseUrl}) = _AuthApiService;
 
-  @POST('/api/v1/login')
+  @POST(ApiConstants.login)
   Future<LoginResponse> login(@Body() LoginRequest request);
 
-  @GET('/api/v1/users')
+  @GET(ApiConstants.getUsers)
   Future<UsersResponse> getUsers(@Query('page') int page);
 }
 
