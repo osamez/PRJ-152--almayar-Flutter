@@ -14,6 +14,8 @@ import 'package:almeyar/features/wallets/presentation/feature_imports.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
+String initialRoute = Routes.login;
+
 final router = GoRouter(
   navigatorKey: navigatorKey,
   initialLocation: Routes.login,

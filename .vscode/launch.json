@@ -6,7 +6,6 @@
       "type": "dart",
       "request": "launch",
       "program": "lib/main.dart",
-      "args": ["--no-tree-shake-icons"]
     },
     {
       "name": "almeyar (release)",
@@ -14,7 +13,6 @@
       "request": "launch",
       "program": "lib/main.dart",
       "flutterMode": "release",
-      "args": ["--no-tree-shake-icons"]
     },
     {
       "name": "C/C++ Runner: Debug Session",

@@ -18,6 +18,11 @@ class LoginBlocListener extends StatelessWidget {
             );
             if (context.mounted) {
               LoadingDialog.hide(context);
+              showAppSnackbar(
+                context: context,
+                type: SnackbarType.success,
+                description: response.message ?? '',
+              );
               context.go(Routes.main);
             }
           },
