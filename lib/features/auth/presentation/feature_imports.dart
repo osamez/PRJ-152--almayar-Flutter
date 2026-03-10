@@ -14,6 +14,9 @@ import 'package:almeyar/features/auth/presentation/cubit/register/register_cubit
 import 'package:almeyar/features/auth/presentation/cubit/otp/otp_cubit.dart';
 import 'package:almeyar/features/onboarding/presentation/feature_imports.dart';
 import 'package:dotted_border/dotted_border.dart';
+import 'package:almeyar/features/auth/data/models/send_otp_request.dart';
+import 'package:almeyar/core/helpers/helper_func.dart';
+import 'package:country_code_picker/country_code_picker.dart';
 import 'package:pinput/pinput.dart';
 
 part 'views/login_view.dart';
@@ -37,6 +40,7 @@ part 'widgets/register/image_preview.dart';
 part 'views/forget_password_view.dart';
 part 'widgets/forget_password/forget_password_view_body.dart';
 part 'widgets/forget_password/forget_password_form.dart';
+part 'widgets/forget_password/forget_password_bloc_listener.dart';
 part 'views/otp_view.dart';
 part 'widgets/otp/otp_view_body.dart';
 part 'widgets/otp/otp_form.dart';

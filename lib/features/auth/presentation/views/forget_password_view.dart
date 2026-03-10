@@ -5,9 +5,12 @@ class ForgetPasswordView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: AppColors.white,
-      body: SafeArea(child: ForgetPasswordViewBody()),
+    return BlocProvider(
+      create: (context) => getIt<OtpCubit>(),
+      child: const Scaffold(
+        backgroundColor: AppColors.white,
+        body: SafeArea(child: ForgetPasswordViewBody()),
+      ),
     );
   }
 }

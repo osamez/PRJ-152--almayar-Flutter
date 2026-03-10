@@ -1,4 +1,5 @@
 import 'package:almeyar/core/utils/exports.dart';
+import 'package:phone_numbers_parser/phone_numbers_parser.dart';
 
 double calculateGridChildAspectRatio({
   required BuildContext context,
@@ -12,4 +13,21 @@ double calculateGridChildAspectRatio({
   double cardWidth =
       (screenWidth - (sectionPadding * 2) - gridSpacing) / crossAxisCount;
   return cardWidth / cardHeight;
+}
+
+bool validateInternationalPhoneNumber({
+  required String value,
+  required String countryCode,
+}) {
+  try {
+    final phoneNumber = PhoneNumber.parse('$countryCode$value');
+
+    if (phoneNumber.isValid(type: PhoneNumberType.mobile)) {
+      return true;
+    } else {
+      return false;
+    }
+  } catch (_) {
+    return false;
+  }
 }

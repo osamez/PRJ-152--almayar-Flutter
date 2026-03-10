@@ -8,12 +8,14 @@ class PasswordTextFormField extends StatefulWidget {
     this.title,
     required this.isRequired,
     required this.validator,
+    this.showResetPassword = false,
   });
   final String hintText;
   final TextEditingController? controller;
   final String? title;
   final bool isRequired;
   final dynamic Function(String?) validator;
+  final bool showResetPassword;
   @override
   State<PasswordTextFormField> createState() => _PasswordTextFormFieldState();
 }
@@ -28,6 +30,7 @@ class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
       isRequired: widget.isRequired,
       hintText: widget.hintText,
       keyboardType: TextInputType.emailAddress,
+      showResetPassword: widget.showResetPassword,
       validator: widget.validator,
       isObscureText: isObscure,
       suffixIcon: IconButton(

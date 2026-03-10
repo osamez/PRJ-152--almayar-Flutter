@@ -1,12 +1,18 @@
 import 'dart:async';
 
+import 'package:almeyar/core/utils/async.dart';
 import 'package:almeyar/core/utils/exports.dart';
 import 'package:equatable/equatable.dart';
+import 'package:almeyar/core/models/message_model.dart';
+import 'package:almeyar/features/auth/data/models/send_otp_request.dart';
+import 'package:almeyar/features/auth/data/repositories/auth_repo.dart';
 
 part 'otp_state.dart';
 
 class OtpCubit extends Cubit<OtpState> {
-  OtpCubit() : super(const OtpState());
+  final AuthRepo _authRepo;
+
+  OtpCubit(this._authRepo) : super(const OtpState());
 
   Timer? _timer;
   final int _totalSeconds = 7 * 60;
@@ -39,6 +45,18 @@ class OtpCubit extends Cubit<OtpState> {
     if (!state.canResend) return;
     startTimer();
     // TODO: call repository to resend OTP
+  }
+
+  Future<void> sendOtp(SendOtpRequest request) async {
+    emit(state.copyWith(sendOtpState: const AsyncLoading()));
+
+    final result = await _authRepo.sendOtp(request);
+
+    result.when(
+      onSuccess: (data) => emit(state.copyWith(sendOtpState: AsyncData(data))),
+      onFailure: (error) =>
+          emit(state.copyWith(sendOtpState: AsyncError(error.error))),
+    );
   }
 
   String get formattedTime {

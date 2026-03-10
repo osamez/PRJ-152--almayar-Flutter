@@ -7,6 +7,8 @@ import 'package:almeyar/features/auth/data/repositories/auth_repo_impl.dart';
 import 'package:almeyar/features/auth/presentation/cubit/auth/auth_cubit.dart';
 import 'package:dio/dio.dart';
 
+import 'package:almeyar/features/auth/presentation/cubit/otp/otp_cubit.dart';
+
 void setupAuthDI() {
   getIt.registerLazySingleton<AuthApiService>(
     () => AuthApiService(getIt<Dio>()),
@@ -21,4 +23,5 @@ void setupAuthDI() {
   );
 
   getIt.registerFactory<AuthCubit>(() => AuthCubit(getIt<AuthRepo>()));
+  getIt.registerFactory<OtpCubit>(() => OtpCubit(getIt<AuthRepo>()));
 }

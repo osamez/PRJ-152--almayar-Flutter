@@ -6,7 +6,7 @@ class OtpView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => OtpCubit()..startTimer(),
+      create: (_) => getIt<OtpCubit>()..startTimer(),
       child: const Scaffold(
         backgroundColor: AppColors.white,
         body: SafeArea(child: OtpViewBody()),

@@ -11,11 +11,13 @@ class _LoginFormState extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
   final _phoneController = TextEditingController();
   final _passwordController = TextEditingController();
+  final ValueNotifier<String> _selectedCountryCode = ValueNotifier('+218');
 
   @override
   void dispose() {
     _phoneController.dispose();
     _passwordController.dispose();
+    _selectedCountryCode.dispose();
     super.dispose();
   }
 
@@ -25,7 +27,7 @@ class _LoginFormState extends State<LoginForm> {
     context.read<AuthCubit>().login(
       LoginRequest(
         whatsappNumber: _phoneController.text.trim(),
-        whatsappKey: '+20',
+        whatsappKey: _selectedCountryCode.value,
         password: _passwordController.text,
       ),
     );
@@ -56,38 +58,13 @@ class _LoginFormState extends State<LoginForm> {
                 spacing: AppSizes.w4,
                 children: [
                   Expanded(
-                    child: AppTextFormField(
+                    child: PhoneFormField(
+                      onCountryChanged: (code) {
+                        _selectedCountryCode.value = code;
+                      },
                       controller: _phoneController,
                       hintText: LocaleKeys.enter_phone_number.tr(),
-                      keyboardType: TextInputType.phone,
-                      validator: (value) {
-                        if (value == null || value.trim().isEmpty) {
-                          return LocaleKeys.phone_required.tr();
-                        }
-                        return null;
-                      },
                       title: LocaleKeys.phone_number.tr(),
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: AppSizes.w12,
-                      vertical: AppSizes.h12,
-                    ),
-                    decoration: BoxDecoration(
-                      color: AppColors.white,
-                      borderRadius: BorderRadius.circular(AppSizes.radiusSm),
-                      border: Border.all(color: AppColors.gray),
-                    ),
-                    child: Center(
-                      child: Text(
-                        LocaleKeys.country_code.tr(),
-                        style: AppTextStyleFactory.create(
-                          size: 14,
-                          weight: FontWeight.w300,
-                          color: AppColors.darkBlueText,
-                        ),
-                      ),
                     ),
                   ),
                 ],
@@ -96,6 +73,7 @@ class _LoginFormState extends State<LoginForm> {
               PasswordTextFormField(
                 controller: _passwordController,
                 hintText: LocaleKeys.password_hint.tr(),
+                showResetPassword: true,
                 isRequired: true,
                 validator: (value) {
                   if (value == null || value.trim().isEmpty) {

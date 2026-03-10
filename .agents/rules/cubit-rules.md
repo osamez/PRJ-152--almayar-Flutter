@@ -125,9 +125,8 @@ class _LoginFormState extends State<LoginForm> {
 
 - **NEVER** inline `BlocListener` directly inside the UI form/body widget.
 - **ALWAYS** create a dedicated `{ScreenName}BlocListener` widget in its **own file** inside `widgets/{screen_name}/`.
-- The listener widget takes a `child` parameter and wraps it.
+- **Do NOT wrap the view with the listener**. Instead, the listener widget should take no `child` parameter, return `const SizedBox.shrink()` as its child, and be added to the `children` list of your `Column` or similar layout widget.
 - Register it as a `part` in the feature's `feature_imports.dart`.
-- The UI screen uses it by wrapping its content with the listener widget.
 
 **File: `widgets/login/login_bloc_listener.dart`**
 
@@ -135,8 +134,7 @@ class _LoginFormState extends State<LoginForm> {
 part of '../../feature_imports.dart';
 
 class LoginBlocListener extends StatelessWidget {
-  const LoginBlocListener({super.key, required this.child});
-  final Widget child;
+  const LoginBlocListener({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -155,7 +153,7 @@ class LoginBlocListener extends StatelessWidget {
           },
         );
       },
-      child: child,
+      child: const SizedBox.shrink(),
     );
   }
 }
@@ -165,10 +163,13 @@ class LoginBlocListener extends StatelessWidget {
 
 ```dart
 // Inside LoginForm build()
-return LoginBlocListener(
-  child: Form(
-    key: _formKey,
-    child: // ... form content
+return Form(
+  key: _formKey,
+  child: Column(
+    children: [
+      const LoginBlocListener(),
+      // ... form content
+    ],
   ),
 );
 ```
