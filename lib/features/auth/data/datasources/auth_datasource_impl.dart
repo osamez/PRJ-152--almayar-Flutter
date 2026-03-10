@@ -3,6 +3,7 @@ import 'package:almeyar/features/auth/data/datasources/auth_datasource.dart';
 import 'package:almeyar/features/auth/data/models/login_request.dart';
 import 'package:almeyar/features/auth/data/models/login_response.dart';
 import 'package:almeyar/features/auth/data/models/send_otp_request.dart';
+import 'package:almeyar/features/auth/data/models/verify_otp_request.dart';
 import 'package:almeyar/core/models/message_model.dart';
 
 class AuthDataSourceImpl implements AuthDataSource {
@@ -18,5 +19,10 @@ class AuthDataSourceImpl implements AuthDataSource {
   @override
   Future<MessageModel> sendOtp(SendOtpRequest request) async {
     return await _apiService.sendOtp(request);
+  }
+
+  @override
+  Future<MessageModel> verifyOtp(VerifyOtpRequest request) async {
+    return await _apiService.verifyOtp(request);
   }
 }

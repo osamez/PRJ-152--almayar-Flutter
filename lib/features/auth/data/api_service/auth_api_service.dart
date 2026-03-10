@@ -3,6 +3,7 @@ import 'package:almeyar/core/models/message_model.dart';
 import 'package:almeyar/features/auth/data/models/login_request.dart';
 import 'package:almeyar/features/auth/data/models/login_response.dart';
 import 'package:almeyar/features/auth/data/models/send_otp_request.dart';
+import 'package:almeyar/features/auth/data/models/verify_otp_request.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -17,4 +18,7 @@ abstract class AuthApiService {
 
   @POST(ApiConstants.sendOtp)
   Future<MessageModel> sendOtp(@Body() SendOtpRequest request);
+
+  @POST(ApiConstants.verifyOtp)
+  Future<MessageModel> verifyOtp(@Body() VerifyOtpRequest request);
 }

@@ -5,6 +5,7 @@ import 'package:almeyar/features/auth/data/models/login_request.dart';
 import 'package:almeyar/features/auth/data/models/login_response.dart';
 import 'package:almeyar/features/auth/data/repositories/auth_repo.dart';
 import 'package:almeyar/features/auth/data/models/send_otp_request.dart';
+import 'package:almeyar/features/auth/data/models/verify_otp_request.dart';
 import 'package:almeyar/core/models/message_model.dart';
 
 class AuthRepoImpl implements AuthRepo {
@@ -32,6 +33,18 @@ class AuthRepoImpl implements AuthRepo {
       return Result.success(response);
     } catch (e, stackTrace) {
       AppLogger.error('AuthRepoImpl - sendOtp: Error', e, stackTrace);
+      return Result.failure(e, stackTrace);
+    }
+  }
+
+  @override
+  Future<Result<MessageModel>> verifyOtp(VerifyOtpRequest request) async {
+    try {
+      final response = await _dataSource.verifyOtp(request);
+      AppLogger.info('AuthRepoImpl - verifyOtp: Success');
+      return Result.success(response);
+    } catch (e, stackTrace) {
+      AppLogger.error('AuthRepoImpl - verifyOtp: Error', e, stackTrace);
       return Result.failure(e, stackTrace);
     }
   }

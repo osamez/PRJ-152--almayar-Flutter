@@ -5,6 +5,7 @@ import 'package:almeyar/core/utils/exports.dart';
 import 'package:equatable/equatable.dart';
 import 'package:almeyar/core/models/message_model.dart';
 import 'package:almeyar/features/auth/data/models/send_otp_request.dart';
+import 'package:almeyar/features/auth/data/models/verify_otp_request.dart';
 import 'package:almeyar/features/auth/data/repositories/auth_repo.dart';
 
 part 'otp_state.dart';
@@ -36,9 +37,28 @@ class OtpCubit extends Cubit<OtpState> {
     emit(state.copyWith(otpCode: otp));
   }
 
-  void verifyOtp() {
-    if (state.otpCode.length != 6) return;
-    // TODO: call repository to verify OTP
+  Future<void> verifyOtp({required String code}) async {
+    emit(state.copyWith(verifyOtpState: const AsyncLoading()));
+
+    final request = VerifyOtpRequest(
+      whatsappNumber: state.whatsappNumber,
+      whatsappKey: state.whatsappKey,
+      otp: code,
+    );
+
+    final result = await _authRepo.verifyOtp(request);
+
+    result.when(
+      onSuccess: (data) =>
+          emit(state.copyWith(verifyOtpState: AsyncData(data))),
+      onFailure: (error) => emit(
+        state.copyWith(
+          verifyOtpState: AsyncError(
+            error.message ?? 'Error verification failed',
+          ),
+        ),
+      ),
+    );
   }
 
   void resendOtp() {
@@ -48,14 +68,21 @@ class OtpCubit extends Cubit<OtpState> {
   }
 
   Future<void> sendOtp(SendOtpRequest request) async {
-    emit(state.copyWith(sendOtpState: const AsyncLoading()));
+    emit(
+      state.copyWith(
+        sendOtpState: const AsyncLoading(),
+        whatsappNumber: request.whatsappNumber,
+        whatsappKey: request.whatsappKey,
+      ),
+    );
 
     final result = await _authRepo.sendOtp(request);
 
     result.when(
       onSuccess: (data) => emit(state.copyWith(sendOtpState: AsyncData(data))),
-      onFailure: (error) =>
-          emit(state.copyWith(sendOtpState: AsyncError(error.error))),
+      onFailure: (error) => emit(
+        state.copyWith(sendOtpState: AsyncError(error.message ?? 'Error')),
+      ),
     );
   }
 

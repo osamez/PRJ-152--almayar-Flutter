@@ -1,7 +1,8 @@
 part of '../../feature_imports.dart';
 
 class OtpPinInput extends StatelessWidget {
-  const OtpPinInput({super.key});
+  const OtpPinInput({super.key, required this.controller});
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -29,13 +30,20 @@ class OtpPinInput extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Pinput(
-        length: 6,
+        length: 4,
+        controller: controller,
         defaultPinTheme: defaultPinTheme,
         focusedPinTheme: focusedPinTheme,
         separatorBuilder: (index) => horizontalSpace(AppSizes.w8),
         hapticFeedbackType: HapticFeedbackType.lightImpact,
         onChanged: (value) {
           context.read<OtpCubit>().onOtpChanged(value);
+        },
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return 'يرجى إدخال رمز التحقق';
+          }
+          return null;
         },
         onCompleted: (value) {
           context.read<OtpCubit>().onOtpChanged(value);
