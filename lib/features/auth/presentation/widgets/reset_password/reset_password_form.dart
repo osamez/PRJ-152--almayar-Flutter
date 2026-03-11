@@ -1,7 +1,8 @@
 part of '../../feature_imports.dart';
 
 class ResetPasswordForm extends StatefulWidget {
-  const ResetPasswordForm({super.key});
+  const ResetPasswordForm({super.key, required this.params});
+  final ResetPasswordParams params;
 
   @override
   State<ResetPasswordForm> createState() => _ResetPasswordFormState();
@@ -13,7 +14,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
   final TextEditingController _confirmPasswordController =
       TextEditingController();
 
-  bool _showMismatchError = false;
+
 
   @override
   void dispose() {
@@ -24,15 +25,17 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
 
   void _onSubmit() {
     final isValid = _formKey.currentState?.validate() ?? false;
-    final passwordsMatch =
-        _passwordController.text == _confirmPasswordController.text;
 
-    setState(() {
-      _showMismatchError = !passwordsMatch;
-    });
-
-    if (isValid && passwordsMatch) {
-      // TODO: call reset password cubit
+    if (isValid) {
+      context.read<ResetPasswordCubit>().resetPassword(
+        ResetPasswordRequest(
+          whatsappKey: widget.params.phoneKey,
+          whatsappNumber: widget.params.phone,
+          otp: widget.params.otp,
+          password: _passwordController.text,
+          passwordConfirmation: _confirmPasswordController.text,
+        ),
+      );
     }
   }
 
@@ -55,6 +58,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
           ),
           child: Column(
             children: [
+              const ResetPasswordBlocListener(),
               PasswordTextFormField(
                 controller: _passwordController,
                 title: LocaleKeys.password.tr(),
@@ -77,23 +81,12 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
                   if (value == null || value.isEmpty) {
                     return '';
                   }
+                  if (value != _passwordController.text) {
+                    return LocaleKeys.passwords_not_matching.tr();
+                  }
                   return null;
                 },
               ),
-              if (_showMismatchError) ...[
-                verticalSpace(AppSizes.h8),
-                Align(
-                  alignment: AlignmentDirectional.centerEnd,
-                  child: Text(
-                    LocaleKeys.passwords_not_matching.tr(),
-                    style: AppTextStyleFactory.create(
-                      size: 13,
-                      weight: FontWeight.w400,
-                      color: AppColors.orange,
-                    ),
-                  ),
-                ),
-              ],
               verticalSpace(AppSizes.h36),
               AppElevatedButton(
                 onPressed: _onSubmit,

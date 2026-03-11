@@ -7,6 +7,7 @@ import 'package:almeyar/features/auth/data/repositories/auth_repo.dart';
 import 'package:almeyar/features/auth/data/models/send_otp_request.dart';
 import 'package:almeyar/features/auth/data/models/verify_otp_request.dart';
 import 'package:almeyar/core/models/message_model.dart';
+import 'package:almeyar/features/auth/data/models/reset_password_request.dart';
 
 class AuthRepoImpl implements AuthRepo {
   final AuthDataSource _dataSource;
@@ -45,6 +46,18 @@ class AuthRepoImpl implements AuthRepo {
       return Result.success(response);
     } catch (e, stackTrace) {
       AppLogger.error('AuthRepoImpl - verifyOtp: Error', e, stackTrace);
+      return Result.failure(e, stackTrace);
+    }
+  }
+
+  @override
+  Future<Result<MessageModel>> resetPassword(ResetPasswordRequest request) async {
+    try {
+      final response = await _dataSource.resetPassword(request);
+      AppLogger.info('AuthRepoImpl - resetPassword: Success');
+      return Result.success(response);
+    } catch (e, stackTrace) {
+      AppLogger.error('AuthRepoImpl - resetPassword: Error', e, stackTrace);
       return Result.failure(e, stackTrace);
     }
   }

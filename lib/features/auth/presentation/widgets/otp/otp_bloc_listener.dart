@@ -20,7 +20,14 @@ class OtpBlocListener extends StatelessWidget {
                   type: SnackbarType.success,
                   description: response.message ?? 'Success',
                 );
-                context.go(Routes.resetPassword);
+                context.go(
+                  Routes.resetPassword,
+                  extra: ResetPasswordParams(
+                    phone: state.whatsappNumber,
+                    phoneKey: state.whatsappKey,
+                    otp: state.otpCode,
+                  ),
+                );
               },
               error: (msg) {
                 LoadingDialog.hide(context);
@@ -63,4 +70,3 @@ class OtpBlocListener extends StatelessWidget {
     );
   }
 }
-

@@ -50,7 +50,9 @@ final router = GoRouter(
     GoRoute(
       path: Routes.resetPassword,
       name: Routes.resetPassword,
-      builder: (context, state) => const ResetPasswordView(),
+      builder: (context, state) {
+        return ResetPasswordView(params: state.extra as ResetPasswordParams);
+      },
     ),
     GoRoute(
       path: Routes.main,

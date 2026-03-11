@@ -5,6 +5,7 @@ import 'package:almeyar/features/auth/data/models/login_response.dart';
 import 'package:almeyar/features/auth/data/models/send_otp_request.dart';
 import 'package:almeyar/features/auth/data/models/verify_otp_request.dart';
 import 'package:almeyar/core/models/message_model.dart';
+import 'package:almeyar/features/auth/data/models/reset_password_request.dart';
 
 class AuthDataSourceImpl implements AuthDataSource {
   final AuthApiService _apiService;
@@ -24,5 +25,10 @@ class AuthDataSourceImpl implements AuthDataSource {
   @override
   Future<MessageModel> verifyOtp(VerifyOtpRequest request) async {
     return await _apiService.verifyOtp(request);
+  }
+
+  @override
+  Future<MessageModel> resetPassword(ResetPasswordRequest request) async {
+    return await _apiService.resetPassword(request);
   }
 }

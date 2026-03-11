@@ -8,6 +8,7 @@ import 'package:almeyar/features/auth/presentation/cubit/auth/auth_cubit.dart';
 import 'package:dio/dio.dart';
 
 import 'package:almeyar/features/auth/presentation/cubit/otp/otp_cubit.dart';
+import 'package:almeyar/features/auth/presentation/cubit/reset_password/reset_password_cubit.dart';
 
 void setupAuthDI() {
   getIt.registerLazySingleton<AuthApiService>(
@@ -24,4 +25,6 @@ void setupAuthDI() {
 
   getIt.registerFactory<AuthCubit>(() => AuthCubit(getIt<AuthRepo>()));
   getIt.registerFactory<OtpCubit>(() => OtpCubit(getIt<AuthRepo>()));
+  getIt.registerFactory<ResetPasswordCubit>(
+      () => ResetPasswordCubit(getIt<AuthRepo>()));
 }
