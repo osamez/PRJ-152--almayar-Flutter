@@ -62,9 +62,11 @@ abstract class  LocaleKeys {
   static const already_have_account = 'already_have_account';
   static const otp_title = 'otp_title';
   static const otp_subtitle = 'otp_subtitle';
+  static const otp_validation_error = 'otp_validation_error';
   static const verify_otp = 'verify_otp';
   static const resend_after = 'resend_after';
   static const resend_code = 'resend_code';
+  static const otp_resend_success = 'otp_resend_success';
   static const reset_password_title = 'reset_password_title';
   static const save_and_set_password = 'save_and_set_password';
   static const passwords_not_matching = 'passwords_not_matching';

@@ -18,7 +18,13 @@ class ForgetPasswordBlocListener extends StatelessWidget {
               type: SnackbarType.success,
               description: message.message ?? '',
             );
-            context.push(Routes.otp);
+            context.pushNamed(
+              Routes.otp,
+              extra: OtpParams(
+                phone: state.whatsappNumber,
+                phoneKey: state.whatsappKey,
+              ),
+            );
           },
           error: (msg) {
             LoadingDialog.hide(context);

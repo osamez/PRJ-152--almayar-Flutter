@@ -1,7 +1,8 @@
 part of '../../feature_imports.dart';
 
 class OtpForm extends StatefulWidget {
-  const OtpForm({super.key});
+  const OtpForm({super.key, required this.otpParams});
+  final OtpParams otpParams;
 
   @override
   State<OtpForm> createState() => _OtpFormState();
@@ -47,13 +48,15 @@ class _OtpFormState extends State<OtpForm> {
               verticalSpace(AppSizes.h24),
               OtpPinInput(controller: _otpController),
               verticalSpace(AppSizes.h12),
-              const OtpTimerText(),
+              OtpTimerText(otpParams: widget.otpParams),
               verticalSpace(AppSizes.h36),
               AppElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     context.read<OtpCubit>().verifyOtp(
                       code: _otpController.text,
+                      phone: widget.otpParams.phone,
+                      phoneKey: widget.otpParams.phoneKey,
                     );
                   }
                 },

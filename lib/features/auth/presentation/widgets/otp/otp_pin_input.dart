@@ -21,6 +21,12 @@ class OtpPinInput extends StatelessWidget {
       ),
     );
 
+    final errorPinTheme = defaultPinTheme.copyWith(
+      decoration: defaultPinTheme.decoration?.copyWith(
+        border: Border.all(color: Colors.red),
+      ),
+    );
+
     final focusedPinTheme = defaultPinTheme.copyWith(
       decoration: defaultPinTheme.decoration?.copyWith(
         border: Border.all(color: AppColors.deepViolet, width: 2),
@@ -30,18 +36,20 @@ class OtpPinInput extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Pinput(
-        length: 4,
+        length: 6,
         controller: controller,
         defaultPinTheme: defaultPinTheme,
         focusedPinTheme: focusedPinTheme,
+        errorPinTheme: errorPinTheme,
+        pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
         separatorBuilder: (index) => horizontalSpace(AppSizes.w8),
         hapticFeedbackType: HapticFeedbackType.lightImpact,
         onChanged: (value) {
           context.read<OtpCubit>().onOtpChanged(value);
         },
         validator: (value) {
-          if (value == null || value.isEmpty) {
-            return 'يرجى إدخال رمز التحقق';
+          if (value == null || value.length < 6) {
+            return LocaleKeys.otp_validation_error.tr();
           }
           return null;
         },

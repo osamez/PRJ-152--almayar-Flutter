@@ -43,7 +43,9 @@ final router = GoRouter(
     GoRoute(
       path: Routes.otp,
       name: Routes.otp,
-      builder: (context, state) => const OtpView(),
+      builder: (context, state) {
+        return OtpView(otpParams: state.extra as OtpParams);
+      },
     ),
     GoRoute(
       path: Routes.resetPassword,

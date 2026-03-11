@@ -37,12 +37,12 @@ class OtpCubit extends Cubit<OtpState> {
     emit(state.copyWith(otpCode: otp));
   }
 
-  Future<void> verifyOtp({required String code}) async {
+  Future<void> verifyOtp({required String code, required String phone,required String phoneKey}) async {
     emit(state.copyWith(verifyOtpState: const AsyncLoading()));
 
     final request = VerifyOtpRequest(
-      whatsappNumber: state.whatsappNumber,
-      whatsappKey: state.whatsappKey,
+      whatsappNumber: phone,
+      whatsappKey: phoneKey,
       otp: code,
     );
 
@@ -61,10 +61,34 @@ class OtpCubit extends Cubit<OtpState> {
     );
   }
 
-  void resendOtp() {
+  Future<void> resendOtp(String phone, String phoneKey) async {
     if (!state.canResend) return;
-    startTimer();
-    // TODO: call repository to resend OTP
+
+    emit(state.copyWith(sendOtpState: const AsyncLoading()));
+
+    final request = SendOtpRequest(
+      whatsappNumber: phone,
+      whatsappKey: phoneKey,
+    );
+
+    final result = await _authRepo.sendOtp(request);
+
+    result.when(
+      onSuccess: (data) {
+        startTimer();
+        final resendMessage = MessageModel(
+          message: LocaleKeys.otp_resend_success.tr(),
+          status: data.status,
+          success: data.success,
+        );
+        emit(state.copyWith(sendOtpState: AsyncData(resendMessage)));
+      },
+      onFailure: (error) {
+        emit(
+          state.copyWith(sendOtpState: AsyncError(error.message ?? 'Error')),
+        );
+      },
+    );
   }
 
   Future<void> sendOtp(SendOtpRequest request) async {
