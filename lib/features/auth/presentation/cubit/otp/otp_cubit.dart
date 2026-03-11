@@ -37,7 +37,11 @@ class OtpCubit extends Cubit<OtpState> {
     emit(state.copyWith(otpCode: otp));
   }
 
-  Future<void> verifyOtp({required String code, required String phone,required String phoneKey}) async {
+  Future<void> verifyOtp({
+    required String code,
+    required String phone,
+    required String phoneKey,
+  }) async {
     emit(state.copyWith(verifyOtpState: const AsyncLoading()));
 
     final request = VerifyOtpRequest(
@@ -49,8 +53,14 @@ class OtpCubit extends Cubit<OtpState> {
     final result = await _authRepo.verifyOtp(request);
 
     result.when(
-      onSuccess: (data) =>
-          emit(state.copyWith(verifyOtpState: AsyncData(data))),
+      onSuccess: (data) => emit(
+        state.copyWith(
+          verifyOtpState: AsyncData(data),
+          whatsappNumber: phone,
+          whatsappKey: phoneKey,
+          otpCode: code,
+        ),
+      ),
       onFailure: (error) => emit(
         state.copyWith(
           verifyOtpState: AsyncError(

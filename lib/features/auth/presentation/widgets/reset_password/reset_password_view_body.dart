@@ -11,7 +11,7 @@ class ResetPasswordViewBody extends StatelessWidget {
           title: LocaleKeys.reset_password_title.tr(),
         ).withPadding(top: AppSizes.h56, horizontal: AppSizes.w20).toSliver,
         verticalSpace(AppSizes.h40).toSliver,
-        ResetPasswordForm(params: params).toSliver,
+        ResetPasswordForm(params: params),
       ],
     );
   }
