@@ -501,5 +501,14 @@
 
   "phone_required": "Phone number is required",
   "password_required": "Password is required",
-  "password_too_short": "Password must be at least 6 characters"
+  "password_too_short": "Password must be at least 6 characters",
+  "please_enter_full_name": "Please enter full name",
+  "please_select_country": "Please select country",
+  "please_select_city": "Please select city",
+  "please_select_region": "Please select region",
+  "please_select_branch": "Please select branch",
+  "please_enter_email": "Please enter email",
+  "please_enter_valid_email": "Please enter a valid email",
+  "please_enter_password": "Please enter password",
+  "please_confirm_password": "Please confirm password"
 }

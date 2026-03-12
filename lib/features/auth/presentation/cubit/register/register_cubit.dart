@@ -34,4 +34,15 @@ class RegisterCubit extends Cubit<RegisterState> {
   void removeImage() {
     emit(state.copyWith(pickedImage: null));
   }
+
+  void updateFullName(String value) => emit(state.copyWith(fullName: value));
+  void updatePhoneNumber(String value) => emit(state.copyWith(phoneNumber: value));
+  void updateCountry(String value) => emit(state.copyWith(country: value));
+  void updateCity(String value) => emit(state.copyWith(city: value));
+  void updateRegion(String value) => emit(state.copyWith(region: value));
+  void updatePreferredBranch(String value) => emit(state.copyWith(preferredBranch: value));
+  void updateEmail(String value) => emit(state.copyWith(email: value));
+  void updateWhatsappNumber(String value) => emit(state.copyWith(whatsappNumber: value));
+  void updatePassword(String value) => emit(state.copyWith(password: value));
+  void updateConfirmPassword(String value) => emit(state.copyWith(confirmPassword: value));
 }

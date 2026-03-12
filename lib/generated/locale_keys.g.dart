@@ -489,5 +489,14 @@ abstract class  LocaleKeys {
   static const phone_required = 'phone_required';
   static const password_required = 'password_required';
   static const password_too_short = 'password_too_short';
+  static const please_enter_full_name = 'please_enter_full_name';
+  static const please_select_country = 'please_select_country';
+  static const please_select_city = 'please_select_city';
+  static const please_select_region = 'please_select_region';
+  static const please_select_branch = 'please_select_branch';
+  static const please_enter_email = 'please_enter_email';
+  static const please_enter_valid_email = 'please_enter_valid_email';
+  static const please_enter_password = 'please_enter_password';
+  static const please_confirm_password = 'please_confirm_password';
 
 }

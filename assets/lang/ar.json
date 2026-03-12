@@ -501,5 +501,14 @@
 
   "phone_required": "رقم الهاتف مطلوب",
   "password_required": "كلمة المرور مطلوبة",
-  "password_too_short": "كلمة المرور يجب أن تكون 6 أحرف على الأقل"
+  "password_too_short": "كلمة المرور يجب أن تكون 6 أحرف على الأقل",
+  "please_enter_full_name": "يرجى إدخال الإسم بالكامل",
+  "please_select_country": "يرجى اختيار الدولة",
+  "please_select_city": "يرجى اختيار المدينة",
+  "please_select_region": "يرجى اختيار المنطقة",
+  "please_select_branch": "يرجى اختيار الفرع",
+  "please_enter_email": "يرجى إدخال البريد الإلكتروني",
+  "please_enter_valid_email": "يرجى إدخال بريد إلكتروني صحيح",
+  "please_enter_password": "يرجى إدخال كلمة المرور",
+  "please_confirm_password": "يرجى تأكيد كلمة المرور"
 }

@@ -8,6 +8,7 @@ class PhoneFormField extends StatefulWidget {
     this.controller,
     this.validator,
     this.onCountryChanged,
+    this.onChanged,
   });
 
   final String title;
@@ -15,6 +16,7 @@ class PhoneFormField extends StatefulWidget {
   final TextEditingController? controller;
   final String? Function(String?, String)? validator;
   final void Function(String)? onCountryChanged;
+  final void Function(String)? onChanged;
 
   @override
   State<PhoneFormField> createState() => _PhoneFormFieldState();
@@ -92,6 +94,7 @@ class _PhoneFormFieldState extends State<PhoneFormField> {
                   return errorMsg;
                 },
                 keyboardType: TextInputType.phone,
+                onChanged: widget.onChanged,
               ),
             ),
             Container(

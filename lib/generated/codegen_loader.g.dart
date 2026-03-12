@@ -500,7 +500,16 @@ class CodegenLoader extends AssetLoader{
   "confirm_transfer_submit": "تأكيد التحويل",
   "phone_required": "رقم الهاتف مطلوب",
   "password_required": "كلمة المرور مطلوبة",
-  "password_too_short": "كلمة المرور يجب أن تكون 6 أحرف على الأقل"
+  "password_too_short": "كلمة المرور يجب أن تكون 6 أحرف على الأقل",
+  "please_enter_full_name": "يرجى إدخال الإسم بالكامل",
+  "please_select_country": "يرجى اختيار الدولة",
+  "please_select_city": "يرجى اختيار المدينة",
+  "please_select_region": "يرجى اختيار المنطقة",
+  "please_select_branch": "يرجى اختيار الفرع",
+  "please_enter_email": "يرجى إدخال البريد الإلكتروني",
+  "please_enter_valid_email": "يرجى إدخال بريد إلكتروني صحيح",
+  "please_enter_password": "يرجى إدخال كلمة المرور",
+  "please_confirm_password": "يرجى تأكيد كلمة المرور"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -988,7 +997,16 @@ static const Map<String,dynamic> _en = {
   "confirm_transfer_submit": "Confirm Transfer",
   "phone_required": "Phone number is required",
   "password_required": "Password is required",
-  "password_too_short": "Password must be at least 6 characters"
+  "password_too_short": "Password must be at least 6 characters",
+  "please_enter_full_name": "Please enter full name",
+  "please_select_country": "Please select country",
+  "please_select_city": "Please select city",
+  "please_select_region": "Please select region",
+  "please_select_branch": "Please select branch",
+  "please_enter_email": "Please enter email",
+  "please_enter_valid_email": "Please enter a valid email",
+  "please_enter_password": "Please enter password",
+  "please_confirm_password": "Please confirm password"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }
