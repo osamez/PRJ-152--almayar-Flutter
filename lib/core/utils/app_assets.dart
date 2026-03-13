@@ -2,6 +2,12 @@
 class AppAssets {
   AppAssets._();
   
+  static const String animationsEmpty = "assets/animations/empty.json";
+
+  static const String animationsError = "assets/animations/error.json";
+
+  static const String animationsInternetConnection = "assets/animations/internet_connection.json";
+
   static const String animationsLoading = "assets/animations/loading.json";
 
   static const String animationsSuccess = "assets/animations/success.json";

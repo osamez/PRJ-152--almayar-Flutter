@@ -1,21 +1,9 @@
-import 'package:almeyar/core/routing/routes.dart';
+import 'package:almeyar/core/enums/enums.dart';
 import 'package:almeyar/core/utils/exports.dart';
-import 'package:almeyar/core/widgets/custom_inkwell_widget.dart';
 import 'package:almeyar/core/widgets/custom_rounder_arrow.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:easy_localization/easy_localization.dart';
-import 'package:almeyar/core/theme/app_colors.dart';
-import 'package:almeyar/core/utils/app_assets.dart';
-import 'package:almeyar/core/utils/app_sizes.dart';
-import 'package:almeyar/core/theme/app_text_style_factory.dart';
-import 'package:almeyar/core/helpers/spacing.dart';
-import 'package:almeyar/core/helpers/extensions.dart';
-import 'package:almeyar/core/widgets/app_elevated_button.dart';
-import 'package:almeyar/core/widgets/app_text_form_field.dart';
-import 'package:almeyar/core/widgets/custom_app_bar.dart';
-import 'package:almeyar/generated/locale_keys.g.dart';
+import 'package:flutter_html/flutter_html.dart';
+import 'package:flutter_html/flutter_html.dart';
 
 export 'package:flutter/material.dart';
 export 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -61,3 +49,7 @@ part 'widgets/shipment_address_details/shipment_details_country_card.dart';
 part 'widgets/shipment_address_details/shipment_important_note_card.dart';
 part 'widgets/shipment_address_details/shipment_info_copy_row.dart';
 part 'widgets/shipment_address_details/shipment_type_dropdown.dart';
+
+// Prohibited
+part 'views/prohibited_view.dart';
+part 'widgets/prohibited/prohibited_view_body.dart';

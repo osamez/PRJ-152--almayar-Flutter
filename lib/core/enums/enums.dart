@@ -1,0 +1,1 @@
+enum ProhibitedType { sea, air }

@@ -57,6 +57,7 @@ dependencies:
   phone_numbers_parser: ^9.0.20
   country_code_picker: ^3.4.1
   dropdown_search: ^6.0.2
+  flutter_html: ^3.0.0
 
 dev_dependencies:
   flutter_test:
