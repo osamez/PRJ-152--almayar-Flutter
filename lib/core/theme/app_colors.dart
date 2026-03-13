@@ -27,4 +27,7 @@ final class AppColors {
   static const Color greenBg = Color(0xffC3FFC6);
   static const Color redBg = Color(0xffFFD6D6);
   static const Color shadow1 = Color(0xffF3F4F6);
+  static const Color gray10 = Color(0xFF7D8DA7);
+  static const Color error500 = Color(0xFFFF3939);
+  static const Color greyScale30 = Color(0xFFE3E9ED);
 }
