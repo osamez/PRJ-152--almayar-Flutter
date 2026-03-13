@@ -63,9 +63,7 @@ class OtpCubit extends Cubit<OtpState> {
       ),
       onFailure: (error) => emit(
         state.copyWith(
-          verifyOtpState: AsyncError(
-            error.message ?? 'Error verification failed',
-          ),
+          verifyOtpState: AsyncError(error),
         ),
       ),
     );
@@ -95,7 +93,7 @@ class OtpCubit extends Cubit<OtpState> {
       },
       onFailure: (error) {
         emit(
-          state.copyWith(sendOtpState: AsyncError(error.message ?? 'Error')),
+          state.copyWith(sendOtpState: AsyncError(error)),
         );
       },
     );
@@ -115,7 +113,7 @@ class OtpCubit extends Cubit<OtpState> {
     result.when(
       onSuccess: (data) => emit(state.copyWith(sendOtpState: AsyncData(data))),
       onFailure: (error) => emit(
-        state.copyWith(sendOtpState: AsyncError(error.message ?? 'Error')),
+        state.copyWith(sendOtpState: AsyncError(error)),
       ),
     );
   }

@@ -22,7 +22,7 @@ class AuthCubit extends Cubit<AuthState> {
         emit(state.copyWith(loginState: AsyncData(data)));
       },
       onFailure: (failure) {
-        emit(state.copyWith(loginState: AsyncError(failure.error)));
+        emit(state.copyWith(loginState: AsyncError(failure)));
       },
     );
   }

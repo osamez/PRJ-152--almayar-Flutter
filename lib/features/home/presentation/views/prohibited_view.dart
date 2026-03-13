@@ -6,11 +6,14 @@ class ProhibitedView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const CustomAppBar(title: 'المواد المحظورة'),
-      body: const ProhibitedViewBody().withPadding(
-        vertical: AppSizes.h24,
-        horizontal: AppSizes.w20,
+    return BlocProvider(
+      create: (context) => getIt<ProhibitedCubit>()..getProhibitedData(type),
+      child: Scaffold(
+        appBar: const CustomAppBar(title: 'المواد المحظورة'),
+        body: const ProhibitedViewBody().withPadding(
+          vertical: AppSizes.h24,
+          horizontal: AppSizes.w20,
+        ),
       ),
     );
   }

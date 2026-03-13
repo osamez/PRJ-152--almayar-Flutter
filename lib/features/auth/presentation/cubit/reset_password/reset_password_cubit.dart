@@ -22,7 +22,7 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
           emit(state.copyWith(resetPasswordState: AsyncData(data))),
       onFailure: (error) => emit(
         state.copyWith(
-          resetPasswordState: AsyncError(error.error ?? 'An error occurred'),
+          resetPasswordState: AsyncError(error),
         ),
       ),
     );

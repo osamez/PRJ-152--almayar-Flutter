@@ -29,12 +29,12 @@ class OtpBlocListener extends StatelessWidget {
                   ),
                 );
               },
-              error: (msg) {
+              error: (failure) {
                 LoadingDialog.hide(context);
                 showAppSnackbar(
                   context: context,
                   type: SnackbarType.error,
-                  description: msg,
+                  description: failure.error,
                 );
               },
             );
@@ -54,12 +54,12 @@ class OtpBlocListener extends StatelessWidget {
                   description: response.message ?? 'Success',
                 );
               },
-              error: (msg) {
+              error: (failure) {
                 LoadingDialog.hide(context);
                 showAppSnackbar(
                   context: context,
                   type: SnackbarType.error,
-                  description: msg,
+                  description: failure.error,
                 );
               },
             );

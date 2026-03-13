@@ -20,12 +20,12 @@ class ResetPasswordBlocListener extends StatelessWidget {
             );
             context.go(Routes.login);
           },
-          error: (msg) {
+          error: (failure) {
             LoadingDialog.hide(context);
             showAppSnackbar(
               context: context,
               type: SnackbarType.error,
-              description: msg,
+              description: failure.error,
             );
           },
         );

@@ -20,12 +20,12 @@ class RegisterBlocListener extends StatelessWidget {
               ),
             );
           },
-          error: (msg) {
+          error: (failure) {
             LoadingDialog.hide(context);
             showAppSnackbar(
               context: context,
               type: SnackbarType.error,
-              description: msg.tr(),
+              description: failure.error.tr(),
             );
           },
         );

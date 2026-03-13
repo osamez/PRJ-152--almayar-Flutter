@@ -5,6 +5,41 @@ class ProhibitedViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(child: Html(data: 'asdasdasd'));
+    return BlocBuilder<ProhibitedCubit, ProhibitedState>(
+      buildWhen: (previous, current) =>
+          previous.fetchProhibitedDataState != current.fetchProhibitedDataState,
+      builder: (context, state) {
+        return state.fetchProhibitedDataState.when(
+          initial: () => const SizedBox.shrink(),
+          loading: () => const Center(child: CircularProgressIndicator()),
+          data: (prohibited) {
+            return SingleChildScrollView(
+              child: Html(data: prohibited.data ?? ''),
+            );
+          },
+          error: (failure) {
+            if (failure.status == LocalStatusCodes.connectionError) {
+              return InternetConnectionWidget(
+                onPressed: () {
+                  final type =
+                      (context.findAncestorWidgetOfExactType<ProhibitedView>()!)
+                          .type;
+                  context.read<ProhibitedCubit>().getProhibitedData(type);
+                },
+              );
+            }
+            return CustomErrorWidget(
+              message: failure.error,
+              onPressed: () {
+                final type =
+                    (context.findAncestorWidgetOfExactType<ProhibitedView>()!)
+                        .type;
+                context.read<ProhibitedCubit>().getProhibitedData(type);
+              },
+            );
+          },
+        );
+      },
+    );
   }
 }
