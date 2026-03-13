@@ -1,7 +1,8 @@
 part of '../../feature_imports.dart';
 
 class OtpPinInput extends StatelessWidget {
-  const OtpPinInput({super.key});
+  const OtpPinInput({super.key, required this.controller});
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +21,12 @@ class OtpPinInput extends StatelessWidget {
       ),
     );
 
+    final errorPinTheme = defaultPinTheme.copyWith(
+      decoration: defaultPinTheme.decoration?.copyWith(
+        border: Border.all(color: Colors.red),
+      ),
+    );
+
     final focusedPinTheme = defaultPinTheme.copyWith(
       decoration: defaultPinTheme.decoration?.copyWith(
         border: Border.all(color: AppColors.deepViolet, width: 2),
@@ -30,12 +37,21 @@ class OtpPinInput extends StatelessWidget {
       textDirection: TextDirection.ltr,
       child: Pinput(
         length: 6,
+        controller: controller,
         defaultPinTheme: defaultPinTheme,
         focusedPinTheme: focusedPinTheme,
+        errorPinTheme: errorPinTheme,
+        pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
         separatorBuilder: (index) => horizontalSpace(AppSizes.w8),
         hapticFeedbackType: HapticFeedbackType.lightImpact,
         onChanged: (value) {
           context.read<OtpCubit>().onOtpChanged(value);
+        },
+        validator: (value) {
+          if (value == null || value.length < 6) {
+            return LocaleKeys.otp_validation_error.tr();
+          }
+          return null;
         },
         onCompleted: (value) {
           context.read<OtpCubit>().onOtpChanged(value);

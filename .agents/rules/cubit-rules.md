@@ -1,5 +1,5 @@
 ---
-trigger: always_on
+trigger: model_decision
 ---
 
 # Role: Flutter Bloc & State Management Expert (Strict Rules)
@@ -18,7 +18,7 @@ When generating Cubits, States, and UI integrations for async operations, you MU
 ```dart
 class ProfileState extends Equatable {
   final Async<UserModel> getUserDataState;
-  final Async<void> updateUserDataState; // Used for independent update operations
+  final Async<void> updateUserDataState;
   final bool isEditing;
 
   const ProfileState({
@@ -42,87 +42,165 @@ class ProfileState extends Equatable {
   @override
   List<Object> get props => [getUserDataState, updateUserDataState, isEditing];
 }
-B. Cubit Implementation Rules:
-The Cubit communicates ONLY with the Repository (or UseCase).
+```
 
-Each operation MUST only emit and update its specific Async<T> field using copyWith.
+### B. Cubit Implementation Rules:
 
-Example:
+- The Cubit communicates ONLY with the Repository (or UseCase).
+- Each operation MUST only emit and update its specific `Async<T>` field using `copyWith`.
+- **NO controllers, FormKeys, or UI logic in the Cubit.** Controllers and form validation belong in the UI (StatefulWidget). The Cubit receives data (e.g., a Request model) as a parameter.
 
-Dart
-class ProfileCubit extends Cubit<ProfileState> {
-  final ProfileRepository _repository;
+**Example:**
 
-  ProfileCubit(this._repository) : super(const ProfileState());
+```dart
+class AuthCubit extends Cubit<AuthState> {
+  final AuthRepo _authRepo;
 
-  // Operation 1: Fetching Data
-  Future<void> getUserData() async {
-    emit(state.copyWith(getUserDataState: const AsyncLoading()));
+  AuthCubit(this._authRepo) : super(const AuthState());
 
-    final result = await _repository.getUserData();
+  Future<void> login(LoginRequest request) async {
+    emit(state.copyWith(loginState: const AsyncLoading()));
 
-    result.when(
-      onSuccess: (data) => emit(state.copyWith(getUserDataState: AsyncData(data))),
-      onError: (error) => emit(state.copyWith(getUserDataState: AsyncError(error.message ?? 'Error'))),
-    );
-  }
-
-  // Operation 2: Updating Data
-  Future<void> updateUserData(UpdateUserRequest request) async {
-    emit(state.copyWith(updateUserDataState: const AsyncLoading()));
-
-    final result = await _repository.updateUserData(request);
+    final result = await _authRepo.login(request);
 
     result.when(
-      onSuccess: (_) => emit(state.copyWith(updateUserDataState: const AsyncData(null))),
-      onError: (error) => emit(state.copyWith(updateUserDataState: AsyncError(error.message ?? 'Error'))),
+      onSuccess: (data) => emit(state.copyWith(loginState: AsyncData(data))),
+      onFailure: (error) => emit(state.copyWith(loginState: AsyncError(error.message ?? 'Error'))),
     );
   }
 }
-C. UI Implementation Rules (BlocBuilder & BlocListener):
-BlocBuilder: Use .when() on the fetch state (getUserDataState) to build the main UI layout.
+```
 
-BlocListener: Listen to the action/update state (updateUserDataState) to show dialogs, toasts, or navigation without rebuilding the whole layout.
+### C. UI Rules — Controllers & Form Validation:
 
-Example:
+- **Controllers and FormKeys live in the UI**, inside a `StatefulWidget`. Dispose them in `dispose()`.
+- The UI validates the form, then constructs the Request model and passes it to the Cubit method.
 
-Dart
-// 1. Listening to the Update operation (e.g., showing a toast)
-BlocListener<ProfileCubit, ProfileState>(
-  listenWhen: (previous, current) => previous.updateUserDataState != current.updateUserDataState,
-  listener: (context, state) {
-    state.updateUserDataState.whenOrNull(
-      loading: () => showLoadingDialog(context),
-      data: (_) {
-        hideLoadingDialog(context);
-        showToast('Profile updated successfully');
-      },
-      error: (msg) {
-        hideLoadingDialog(context);
-        showToast(msg, isError: true);
-      },
+**Example:**
+
+```dart
+class LoginForm extends StatefulWidget {
+  const LoginForm({super.key});
+  @override
+  State<LoginForm> createState() => _LoginFormState();
+}
+
+class _LoginFormState extends State<LoginForm> {
+  final _formKey = GlobalKey<FormState>();
+  final _phoneController = TextEditingController();
+  final _passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    _phoneController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+  void _onSubmit() {
+    if (!_formKey.currentState!.validate()) return;
+    context.read<AuthCubit>().login(
+      LoginRequest(
+        whatsappNumber: _phoneController.text.trim(),
+        whatsappKey: '+20',
+        password: _passwordController.text,
+      ),
     );
-  },
-  // 2. Building the UI based on the Fetch operation
-  child: BlocBuilder<ProfileCubit, ProfileState>(
-    buildWhen: (previous, current) => previous.getUserDataState != current.getUserDataState,
-    builder: (context, state) {
-      return state.getUserDataState.when(
-        initial: () => const SizedBox.shrink(),
-        loading: () => const CircularProgressIndicator(),
-        data: (user) => Text('Hello, ${user.name}'),
-        error: (msg) => Text(msg, style: AppTextStyleFactory.create(size: AppSizes.h14, weight: FontWeight.w400, color: AppColors.red)),
-      );
-    },
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: _formKey,
+      child: Column(children: [
+        // ... form fields with controllers & validators
+        AppElevatedButton(onPressed: _onSubmit, text: 'Login'),
+      ]),
+    );
+  }
+}
+```
+
+### D. BlocListener — Separate File Rule:
+
+- **NEVER** inline `BlocListener` directly inside the UI form/body widget.
+- **ALWAYS** create a dedicated `{ScreenName}BlocListener` widget in its **own file** inside `widgets/{screen_name}/`.
+- **Do NOT wrap the view with the listener**. Instead, the listener widget should take no `child` parameter, return `const SizedBox.shrink()` as its child, and be added to the `children` list of your `Column` or similar layout widget.
+- Register it as a `part` in the feature's `feature_imports.dart`.
+
+**File: `widgets/login/login_bloc_listener.dart`**
+
+```dart
+part of '../../feature_imports.dart';
+
+class LoginBlocListener extends StatelessWidget {
+  const LoginBlocListener({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocListener<AuthCubit, AuthState>(
+      listenWhen: (previous, current) => previous.loginState != current.loginState,
+      listener: (context, state) {
+        state.loginState.whenOrNull(
+          loading: () => LoadingDialog.show(context),
+          data: (_) {
+            LoadingDialog.hide(context);
+            context.go(Routes.main);
+          },
+          error: (msg) {
+            LoadingDialog.hide(context);
+            showAppSnackbar(context: context, type: SnackbarType.error, description: msg);
+          },
+        );
+      },
+      child: const SizedBox.shrink(),
+    );
+  }
+}
+```
+
+**Usage in the form:**
+
+```dart
+// Inside LoginForm build()
+return Form(
+  key: _formKey,
+  child: Column(
+    children: [
+      const LoginBlocListener(),
+      // ... form content
+    ],
   ),
 );
+```
 
-D. BlocSelector Implementation Rules (Performance Optimization):Use Case: Use BlocSelector when a widget depends on a specific property of the state, not the whole state object. This prevents unnecessary rebuilds when other independent Async<T> fields or variables change.Criteria: Use it for high-frequency updates or small UI components like Cart Badges, Favorite Icons, or Checkbox states.Example 1: Favorite Button (Selective Rebuild)Dart// Only rebuilds the Heart Icon when 'isFavorite' changes inside the Async data
-BlocSelector<ProductCubit, ProductState, bool>(
-  selector: (state) {
-    // Select only the piece of data we care about
-    return state.productDetailState.valueOrNull?.isFavorite ?? false;
+### E. BlocBuilder Rules:
+
+Use `.when()` on the fetch state to build the main UI layout.
+
+```dart
+BlocBuilder<ProfileCubit, ProfileState>(
+  buildWhen: (previous, current) => previous.getUserDataState != current.getUserDataState,
+  builder: (context, state) {
+    return state.getUserDataState.when(
+      initial: () => const SizedBox.shrink(),
+      loading: () => const CircularProgressIndicator(),
+      data: (user) => Text('Hello, ${user.name}'),
+      error: (msg) => Text(msg),
+    );
   },
+);
+```
+
+### F. BlocSelector Rules (Performance Optimization):
+
+Use `BlocSelector` when a widget depends on a **specific property** of the state. This prevents unnecessary rebuilds.
+
+**Example: Favorite Button**
+
+```dart
+BlocSelector<ProductCubit, ProductState, bool>(
+  selector: (state) => state.productDetailState.valueOrNull?.isFavorite ?? false,
   builder: (context, isFavorite) {
     return IconButton(
       icon: Icon(isFavorite ? Icons.favorite : Icons.favorite_border),
@@ -130,18 +208,12 @@ BlocSelector<ProductCubit, ProductState, bool>(
     );
   },
 );
-Example 2: Cart Badge (Selective Rebuild)Dart// Only rebuilds the Badge text when the length of the cart list changes
-// Even if 'updateCartState' is Loading, this widget WON'T rebuild.
-BlocSelector<CartCubit, CartState, int>(
-  selector: (state) {
-    return state.cartItemsState.valueOrNull?.length ?? 0;
-  },
-  builder: (context, cartCount) {
-    return Badge(
-      label: Text('$cartCount'),
-      child: const Icon(Icons.shopping_cart),
-    );
-  },
-);
-E. Decision Matrix (Which one to use?):ToolBest Used For...Performance ImpactBlocBuilderBuilding the main layout based on Async<T>.when().Moderate (rebuilds on any buildWhen condition).BlocSelectorAtomic widgets (Icons, Badges, Text) depending on one field.Lowest (only rebuilds if the selected value changes).BlocListenerSide effects only (Toasts, Nav, Dialogs).Zero Rebuilds (Side effect only).
 ```
+
+### G. Decision Matrix:
+
+| Tool           | Best Used For                                                | Performance Impact |
+| -------------- | ------------------------------------------------------------ | ------------------ |
+| `BlocBuilder`  | Main layout based on `Async<T>.when()`                       | Moderate           |
+| `BlocSelector` | Atomic widgets (Icons, Badges, Text)                         | Lowest             |
+| `BlocListener` | Side effects only (Toasts, Nav, Dialogs) — **separate file** | Zero Rebuilds      |

@@ -37,6 +37,10 @@ class OnboardingIndicatorsAndNextButton extends StatelessWidget {
                   text: LocaleKeys.next.tr(),
                   onPressed: () {
                     if (state == onBoardingData.length - 1) {
+                      CacheHelper().saveData(
+                        key: PrefsKeys.isShowingOnboarding,
+                        value: true,
+                      );
                       context.pushNamed(Routes.login);
                       return;
                     }

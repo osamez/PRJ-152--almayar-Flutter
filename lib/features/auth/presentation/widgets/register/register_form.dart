@@ -1,12 +1,18 @@
-﻿part of '../../feature_imports.dart';
+part of '../../feature_imports.dart';
 
-class RegisterForm extends StatelessWidget {
+class RegisterForm extends StatefulWidget {
   const RegisterForm({super.key});
 
   @override
+  State<RegisterForm> createState() => _RegisterFormState();
+}
+
+class _RegisterFormState extends State<RegisterForm> {
+  final _formKey = GlobalKey<FormState>();
+
+  @override
   Widget build(BuildContext context) {
-    return SliverFillRemaining(
-      hasScrollBody: false,
+    return SliverToBoxAdapter(
       child: Container(
         padding: EdgeInsets.symmetric(
           horizontal: AppSizes.w20,
@@ -18,12 +24,16 @@ class RegisterForm extends StatelessWidget {
             top: Radius.circular(AppSizes.radiusLg),
           ),
         ),
-        child: Column(
-          children: [
-            const RegisterStepContent(),
-            verticalSpace(AppSizes.h32),
-            const RegisterNextButton(),
-          ],
+        child: Form(
+          key: _formKey,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              RegisterStepContent(formKey: _formKey),
+              verticalSpace(AppSizes.h32),
+              RegisterNextButton(formKey: _formKey),
+            ],
+          ),
         ),
       ),
     );

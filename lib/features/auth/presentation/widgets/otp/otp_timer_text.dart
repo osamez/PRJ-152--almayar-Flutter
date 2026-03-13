@@ -1,7 +1,8 @@
 part of '../../feature_imports.dart';
 
 class OtpTimerText extends StatelessWidget {
-  const OtpTimerText({super.key});
+  const OtpTimerText({super.key, required this.otpParams});
+  final OtpParams otpParams;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class OtpTimerText extends StatelessWidget {
 
         if (state.canResend) {
           return GestureDetector(
-            onTap: cubit.resendOtp,
+            onTap: () => cubit.resendOtp(otpParams.phone, otpParams.phoneKey),
             child: Text(
               LocaleKeys.resend_code.tr(),
               style: AppTextStyleFactory.create(

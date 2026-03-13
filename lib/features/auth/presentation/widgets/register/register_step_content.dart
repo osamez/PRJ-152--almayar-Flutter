@@ -1,7 +1,8 @@
 part of '../../feature_imports.dart';
 
 class RegisterStepContent extends StatelessWidget {
-  const RegisterStepContent({super.key});
+  const RegisterStepContent({super.key, required this.formKey});
+  final GlobalKey<FormState> formKey;
 
   @override
   Widget build(BuildContext context) {

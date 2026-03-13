@@ -6,7 +6,7 @@ class RegisterView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => RegisterCubit(ImagePickerService()),
+      create: (_) => getIt<RegisterCubit>(),
       child: const Scaffold(
         backgroundColor: AppColors.white,
         body: SafeArea(child: RegisterViewBody()),

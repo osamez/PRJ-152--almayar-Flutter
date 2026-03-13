@@ -62,9 +62,11 @@ abstract class  LocaleKeys {
   static const already_have_account = 'already_have_account';
   static const otp_title = 'otp_title';
   static const otp_subtitle = 'otp_subtitle';
+  static const otp_validation_error = 'otp_validation_error';
   static const verify_otp = 'verify_otp';
   static const resend_after = 'resend_after';
   static const resend_code = 'resend_code';
+  static const otp_resend_success = 'otp_resend_success';
   static const reset_password_title = 'reset_password_title';
   static const save_and_set_password = 'save_and_set_password';
   static const passwords_not_matching = 'passwords_not_matching';
@@ -484,5 +486,20 @@ abstract class  LocaleKeys {
   static const confirm_transfer_resend_after = 'confirm_transfer_resend_after';
   static const confirm_transfer_resend = 'confirm_transfer_resend';
   static const confirm_transfer_submit = 'confirm_transfer_submit';
+  static const phone_required = 'phone_required';
+  static const password_required = 'password_required';
+  static const password_too_short = 'password_too_short';
+  static const please_enter_full_name = 'please_enter_full_name';
+  static const please_select_country = 'please_select_country';
+  static const please_select_city = 'please_select_city';
+  static const please_select_region = 'please_select_region';
+  static const please_select_branch = 'please_select_branch';
+  static const please_enter_email = 'please_enter_email';
+  static const please_enter_valid_email = 'please_enter_valid_email';
+  static const please_enter_password = 'please_enter_password';
+  static const please_confirm_password = 'please_confirm_password';
+  static const please_select_id_photo = 'please_select_id_photo';
+  static const registration_success_title = 'registration_success_title';
+  static const go_to_login = 'go_to_login';
 
 }

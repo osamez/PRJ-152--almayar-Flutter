@@ -1,0 +1,103 @@
+import 'package:almeyar/core/network/result.dart';
+import 'package:almeyar/core/utils/app_logger.dart';
+import 'package:almeyar/features/auth/data/datasources/auth_datasource.dart';
+import 'package:almeyar/features/auth/data/models/login_request.dart';
+import 'package:almeyar/features/auth/data/models/login_response.dart';
+import 'package:almeyar/features/auth/data/models/receiving_branch_model.dart';
+import 'package:almeyar/features/auth/data/repositories/auth_repo.dart';
+import 'package:almeyar/features/auth/data/models/send_otp_request.dart';
+import 'package:almeyar/features/auth/data/models/verify_otp_request.dart';
+import 'package:almeyar/core/models/message_model.dart';
+import 'package:almeyar/features/auth/data/models/reset_password_request.dart';
+import 'package:almeyar/features/auth/data/models/register_request.dart';
+import 'package:almeyar/features/auth/data/models/country_locations_response.dart';
+
+class AuthRepoImpl implements AuthRepo {
+  final AuthDataSource _dataSource;
+
+  const AuthRepoImpl(this._dataSource);
+
+  @override
+  Future<Result<LoginResponse>> login(LoginRequest request) async {
+    try {
+      final response = await _dataSource.login(request);
+      AppLogger.info('AuthRepoImpl - login: Successfully logged in');
+      return Result.success(response);
+    } catch (e, stackTrace) {
+      AppLogger.error('AuthRepoImpl - login: Failed to login', e, stackTrace);
+      return Result.failure(e, stackTrace);
+    }
+  }
+
+  @override
+  Future<Result<MessageModel>> register(RegisterRequest request) async {
+    try {
+      final response = await _dataSource.register(request);
+      AppLogger.info('AuthRepoImpl - register: Success');
+      return Result.success(response);
+    } catch (e, stackTrace) {
+      AppLogger.error('AuthRepoImpl - register: Error', e, stackTrace);
+      return Result.failure(e, stackTrace);
+    }
+  }
+
+  @override
+  Future<Result<MessageModel>> sendOtp(SendOtpRequest request) async {
+    try {
+      final response = await _dataSource.sendOtp(request);
+      AppLogger.info('AuthRepoImpl - sendOtp: Success');
+      return Result.success(response);
+    } catch (e, stackTrace) {
+      AppLogger.error('AuthRepoImpl - sendOtp: Error', e, stackTrace);
+      return Result.failure(e, stackTrace);
+    }
+  }
+
+  @override
+  Future<Result<MessageModel>> verifyOtp(VerifyOtpRequest request) async {
+    try {
+      final response = await _dataSource.verifyOtp(request);
+      AppLogger.info('AuthRepoImpl - verifyOtp: Success');
+      return Result.success(response);
+    } catch (e, stackTrace) {
+      AppLogger.error('AuthRepoImpl - verifyOtp: Error', e, stackTrace);
+      return Result.failure(e, stackTrace);
+    }
+  }
+
+  @override
+  Future<Result<MessageModel>> resetPassword(ResetPasswordRequest request) async {
+    try {
+      final response = await _dataSource.resetPassword(request);
+      AppLogger.info('AuthRepoImpl - resetPassword: Success');
+      return Result.success(response);
+    } catch (e, stackTrace) {
+      AppLogger.error('AuthRepoImpl - resetPassword: Error', e, stackTrace);
+      return Result.failure(e, stackTrace);
+    }
+  }
+
+  @override
+  Future<Result<List<ReceivingBranchModel>>> getReceivingBranches() async {
+    try {
+      final response = await _dataSource.getReceivingBranches();
+      AppLogger.info('AuthRepoImpl - getReceivingBranches: Success');
+      return Result.success(response.data ?? []);
+    } catch (e, stackTrace) {
+      AppLogger.error('AuthRepoImpl - getReceivingBranches: Error', e, stackTrace);
+      return Result.failure(e, stackTrace);
+    }
+  }
+
+  @override
+  Future<Result<CountryLocationsResponse>> getCountryLocations() async {
+    try {
+      final response = await _dataSource.getCountryLocations();
+      AppLogger.info('AuthRepoImpl - getCountryLocations: Success');
+      return Result.success(response);
+    } catch (e, stackTrace) {
+      AppLogger.error('AuthRepoImpl - getCountryLocations: Error', e, stackTrace);
+      return Result.failure(e, stackTrace);
+    }
+  }
+}

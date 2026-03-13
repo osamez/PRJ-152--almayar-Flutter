@@ -1,8 +1,8 @@
 part of '../../feature_imports.dart';
 
 class ResetPasswordViewBody extends StatelessWidget {
-  const ResetPasswordViewBody({super.key});
-
+  const ResetPasswordViewBody({super.key, required this.params});
+  final ResetPasswordParams params;
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
@@ -11,7 +11,7 @@ class ResetPasswordViewBody extends StatelessWidget {
           title: LocaleKeys.reset_password_title.tr(),
         ).withPadding(top: AppSizes.h56, horizontal: AppSizes.w20).toSliver,
         verticalSpace(AppSizes.h40).toSliver,
-        const ResetPasswordForm(),
+        ResetPasswordForm(params: params),
       ],
     );
   }

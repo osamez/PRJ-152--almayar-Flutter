@@ -1,4 +1,3 @@
-import 'package:almeyar/core/routing/routes.dart';
 import 'package:almeyar/features/auth/presentation/feature_imports.dart';
 import 'package:almeyar/features/home/presentation/feature_imports.dart';
 import 'package:almeyar/features/main/presentation/features_imports.dart';
@@ -12,10 +11,14 @@ import 'package:almeyar/features/money_transfers/presentation/feature_imports.da
 import 'package:almeyar/features/profile/presentation/feature_imports.dart';
 import 'package:almeyar/features/tickets/presentation/feature_imports.dart';
 import 'package:almeyar/features/wallets/presentation/feature_imports.dart';
-import 'package:go_router/go_router.dart';
+
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
+String initialRoute = Routes.login;
 
 final router = GoRouter(
-  initialLocation: Routes.login,
+  navigatorKey: navigatorKey,
+  initialLocation: initialRoute,
   routes: [
     GoRoute(
       path: Routes.onboarding,
@@ -40,12 +43,16 @@ final router = GoRouter(
     GoRoute(
       path: Routes.otp,
       name: Routes.otp,
-      builder: (context, state) => const OtpView(),
+      builder: (context, state) {
+        return OtpView(otpParams: state.extra as OtpParams);
+      },
     ),
     GoRoute(
       path: Routes.resetPassword,
       name: Routes.resetPassword,
-      builder: (context, state) => const ResetPasswordView(),
+      builder: (context, state) {
+        return ResetPasswordView(params: state.extra as ResetPasswordParams);
+      },
     ),
     GoRoute(
       path: Routes.main,
