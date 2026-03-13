@@ -9,6 +9,7 @@ import 'package:almeyar/features/auth/data/models/send_otp_request.dart';
 import 'package:almeyar/features/auth/data/models/verify_otp_request.dart';
 import 'package:almeyar/core/models/message_model.dart';
 import 'package:almeyar/features/auth/data/models/reset_password_request.dart';
+import 'package:almeyar/features/auth/data/models/register_request.dart';
 import 'package:almeyar/features/auth/data/models/country_locations_response.dart';
 
 class AuthRepoImpl implements AuthRepo {
@@ -24,6 +25,18 @@ class AuthRepoImpl implements AuthRepo {
       return Result.success(response);
     } catch (e, stackTrace) {
       AppLogger.error('AuthRepoImpl - login: Failed to login', e, stackTrace);
+      return Result.failure(e, stackTrace);
+    }
+  }
+
+  @override
+  Future<Result<MessageModel>> register(RegisterRequest request) async {
+    try {
+      final response = await _dataSource.register(request);
+      AppLogger.info('AuthRepoImpl - register: Success');
+      return Result.success(response);
+    } catch (e, stackTrace) {
+      AppLogger.error('AuthRepoImpl - register: Error', e, stackTrace);
       return Result.failure(e, stackTrace);
     }
   }

@@ -8,6 +8,7 @@ import 'package:almeyar/features/auth/data/models/send_otp_request.dart';
 import 'package:almeyar/features/auth/data/models/verify_otp_request.dart';
 import 'package:almeyar/core/models/message_model.dart';
 import 'package:almeyar/features/auth/data/models/reset_password_request.dart';
+import 'package:almeyar/features/auth/data/models/register_request.dart';
 import 'package:almeyar/features/auth/data/models/country_locations_response.dart';
 
 class AuthDataSourceImpl implements AuthDataSource {
@@ -18,6 +19,26 @@ class AuthDataSourceImpl implements AuthDataSource {
   @override
   Future<LoginResponse> login(LoginRequest request) async {
     return await _apiService.login(request);
+  }
+
+  @override
+  Future<MessageModel> register(RegisterRequest request) async {
+    return await _apiService.register(
+      name: request.name,
+      email: request.email,
+      branchId: request.branchId,
+      countryId: request.countryId,
+      password: request.password,
+      passwordConfirmation: request.passwordConfirmation,
+      phone: request.phone,
+      whatsappPhone: request.whatsappPhone,
+      notes: request.notes,
+      phoneKey: request.phoneKey,
+      whatsappKey: request.whatsappKey,
+      cityId: request.cityId,
+      regionId: request.regionId,
+      nationalIdentityPhoto: request.nationalIdentityPhoto,
+    );
   }
 
   @override
