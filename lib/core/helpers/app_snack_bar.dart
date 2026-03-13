@@ -13,7 +13,6 @@ void showAppSnackbar({
     case SnackbarType.success:
       CherryToast.success(
         toastDuration: const Duration(milliseconds: 2500),
-        height: 70,
         toastPosition: Position.bottom,
         textDirection: Directionality.of(context),
         shadowColor: Colors.white,
@@ -22,6 +21,7 @@ void showAppSnackbar({
         backgroundColor: Colors.green.withAlpha(40),
         description: Text(
           description,
+          softWrap: true,
           style: AppTextStyleFactory.create(
             size: 12,
             weight: FontWeight.w400,
@@ -43,7 +43,6 @@ void showAppSnackbar({
     case SnackbarType.error:
       CherryToast.error(
         toastDuration: const Duration(milliseconds: 2500),
-        height: 70,
         toastPosition: Position.bottom,
         textDirection: Directionality.of(context),
         shadowColor: Colors.white,
@@ -52,7 +51,12 @@ void showAppSnackbar({
         backgroundColor: Colors.red.withAlpha(40),
         description: Text(
           description,
-          style: const TextStyle(color: AppColors.black),
+          softWrap: true,
+          style: AppTextStyleFactory.create(
+            size: 12,
+            weight: FontWeight.w400,
+            color: AppColors.black,
+          ),
         ),
         title: Text(
           "حدث خطأ ما",
@@ -61,7 +65,6 @@ void showAppSnackbar({
             weight: FontWeight.w700,
             color: Colors.red,
           ),
-          //AppTextStyles.bold12.copyWith(color: Colors.red),
         ),
       ).show(context);
       break;

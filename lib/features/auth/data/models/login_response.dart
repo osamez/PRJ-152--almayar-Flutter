@@ -108,7 +108,7 @@ class BranchModel {
   @JsonKey(name: 'city_id')
   final int? cityId;
   final String? type;
-  final String? status;
+  final StatusModel? status;
 
   const BranchModel({
     this.id,
@@ -137,7 +137,7 @@ class CountryModel {
   final String? code;
   final String? flag;
   final CurrencyModel? currency;
-  final String? status;
+  final StatusModel? status;
 
   const CountryModel({
     this.id,
@@ -166,4 +166,18 @@ class CurrencyModel {
       _$CurrencyModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$CurrencyModelToJson(this);
+}
+
+@JsonSerializable()
+class StatusModel {
+  final int? id;
+  final String? name;
+  final String? color;
+
+  const StatusModel({this.id, this.name, this.color});
+
+  factory StatusModel.fromJson(Map<String, dynamic> json) =>
+      _$StatusModelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$StatusModelToJson(this);
 }

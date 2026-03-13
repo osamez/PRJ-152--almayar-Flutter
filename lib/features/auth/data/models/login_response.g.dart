@@ -95,7 +95,9 @@ BranchModel _$BranchModelFromJson(Map<String, dynamic> json) => BranchModel(
   countryId: (json['country_id'] as num?)?.toInt(),
   cityId: (json['city_id'] as num?)?.toInt(),
   type: json['type'] as String?,
-  status: json['status'] as String?,
+  status: json['status'] == null
+      ? null
+      : StatusModel.fromJson(json['status'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$BranchModelToJson(BranchModel instance) =>
@@ -121,7 +123,9 @@ CountryModel _$CountryModelFromJson(Map<String, dynamic> json) => CountryModel(
   currency: json['currency'] == null
       ? null
       : CurrencyModel.fromJson(json['currency'] as Map<String, dynamic>),
-  status: json['status'] as String?,
+  status: json['status'] == null
+      ? null
+      : StatusModel.fromJson(json['status'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$CountryModelToJson(CountryModel instance) =>
@@ -146,4 +150,17 @@ Map<String, dynamic> _$CurrencyModelToJson(CurrencyModel instance) =>
       'id': instance.id,
       'name': instance.name,
       'code': instance.code,
+    };
+
+StatusModel _$StatusModelFromJson(Map<String, dynamic> json) => StatusModel(
+  id: (json['id'] as num?)?.toInt(),
+  name: json['name'] as String?,
+  color: json['color'] as String?,
+);
+
+Map<String, dynamic> _$StatusModelToJson(StatusModel instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'color': instance.color,
     };

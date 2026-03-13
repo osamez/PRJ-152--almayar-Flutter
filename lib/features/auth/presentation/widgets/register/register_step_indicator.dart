@@ -24,22 +24,24 @@ class RegisterStepIndicator extends StatelessWidget {
                 color: AppColors.darkBlueText,
               ),
             ),
-            Row(
-              spacing: AppSizes.w6,
-              children: [
-                DotIndicator(
-                  isActive: currentStep == 1 || currentStep > 1,
-                  inactiveColor: AppColors.notActive,
-                ),
-                DotIndicator(
-                  isActive: currentStep == 2 || currentStep > 2,
-                  inactiveColor: AppColors.notActive,
-                ),
-                DotIndicator(
-                  isActive: currentStep == 3,
-                  inactiveColor: AppColors.notActive,
-                ),
-              ],
+            Skeleton.leaf(
+              child: Row(
+                spacing: AppSizes.w6,
+                children: [
+                  DotIndicator(
+                    isActive: currentStep == 1 || currentStep > 1,
+                    inactiveColor: AppColors.notActive,
+                  ),
+                  DotIndicator(
+                    isActive: currentStep == 2 || currentStep > 2,
+                    inactiveColor: AppColors.notActive,
+                  ),
+                  DotIndicator(
+                    isActive: currentStep == 3,
+                    inactiveColor: AppColors.notActive,
+                  ),
+                ],
+              ),
             ),
           ],
         );

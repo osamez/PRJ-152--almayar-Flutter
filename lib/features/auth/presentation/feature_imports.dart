@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:lottie/lottie.dart';
+
 import 'package:almeyar/core/di/dependency_injection.dart';
 import 'package:almeyar/core/helpers/app_snack_bar.dart';
 import 'package:almeyar/core/helpers/cache_helper.dart';
@@ -20,6 +22,9 @@ import 'package:almeyar/features/auth/data/models/send_otp_request.dart';
 import 'package:almeyar/core/helpers/helper_func.dart';
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:pinput/pinput.dart';
+import 'package:almeyar/features/auth/data/models/country_locations_response.dart';
+import 'package:almeyar/core/utils/custom_dropdowon_search_list.dart';
+import 'package:almeyar/features/auth/data/models/receiving_branch_model.dart';
 
 part 'views/login_view.dart';
 part 'views/register_view.dart';
@@ -39,6 +44,12 @@ part 'widgets/register/register_third_step.dart';
 part 'widgets/register/register_id_upload_area.dart';
 part 'widgets/register/upload_placeholder.dart';
 part 'widgets/register/image_preview.dart';
+part 'widgets/register/register_bloc_listener.dart';
+part 'widgets/register/country_dropdown.dart';
+part 'widgets/register/city_dropdown.dart';
+part 'widgets/register/region_dropdown.dart';
+part 'widgets/register/branch_dropdown.dart';
+part 'widgets/register/register_success_dialog.dart';
 part 'views/forget_password_view.dart';
 part 'widgets/forget_password/forget_password_view_body.dart';
 part 'widgets/forget_password/forget_password_form.dart';

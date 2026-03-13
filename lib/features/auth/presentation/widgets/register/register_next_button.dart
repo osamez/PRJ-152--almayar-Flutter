@@ -12,15 +12,7 @@ class RegisterNextButton extends StatelessWidget {
         return AppElevatedButton(
           onPressed: () {
             if (isLastStep) {
-              if (state.pickedImage == null) {
-                showAppSnackbar(
-                  context: context,
-                  type: SnackbarType.error,
-                  description: LocaleKeys.insert_id_proof.tr(),
-                );
-                return;
-              }
-              context.pushNamed(Routes.otp);
+              context.read<RegisterCubit>().register();
             } else {
               if (formKey.currentState!.validate()) {
                 context.read<RegisterCubit>().nextStep();

@@ -50,7 +50,7 @@ abstract class AuthApiService {
   @POST(ApiConstants.forgotPassword)
   Future<MessageModel> resetPassword(@Body() ResetPasswordRequest request);
 
-  @POST(ApiConstants.receivingBranches)
+  @GET(ApiConstants.receivingBranches)
   Future<BaseResponse<List<ReceivingBranchModel>>> getReceivingBranches();
 
   @GET(ApiConstants.countryLocations)

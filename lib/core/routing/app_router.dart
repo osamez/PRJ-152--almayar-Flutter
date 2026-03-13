@@ -18,7 +18,7 @@ String initialRoute = Routes.login;
 
 final router = GoRouter(
   navigatorKey: navigatorKey,
-  initialLocation: Routes.login,
+  initialLocation: initialRoute,
   routes: [
     GoRoute(
       path: Routes.onboarding,

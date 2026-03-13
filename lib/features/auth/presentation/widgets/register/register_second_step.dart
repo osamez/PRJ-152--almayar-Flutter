@@ -5,21 +5,23 @@ class RegisterSecondStep extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<RegisterCubit>();
     return Column(
       children: [
-        AppTextFormField(
-          hintText: LocaleKeys.preferred_branch_hint.tr(),
-          validator: (value) {},
-          title: LocaleKeys.preferred_branch.tr(),
-          suffixIcon: const Icon(
-            Icons.keyboard_arrow_down_rounded,
-            color: AppColors.black,
-          ),
-        ),
+        const BranchDropdown(),
         verticalSpace(AppSizes.h16),
         AppTextFormField(
           hintText: LocaleKeys.enter_email.tr(),
-          validator: (value) {},
+          onChanged: cubit.updateEmail,
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return LocaleKeys.please_enter_email.tr();
+            }
+            if (!value.isValidEmail()) {
+              return LocaleKeys.please_enter_valid_email.tr();
+            }
+            return null;
+          },
           title: LocaleKeys.email.tr(),
           keyboardType: TextInputType.emailAddress,
         ),
@@ -27,19 +29,39 @@ class RegisterSecondStep extends StatelessWidget {
         PhoneFormField(
           title: LocaleKeys.whatsapp_number.tr(),
           hintText: LocaleKeys.phone_hint.tr(),
+          onChanged: (phone) => cubit.updateWhatsappNumber(phone),
+          onCountryChanged: (code) => cubit.updateWhatsappKey(code),
         ),
         verticalSpace(AppSizes.h16),
         PasswordTextFormField(
           hintText: LocaleKeys.enter_password.tr(),
           isRequired: true,
-          validator: (value) {},
+          onChanged: cubit.updatePassword,
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return LocaleKeys.please_enter_password.tr();
+            }
+            if (value.length < 8) {
+              return LocaleKeys.password_too_short.tr();
+            }
+            return null;
+          },
           title: LocaleKeys.password.tr(),
         ),
         verticalSpace(AppSizes.h16),
         PasswordTextFormField(
           hintText: LocaleKeys.re_enter_password.tr(),
           isRequired: true,
-          validator: (value) {},
+          onChanged: cubit.updateConfirmPassword,
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return LocaleKeys.please_confirm_password.tr();
+            }
+            if (value != cubit.state.password) {
+              return LocaleKeys.passwords_not_matching.tr();
+            }
+            return null;
+          },
           title: LocaleKeys.confirm_password.tr(),
         ),
       ],

@@ -510,5 +510,8 @@
   "please_enter_email": "Please enter email",
   "please_enter_valid_email": "Please enter a valid email",
   "please_enter_password": "Please enter password",
-  "please_confirm_password": "Please confirm password"
+  "please_confirm_password": "Please confirm password",
+  "please_select_id_photo": "Please select an ID proof photo",
+  "registration_success_title": "Registration Successful",
+  "go_to_login": "Go to Login"
 }

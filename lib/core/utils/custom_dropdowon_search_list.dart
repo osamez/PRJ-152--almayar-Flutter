@@ -18,6 +18,7 @@ class CustomDropdownSearchList<T> extends StatefulWidget {
     this.showSearch = true,
     required this.hintText,
     this.isMulti = false,
+    this.validator,
   });
 
   final List<T> items;
@@ -36,6 +37,7 @@ class CustomDropdownSearchList<T> extends StatefulWidget {
   final String hintText;
   final bool showRemove;
   final bool isMulti;
+  final String? Function(T?)? validator;
 
   @override
   State<CustomDropdownSearchList<T>> createState() =>
@@ -75,6 +77,7 @@ class _CustomDropdownSearchListState<T>
           onChanged: (value) {
             widget.onChanged(value);
           },
+          validator: widget.validator,
           dropdownBuilder: (context, selectedItem) {
             if (selectedItem == null) {
               return const SizedBox.shrink();

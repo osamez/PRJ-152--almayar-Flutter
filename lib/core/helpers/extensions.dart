@@ -10,6 +10,12 @@ extension ContextExtension on BuildContext {
 
 extension StringExtension on String? {
   bool isNullOrEmpty() => this == null || this == "";
+
+  bool isValidEmail() {
+    return RegExp(
+      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
+    ).hasMatch(this ?? "");
+  }
 }
 
 extension ListExtension<T> on List<T>? {

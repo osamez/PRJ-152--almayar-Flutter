@@ -8,6 +8,7 @@ class PasswordTextFormField extends StatefulWidget {
     this.title,
     required this.isRequired,
     required this.validator,
+    this.onChanged,
     this.showResetPassword = false,
   });
   final String hintText;
@@ -15,6 +16,7 @@ class PasswordTextFormField extends StatefulWidget {
   final String? title;
   final bool isRequired;
   final dynamic Function(String?) validator;
+  final void Function(String)? onChanged;
   final bool showResetPassword;
   @override
   State<PasswordTextFormField> createState() => _PasswordTextFormFieldState();
@@ -31,6 +33,7 @@ class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
       hintText: widget.hintText,
       keyboardType: TextInputType.emailAddress,
       showResetPassword: widget.showResetPassword,
+      onChanged: widget.onChanged,
       validator: widget.validator,
       isObscureText: isObscure,
       suffixIcon: IconButton(

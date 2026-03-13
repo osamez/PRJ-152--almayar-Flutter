@@ -509,7 +509,10 @@ class CodegenLoader extends AssetLoader{
   "please_enter_email": "يرجى إدخال البريد الإلكتروني",
   "please_enter_valid_email": "يرجى إدخال بريد إلكتروني صحيح",
   "please_enter_password": "يرجى إدخال كلمة المرور",
-  "please_confirm_password": "يرجى تأكيد كلمة المرور"
+  "please_confirm_password": "يرجى تأكيد كلمة المرور",
+  "please_select_id_photo": "يرجى اختيار صورة إثبات الهوية",
+  "registration_success_title": "تم التسجيل بنجاح",
+  "go_to_login": "الذهاب لتسجيل الدخول"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -1006,7 +1009,10 @@ static const Map<String,dynamic> _en = {
   "please_enter_email": "Please enter email",
   "please_enter_valid_email": "Please enter a valid email",
   "please_enter_password": "Please enter password",
-  "please_confirm_password": "Please confirm password"
+  "please_confirm_password": "Please confirm password",
+  "please_select_id_photo": "Please select an ID proof photo",
+  "registration_success_title": "Registration Successful",
+  "go_to_login": "Go to Login"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

@@ -510,5 +510,8 @@
   "please_enter_email": "يرجى إدخال البريد الإلكتروني",
   "please_enter_valid_email": "يرجى إدخال بريد إلكتروني صحيح",
   "please_enter_password": "يرجى إدخال كلمة المرور",
-  "please_confirm_password": "يرجى تأكيد كلمة المرور"
+  "please_confirm_password": "يرجى تأكيد كلمة المرور",
+  "please_select_id_photo": "يرجى اختيار صورة إثبات الهوية",
+  "registration_success_title": "تم التسجيل بنجاح",
+  "go_to_login": "الذهاب لتسجيل الدخول"
 }

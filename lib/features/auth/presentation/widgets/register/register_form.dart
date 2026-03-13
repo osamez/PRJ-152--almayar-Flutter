@@ -12,8 +12,7 @@ class _RegisterFormState extends State<RegisterForm> {
 
   @override
   Widget build(BuildContext context) {
-    return SliverFillRemaining(
-      hasScrollBody: false,
+    return SliverToBoxAdapter(
       child: Container(
         padding: EdgeInsets.symmetric(
           horizontal: AppSizes.w20,
@@ -28,6 +27,7 @@ class _RegisterFormState extends State<RegisterForm> {
         child: Form(
           key: _formKey,
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               RegisterStepContent(formKey: _formKey),
               verticalSpace(AppSizes.h32),
