@@ -501,5 +501,6 @@ abstract class  LocaleKeys {
   static const please_select_id_photo = 'please_select_id_photo';
   static const registration_success_title = 'registration_success_title';
   static const go_to_login = 'go_to_login';
+  static const shipments_no_branches_found = 'shipments_no_branches_found';
 
 }

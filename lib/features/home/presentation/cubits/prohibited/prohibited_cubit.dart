@@ -1,12 +1,11 @@
-import '../feature_imports.dart';
-import 'package:almeyar/core/enums/enums.dart';
+part of '../../feature_imports.dart';
 
 class ProhibitedCubit extends Cubit<ProhibitedState> {
   final HomeRepo _homeRepo;
   final InternetService _internetService;
 
   ProhibitedCubit(this._homeRepo, this._internetService)
-      : super(const ProhibitedState());
+    : super(const ProhibitedState());
 
   Future<void> getProhibitedData(ProhibitedType type) async {
     emit(state.copyWith(fetchProhibitedDataState: const AsyncLoading()));
@@ -25,20 +24,15 @@ class ProhibitedCubit extends Cubit<ProhibitedState> {
       return;
     }
 
-    final result =
-        type == ProhibitedType.air
-            ? await _homeRepo.getProhibitedAir()
-            : await _homeRepo.getProhibitedSea();
+    final result = type == ProhibitedType.air
+        ? await _homeRepo.getProhibitedAir()
+        : await _homeRepo.getProhibitedSea();
 
     result.when(
-      onSuccess:
-          (data) => emit(
-            state.copyWith(fetchProhibitedDataState: AsyncData(data)),
-          ),
-      onFailure:
-          (failure) => emit(
-            state.copyWith(fetchProhibitedDataState: AsyncError(failure)),
-          ),
+      onSuccess: (data) =>
+          emit(state.copyWith(fetchProhibitedDataState: AsyncData(data))),
+      onFailure: (failure) =>
+          emit(state.copyWith(fetchProhibitedDataState: AsyncError(failure))),
     );
   }
 }

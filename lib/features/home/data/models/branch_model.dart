@@ -64,7 +64,7 @@ class BranchStatus {
 
 @JsonSerializable()
 class ShippingWay {
-  final int? id;
+  final String? id;
   final String? name;
 
   const ShippingWay({

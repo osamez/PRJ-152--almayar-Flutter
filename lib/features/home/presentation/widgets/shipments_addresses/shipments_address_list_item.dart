@@ -1,16 +1,9 @@
 part of '../../feature_imports.dart';
 
 class ShipmentsAddressListItem extends StatelessWidget {
-  const ShipmentsAddressListItem({
-    super.key,
-    required this.arabicName,
-    required this.englishName,
-    required this.flagAsset,
-  });
+  const ShipmentsAddressListItem({super.key, required this.branch});
 
-  final String arabicName;
-  final String englishName;
-  final String flagAsset;
+  final BranchModel branch;
 
   @override
   Widget build(BuildContext context) {
@@ -30,26 +23,28 @@ class ShipmentsAddressListItem extends StatelessWidget {
       child: CustomInkWellWidget(
         padding: EdgeInsets.all(AppSizes.w12),
         radius: AppSizes.radiusLg,
-
-        onTap: () => context.pushNamed(Routes.shipmentAddressDetails),
+        onTap: () =>
+            context.pushNamed(Routes.shipmentAddressDetails, extra: branch),
         child: Row(
           children: [
             Flexible(
-              child: Container(
-                width: AppSizes.w52,
-                height: AppSizes.h52,
-                padding: EdgeInsets.symmetric(
-                  horizontal: AppSizes.w10,
-                  vertical: AppSizes.h10,
-                ),
-                decoration: BoxDecoration(
-                  color: AppColors.offWhite,
-                  borderRadius: BorderRadius.circular(AppSizes.radiusMd),
-                ),
-                child: SvgPicture.asset(
-                  flagAsset,
-                  width: AppSizes.w32,
-                  height: AppSizes.h32,
+              child: Skeleton.leaf(
+                child: Container(
+                  width: AppSizes.w52,
+                  height: AppSizes.h52,
+                  padding: EdgeInsets.symmetric(
+                    horizontal: AppSizes.w10,
+                    vertical: AppSizes.h10,
+                  ),
+                  decoration: BoxDecoration(
+                    color: AppColors.offWhite,
+                    borderRadius: BorderRadius.circular(AppSizes.radiusMd),
+                  ),
+                  child: SvgPicture.asset(
+                    AppAssets.svgFlagTest,
+                    width: AppSizes.w32,
+                    height: AppSizes.h32,
+                  ),
                 ),
               ),
             ),
@@ -60,7 +55,7 @@ class ShipmentsAddressListItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    arabicName,
+                    branch.branchName ?? '',
                     maxLines: 1,
                     style: AppTextStyleFactory.create(
                       size: 16,
@@ -70,7 +65,7 @@ class ShipmentsAddressListItem extends StatelessWidget {
                   ),
                   verticalSpace(AppSizes.h4),
                   Text(
-                    englishName,
+                    branch.countryName ?? '',
                     style: AppTextStyleFactory.create(
                       size: 12,
                       weight: FontWeight.w400,

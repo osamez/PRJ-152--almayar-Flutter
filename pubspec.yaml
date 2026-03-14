@@ -58,6 +58,7 @@ dependencies:
   country_code_picker: ^3.4.1
   dropdown_search: ^6.0.2
   flutter_html: ^3.0.0
+  cached_network_image: ^3.4.1
 
 dev_dependencies:
   flutter_test:

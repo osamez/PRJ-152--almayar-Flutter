@@ -54,10 +54,8 @@ Map<String, dynamic> _$BranchStatusToJson(BranchStatus instance) =>
       'color': instance.color,
     };
 
-ShippingWay _$ShippingWayFromJson(Map<String, dynamic> json) => ShippingWay(
-  id: (json['id'] as num?)?.toInt(),
-  name: json['name'] as String?,
-);
+ShippingWay _$ShippingWayFromJson(Map<String, dynamic> json) =>
+    ShippingWay(id: json['id'] as String?, name: json['name'] as String?);
 
 Map<String, dynamic> _$ShippingWayToJson(ShippingWay instance) =>
     <String, dynamic>{'id': instance.id, 'name': instance.name};
