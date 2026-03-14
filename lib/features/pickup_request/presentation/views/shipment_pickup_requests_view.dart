@@ -5,10 +5,13 @@ class ShipmentPickupRequestsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.offWhite,
-      appBar: CustomAppBar(title: LocaleKeys.pickup_requests_title.tr()),
-      body: const ShipmentPickupRequestsViewBody(),
+    return BlocProvider(
+      create: (context) => getIt<ShipmentPickupRequestsCubit>()..getShipmentRequests(),
+      child: Scaffold(
+        backgroundColor: AppColors.offWhite,
+        appBar: CustomAppBar(title: LocaleKeys.pickup_requests_title.tr()),
+        body: const ShipmentPickupRequestsViewBody(),
+      ),
     );
   }
 }

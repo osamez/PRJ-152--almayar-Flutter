@@ -502,5 +502,7 @@ abstract class  LocaleKeys {
   static const registration_success_title = 'registration_success_title';
   static const go_to_login = 'go_to_login';
   static const shipments_no_branches_found = 'shipments_no_branches_found';
+  static const shipment_pickup_requests_no_requests = 'shipment_pickup_requests_no_requests';
+  static const shipment_pickup_requests_retry = 'shipment_pickup_requests_retry';
 
 }

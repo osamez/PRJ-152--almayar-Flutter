@@ -514,5 +514,7 @@
   "please_select_id_photo": "Please select an ID proof photo",
   "registration_success_title": "Registration Successful",
   "go_to_login": "Go to Login",
-  "shipments_no_branches_found": "No shipping addresses found"
+  "shipments_no_branches_found": "No shipping addresses found",
+  "shipment_pickup_requests_no_requests": "No shipment pickup requests found",
+  "shipment_pickup_requests_retry": "Retry"
 }

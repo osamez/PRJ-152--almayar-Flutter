@@ -514,5 +514,7 @@
   "please_select_id_photo": "يرجى اختيار صورة إثبات الهوية",
   "registration_success_title": "تم التسجيل بنجاح",
   "go_to_login": "الذهاب لتسجيل الدخول",
-  "shipments_no_branches_found": "لم يتم العثور على أي عناوين شحن"
+  "shipments_no_branches_found": "لم يتم العثور على أي عناوين شحن",
+  "shipment_pickup_requests_no_requests": "لم يتم العثور على أي طلبات إستلام شحنات",
+  "shipment_pickup_requests_retry": "إعادة المحاولة"
 }

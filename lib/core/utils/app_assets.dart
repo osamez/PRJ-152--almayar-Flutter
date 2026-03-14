@@ -124,6 +124,8 @@ class AppAssets {
 
   static const String svgSearch = "assets/svg/search.svg";
 
+  static const String svgSearchResult = "assets/svg/search_result.svg";
+
   static const String svgShipments = "assets/svg/shipments.svg";
 
   static const String svgShipmentsSolid = "assets/svg/shipments_solid.svg";

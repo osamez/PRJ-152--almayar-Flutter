@@ -33,42 +33,44 @@ class PickupCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomInkWellWidget(
-      onTap: onTap,
-      radius: AppSizes.radiusMd,
-      child: Container(
-        decoration: BoxDecoration(
-          color: AppColors.white,
-          borderRadius: BorderRadius.circular(AppSizes.radiusMd),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: 0.04),
-              blurRadius: 8,
-              offset: const Offset(0, 2),
-            ),
-          ],
-        ),
-        child: Column(
-          children: [
-            PickupRequestCardHeader(
-              status: status,
-              shipmentCode: shipmentCode,
-              date: date,
-              shippingType: shippingType,
-            ),
-            PickupRequestRouteSection(
-              originWarehouse: originWarehouse,
-              originCountry: originCountry,
-              destinationWarehouse: destinationWarehouse,
-              destinationCountry: destinationCountry,
-            ),
-            Divider(height: 1, color: AppColors.gray.withValues(alpha: 0.5)),
-            PickupRequestStatsSection(
-              boxesCount: boxesCount,
-              totalVolume: totalVolume,
-              totalWeight: totalWeight,
-            ),
-          ],
+    return Skeleton.leaf(
+      child: CustomInkWellWidget(
+        onTap: onTap,
+        radius: AppSizes.radiusMd,
+        child: Container(
+          decoration: BoxDecoration(
+            color: AppColors.white,
+            borderRadius: BorderRadius.circular(AppSizes.radiusMd),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.04),
+                blurRadius: 8,
+                offset: const Offset(0, 2),
+              ),
+            ],
+          ),
+          child: Column(
+            children: [
+              PickupRequestCardHeader(
+                status: status,
+                shipmentCode: shipmentCode,
+                date: date,
+                shippingType: shippingType,
+              ),
+              PickupRequestRouteSection(
+                originWarehouse: originWarehouse,
+                originCountry: originCountry,
+                destinationWarehouse: destinationWarehouse,
+                destinationCountry: destinationCountry,
+              ),
+              Divider(height: 1, color: AppColors.gray.withValues(alpha: 0.5)),
+              PickupRequestStatsSection(
+                boxesCount: boxesCount,
+                totalVolume: totalVolume,
+                totalWeight: totalWeight,
+              ),
+            ],
+          ),
         ),
       ),
     );
