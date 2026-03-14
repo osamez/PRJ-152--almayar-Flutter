@@ -1,3 +1,4 @@
+import 'package:almeyar/core/enums/enums.dart';
 import 'package:almeyar/core/utils/exports.dart';
 import 'package:almeyar/core/widgets/custom_icon_rounded_box.dart';
 import 'package:almeyar/core/widgets/custom_rounder_arrow.dart';

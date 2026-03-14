@@ -38,4 +38,5 @@ class Routes {
   static const String wallets = '/wallets';
   static const String walletMoneyTransfer = '/wallet-money-transfer';
   static const String accountStatement = '/account-statement';
+  static const String prohibited = '/prohibited';
 }

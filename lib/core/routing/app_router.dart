@@ -1,3 +1,4 @@
+import 'package:almeyar/core/enums/enums.dart';
 import 'package:almeyar/features/auth/presentation/feature_imports.dart';
 import 'package:almeyar/features/home/presentation/feature_imports.dart';
 import 'package:almeyar/features/main/presentation/features_imports.dart';
@@ -211,6 +212,14 @@ final router = GoRouter(
       path: Routes.accountStatement,
       name: Routes.accountStatement,
       builder: (context, state) => const AccountStatementView(),
+    ),
+    GoRoute(
+      path: Routes.prohibited,
+      name: Routes.prohibited,
+      builder: (context, state) {
+        final type = state.extra as ProhibitedType;
+        return ProhibitedView(type: type);
+      },
     ),
   ],
 );

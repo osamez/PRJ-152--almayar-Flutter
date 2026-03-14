@@ -19,7 +19,9 @@ class RequestReceiveShipmentViewBody extends StatelessWidget {
               );
             },
             subTitle: LocaleKeys.request_shipment_air_subtitle.tr(),
-            prohibitedOnTap: () {},
+            prohibitedOnTap: () {
+              context.pushNamed(Routes.prohibited, extra: ProhibitedType.air);
+            },
           ),
           verticalSpace(AppSizes.h32),
           RequestReceiveShipmentItem(
@@ -33,7 +35,9 @@ class RequestReceiveShipmentViewBody extends StatelessWidget {
               );
             },
             subTitle: LocaleKeys.request_shipment_sea_subtitle.tr(),
-            prohibitedOnTap: () {},
+            prohibitedOnTap: () {
+              context.pushNamed(Routes.prohibited, extra: ProhibitedType.sea);
+            },
           ),
         ],
       ),

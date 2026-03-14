@@ -11,7 +11,7 @@ class ProhibitedViewBody extends StatelessWidget {
       builder: (context, state) {
         return state.fetchProhibitedDataState.when(
           initial: () => const SizedBox.shrink(),
-          loading: () => const Center(child: CircularProgressIndicator()),
+          loading: () => const Center(child: CupertinoActivityIndicator()),
           data: (prohibited) {
             return SingleChildScrollView(
               child: Html(data: prohibited.data ?? ''),
