@@ -32,7 +32,7 @@ class HomeViewBody extends StatelessWidget {
                   subtitle: LocaleKeys.home_request_shipment_desc,
                   svgIcon: AppAssets.svgReciveOrder,
                   onTap: () {
-                    context.push(Routes.requestReceiveShipmentView);
+                    context.push(Routes.shipmentPickupRequests);
                   },
                 ),
                 verticalSpace(AppSizes.h10),

@@ -3,6 +3,7 @@ import 'package:almeyar/core/services/image_picker_service.dart';
 import 'package:almeyar/core/services/internet_service.dart';
 import 'package:almeyar/features/auth/di/auth_di.dart';
 import 'package:almeyar/features/home/di/home_di.dart';
+import 'package:almeyar/features/pickup_request/di/pickup_request_di.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
@@ -12,6 +13,7 @@ Future<void> setupDependencyInjection() async {
   await _initCoreDependencies();
   setupAuthDI();
   setupHomeDI();
+  setupPickupRequestDI();
 }
 
 Future<void> _initCoreDependencies() async {

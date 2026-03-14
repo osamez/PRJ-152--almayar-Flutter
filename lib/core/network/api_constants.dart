@@ -13,4 +13,5 @@ class ApiConstants {
   static const String prohibitedAir = 'user/prohibited-air';
   static const String allBranches = 'user/all-branches';
   static const String showBranch = 'user/show-branch/{id}';
+  static const String shipmentRequests = 'user/my-shipment-requests';
 }
