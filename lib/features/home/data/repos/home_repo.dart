@@ -1,5 +1,6 @@
 import 'package:almeyar/core/models/base_response.dart';
 import 'package:almeyar/core/network/result.dart';
+import 'package:almeyar/features/home/data/models/branch_details_model.dart';
 import 'package:almeyar/features/home/data/models/branch_model.dart';
 import 'package:almeyar/features/home/data/models/prohibited_model.dart';
 
@@ -10,4 +11,5 @@ abstract class HomeRepo {
     String? search,
     int? shippingWay,
   });
+  Future<Result<BaseResponse<BranchDetailsModel>>> showBranch(int id);
 }

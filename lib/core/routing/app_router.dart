@@ -68,7 +68,10 @@ final router = GoRouter(
     GoRoute(
       path: Routes.shipmentAddressDetails,
       name: Routes.shipmentAddressDetails,
-      builder: (context, state) => const ShipmentAddressDetailsView(),
+      builder: (context, state) {
+        final branchId = state.extra as int;
+        return ShipmentAddressDetailsView(branchId: branchId);
+      },
     ),
     GoRoute(
       path: Routes.requestReceiveShipmentView,

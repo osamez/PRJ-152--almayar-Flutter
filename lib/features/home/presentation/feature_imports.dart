@@ -1,3 +1,4 @@
+import 'package:almeyar/core/helpers/app_snack_bar.dart';
 import 'package:almeyar/core/utils/exports.dart';
 import 'package:almeyar/core/network/local_status_codes.dart';
 import 'package:almeyar/core/network/api_error_model.dart';
@@ -8,6 +9,7 @@ import 'package:almeyar/core/widgets/custom_error_widget.dart';
 
 import 'package:almeyar/features/home/data/repos/home_repo.dart';
 import 'package:almeyar/features/home/data/models/branch_model.dart';
+import 'package:almeyar/features/home/data/models/branch_details_model.dart';
 import 'package:almeyar/features/home/data/models/prohibited_model.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -45,6 +47,7 @@ export 'package:almeyar/features/home/data/datasource/home_datasource.dart';
 export 'package:almeyar/features/home/data/datasource/home_datasource_impl.dart';
 export 'package:almeyar/core/services/internet_service.dart';
 export 'package:almeyar/features/home/data/models/branch_model.dart';
+export 'package:almeyar/features/home/data/models/branch_details_model.dart';
 export 'package:dio/dio.dart';
 
 // Home

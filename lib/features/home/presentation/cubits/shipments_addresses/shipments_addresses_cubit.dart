@@ -38,6 +38,48 @@ class ShipmentsAddressesCubit extends Cubit<ShipmentsAddressesState> {
     );
   }
 
+  Future<void> showBranchDetails(int id) async {
+    emit(state.copyWith(showBranchDetailsState: const AsyncLoading()));
+
+    if (!await _internetService.isConnected()) {
+      emit(
+        state.copyWith(
+          showBranchDetailsState: AsyncError(
+            ApiErrorModel(
+              error: 'no_internet',
+              status: LocalStatusCodes.connectionError,
+            ),
+          ),
+        ),
+      );
+      return;
+    }
+
+    final result = await _homeRepo.showBranch(id);
+
+    result.when(
+      onSuccess: (response) {
+        if (response.data != null) {
+          emit(state.copyWith(showBranchDetailsState: AsyncData(response.data!)));
+        } else {
+          emit(
+            state.copyWith(
+              showBranchDetailsState: AsyncError(
+                ApiErrorModel(
+                  error: 'branch_not_found',
+                  status: LocalStatusCodes.defaultError,
+                ),
+              ),
+            ),
+          );
+        }
+      },
+      onFailure: (failure) {
+        emit(state.copyWith(showBranchDetailsState: AsyncError(failure)));
+      },
+    );
+  }
+
   void selectFilter(String filter) {
     emit(state.copyWith(selectedFilter: filter));
     _applyFilters();

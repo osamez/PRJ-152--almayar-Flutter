@@ -1,5 +1,6 @@
 import 'package:almeyar/core/models/base_response.dart';
 import 'package:almeyar/core/network/api_constants.dart';
+import 'package:almeyar/features/home/data/models/branch_details_model.dart';
 import 'package:almeyar/features/home/data/models/branch_model.dart';
 import 'package:almeyar/features/home/data/models/prohibited_model.dart';
 import 'package:dio/dio.dart';
@@ -22,4 +23,7 @@ abstract class HomeApiService {
     @Query('search') String? search,
     @Query('shipping_way') int? shippingWay,
   );
+
+  @GET(ApiConstants.showBranch)
+  Future<BaseResponse<BranchDetailsModel>> showBranch(@Path('id') int id);
 }

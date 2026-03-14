@@ -24,7 +24,7 @@ class ShipmentsAddressListItem extends StatelessWidget {
         padding: EdgeInsets.all(AppSizes.w12),
         radius: AppSizes.radiusLg,
         onTap: () =>
-            context.pushNamed(Routes.shipmentAddressDetails, extra: branch),
+            context.pushNamed(Routes.shipmentAddressDetails, extra: branch.id),
         child: Row(
           children: [
             Flexible(
