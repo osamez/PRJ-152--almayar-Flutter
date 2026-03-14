@@ -513,5 +513,6 @@
   "please_confirm_password": "Please confirm password",
   "please_select_id_photo": "Please select an ID proof photo",
   "registration_success_title": "Registration Successful",
-  "go_to_login": "Go to Login"
+  "go_to_login": "Go to Login",
+  "shipments_no_branches_found": "No shipping addresses found"
 }

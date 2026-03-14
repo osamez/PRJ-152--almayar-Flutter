@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:almeyar/core/network/api_error_model.dart';
 
 sealed class Async<T> extends Equatable {
   const Async();
@@ -17,14 +18,14 @@ sealed class Async<T> extends Equatable {
   R when<R>({
     required R Function(T data) data,
     required R Function() loading,
-    required R Function(String message) error,
+    required R Function(ApiErrorModel failure) error,
     required R Function() initial,
   });
 
   R? whenOrNull<R>({
     R Function(T data)? data,
     R Function()? loading,
-    R Function(String message)? error,
+    R Function(ApiErrorModel failure)? error,
     R Function()? initial,
   }) {
     return when(
@@ -38,7 +39,7 @@ sealed class Async<T> extends Equatable {
   R maybeWhen<R>({
     R Function(T data)? data,
     R Function()? loading,
-    R Function(String message)? error,
+    R Function(ApiErrorModel failure)? error,
     R Function()? initial,
     required R Function() orElse,
   }) {
@@ -61,7 +62,7 @@ class AsyncInitial<T> extends Async<T> {
   R when<R>({
     required R Function(T data) data,
     required R Function() loading,
-    required R Function(String message) error,
+    required R Function(ApiErrorModel failure) error,
     required R Function() initial,
   }) {
     return initial();
@@ -75,7 +76,7 @@ class AsyncLoading<T> extends Async<T> {
   R when<R>({
     required R Function(T data) data,
     required R Function() loading,
-    required R Function(String message) error,
+    required R Function(ApiErrorModel failure) error,
     required R Function() initial,
   }) {
     return loading();
@@ -93,7 +94,7 @@ class AsyncData<T> extends Async<T> {
   R when<R>({
     required R Function(T data) data,
     required R Function() loading,
-    required R Function(String message) error,
+    required R Function(ApiErrorModel failure) error,
     required R Function() initial,
   }) {
     return data(this.data);
@@ -101,19 +102,19 @@ class AsyncData<T> extends Async<T> {
 }
 
 class AsyncError<T> extends Async<T> {
-  final String message;
-  const AsyncError(this.message);
+  final ApiErrorModel failure;
+  const AsyncError(this.failure);
 
   @override
-  List<Object?> get props => [message];
+  List<Object?> get props => [failure];
 
   @override
   R when<R>({
     required R Function(T data) data,
     required R Function() loading,
-    required R Function(String message) error,
+    required R Function(ApiErrorModel failure) error,
     required R Function() initial,
   }) {
-    return error(message);
+    return error(failure);
   }
 }

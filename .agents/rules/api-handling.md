@@ -47,9 +47,11 @@ class ApiConstants {
 
 ### Step 1: Generate/Update Models (`data/models/`)
 
-- Create Request and Response models based on the provided JSON.
+- Create **Data** models based on the provided JSON data.
+- **Naming Convention:** Rename data classes from `Data` or `Response` to `Model` (e.g., `BranchDetailsData` -> `BranchDetailsModel`).
 - Use `@JsonSerializable()` and generate `fromJson`/`toJson`.
 - Use strong typing (avoid `dynamic` unless absolutely necessary).
+- **BaseResponse Pattern:** Most APIs wrap data in a common structure. Use `BaseResponse<T>` from `core/models/base_response.dart` as the wrapper.
 - _Tip:_ Query parameters and simple primitive bodies do not need dedicated Request models.
 
 ### Step 2: Create/Update API Service (`data/api_service/`)
@@ -69,12 +71,12 @@ abstract class AuthApiService {
   factory AuthApiService(Dio dio, {String baseUrl}) = _AuthApiService;
 
   @POST(ApiConstants.login)
-  Future<LoginResponse> login(@Body() LoginRequest request);
+  Future<BaseResponse<LoginModel>> login(@Body() LoginRequest request);
 
   @GET(ApiConstants.getUsers)
-  Future<UsersResponse> getUsers(@Query('page') int page);
+  Future<BaseResponse<List<UserModel>>> getUsers(@Query('page') int page);
 }
-
+```
 Step 3: Create/Update DataSource (data/datasource/)
 Open/Create abstract class {FeatureName}DataSource and its implementation class {FeatureName}DataSourceImpl.
 
@@ -82,17 +84,18 @@ DataSourceImpl MUST take {FeatureName}ApiService in its constructor via DI.
 
 Implement the new method by directly calling the ApiService.
 
-Dart
+```dart
 // Example of DataSource Impl
 class AuthDataSourceImpl implements AuthDataSource {
   final AuthApiService _apiService;
   const AuthDataSourceImpl(this._apiService);
 
   @override
-  Future<LoginResponse> login(LoginRequest request) async {
+  Future<BaseResponse<LoginModel>> login(LoginRequest request) async {
     return await _apiService.login(request);
   }
 }
+```
 Step 4: Create/Update Repository (data/repos/) -> CRITICAL LAYER
 Open/Create abstract class {FeatureName}Repo and its implementation class {FeatureName}RepoImpl.
 
@@ -100,7 +103,7 @@ RepoImpl MUST take {FeatureName}DataSource in its constructor.
 
 Strict Implementation Rules for the new method:
 
-The return type MUST be Future<Result<{ResponseModel}>>.
+The return type MUST be `Future<Result<BaseResponse<{Model}>>>` (or `Future<Result<BaseResponse<List<{Model}>>>>`).
 
 You MUST wrap the DataSource call in a try-catch block.
 
@@ -108,14 +111,14 @@ On Success: Log the event AppLogger.info('ClassName - methodName: Success messag
 
 On Error: Log the event AppLogger.error('ClassName - methodName: Error message', e, stackTrace); and return Result.failure(e, stackTrace). Do NOT handle or map the error manually; the factory handles it.
 
-Dart
+```dart
 // Example of Repo Impl
 class AuthRepoImpl implements AuthRepo {
   final AuthDataSource _dataSource;
   const AuthRepoImpl(this._dataSource);
 
   @override
-  Future<Result<LoginResponse>> login(LoginRequest request) async {
+  Future<Result<BaseResponse<LoginModel>>> login(LoginRequest request) async {
     try {
       final response = await _dataSource.login(request);
       AppLogger.info('AuthRepoImpl - login: Successfully logged in');
@@ -126,6 +129,7 @@ class AuthRepoImpl implements AuthRepo {
     }
   }
 }
+```
 Step 5: Dependency Injection (DI) Check
 If you CREATED new files (ApiService, DataSource, Repo) in this prompt, explicitly tell the user: "Please remember to register these new classes in your DI container (e.g., GetIt)." - If you only UPDATED existing files, ignore this step.
 

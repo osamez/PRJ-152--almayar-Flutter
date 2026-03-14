@@ -79,124 +79,126 @@ class AppTextFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        if (title != null && showLabel == false) ...[
-          Row(
-            children: [
-              Text(
-                title ?? "",
-                style: AppTextStyleFactory.create(
-                  size: 13,
-                  weight: FontWeight.w500,
-                  color: titleColor ?? AppColors.black,
-                ),
-              ),
-              if (isRequired) ...[
-                horizontalSpace(AppSizes.w4),
+    return Skeleton.leaf(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          if (title != null && showLabel == false) ...[
+            Row(
+              children: [
                 Text(
-                  "*",
-                  style: AppTextStyleFactory.create(
-                    size: 10,
-                    weight: FontWeight.w500,
-                    color: Colors.red,
-                  ),
-                ),
-              ],
-              if (showResetPassword) ...[
-                const Spacer(),
-                Text(
-                  "نسيت كلمة المرور؟",
+                  title ?? "",
                   style: AppTextStyleFactory.create(
                     size: 13,
-                    weight: FontWeight.w400,
-                    color: AppColors.orange,
+                    weight: FontWeight.w500,
+                    color: titleColor ?? AppColors.black,
                   ),
-                ).onTap(
-                  function: () {
-                    context.push(Routes.forgetPassword);
-                  },
                 ),
+                if (isRequired) ...[
+                  horizontalSpace(AppSizes.w4),
+                  Text(
+                    "*",
+                    style: AppTextStyleFactory.create(
+                      size: 10,
+                      weight: FontWeight.w500,
+                      color: Colors.red,
+                    ),
+                  ),
+                ],
+                if (showResetPassword) ...[
+                  const Spacer(),
+                  Text(
+                    "نسيت كلمة المرور؟",
+                    style: AppTextStyleFactory.create(
+                      size: 13,
+                      weight: FontWeight.w400,
+                      color: AppColors.orange,
+                    ),
+                  ).onTap(
+                    function: () {
+                      context.push(Routes.forgetPassword);
+                    },
+                  ),
+                ],
               ],
-            ],
-          ),
-          verticalSpace(AppSizes.h8),
-        ],
-        SizedBox(
-          height: height,
-          child: TextFormField(
-            readOnly: readOnly,
-            onSaved: onSaved,
-            textAlign: textAlign,
-            textInputAction: textInputAction,
-            onChanged: onChanged,
-            onFieldSubmitted: onFieldSubmitted,
-            inputFormatters: inputFormatters,
-            focusNode: focusNode,
-            cursorColor: AppColors.orange,
-            onTapOutside: (event) {
-              FocusManager.instance.primaryFocus?.unfocus();
-            },
-            controller: controller,
-            enabled: isEnabled,
-            validator: (value) => validator(value),
-            keyboardType: keyboardType ?? TextInputType.text,
-            obscureText: isObscureText ?? false,
-            maxLines: maxLines,
-            maxLength: maxLength,
-            autovalidateMode:
-                autovalidateMode ?? AutovalidateMode.onUserInteraction,
-            style:
-                inputTextStyle ??
-                AppTextStyleFactory.create(
-                  size: 13,
-                  weight: FontWeight.w400,
-                  color: AppColors.black,
-                ),
-            decoration: InputDecoration(
-              isDense: true,
-              hintText: hintText,
-              suffixIcon: suffixIcon,
-              floatingLabelBehavior: FloatingLabelBehavior.always,
-
-              prefixIcon: prefixIcon,
-              fillColor: backgroundColor ?? AppColors.white,
-              filled: true,
-              // label: title != null && showLabel == true
-              //     ? Text(
-              //         title!,
-              //         style: AppTextStyles.reg14.copyWith(
-              //           color: titleColor ?? AppColors.black,
-              //         ),
-              //       )
-              //     : null,
-              hintStyle:
-                  hintStyle ??
+            ),
+            verticalSpace(AppSizes.h8),
+          ],
+          SizedBox(
+            height: height,
+            child: TextFormField(
+              readOnly: readOnly,
+              onSaved: onSaved,
+              textAlign: textAlign,
+              textInputAction: textInputAction,
+              onChanged: onChanged,
+              onFieldSubmitted: onFieldSubmitted,
+              inputFormatters: inputFormatters,
+              focusNode: focusNode,
+              cursorColor: AppColors.orange,
+              onTapOutside: (event) {
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
+              controller: controller,
+              enabled: isEnabled,
+              validator: (value) => validator(value),
+              keyboardType: keyboardType ?? TextInputType.text,
+              obscureText: isObscureText ?? false,
+              maxLines: maxLines,
+              maxLength: maxLength,
+              autovalidateMode:
+                  autovalidateMode ?? AutovalidateMode.onUserInteraction,
+              style:
+                  inputTextStyle ??
                   AppTextStyleFactory.create(
-                    size: 14,
-                    weight: FontWeight.w300,
-                    color: AppColors.hintColor,
+                    size: 13,
+                    weight: FontWeight.w400,
+                    color: AppColors.black,
                   ),
-              contentPadding:
-                  contentPadding ??
-                  EdgeInsets.symmetric(
-                    horizontal: AppSizes.w16,
-                    vertical: AppSizes.h12,
-                  ),
-              border: _buildBorder(),
-              enabledBorder: enabledBorder ?? _buildBorder(),
-              focusedBorder:
-                  focusedBorder ??
-                  _buildBorder(
-                    color: showFocusedBorder ? AppColors.gray : null,
-                  ),
-              errorBorder: _buildErrorBorder(),
-              focusedErrorBorder: _buildErrorBorder(),
+              decoration: InputDecoration(
+                isDense: true,
+                hintText: hintText,
+                suffixIcon: suffixIcon,
+                floatingLabelBehavior: FloatingLabelBehavior.always,
+
+                prefixIcon: prefixIcon,
+                fillColor: backgroundColor ?? AppColors.white,
+                filled: true,
+                // label: title != null && showLabel == true
+                //     ? Text(
+                //         title!,
+                //         style: AppTextStyles.reg14.copyWith(
+                //           color: titleColor ?? AppColors.black,
+                //         ),
+                //       )
+                //     : null,
+                hintStyle:
+                    hintStyle ??
+                    AppTextStyleFactory.create(
+                      size: 14,
+                      weight: FontWeight.w300,
+                      color: AppColors.hintColor,
+                    ),
+                contentPadding:
+                    contentPadding ??
+                    EdgeInsets.symmetric(
+                      horizontal: AppSizes.w16,
+                      vertical: AppSizes.h12,
+                    ),
+                border: _buildBorder(),
+                enabledBorder: enabledBorder ?? _buildBorder(),
+                focusedBorder:
+                    focusedBorder ??
+                    _buildBorder(
+                      color: showFocusedBorder ? AppColors.gray : null,
+                    ),
+                errorBorder: _buildErrorBorder(),
+                focusedErrorBorder: _buildErrorBorder(),
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 

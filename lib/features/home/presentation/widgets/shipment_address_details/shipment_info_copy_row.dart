@@ -24,41 +24,42 @@ class ShipmentInfoCopyRow extends StatelessWidget {
           ),
         ),
         verticalSpace(AppSizes.h8),
-        Container(
-          width: double.infinity,
-          padding: EdgeInsets.symmetric(
-            horizontal: AppSizes.w14,
-            vertical: AppSizes.h14,
-          ),
-          decoration: BoxDecoration(
-            color: AppColors.white,
-            borderRadius: BorderRadius.circular(AppSizes.radiusSm),
-            border: Border.all(color: AppColors.gray),
-          ),
-          child: Row(
-            children: [
-              Expanded(
-                child: Text(
-                  value,
-                  textAlign: TextAlign.start,
-                  style: AppTextStyleFactory.create(
-                    size: 14,
-                    weight: FontWeight.w300,
-                    color: AppColors.darkSlate,
+        Skeleton.leaf(
+          child: Container(
+            width: double.infinity,
+            padding: EdgeInsets.symmetric(
+              horizontal: AppSizes.w14,
+              vertical: AppSizes.h14,
+            ),
+            decoration: BoxDecoration(
+              color: AppColors.white,
+              borderRadius: BorderRadius.circular(AppSizes.radiusSm),
+              border: Border.all(color: AppColors.gray),
+            ),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    value,
+                    textAlign: TextAlign.start,
+                    style: AppTextStyleFactory.create(
+                      size: 14,
+                      weight: FontWeight.w300,
+                      color: AppColors.darkSlate,
+                    ),
                   ),
                 ),
-              ),
-              horizontalSpace(AppSizes.w10),
-
-              GestureDetector(
-                onTap: () => _copyToClipboard(context),
-                child: SvgPicture.asset(
-                  AppAssets.svgCopy,
-                  width: AppSizes.w22,
-                  height: AppSizes.h22,
+                horizontalSpace(AppSizes.w10),
+                GestureDetector(
+                  onTap: () => _copyToClipboard(context),
+                  child: SvgPicture.asset(
+                    AppAssets.svgCopy,
+                    width: AppSizes.w22,
+                    height: AppSizes.h22,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ],

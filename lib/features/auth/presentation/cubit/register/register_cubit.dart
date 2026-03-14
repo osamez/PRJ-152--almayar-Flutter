@@ -8,6 +8,7 @@ import 'package:almeyar/features/auth/data/models/receiving_branch_model.dart';
 import 'package:almeyar/features/auth/data/models/register_request.dart';
 import 'package:almeyar/features/auth/data/repositories/auth_repo.dart';
 import 'package:almeyar/core/models/message_model.dart';
+import 'package:almeyar/core/network/api_error_model.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
@@ -29,7 +30,7 @@ class RegisterCubit extends Cubit<RegisterState> {
         getLocationsState: AsyncData(response.data ?? []),
       )),
       onFailure: (error) => emit(state.copyWith(
-        getLocationsState: AsyncError(error.message ?? 'Unknown Error'),
+        getLocationsState: AsyncError(error),
       )),
     );
   }
@@ -44,7 +45,7 @@ class RegisterCubit extends Cubit<RegisterState> {
         getBranchesState: AsyncData(branches),
       )),
       onFailure: (error) => emit(state.copyWith(
-        getBranchesState: AsyncError(error.message ?? 'Unknown Error'),
+        getBranchesState: AsyncError(error),
       )),
     );
   }
@@ -52,7 +53,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   Future<void> register() async {
     if (state.pickedImage == null) {
       emit(state.copyWith(
-        registerState: const AsyncError('please_select_id_photo'),
+        registerState: AsyncError(ApiErrorModel(error: 'please_select_id_photo')),
       ));
       return;
     }
@@ -79,7 +80,7 @@ class RegisterCubit extends Cubit<RegisterState> {
 
     result.when(
       onSuccess: (message) => emit(state.copyWith(registerState: AsyncData(message))),
-      onFailure: (error) => emit(state.copyWith(registerState: AsyncError(error.message ?? 'Unknown Error'))),
+      onFailure: (error) => emit(state.copyWith(registerState: AsyncError(error))),
     );
   }
 

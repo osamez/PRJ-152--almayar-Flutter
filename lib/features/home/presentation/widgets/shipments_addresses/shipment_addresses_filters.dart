@@ -5,33 +5,43 @@ class ShipmentAddressesFilters extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: AppElevatedButton(
-            text: LocaleKeys.shipments_air_filter.tr(),
-            textStyle: AppTextStyleFactory.create(
-              size: 10,
-              weight: FontWeight.w700,
-              color: AppColors.white,
+    return BlocSelector<ShipmentsAddressesCubit, ShipmentsAddressesState,
+        String>(
+      selector: (state) => state.selectedFilter,
+      builder: (context, selectedFilter) {
+        final isAir = selectedFilter == 'air';
+        return Row(
+          children: [
+            Expanded(
+              child: AppElevatedButton(
+                text: LocaleKeys.shipments_air_filter.tr(),
+                backgroundColor: isAir ? AppColors.deepViolet : AppColors.white,
+                textStyle: AppTextStyleFactory.create(
+                  size: 10,
+                  weight: FontWeight.w700,
+                  color: isAir ? AppColors.white : AppColors.deepViolet,
+                ),
+                onPressed: () =>
+                    context.read<ShipmentsAddressesCubit>().selectFilter('air'),
+              ),
             ),
-            onPressed: () {},
-          ),
-        ),
-        horizontalSpace(AppSizes.w10),
-        Expanded(
-          child: AppElevatedButton(
-            text: LocaleKeys.shipments_sea_filter.tr(),
-            backgroundColor: AppColors.white,
-            textStyle: AppTextStyleFactory.create(
-              size: 10,
-              weight: FontWeight.w700,
-              color: AppColors.deepViolet,
+            horizontalSpace(AppSizes.w10),
+            Expanded(
+              child: AppElevatedButton(
+                text: LocaleKeys.shipments_sea_filter.tr(),
+                backgroundColor: !isAir ? AppColors.deepViolet : AppColors.white,
+                textStyle: AppTextStyleFactory.create(
+                  size: 10,
+                  weight: FontWeight.w700,
+                  color: !isAir ? AppColors.white : AppColors.deepViolet,
+                ),
+                onPressed: () =>
+                    context.read<ShipmentsAddressesCubit>().selectFilter('sea'),
+              ),
             ),
-            onPressed: () {},
-          ),
-        ),
-      ],
+          ],
+        );
+      },
     );
   }
 }

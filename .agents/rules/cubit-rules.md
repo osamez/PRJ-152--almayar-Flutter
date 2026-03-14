@@ -49,23 +49,41 @@ class ProfileState extends Equatable {
 - The Cubit communicates ONLY with the Repository (or UseCase).
 - Each operation MUST only emit and update its specific `Async<T>` field using `copyWith`.
 - **NO controllers, FormKeys, or UI logic in the Cubit.** Controllers and form validation belong in the UI (StatefulWidget). The Cubit receives data (e.g., a Request model) as a parameter.
+- **Internet Connectivity Check:** ALWAYS check for internet connectivity before calling the repository if the data is displayed on the UI. Inject `InternetService` into the Cubit and use `await _internetService.isConnected()`.
 
 **Example:**
 
 ```dart
 class AuthCubit extends Cubit<AuthState> {
   final AuthRepo _authRepo;
+  final InternetService _internetService;
 
-  AuthCubit(this._authRepo) : super(const AuthState());
+  AuthCubit(this._authRepo, this._internetService) : super(const AuthState());
 
   Future<void> login(LoginRequest request) async {
     emit(state.copyWith(loginState: const AsyncLoading()));
 
+    // 1. Check for internet connection
+    if (!await _internetService.isConnected()) {
+      emit(
+        state.copyWith(
+          loginState: AsyncError(
+            ApiErrorModel(
+              error: 'no_internet',
+              status: LocalStatusCodes.connectionError,
+            ),
+          ),
+        ),
+      );
+      return;
+    }
+
+    // 2. Call repository
     final result = await _authRepo.login(request);
 
     result.when(
       onSuccess: (data) => emit(state.copyWith(loginState: AsyncData(data))),
-      onFailure: (error) => emit(state.copyWith(loginState: AsyncError(error.message ?? 'Error'))),
+      onFailure: (error) => emit(state.copyWith(loginState: AsyncError(error))),
     );
   }
 }
@@ -174,22 +192,55 @@ return Form(
 );
 ```
 
-### E. BlocBuilder Rules:
+### E. BlocBuilder Rules — Main UI Logic:
 
-Use `.when()` on the fetch state to build the main UI layout.
+Use `.when()` on the fetch state to build the main UI layout. To provide a premium experience, ALWAYS handle Loading (Skeletonizer) and Errors (Internet/Generic) correctly.
+
+**Standard Pattern:**
 
 ```dart
-BlocBuilder<ProfileCubit, ProfileState>(
-  buildWhen: (previous, current) => previous.getUserDataState != current.getUserDataState,
-  builder: (context, state) {
-    return state.getUserDataState.when(
-      initial: () => const SizedBox.shrink(),
-      loading: () => const CircularProgressIndicator(),
-      data: (user) => Text('Hello, ${user.name}'),
-      error: (msg) => Text(msg),
-    );
-  },
-);
+@override
+Widget build(BuildContext context) {
+  return BlocBuilder<FeatureCubit, FeatureState>(
+    buildWhen: (previous, current) => previous.getDataState != current.getDataState,
+    builder: (context, state) {
+      return state.getDataState.when(
+        initial: () => const SizedBox.shrink(),
+        loading: () => _buildContent(context, state, isLoading: true), // Use helper
+        data: (data) {
+          // Rule: If empty state should replace the whole layout, handle it here.
+          // Rule: If empty state should only replace a part (e.g., keeping search bar/filters), handle it inside _buildContent.
+          return _buildContent(context, state, data: data);
+        },
+        error: (failure) {
+          if (failure.status == LocalStatusCodes.connectionError) {
+            return InternetConnectionWidget(
+              onPressed: () => context.read<FeatureCubit>().getData(),
+            );
+          }
+          return CustomErrorWidget(
+            message: failure.error,
+            onPressed: () => context.read<FeatureCubit>().getData(),
+          );
+        },
+      );
+    },
+  );
+}
+
+// Helper method to keep UI structure DRY
+Widget _buildContent(BuildContext context, FeatureState state, {T? data, bool isLoading = false}) {
+  return Skeletonizer(
+    enabled: isLoading,
+    child: ListView.builder(
+      itemCount: data?.length ?? 5, // Mock count for skeleton
+      itemBuilder: (context, index) {
+        final item = data?[index] ?? const MockModel(); // Mock data for skeleton
+        return ItemWidget(item: item);
+      },
+    ),
+  );
+}
 ```
 
 ### F. BlocSelector Rules (Performance Optimization):
