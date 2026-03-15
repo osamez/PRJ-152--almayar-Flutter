@@ -1,6 +1,7 @@
 import 'package:almeyar/core/network/result.dart';
 import 'package:almeyar/core/utils/app_logger.dart';
 import 'package:almeyar/features/pickup_request/data/datasource/pickup_request_datasource.dart';
+import 'package:almeyar/core/models/app_branch_model.dart';
 import 'package:almeyar/features/pickup_request/data/models/shipment_category_model.dart';
 import 'package:almeyar/features/pickup_request/data/models/shipment_content_model.dart';
 import 'package:almeyar/features/pickup_request/data/models/shipment_request_model.dart';
@@ -95,6 +96,56 @@ class PickupRequestRepositoryImpl implements PickupRequestRepository {
     } catch (e, st) {
       AppLogger.error(
         'PickupRequestRepositoryImpl - getShipmentCategories: Error',
+        e,
+        st,
+      );
+      return Result.failure(e, st);
+    }
+  }
+
+  @override
+  Future<Result<List<AppBranchModel>>> getReceivingBranches() async {
+    try {
+      final response = await _dataSource.getReceivingBranches();
+      if (response.data != null) {
+        AppLogger.info(
+          'PickupRequestRepositoryImpl - getReceivingBranches: Success',
+        );
+        return Result.success(response.data!);
+      } else {
+        AppLogger.error(
+          'PickupRequestRepositoryImpl - getReceivingBranches: Data is null',
+        );
+        return Result.failure(Exception('Data is null'), StackTrace.current);
+      }
+    } catch (e, st) {
+      AppLogger.error(
+        'PickupRequestRepositoryImpl - getReceivingBranches: Error',
+        e,
+        st,
+      );
+      return Result.failure(e, st);
+    }
+  }
+
+  @override
+  Future<Result<List<AppBranchModel>>> getDeliveryBranches() async {
+    try {
+      final response = await _dataSource.getDeliveryBranches();
+      if (response.data != null) {
+        AppLogger.info(
+          'PickupRequestRepositoryImpl - getDeliveryBranches: Success',
+        );
+        return Result.success(response.data!);
+      } else {
+        AppLogger.error(
+          'PickupRequestRepositoryImpl - getDeliveryBranches: Data is null',
+        );
+        return Result.failure(Exception('Data is null'), StackTrace.current);
+      }
+    } catch (e, st) {
+      AppLogger.error(
+        'PickupRequestRepositoryImpl - getDeliveryBranches: Error',
         e,
         st,
       );

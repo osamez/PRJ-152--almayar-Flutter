@@ -1,5 +1,6 @@
 import 'package:almeyar/core/models/base_response.dart';
 import 'package:almeyar/core/network/api_constants.dart';
+import 'package:almeyar/core/models/app_branch_model.dart';
 import 'package:almeyar/features/pickup_request/data/models/shipment_category_model.dart';
 import 'package:almeyar/features/pickup_request/data/models/shipment_content_model.dart';
 import 'package:almeyar/features/pickup_request/data/models/shipment_request_model.dart';
@@ -29,4 +30,10 @@ abstract class PickupRequestApiService {
 
   @GET(ApiConstants.shipmentCategories)
   Future<BaseResponse<List<ShipmentCategoryModel>>> getShipmentCategories();
+
+  @GET(ApiConstants.receivingBranches)
+  Future<BaseResponse<List<AppBranchModel>>> getReceivingBranches();
+
+  @GET(ApiConstants.deliveryBranches)
+  Future<BaseResponse<List<AppBranchModel>>> getDeliveryBranches();
 }
