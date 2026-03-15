@@ -5,6 +5,8 @@ import 'package:almeyar/core/models/app_branch_model.dart';
 import 'package:almeyar/features/pickup_request/data/models/shipment_category_model.dart';
 import 'package:almeyar/features/pickup_request/data/models/shipment_content_model.dart';
 import 'package:almeyar/features/pickup_request/data/models/shipment_request_model.dart';
+import 'package:almeyar/features/pickup_request/data/models/add_shipment_request_response_model.dart';
+import 'package:dio/dio.dart';
 import 'pickup_request_repo.dart';
 
 class PickupRequestRepositoryImpl implements PickupRequestRepository {
@@ -146,6 +148,65 @@ class PickupRequestRepositoryImpl implements PickupRequestRepository {
     } catch (e, st) {
       AppLogger.error(
         'PickupRequestRepositoryImpl - getDeliveryBranches: Error',
+        e,
+        st,
+      );
+      return Result.failure(e, st);
+    }
+  }
+
+  @override
+  Future<Result<AddShipmentRequestResponseData>> addShipmentRequest({
+    required String receivingBranchId,
+    required String deliveryBranchId,
+    required String boxesCount,
+    required String totalWeight,
+    required String shipmentContentId,
+    required String shipmentType,
+    required String flightType,
+    required String totalSize,
+    required String categoryId,
+    required String trackingNumber,
+    required String supplierPhoneCode,
+    required String supplierPhone,
+    required String inspectionRequest,
+    String? inspectionNote,
+    List<MultipartFile>? documentImages,
+    List<MultipartFile>? shipmentImages,
+  }) async {
+    try {
+      final response = await _dataSource.addShipmentRequest(
+        receivingBranchId: receivingBranchId,
+        deliveryBranchId: deliveryBranchId,
+        boxesCount: boxesCount,
+        totalWeight: totalWeight,
+        shipmentContentId: shipmentContentId,
+        shipmentType: shipmentType,
+        flightType: flightType,
+        totalSize: totalSize,
+        categoryId: categoryId,
+        trackingNumber: trackingNumber,
+        supplierPhoneCode: supplierPhoneCode,
+        supplierPhone: supplierPhone,
+        inspectionRequest: inspectionRequest,
+        inspectionNote: inspectionNote,
+        documentImages: documentImages,
+        shipmentImages: shipmentImages,
+      );
+      if (response.data != null) {
+        AppLogger.info(
+          'PickupRequestRepositoryImpl - addShipmentRequest: Success',
+        );
+        return Result.success(response.data!);
+      } else {
+        AppLogger.error(
+          'PickupRequestRepositoryImpl - addShipmentRequest: Data is null',
+        );
+        return Result.failure(Exception('Data is null'), StackTrace.current);
+      }
+    } catch (e, st) {
+      AppLogger.error(
+        'PickupRequestRepositoryImpl - addShipmentRequest: Error',
         e,
         st,
       );

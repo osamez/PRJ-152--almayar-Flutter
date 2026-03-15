@@ -17,4 +17,5 @@ class ApiConstants {
   static const String shipmentRequests = 'user/my-shipment-requests';
   static const String shipmentContents = 'user/shipment-contents';
   static const String shipmentCategories = 'user/shipment-categories';
+  static const String addShipmentRequest = 'user/add-shipment-request';
 }

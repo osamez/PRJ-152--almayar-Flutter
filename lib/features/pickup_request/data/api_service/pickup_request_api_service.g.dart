@@ -216,6 +216,90 @@ class _PickupRequestApiService implements PickupRequestApiService {
     return _value;
   }
 
+  @override
+  Future<BaseResponse<AddShipmentRequestResponseData>> addShipmentRequest({
+    required String receivingBranchId,
+    required String deliveryBranchId,
+    required String boxesCount,
+    required String totalWeight,
+    required String shipmentContentId,
+    required String shipmentType,
+    required String flightType,
+    required String totalSize,
+    required String categoryId,
+    required String trackingNumber,
+    required String supplierPhoneCode,
+    required String supplierPhone,
+    required String inspectionRequest,
+    String? inspectionNote,
+    List<MultipartFile>? documentImages,
+    List<MultipartFile>? shipmentImages,
+  }) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
+    final _data = FormData();
+    _data.fields.add(MapEntry('receiving_branch_id', receivingBranchId));
+    _data.fields.add(MapEntry('delivery_branch_id', deliveryBranchId));
+    _data.fields.add(MapEntry('boxes_count', boxesCount));
+    _data.fields.add(MapEntry('total_weight', totalWeight));
+    _data.fields.add(MapEntry('shipment_content_id', shipmentContentId));
+    _data.fields.add(MapEntry('shipment_type', shipmentType));
+    _data.fields.add(MapEntry('flight_type', flightType));
+    _data.fields.add(MapEntry('total_size', totalSize));
+    _data.fields.add(MapEntry('category_id', categoryId));
+    _data.fields.add(MapEntry('tracking_number', trackingNumber));
+    _data.fields.add(MapEntry('supplier_phone_code', supplierPhoneCode));
+    _data.fields.add(MapEntry('supplier_phone', supplierPhone));
+    _data.fields.add(MapEntry('inspection_request', inspectionRequest));
+    if (inspectionNote != null) {
+      _data.fields.add(MapEntry('inspection_note', inspectionNote));
+    }
+    if (documentImages != null) {
+      _data.files.addAll(
+        documentImages.map((i) => MapEntry('document_images[]', i)),
+      );
+    }
+    if (shipmentImages != null) {
+      _data.files.addAll(
+        shipmentImages.map((i) => MapEntry('shipment_images[]', i)),
+      );
+    }
+    final _options =
+        _setStreamType<BaseResponse<AddShipmentRequestResponseData>>(
+          Options(
+                method: 'POST',
+                headers: _headers,
+                extra: _extra,
+                contentType: 'multipart/form-data',
+              )
+              .compose(
+                _dio.options,
+                'user/add-shipment-request',
+                queryParameters: queryParameters,
+                data: _data,
+              )
+              .copyWith(
+                baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl),
+              ),
+        );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late BaseResponse<AddShipmentRequestResponseData> _value;
+    try {
+      _value = BaseResponse<AddShipmentRequestResponseData>.fromJson(
+        _result.data!,
+        (json) => AddShipmentRequestResponseData.fromJson(
+          json as Map<String, dynamic>,
+        ),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options, response: _result);
+      rethrow;
+    }
+    return _value;
+  }
+
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
         !(requestOptions.responseType == ResponseType.bytes ||
