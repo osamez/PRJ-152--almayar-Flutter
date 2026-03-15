@@ -124,7 +124,7 @@ class _ShipmentPickupRequestsViewBodyState
             if (index < list.length) {
               final item = list[index];
               return PickupCard(
-                status: _mapStatus(item.status?.name),
+                status: mapStatus(item.status?.name),
                 shipmentCode: item.trackingNumber ?? '---',
                 date: item.createdAt ?? '---',
                 shippingType: item.shipmentType ?? '---',
@@ -147,19 +147,5 @@ class _ShipmentPickupRequestsViewBodyState
         ),
       ),
     );
-  }
-
-  PickupRequestStatus _mapStatus(String? name) {
-    switch (name?.toLowerCase()) {
-      case 'received':
-      case 'approved':
-        return PickupRequestStatus.received;
-      case 'rejected':
-      case 'cancelled':
-        return PickupRequestStatus.rejected;
-      case 'pending':
-      default:
-        return PickupRequestStatus.pending;
-    }
   }
 }

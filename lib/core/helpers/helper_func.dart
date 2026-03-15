@@ -1,4 +1,5 @@
 import 'package:almeyar/core/utils/exports.dart';
+import 'package:almeyar/features/pickup_request/presentation/feature_imports.dart';
 import 'package:phone_numbers_parser/phone_numbers_parser.dart';
 
 double calculateGridChildAspectRatio({
@@ -40,4 +41,18 @@ String formatDateFromApi(String apiDateString) {
   String formattedDate = DateFormat('yyyy-MM-dd').format(parsedDate);
 
   return formattedDate;
+}
+
+PickupRequestStatus mapStatus(String? name) {
+  switch (name?.toLowerCase()) {
+    case 'received':
+    case 'approved':
+      return PickupRequestStatus.received;
+    case 'rejected':
+    case 'cancelled':
+      return PickupRequestStatus.rejected;
+    case 'pending':
+    default:
+      return PickupRequestStatus.pending;
+  }
 }

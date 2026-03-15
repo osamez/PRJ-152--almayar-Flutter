@@ -3,6 +3,7 @@ import 'package:almeyar/core/helpers/helper_func.dart';
 import 'package:almeyar/core/utils/exports.dart';
 import 'package:almeyar/core/widgets/custom_icon_rounded_box.dart';
 import 'package:almeyar/core/widgets/pickup_filter_bottom_sheet.dart';
+import 'package:almeyar/core/widgets/custom_cached_image.dart';
 import 'package:almeyar/core/widgets/custom_error_widget.dart';
 
 import 'package:almeyar/core/network/api_error_model.dart';

@@ -19,7 +19,7 @@ class ShipmentRequestPickupDetailsViewBody extends StatelessWidget {
         children: [
           DetailsHeaderCard(
             shipmentCode: shipmentModel.trackingNumber ?? '',
-            status: PickupRequestStatus.received,
+            status: mapStatus(shipmentModel.status?.name),
             originWarehouse: shipmentModel.deliveryBranch ?? '',
             originCountry: 'الصين',
             destinationWarehouse: shipmentModel.receivingBranch ?? '',
@@ -62,14 +62,19 @@ class ShipmentRequestPickupDetailsViewBody extends StatelessWidget {
               : const SizedBox(),
           if (shipmentModel.shipmentImages != null &&
               shipmentModel.shipmentImages!.isNotEmpty) ...[
-            SectionTitle(title: LocaleKeys.shipment_details_shipment_photos.tr()),
+            SectionTitle(
+              title: LocaleKeys.shipment_details_shipment_photos.tr(),
+            ),
             verticalSpace(AppSizes.h12),
             DetailsMediaGrid(
               items: shipmentModel.shipmentImages!
-                  .map((e) => DetailsMediaItem(
-                        fileName: e.split('/').last,
-                        isImage: true,
-                      ))
+                  .map(
+                    (e) => DetailsMediaItem(
+                      url: e,
+                      fileName: e.split('/').last,
+                      isImage: true,
+                    ),
+                  )
                   .toList(),
             ),
             verticalSpace(AppSizes.h24),
@@ -82,10 +87,13 @@ class ShipmentRequestPickupDetailsViewBody extends StatelessWidget {
             verticalSpace(AppSizes.h12),
             DetailsMediaGrid(
               items: shipmentModel.documentImages!
-                  .map((e) => DetailsMediaItem(
-                        fileName: e.split('/').last,
-                        isImage: false,
-                      ))
+                  .map(
+                    (e) => DetailsMediaItem(
+                      url: e,
+                      fileName: e.split('/').last,
+                      isImage: false,
+                    ),
+                  )
                   .toList(),
             ),
             verticalSpace(AppSizes.h24),
