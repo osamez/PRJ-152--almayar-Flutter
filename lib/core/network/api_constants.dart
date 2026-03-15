@@ -18,4 +18,7 @@ class ApiConstants {
   static const String shipmentContents = 'user/shipment-contents';
   static const String shipmentCategories = 'user/shipment-categories';
   static const String addShipmentRequest = 'user/add-shipment-request';
+
+  // Price Calculator
+  static const String calculateShipmentPrice = 'user/calculate-shipment-price';
 }

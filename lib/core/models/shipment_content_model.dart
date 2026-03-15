@@ -7,10 +7,7 @@ class ShipmentContentModel {
   final int? id;
   final String? name;
 
-  const ShipmentContentModel({
-    this.id,
-    this.name,
-  });
+  const ShipmentContentModel({this.id, this.name});
 
   factory ShipmentContentModel.fromJson(Map<String, dynamic> json) =>
       _$ShipmentContentModelFromJson(json);

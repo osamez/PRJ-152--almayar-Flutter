@@ -5,16 +5,16 @@ class PriceCalculatorDeliveryBranchField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppTextFormField(
-      title: LocaleKeys.price_calculator_delivery_branch.tr(),
+    final cubit = context.read<PriceCalculatorCubit>();
+    final state = context.watch<PriceCalculatorCubit>().state;
+
+    return CustomDropdownSearchList<AppBranchModel>(
       hintText: LocaleKeys.price_calculator_select_branch.tr(),
-      validator: (value) => null,
-      readOnly: true,
-      suffixIcon: const Icon(
-        Icons.keyboard_arrow_down_rounded,
-        size: 25,
-        color: AppColors.deepViolet,
-      ),
+      items: state.deliveryBranches.valueOrNull ?? [],
+      itemAsString: (item) => item.name ?? '',
+      initialValue: state.selectedDeliveryBranch,
+      validator: (item) => item == null ? LocaleKeys.please_select_branch.tr() : null,
+      onChanged: (item) => cubit.updateDeliveryBranch(item),
     );
   }
 }

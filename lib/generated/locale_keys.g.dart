@@ -211,6 +211,7 @@ abstract class  LocaleKeys {
   static const price_calculator_calculate_button = 'price_calculator_calculate_button';
   static const price_calculator_result_title = 'price_calculator_result_title';
   static const price_calculator_cost_per_kg = 'price_calculator_cost_per_kg';
+  static const price_calculator_cost_per_cbm = 'price_calculator_cost_per_cbm';
   static const price_calculator_total_initial_cost = 'price_calculator_total_initial_cost';
   static const price_calculator_go_back = 'price_calculator_go_back';
   static const shipment_tracking_title = 'shipment_tracking_title';

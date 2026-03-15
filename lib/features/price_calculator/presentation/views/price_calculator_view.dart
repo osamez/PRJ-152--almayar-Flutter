@@ -5,10 +5,15 @@ class PriceCalculatorView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.offWhite,
-      appBar: CustomAppBar(title: LocaleKeys.price_calculator_title.tr()),
-      body: const PriceCalculatorViewBody(),
+    return BlocProvider(
+      create: (context) => getIt<PriceCalculatorCubit>(),
+      child: PriceCalculatorBlocListener(
+        child: Scaffold(
+          backgroundColor: AppColors.offWhite,
+          appBar: CustomAppBar(title: LocaleKeys.price_calculator_title.tr()),
+          body: const PriceCalculatorViewBody(),
+        ),
+      ),
     );
   }
 }
