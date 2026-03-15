@@ -20,8 +20,8 @@ Your task is to generate or update the Data Layer for a specific feature based o
 feature_name/
 ├── data/
 │ ├── models/ # Request/Response models
-│ ├── datasource/ # Abstract DataSource and DataSourceImpl
-│ ├── repos/ # Abstract Repo and RepoImpl
+│ ├── datasource/ # Abstract DataSource and DataSourceImpl (Separate files)
+│ ├── repos/ # Abstract Repo and RepoImpl (Separate files)
 │ └── api_service/ # Retrofit interface
 
 ## 3. Workflow Steps (Strict Order)
@@ -77,12 +77,12 @@ abstract class AuthApiService {
   Future<BaseResponse<List<UserModel>>> getUsers(@Query('page') int page);
 }
 ```
-Step 3: Create/Update DataSource (data/datasource/)
-Open/Create abstract class {FeatureName}DataSource and its implementation class {FeatureName}DataSourceImpl.
+### Step 3: Create/Update DataSource (`data/datasource/`)
 
-DataSourceImpl MUST take {FeatureName}ApiService in its constructor via DI.
-
-Implement the new method by directly calling the ApiService.
+- Create **abstract class** `{FeatureName}DataSource` in `{feature_name}_datasource.dart`.
+- Create its **implementation class** `{FeatureName}DataSourceImpl` in a **SEPARATE** file: `{feature_name}_datasource_impl.dart`.
+- `DataSourceImpl` MUST take `{FeatureName}ApiService` in its constructor via DI.
+- Implement the new method by directly calling the ApiService.
 
 ```dart
 // Example of DataSource Impl
@@ -96,10 +96,11 @@ class AuthDataSourceImpl implements AuthDataSource {
   }
 }
 ```
-Step 4: Create/Update Repository (data/repos/) -> CRITICAL LAYER
-Open/Create abstract class {FeatureName}Repo and its implementation class {FeatureName}RepoImpl.
+### Step 4: Create/Update Repository (`data/repos/`) -> CRITICAL LAYER
 
-RepoImpl MUST take {FeatureName}DataSource in its constructor.
+- Create **abstract class** `{FeatureName}Repo` in `{feature_name}_repo.dart`.
+- Create its **implementation class** `{FeatureName}RepoImpl` in a **SEPARATE** file: `{feature_name}_repo_impl.dart`.
+- `RepoImpl` MUST take `{FeatureName}DataSource` in its constructor.
 
 Strict Implementation Rules for the new method:
 

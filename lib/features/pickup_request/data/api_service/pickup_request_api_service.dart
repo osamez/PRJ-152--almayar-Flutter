@@ -1,5 +1,7 @@
 import 'package:almeyar/core/models/base_response.dart';
 import 'package:almeyar/core/network/api_constants.dart';
+import 'package:almeyar/features/pickup_request/data/models/shipment_category_model.dart';
+import 'package:almeyar/features/pickup_request/data/models/shipment_content_model.dart';
 import 'package:almeyar/features/pickup_request/data/models/shipment_request_model.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
@@ -21,4 +23,10 @@ abstract class PickupRequestApiService {
     @Query('shipment_way') String? shipmentWay,
     @Query('page') int? page,
   });
+
+  @GET(ApiConstants.shipmentContents)
+  Future<BaseResponse<List<ShipmentContentModel>>> getShipmentContents();
+
+  @GET(ApiConstants.shipmentCategories)
+  Future<BaseResponse<List<ShipmentCategoryModel>>> getShipmentCategories();
 }

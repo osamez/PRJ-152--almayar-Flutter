@@ -58,6 +58,15 @@ class _ShipmentPickupRequestsViewBodyState
                 horizontal: AppSizes.w20,
               ),
               verticalSpace(AppSizes.h20),
+              AppElevatedButton(
+                onPressed: () =>
+                    context.push(Routes.requestReceiveShipmentView),
+                text: 'إضافة طلب جديدة',
+                iconPath: AppAssets.svgAdd,
+                backgroundColor: AppColors.deepViolet,
+              ).withPadding(horizontal: AppSizes.w20),
+              verticalSpace(AppSizes.h20),
+
               PickupFilterHeader(
                 resultCount:
                     state.getShipmentRequestsState.valueOrNull?.meta?.total ??

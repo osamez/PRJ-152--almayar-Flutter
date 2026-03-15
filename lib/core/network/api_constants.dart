@@ -14,4 +14,6 @@ class ApiConstants {
   static const String allBranches = 'user/all-branches';
   static const String showBranch = 'user/show-branch/{id}';
   static const String shipmentRequests = 'user/my-shipment-requests';
+  static const String shipmentContents = 'user/shipment-contents';
+  static const String shipmentCategories = 'user/shipment-categories';
 }
