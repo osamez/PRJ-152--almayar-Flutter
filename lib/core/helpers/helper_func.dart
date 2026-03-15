@@ -31,3 +31,13 @@ bool validateInternationalPhoneNumber({
     return false;
   }
 }
+
+String formatDateFromApi(String apiDateString) {
+  // 1. Parse the string into a DateTime object
+  DateTime parsedDate = DateTime.parse(apiDateString);
+
+  // 2. Format it to 'yyyy-MM-dd'
+  String formattedDate = DateFormat('yyyy-MM-dd').format(parsedDate);
+
+  return formattedDate;
+}

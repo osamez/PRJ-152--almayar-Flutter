@@ -3,6 +3,7 @@ import 'package:almeyar/features/auth/presentation/feature_imports.dart';
 import 'package:almeyar/features/home/presentation/feature_imports.dart';
 import 'package:almeyar/features/main/presentation/features_imports.dart';
 import 'package:almeyar/features/onboarding/presentation/feature_imports.dart';
+import 'package:almeyar/features/pickup_request/data/models/shipment_request_model.dart';
 import 'package:almeyar/features/pickup_request/presentation/feature_imports.dart';
 import 'package:almeyar/features/price_calculator/presentation/feature_imports.dart';
 import 'package:almeyar/features/delivery-requests/presentation/feature_imports.dart';
@@ -94,7 +95,9 @@ final router = GoRouter(
     GoRoute(
       path: Routes.shipmentPickupDetails,
       name: Routes.shipmentPickupDetails,
-      builder: (context, state) => const PickupRequestDetailsView(),
+      builder: (context, state) => PickupRequestDetailsView(
+        shipmentModel: state.extra as ShipmentRequestModel,
+      ),
     ),
     GoRoute(
       path: Routes.priceCalculator,

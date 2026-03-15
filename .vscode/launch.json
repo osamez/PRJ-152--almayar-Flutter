@@ -15,8 +15,6 @@
       "flutterMode": "release",
     },
     {
-      "name": "C/C++ Runner: Debug Session",
-      "type": "cppdbg",
       "request": "launch",
       "args": [],
       "stopAtEntry": false,

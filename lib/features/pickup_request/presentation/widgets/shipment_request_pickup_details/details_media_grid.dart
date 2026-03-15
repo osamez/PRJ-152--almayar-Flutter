@@ -14,11 +14,19 @@ class DetailsMediaGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      spacing: AppSizes.w4,
-      children: items.map((item) {
-        return Expanded(child: _MediaCard(item: item));
-      }).toList(),
+    return GridView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        crossAxisSpacing: AppSizes.w12,
+        mainAxisSpacing: AppSizes.h12,
+        childAspectRatio: 1.1,
+      ),
+      itemCount: items.length,
+      itemBuilder: (context, index) {
+        return _MediaCard(item: items[index]);
+      },
     );
   }
 }

@@ -136,7 +136,7 @@ class _ShipmentPickupRequestsViewBodyState
                 totalVolume: item.totalSize ?? '---',
                 totalWeight: item.totalWeight ?? '---',
                 onTap: () =>
-                    context.push(Routes.shipmentPickupDetails, extra: item.id),
+                    context.push(Routes.shipmentPickupDetails, extra: item),
               );
             } else {
               return const Center(

@@ -1,13 +1,10 @@
 import 'dart:async';
-import 'package:almeyar/core/enums/enums.dart';
+import 'package:almeyar/core/helpers/helper_func.dart';
 import 'package:almeyar/core/utils/exports.dart';
 import 'package:almeyar/core/widgets/custom_icon_rounded_box.dart';
-import 'package:almeyar/core/widgets/custom_rounder_arrow.dart';
 import 'package:almeyar/core/widgets/pickup_filter_bottom_sheet.dart';
 import 'package:almeyar/core/widgets/custom_error_widget.dart';
-import 'package:almeyar/core/widgets/empty_widget.dart';
 
-import 'package:almeyar/core/di/dependency_injection.dart';
 import 'package:almeyar/core/network/api_error_model.dart';
 import 'package:almeyar/core/network/local_status_codes.dart';
 import 'package:almeyar/core/services/internet_service.dart';

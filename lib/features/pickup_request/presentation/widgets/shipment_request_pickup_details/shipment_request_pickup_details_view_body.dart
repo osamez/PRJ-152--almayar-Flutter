@@ -1,7 +1,11 @@
 part of '../../feature_imports.dart';
 
 class ShipmentRequestPickupDetailsViewBody extends StatelessWidget {
-  const ShipmentRequestPickupDetailsViewBody({super.key});
+  const ShipmentRequestPickupDetailsViewBody({
+    super.key,
+    required this.shipmentModel,
+  });
+  final ShipmentRequestModel shipmentModel;
 
   @override
   Widget build(BuildContext context) {
@@ -13,60 +17,79 @@ class ShipmentRequestPickupDetailsViewBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const DetailsHeaderCard(
-            shipmentCode: 'RH2053',
+          DetailsHeaderCard(
+            shipmentCode: shipmentModel.trackingNumber ?? '',
             status: PickupRequestStatus.received,
-            originWarehouse: 'مخزن جوانزو',
+            originWarehouse: shipmentModel.deliveryBranch ?? '',
             originCountry: 'الصين',
-            destinationWarehouse: 'مخزن طرابلس',
+            destinationWarehouse: shipmentModel.receivingBranch ?? '',
             destinationCountry: 'ليبيا',
-            date: '2026-01-01',
-            shippingType: 'شحن بحري',
+            date: shipmentModel.createdAt == null
+                ? ''
+                : formatDateFromApi(shipmentModel.createdAt!),
+            shippingType: shipmentModel.shipmentType ?? '',
           ),
           verticalSpace(AppSizes.h24),
           SectionTitle(
             title: LocaleKeys.shipment_details_shipment_details.tr(),
           ),
           verticalSpace(AppSizes.h20),
-          const DetailsStatsRow(
-            boxesCount: '20',
-            totalVolume: '20',
-            totalWeight: '20',
+          DetailsStatsRow(
+            boxesCount: shipmentModel.boxesCount != null
+                ? shipmentModel.boxesCount.toString()
+                : '0',
+            totalVolume: shipmentModel.totalSize != null
+                ? shipmentModel.totalSize.toString()
+                : '0',
+            totalWeight: shipmentModel.totalWeight != null
+                ? shipmentModel.totalWeight.toString()
+                : '0',
           ),
           verticalSpace(AppSizes.h20),
-          const DetailsInfoSection(
-            trackingCode: 'JHDF7653829HSH',
-            supplierPhone: '+218 91 123 4567',
-            classification: 'إلكترونيات',
-            contents: 'هواتف ذكية',
+          DetailsInfoSection(
+            trackingCode: shipmentModel.trackingNumber ?? '',
+            supplierPhone: shipmentModel.supplierPhone ?? '-',
+            classification: shipmentModel.category ?? '-',
+            contents: shipmentModel.shipmentContent ?? '-',
           ),
           verticalSpace(AppSizes.h20),
-          const DetailsInspectionCard(isEnabled: true),
-          verticalSpace(AppSizes.h12),
-          const DetailsNoteCard(
-            note:
-                'يرجى التأكد من خلو الشاشات من أي كسور وتصوير الرقم التسلسلي لكل جهاز.',
-          ),
-          verticalSpace(AppSizes.h24),
-          SectionTitle(title: LocaleKeys.shipment_details_shipment_photos.tr()),
-          verticalSpace(AppSizes.h12),
-          const DetailsMediaGrid(
-            items: [
-              DetailsMediaItem(fileName: 'Box_Image.jpg', isImage: true),
-              DetailsMediaItem(fileName: 'Box_Image.jpg', isImage: true),
-            ],
-          ),
-          verticalSpace(AppSizes.h24),
-          SectionTitle(
-            title: LocaleKeys.shipment_details_shipment_documents.tr(),
+          DetailsInspectionCard(
+            isEnabled: shipmentModel.inspectionRequest ?? false,
           ),
           verticalSpace(AppSizes.h12),
-          const DetailsMediaGrid(
-            items: [
-              DetailsMediaItem(fileName: 'Box_Image.jpg', isImage: true),
-              DetailsMediaItem(fileName: 'Invoice.pdf', isImage: false),
-            ],
-          ),
+          shipmentModel.inspectionNote != null
+              ? DetailsNoteCard(note: shipmentModel.inspectionNote ?? "")
+              : const SizedBox(),
+          if (shipmentModel.shipmentImages != null &&
+              shipmentModel.shipmentImages!.isNotEmpty) ...[
+            SectionTitle(title: LocaleKeys.shipment_details_shipment_photos.tr()),
+            verticalSpace(AppSizes.h12),
+            DetailsMediaGrid(
+              items: shipmentModel.shipmentImages!
+                  .map((e) => DetailsMediaItem(
+                        fileName: e.split('/').last,
+                        isImage: true,
+                      ))
+                  .toList(),
+            ),
+            verticalSpace(AppSizes.h24),
+          ],
+          if (shipmentModel.documentImages != null &&
+              shipmentModel.documentImages!.isNotEmpty) ...[
+            SectionTitle(
+              title: LocaleKeys.shipment_details_shipment_documents.tr(),
+            ),
+            verticalSpace(AppSizes.h12),
+            DetailsMediaGrid(
+              items: shipmentModel.documentImages!
+                  .map((e) => DetailsMediaItem(
+                        fileName: e.split('/').last,
+                        isImage: false,
+                      ))
+                  .toList(),
+            ),
+            verticalSpace(AppSizes.h24),
+          ],
           verticalSpace(AppSizes.h30),
         ],
       ),
