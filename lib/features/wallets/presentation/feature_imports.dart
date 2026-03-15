@@ -1,6 +1,5 @@
 import 'package:almeyar/core/utils/exports.dart';
 import 'package:almeyar/core/widgets/custom_icon_rounded_box.dart';
-import 'package:almeyar/core/widgets/custom_rounder_arrow.dart';
 import 'package:almeyar/core/widgets/details_info_row.dart';
 import 'package:almeyar/core/widgets/details_info_section.dart';
 import 'package:almeyar/features/shipment_tracking/presentation/feature_imports.dart';
