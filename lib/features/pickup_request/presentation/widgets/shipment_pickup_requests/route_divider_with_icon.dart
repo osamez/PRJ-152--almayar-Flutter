@@ -1,7 +1,8 @@
 part of '../../feature_imports.dart';
 
 class RouteDividerWithIcon extends StatelessWidget {
-  const RouteDividerWithIcon({super.key});
+  const RouteDividerWithIcon({super.key, required this.isAir});
+  final bool isAir;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,7 @@ class RouteDividerWithIcon extends StatelessWidget {
           ),
           child: Center(
             child: SvgPicture.asset(
-              AppAssets.svgAirplane,
+              isAir ? AppAssets.svgAirplane : AppAssets.svgBoat,
               width: AppSizes.w16,
               height: AppSizes.h16,
               colorFilter: const ColorFilter.mode(

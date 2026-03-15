@@ -28,6 +28,7 @@ class ShipmentRequestPickupDetailsViewBody extends StatelessWidget {
                 ? ''
                 : formatDateFromApi(shipmentModel.createdAt!),
             shippingType: shipmentModel.shipmentType ?? '',
+            isAir: shipmentModel.shipmentType == "جوي",
           ),
           verticalSpace(AppSizes.h24),
           SectionTitle(

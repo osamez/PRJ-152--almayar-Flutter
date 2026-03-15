@@ -1,5 +1,6 @@
 import 'package:almeyar/core/utils/exports.dart';
 import 'package:almeyar/features/pickup_request/presentation/feature_imports.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:phone_numbers_parser/phone_numbers_parser.dart';
 
 double calculateGridChildAspectRatio({
@@ -55,4 +56,17 @@ PickupRequestStatus mapStatus(String? name) {
     default:
       return PickupRequestStatus.pending;
   }
+}
+
+class NullableStringConverter implements JsonConverter<String?, dynamic> {
+  const NullableStringConverter();
+
+  @override
+  String? fromJson(dynamic json) {
+    if (json == null) return null;
+    return json.toString();
+  }
+
+  @override
+  dynamic toJson(String? object) => object;
 }

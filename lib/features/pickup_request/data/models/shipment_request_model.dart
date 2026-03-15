@@ -1,3 +1,4 @@
+import 'package:almeyar/core/helpers/helper_func.dart';
 import 'package:almeyar/core/models/meta_model.dart';
 import 'package:almeyar/core/models/status_model.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -9,10 +10,7 @@ class ShipmentRequestsDataModel {
   final List<ShipmentRequestModel>? requests;
   final MetaModel? meta;
 
-  const ShipmentRequestsDataModel({
-    this.requests,
-    this.meta,
-  });
+  const ShipmentRequestsDataModel({this.requests, this.meta});
 
   factory ShipmentRequestsDataModel.fromJson(Map<String, dynamic> json) =>
       _$ShipmentRequestsDataModelFromJson(json);
@@ -31,8 +29,14 @@ class ShipmentRequestModel {
   final String? shipmentWay;
   @JsonKey(name: 'receiving_branch')
   final String? receivingBranch;
+  @JsonKey(name: 'receiving_country')
+  final String? receivingCountry;
   @JsonKey(name: 'delivery_branch')
   final String? deliveryBranch;
+  @NullableStringConverter()
+  final String? code;
+  @JsonKey(name: 'delivery_country')
+  final String? deliveryCountry;
   @JsonKey(name: 'shipment_content')
   final String? shipmentContent;
   final String? category;
@@ -41,6 +45,7 @@ class ShipmentRequestModel {
   @JsonKey(name: 'total_weight')
   final String? totalWeight;
   @JsonKey(name: 'total_size')
+  @NullableStringConverter()
   final String? totalSize;
   @JsonKey(name: 'tracking_number')
   final String? trackingNumber;
@@ -87,6 +92,9 @@ class ShipmentRequestModel {
     this.shipmentImages,
     this.documentImages,
     this.createdAt,
+    this.code,
+    this.receivingCountry,
+    this.deliveryCountry,
   });
 
   factory ShipmentRequestModel.fromJson(Map<String, dynamic> json) =>

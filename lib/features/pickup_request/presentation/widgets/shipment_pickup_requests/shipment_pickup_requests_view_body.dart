@@ -134,13 +134,16 @@ class _ShipmentPickupRequestsViewBodyState
               final item = list[index];
               return PickupCard(
                 status: mapStatus(item.status?.name),
-                shipmentCode: item.trackingNumber ?? '---',
+                shipmentCode: item.code ?? '---',
                 date: item.createdAt ?? '---',
+                isAir: item.shipmentType == "جوي",
                 shippingType: item.shipmentType ?? '---',
-                originWarehouse: item.receivingBranch ?? '---',
-                originCountry: '', // Add country if available
-                destinationWarehouse: item.deliveryBranch ?? '---',
-                destinationCountry: '', // Add country if available
+                originWarehouse: item.deliveryBranch ?? '---',
+                originCountry:
+                    item.deliveryCountry ?? '---', // Add country if available
+                destinationWarehouse: item.receivingBranch ?? '---',
+                destinationCountry:
+                    item.receivingCountry ?? '---', // Add country if available
                 boxesCount: item.boxesCount?.toString() ?? '0',
                 totalVolume: item.totalSize ?? '---',
                 totalWeight: item.totalWeight ?? '---',

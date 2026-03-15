@@ -34,7 +34,7 @@ ShipmentRequestModel _$ShipmentRequestModelFromJson(
   category: json['category'] as String?,
   boxesCount: (json['boxes_count'] as num?)?.toInt(),
   totalWeight: json['total_weight'] as String?,
-  totalSize: json['total_size'] as String?,
+  totalSize: const NullableStringConverter().fromJson(json['total_size']),
   trackingNumber: json['tracking_number'] as String?,
   supplierPhone: json['supplier_phone'] as String?,
   supplierPhoneCode: json['supplier_phone_code'] as String?,
@@ -52,6 +52,9 @@ ShipmentRequestModel _$ShipmentRequestModelFromJson(
       ?.map((e) => e as String)
       .toList(),
   createdAt: json['created_at'] as String?,
+  code: const NullableStringConverter().fromJson(json['code']),
+  receivingCountry: json['receiving_country'] as String?,
+  deliveryCountry: json['delivery_country'] as String?,
 );
 
 Map<String, dynamic> _$ShipmentRequestModelToJson(
@@ -62,12 +65,15 @@ Map<String, dynamic> _$ShipmentRequestModelToJson(
   'flight_type': instance.flightType,
   'shipment_way': instance.shipmentWay,
   'receiving_branch': instance.receivingBranch,
+  'receiving_country': instance.receivingCountry,
   'delivery_branch': instance.deliveryBranch,
+  'code': const NullableStringConverter().toJson(instance.code),
+  'delivery_country': instance.deliveryCountry,
   'shipment_content': instance.shipmentContent,
   'category': instance.category,
   'boxes_count': instance.boxesCount,
   'total_weight': instance.totalWeight,
-  'total_size': instance.totalSize,
+  'total_size': const NullableStringConverter().toJson(instance.totalSize),
   'tracking_number': instance.trackingNumber,
   'supplier_phone': instance.supplierPhone,
   'supplier_phone_code': instance.supplierPhoneCode,

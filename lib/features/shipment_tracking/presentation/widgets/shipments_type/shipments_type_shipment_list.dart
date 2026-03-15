@@ -17,6 +17,7 @@ class ShipmentsTypeShipmentList extends StatelessWidget {
           status: index == 0
               ? PickupRequestStatus.pending
               : PickupRequestStatus.received,
+          isAir: true,
           shipmentCode: 'AIR-888-TIP-F-4852-GU',
           date: '2026-01-01',
           shippingType: LocaleKeys.shipment_tracking_air_express.tr(),

@@ -16,6 +16,7 @@ class PickupCard extends StatelessWidget {
     required this.totalVolume,
     required this.totalWeight,
     required this.onTap,
+    required this.isAir,
   });
 
   final PickupRequestStatus status;
@@ -30,6 +31,7 @@ class PickupCard extends StatelessWidget {
   final String totalVolume;
   final String totalWeight;
   final VoidCallback onTap;
+  final bool isAir;
 
   @override
   Widget build(BuildContext context) {
@@ -56,12 +58,14 @@ class PickupCard extends StatelessWidget {
                 shipmentCode: shipmentCode,
                 date: date,
                 shippingType: shippingType,
+                isAir: isAir,
               ),
               PickupRequestRouteSection(
                 originWarehouse: originWarehouse,
                 originCountry: originCountry,
                 destinationWarehouse: destinationWarehouse,
                 destinationCountry: destinationCountry,
+                isAir: isAir,
               ),
               Divider(height: 1, color: AppColors.gray.withValues(alpha: 0.5)),
               PickupRequestStatsSection(

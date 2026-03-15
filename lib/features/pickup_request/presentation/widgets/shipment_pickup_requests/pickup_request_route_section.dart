@@ -7,12 +7,14 @@ class PickupRequestRouteSection extends StatelessWidget {
     required this.originCountry,
     required this.destinationWarehouse,
     required this.destinationCountry,
+    required this.isAir,
   });
 
   final String originWarehouse;
   final String originCountry;
   final String destinationWarehouse;
   final String destinationCountry;
+  final bool isAir;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,7 @@ class PickupRequestRouteSection extends StatelessWidget {
               country: destinationCountry,
             ),
           ),
-          const Expanded(flex: 2, child: RouteDividerWithIcon()),
+          Expanded(flex: 2, child: RouteDividerWithIcon(isAir: isAir)),
           Expanded(
             child: RouteLocationLabel(
               warehouse: originWarehouse,

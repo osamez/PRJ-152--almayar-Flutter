@@ -7,12 +7,14 @@ class PickupRequestCardHeader extends StatelessWidget {
     required this.shipmentCode,
     required this.date,
     required this.shippingType,
+    required this.isAir,
   });
 
   final PickupRequestStatus status;
   final String shipmentCode;
   final String date;
   final String shippingType;
+  final bool isAir;
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +27,11 @@ class PickupRequestCardHeader extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CustomIconRoundedBox(
-            iconPath: AppAssets.svgAirplane,
+            iconPath: isAir ? AppAssets.svgAirplane : AppAssets.svgBoat,
             width: AppSizes.w48,
             height: AppSizes.w48,
+            iconColor: AppColors.deepViolet,
+            backgroundColor: AppColors.grey97,
           ),
 
           horizontalSpace(AppSizes.w12),

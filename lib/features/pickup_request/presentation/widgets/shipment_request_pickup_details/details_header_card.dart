@@ -11,6 +11,7 @@ class DetailsHeaderCard extends StatelessWidget {
     required this.destinationCountry,
     required this.date,
     required this.shippingType,
+    required this.isAir,
   });
 
   final String shipmentCode;
@@ -21,6 +22,7 @@ class DetailsHeaderCard extends StatelessWidget {
   final String destinationCountry;
   final String date;
   final String shippingType;
+  final bool isAir;
 
   @override
   Widget build(BuildContext context) {
@@ -77,6 +79,7 @@ class DetailsHeaderCard extends StatelessWidget {
             originCountry: originCountry,
             destinationWarehouse: destinationWarehouse,
             destinationCountry: destinationCountry,
+            isAir: isAir,
           ),
           Padding(
             padding: EdgeInsets.symmetric(
