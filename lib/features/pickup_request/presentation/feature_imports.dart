@@ -3,7 +3,8 @@ import 'package:almeyar/core/helpers/helper_func.dart';
 import 'package:almeyar/core/models/base_response.dart';
 import 'package:almeyar/core/utils/exports.dart';
 import 'package:almeyar/core/widgets/custom_icon_rounded_box.dart';
-import 'package:almeyar/core/widgets/pickup_filter_bottom_sheet.dart';
+import 'package:almeyar/core/widgets/internet_connection_widget.dart';
+import 'package:almeyar/features/pickup_request/presentation/widgets/shipment_pickup_requests/pickup_filter_bottom_sheet.dart';
 import 'package:almeyar/core/widgets/custom_cached_image.dart';
 import 'package:almeyar/core/widgets/custom_error_widget.dart';
 
@@ -67,6 +68,7 @@ part 'widgets/shipment_pickup_requests/shipment_pickup_requests_view_body.dart';
 part 'widgets/shipment_pickup_requests/pickup_search_bar.dart';
 part 'widgets/shipment_pickup_requests/pickup_shipping_type_tabs.dart';
 part 'widgets/shipment_pickup_requests/pickup_filter_header.dart';
+part 'widgets/shipment_pickup_requests/pickup_requests_list_view.dart';
 part 'widgets/shipment_pickup_requests/pickup_request_status.dart';
 part 'widgets/shipment_pickup_requests/pickup_request_card_header.dart';
 part 'widgets/shipment_pickup_requests/pickup_request_status_badge.dart';

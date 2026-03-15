@@ -15,15 +15,21 @@ class ShipmentPickupRequestsCubit extends Cubit<ShipmentPickupRequestsState> {
     String? trackingNumber,
     bool isPagination = false,
   }) async {
-    // تحديد هل العملية هي بحث (أو مسح للبحث) بناءً على وجود قيمة
-    final isSearchAction = trackingNumber != null;
-    final queryForApi = (isSearchAction && trackingNumber.isEmpty)
-        ? null
-        : trackingNumber;
+    // 1. Update search query ONLY if explicitly provided
+    if (trackingNumber != null) {
+      _currentSearchQuery = trackingNumber.isEmpty ? null : trackingNumber;
+      _currentPage = 1;
 
-    // 1. استرجاع الداتا من الكاش لو اليوزر مسح السيرش
+      // 2. Cache data when starting a new search from scratch
+      if (trackingNumber.isNotEmpty &&
+          (_currentSearchQuery == null || _currentSearchQuery!.isEmpty)) {
+        _cachedData = state.getShipmentRequestsState.valueOrNull;
+      }
+    }
+
+    // 3. Handle data restoration from cache when clearing search
     if (!isPagination &&
-        isSearchAction &&
+        trackingNumber != null &&
         trackingNumber.isEmpty &&
         _cachedData != null) {
       _currentSearchQuery = null;
@@ -49,18 +55,8 @@ class ShipmentPickupRequestsCubit extends Cubit<ShipmentPickupRequestsState> {
       emit(state.copyWith(isPaginationLoading: true));
       _currentPage++;
     } else {
-      // 2. حفظ الداتا في الكاش قبل ما نبدأ بحث جديد
-      if (isSearchAction &&
-          trackingNumber.isNotEmpty &&
-          (_currentSearchQuery == null || _currentSearchQuery!.isEmpty)) {
-        _cachedData = state.getShipmentRequestsState.valueOrNull;
-      }
-
-      _currentPage = 1;
-      _currentSearchQuery = queryForApi; // تخزين القيمة النهائية للـ API
-
       // 3. تحديد شكل الـ Loading
-      if (isSearchAction && state.getShipmentRequestsState.hasData) {
+      if (trackingNumber != null && state.getShipmentRequestsState.hasData) {
         emit(state.copyWith(isSearchLoading: true));
       } else {
         emit(state.copyWith(getShipmentRequestsState: const AsyncLoading()));
@@ -87,6 +83,8 @@ class ShipmentPickupRequestsCubit extends Cubit<ShipmentPickupRequestsState> {
 
     final result = await _repository.getShipmentRequests(
       trackingNumber: _currentSearchQuery,
+      shipmentType: state.shipmentType.name,
+      flightType: state.flightType,
       page: _currentPage,
     );
 
@@ -141,6 +139,22 @@ class ShipmentPickupRequestsCubit extends Cubit<ShipmentPickupRequestsState> {
         }
       },
     );
+  }
+
+  Future<void> changeShipmentType(ShipmentType type) async {
+    if (state.shipmentType == type) return;
+    emit(state.copyWith(shipmentType: type, clearFlightType: true));
+    await getShipmentRequests();
+  }
+
+  Future<void> applyFlightTypeFilter(String? flightType) async {
+    if (state.flightType == flightType) return;
+    if (flightType == null) {
+      emit(state.copyWith(clearFlightType: true));
+    } else {
+      emit(state.copyWith(flightType: flightType));
+    }
+    await getShipmentRequests();
   }
 
   void searchByTrackingNumber(String query) {

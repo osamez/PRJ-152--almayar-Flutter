@@ -27,15 +27,15 @@ class PickupRequestRouteSection extends StatelessWidget {
         children: [
           Expanded(
             child: RouteLocationLabel(
-              warehouse: destinationWarehouse,
-              country: destinationCountry,
+              warehouse: originWarehouse,
+              country: originCountry,
             ),
           ),
           Expanded(flex: 2, child: RouteDividerWithIcon(isAir: isAir)),
           Expanded(
             child: RouteLocationLabel(
-              warehouse: originWarehouse,
-              country: originCountry,
+              warehouse: destinationWarehouse,
+              country: destinationCountry,
             ),
           ),
         ],

@@ -164,6 +164,9 @@ abstract class  LocaleKeys {
   static const pickup_requests_filter_all_air = 'pickup_requests_filter_all_air';
   static const pickup_requests_filter_economy = 'pickup_requests_filter_economy';
   static const pickup_requests_filter_express = 'pickup_requests_filter_express';
+  static const pickup_requests_filter_all_sea = 'pickup_requests_filter_all_sea';
+  static const pickup_requests_filter_sea_fast = 'pickup_requests_filter_sea_fast';
+  static const pickup_requests_filter_sea_slow = 'pickup_requests_filter_sea_slow';
   static const pickup_requests_filter_apply = 'pickup_requests_filter_apply';
   static const shipment_details_title = 'shipment_details_title';
   static const shipment_details_order_code = 'shipment_details_order_code';

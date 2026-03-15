@@ -18,7 +18,7 @@ class ShipmentRequestPickupDetailsViewBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           DetailsHeaderCard(
-            shipmentCode: shipmentModel.trackingNumber ?? '',
+            shipmentCode: shipmentModel.code ?? '---',
             status: mapStatus(shipmentModel.status?.name),
             originWarehouse: shipmentModel.deliveryBranch ?? '',
             originCountry: 'الصين',
