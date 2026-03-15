@@ -5,16 +5,16 @@ class PriceCalculatorClassificationField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppTextFormField(
-      title: LocaleKeys.price_calculator_classification.tr(),
+    final cubit = context.read<PriceCalculatorCubit>();
+    final state = context.watch<PriceCalculatorCubit>().state;
+
+    return CustomDropdownSearchList<ShipmentCategoryModel>(
       hintText: LocaleKeys.price_calculator_select_classification.tr(),
-      validator: (value) => null,
-      readOnly: true,
-      suffixIcon: const Icon(
-        Icons.keyboard_arrow_down_rounded,
-        size: 25,
-        color: AppColors.deepViolet,
-      ),
+      items: state.shipmentCategories.valueOrNull ?? [],
+      itemAsString: (item) => item.name ?? '',
+      initialValue: state.selectedCategory,
+      validator: (item) => item == null ? LocaleKeys.price_calculator_select_classification.tr() : null,
+      onChanged: (item) => cubit.updateCategory(item),
     );
   }
 }

@@ -207,6 +207,7 @@
   "price_calculator_calculate_button": "Calculate Shipping Cost",
   "price_calculator_result_title": "Shipping Cost",
   "price_calculator_cost_per_kg": "Cost per 1 KG",
+  "price_calculator_cost_per_cbm": "Cost per 1 CBM",
   "price_calculator_total_initial_cost": "Total Initial Order Cost",
   "price_calculator_go_back": "Go Back",
   "shipment_tracking_title": "Track Shipments",
