@@ -5,16 +5,37 @@ class ClassificationField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppTextFormField(
-      title: LocaleKeys.receive_shipment_classification.tr(),
-      hintText: LocaleKeys.receive_shipment_select_classification.tr(),
-      validator: (value) => null,
-      readOnly: true,
-      suffixIcon: const Icon(
-        Icons.keyboard_arrow_down_rounded,
-        size: 25,
-        color: AppColors.deepViolet,
-      ),
+    return BlocBuilder<ReceiveShipmentCubit, ReceiveShipmentState>(
+      buildWhen: (p, c) =>
+          p.categoriesState != c.categoriesState ||
+          p.selectedCategory != c.selectedCategory,
+      builder: (context, state) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              LocaleKeys.receive_shipment_classification.tr(),
+              style: AppTextStyleFactory.create(
+                size: AppSizes.h14,
+                weight: FontWeight.w600,
+                color: AppColors.black,
+              ),
+            ),
+            verticalSpace(AppSizes.h10),
+            CustomDropdownSearchList<ShipmentCategoryModel>(
+              hintText: LocaleKeys.receive_shipment_select_classification.tr(),
+              items: state.categoriesState.valueOrNull ?? [],
+              initialValue: state.selectedCategory,
+              itemAsString: (cat) => cat.name ?? '',
+              onChanged: (cat) =>
+                  context.read<ReceiveShipmentCubit>().updateCategory(cat),
+              validator: (value) => value == null
+                  ? LocaleKeys.receive_shipment_select_classification.tr()
+                  : null,
+            ),
+          ],
+        );
+      },
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:almeyar/core/models/base_response.dart';
 import 'package:almeyar/core/network/result.dart';
 import 'package:almeyar/core/models/app_branch_model.dart';
 import 'package:almeyar/features/pickup_request/data/models/shipment_category_model.dart';
@@ -26,7 +27,8 @@ abstract class PickupRequestRepository {
 
   Future<Result<List<AppBranchModel>>> getDeliveryBranches();
 
-  Future<Result<AddShipmentRequestResponseData>> addShipmentRequest({
+  Future<Result<BaseResponse<AddShipmentRequestResponseData>>>
+  addShipmentRequest({
     required String receivingBranchId,
     required String deliveryBranchId,
     required String boxesCount,

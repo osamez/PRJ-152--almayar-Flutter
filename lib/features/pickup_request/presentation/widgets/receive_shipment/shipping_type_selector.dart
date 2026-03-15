@@ -51,28 +51,30 @@ class _ShippingTypeButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 200),
-        padding: EdgeInsets.symmetric(
-          vertical: AppSizes.h12,
-          horizontal: AppSizes.w12,
-        ),
-        decoration: BoxDecoration(
-          color: isSelected ? AppColors.orange : AppColors.white,
-          borderRadius: BorderRadius.circular(AppSizes.radiusSm),
-          border: Border.all(
-            color: isSelected ? AppColors.orange : AppColors.gray,
+    return Skeleton.leaf(
+      child: GestureDetector(
+        onTap: onTap,
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
+          padding: EdgeInsets.symmetric(
+            vertical: AppSizes.h12,
+            horizontal: AppSizes.w12,
           ),
-        ),
-        child: Center(
-          child: Text(
-            text,
-            style: AppTextStyleFactory.create(
-              size: 14,
-              weight: FontWeight.w600,
-              color: isSelected ? AppColors.white : AppColors.black,
+          decoration: BoxDecoration(
+            color: isSelected ? AppColors.orange : AppColors.white,
+            borderRadius: BorderRadius.circular(AppSizes.radiusSm),
+            border: Border.all(
+              color: isSelected ? AppColors.orange : AppColors.gray,
+            ),
+          ),
+          child: Center(
+            child: Text(
+              text,
+              style: AppTextStyleFactory.create(
+                size: 14,
+                weight: FontWeight.w600,
+                color: isSelected ? AppColors.white : AppColors.black,
+              ),
             ),
           ),
         ),

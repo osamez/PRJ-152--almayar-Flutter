@@ -1,3 +1,4 @@
+import 'package:almeyar/core/models/base_response.dart';
 import 'package:almeyar/core/network/result.dart';
 import 'package:almeyar/core/utils/app_logger.dart';
 import 'package:almeyar/features/pickup_request/data/datasource/pickup_request_datasource.dart';
@@ -156,7 +157,8 @@ class PickupRequestRepositoryImpl implements PickupRequestRepository {
   }
 
   @override
-  Future<Result<AddShipmentRequestResponseData>> addShipmentRequest({
+  Future<Result<BaseResponse<AddShipmentRequestResponseData>>>
+  addShipmentRequest({
     required String receivingBranchId,
     required String deliveryBranchId,
     required String boxesCount,
@@ -197,7 +199,7 @@ class PickupRequestRepositoryImpl implements PickupRequestRepository {
         AppLogger.info(
           'PickupRequestRepositoryImpl - addShipmentRequest: Success',
         );
-        return Result.success(response.data!);
+        return Result.success(response);
       } else {
         AppLogger.error(
           'PickupRequestRepositoryImpl - addShipmentRequest: Data is null',

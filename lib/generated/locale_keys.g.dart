@@ -499,6 +499,7 @@ abstract class  LocaleKeys {
   static const please_enter_password = 'please_enter_password';
   static const please_confirm_password = 'please_confirm_password';
   static const please_select_id_photo = 'please_select_id_photo';
+  static const please_select_shipment_photos = 'please_select_shipment_photos';
   static const registration_success_title = 'registration_success_title';
   static const go_to_login = 'go_to_login';
   static const shipments_no_branches_found = 'shipments_no_branches_found';

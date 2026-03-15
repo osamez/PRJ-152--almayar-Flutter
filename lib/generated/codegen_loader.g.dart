@@ -511,9 +511,12 @@ class CodegenLoader extends AssetLoader{
   "please_enter_password": "يرجى إدخال كلمة المرور",
   "please_confirm_password": "يرجى تأكيد كلمة المرور",
   "please_select_id_photo": "يرجى اختيار صورة إثبات الهوية",
+  "please_select_shipment_photos": "يرجى اختيار صور الشحنة",
   "registration_success_title": "تم التسجيل بنجاح",
   "go_to_login": "الذهاب لتسجيل الدخول",
-  "shipments_no_branches_found": "لم يتم العثور على أي عناوين شحن"
+  "shipments_no_branches_found": "لم يتم العثور على أي عناوين شحن",
+  "shipment_pickup_requests_no_requests": "لم يتم العثور على أي طلبات إستلام شحنات",
+  "shipment_pickup_requests_retry": "إعادة المحاولة"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -1012,9 +1015,12 @@ static const Map<String,dynamic> _en = {
   "please_enter_password": "Please enter password",
   "please_confirm_password": "Please confirm password",
   "please_select_id_photo": "Please select an ID proof photo",
+  "please_select_shipment_photos": "Please select shipment photos",
   "registration_success_title": "Registration Successful",
   "go_to_login": "Go to Login",
-  "shipments_no_branches_found": "No shipping addresses found"
+  "shipments_no_branches_found": "No shipping addresses found",
+  "shipment_pickup_requests_no_requests": "No shipment pickup requests found",
+  "shipment_pickup_requests_retry": "Retry"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

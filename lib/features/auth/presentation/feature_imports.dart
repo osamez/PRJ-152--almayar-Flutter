@@ -23,7 +23,7 @@ import 'package:almeyar/core/helpers/helper_func.dart';
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:pinput/pinput.dart';
 import 'package:almeyar/features/auth/data/models/country_locations_response.dart';
-import 'package:almeyar/core/utils/custom_dropdowon_search_list.dart';
+import 'package:almeyar/core/widgets/custom_dropdowon_search_list.dart';
 import 'package:almeyar/features/auth/data/models/receiving_branch_model.dart';
 
 part 'views/login_view.dart';
@@ -37,7 +37,7 @@ part 'widgets/register/register_step_indicator.dart';
 part 'widgets/register/register_form.dart';
 part 'widgets/register/register_step_content.dart';
 part 'widgets/register/register_next_button.dart';
-part 'widgets/register/phone_form_field.dart';
+part '../../../core/widgets/phone_form_field.dart';
 part 'widgets/register/register_first_step.dart';
 part 'widgets/register/register_second_step.dart';
 part 'widgets/register/register_third_step.dart';

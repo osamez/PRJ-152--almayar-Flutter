@@ -22,4 +22,8 @@ void setupPickupRequestDI() {
   getIt.registerFactory<ShipmentPickupRequestsCubit>(
     () => ShipmentPickupRequestsCubit(getIt(), getIt()),
   );
+
+  getIt.registerFactory<ReceiveShipmentCubit>(
+    () => ReceiveShipmentCubit(getIt(), getIt()),
+  );
 }

@@ -9,12 +9,18 @@ part of 'base_response.dart';
 BaseResponse<T> _$BaseResponseFromJson<T>(
   Map<String, dynamic> json,
   T Function(Object? json) fromJsonT,
-) => BaseResponse<T>(data: _$nullableGenericFromJson(json['data'], fromJsonT));
+) => BaseResponse<T>(
+  data: _$nullableGenericFromJson(json['data'], fromJsonT),
+  message: json['message'] as String?,
+);
 
 Map<String, dynamic> _$BaseResponseToJson<T>(
   BaseResponse<T> instance,
   Object? Function(T value) toJsonT,
-) => <String, dynamic>{'data': _$nullableGenericToJson(instance.data, toJsonT)};
+) => <String, dynamic>{
+  'data': _$nullableGenericToJson(instance.data, toJsonT),
+  'message': instance.message,
+};
 
 T? _$nullableGenericFromJson<T>(
   Object? input,

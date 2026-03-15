@@ -1,26 +1,28 @@
 part of '../../feature_imports.dart';
 
 class InspectionServiceCard extends StatefulWidget {
-  const InspectionServiceCard({super.key});
+  const InspectionServiceCard({super.key, required this.isEnabled, required this.onToggle});
+
+  final bool isEnabled;
+  final ValueChanged<bool> onToggle;
 
   @override
   State<InspectionServiceCard> createState() => _InspectionServiceCardState();
 }
 
 class _InspectionServiceCardState extends State<InspectionServiceCard> {
-  bool _isEnabled = false;
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 200),
       padding: EdgeInsets.all(AppSizes.w16),
       decoration: BoxDecoration(
-        color: _isEnabled
+        color: widget.isEnabled
             ? AppColors.green.withValues(alpha: 0.05)
             : AppColors.white,
         borderRadius: BorderRadius.circular(AppSizes.radiusMd),
         border: Border.all(
-          color: _isEnabled ? AppColors.green : AppColors.gray,
+          color: widget.isEnabled ? AppColors.green : AppColors.gray,
         ),
       ),
       child: Row(
@@ -78,20 +80,16 @@ class _InspectionServiceCardState extends State<InspectionServiceCard> {
               Transform.scale(
                 scale: 0.8,
                 child: Switch(
-                  value: _isEnabled,
+                  value: widget.isEnabled,
                   activeThumbColor: AppColors.green,
                   inactiveThumbColor: AppColors.deepViolet,
                   activeTrackColor: AppColors.green.withValues(alpha: 0.5),
                   inactiveTrackColor: AppColors.white,
                   trackOutlineColor: WidgetStateProperty.all(
-                    _isEnabled ? AppColors.green : AppColors.deepViolet,
+                    widget.isEnabled ? AppColors.green : AppColors.deepViolet,
                   ),
 
-                  onChanged: (value) {
-                    setState(() {
-                      _isEnabled = value;
-                    });
-                  },
+                  onChanged: widget.onToggle,
                 ),
               ),
             ],

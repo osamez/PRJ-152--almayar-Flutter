@@ -86,7 +86,7 @@ class _CustomDropdownSearchListState<T>
               widget.itemAsString(selectedItem),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w600),
+              style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w500),
             );
           },
           selectedItem: widget.initialValue,
@@ -115,8 +115,8 @@ class _CustomDropdownSearchListState<T>
                 enabledBorder: _buildBorder(),
                 focusedBorder: _buildBorder(),
                 contentPadding: EdgeInsets.symmetric(
-                  horizontal: 16.w,
-                  vertical: 8.h,
+                  horizontal: AppSizes.w16,
+                  vertical: AppSizes.h12,
                 ),
               ),
             ),

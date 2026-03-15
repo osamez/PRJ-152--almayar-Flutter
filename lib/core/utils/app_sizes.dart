@@ -72,6 +72,7 @@ class AppSizes {
   static late double w150;
   static late double w160;
   static late double w308;
+  static late double sp8;
 
   static late double h2;
   static late double h3;
@@ -271,5 +272,6 @@ class AppSizes {
     h150 = 150.h;
     h160 = 160.h;
     h308 = 308.h;
+    sp8 = 8.sp;
   }
 }

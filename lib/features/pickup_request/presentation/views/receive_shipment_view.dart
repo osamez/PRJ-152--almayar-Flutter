@@ -7,10 +7,14 @@ class ReceiveShipmentView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.offWhite,
-      appBar: CustomAppBar(title: shipmentType.title),
-      body: ReceiveShipmentViewBody(shipmentType: shipmentType),
+    return BlocProvider(
+      create: (context) =>
+          getIt<ReceiveShipmentCubit>()..init(shippingType: shipmentType.name),
+      child: Scaffold(
+        backgroundColor: AppColors.offWhite,
+        appBar: CustomAppBar(title: shipmentType.title),
+        body: ReceiveShipmentViewBody(shipmentType: shipmentType),
+      ),
     );
   }
 }
