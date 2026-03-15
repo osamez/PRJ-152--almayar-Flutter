@@ -9,12 +9,7 @@ class ShipmentCategoryModel {
   final String? type;
   final CategoryStatusModel? status;
 
-  const ShipmentCategoryModel({
-    this.id,
-    this.name,
-    this.type,
-    this.status,
-  });
+  const ShipmentCategoryModel({this.id, this.name, this.type, this.status});
 
   factory ShipmentCategoryModel.fromJson(Map<String, dynamic> json) =>
       _$ShipmentCategoryModelFromJson(json);
@@ -28,11 +23,7 @@ class CategoryStatusModel {
   final String? name;
   final String? color;
 
-  const CategoryStatusModel({
-    this.id,
-    this.name,
-    this.color,
-  });
+  const CategoryStatusModel({this.id, this.name, this.color});
 
   factory CategoryStatusModel.fromJson(Map<String, dynamic> json) =>
       _$CategoryStatusModelFromJson(json);
