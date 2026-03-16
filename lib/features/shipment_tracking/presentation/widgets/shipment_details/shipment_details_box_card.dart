@@ -3,32 +3,12 @@ part of '../../feature_imports.dart';
 class ShipmentDetailsBoxCard extends StatelessWidget {
   const ShipmentDetailsBoxCard({
     super.key,
-    required this.statusLabel,
-    required this.date,
-    required this.shippingType,
-    required this.totalVolume,
-    required this.totalWeight,
-    required this.boxCode,
-    required this.dimensions,
-    required this.shipmentCode,
-    required this.tripCode,
-    required this.boxPrice,
-    required this.discount,
-    required this.dueAmount,
+    required this.shipment,
+    required this.box,
   });
 
-  final String statusLabel;
-  final String date;
-  final String shippingType;
-  final String totalVolume;
-  final String totalWeight;
-  final String boxCode;
-  final String dimensions;
-  final String shipmentCode;
-  final String tripCode;
-  final String boxPrice;
-  final String discount;
-  final String dueAmount;
+  final ShipmentModel shipment;
+  final ShipmentBoxModel box;
 
   @override
   Widget build(BuildContext context) {
@@ -53,19 +33,20 @@ class ShipmentDetailsBoxCard extends StatelessWidget {
               children: [
                 Expanded(
                   child: ShipmentDetailsBoxHeaderRow(
-                    date: date,
-                    shippingType: shippingType,
+                    date: formatDateFromApi(shipment.createdAt ?? ''),
+                    shippingType: shipment.shipmentType ?? '',
                   ),
                 ),
-                ShipmentDetailsBoxStatusBadges(statusLabel: statusLabel),
+                ShipmentDetailsBoxStatusBadges(
+                  statusLabel: box.status?.name ?? '',
+                  boxImage: box.boxImage,
+                ),
               ],
             ),
             verticalSpace(AppSizes.h12),
-            Divider(height: 1, color: AppColors.gray.withValues(alpha: 0.5)),
-            verticalSpace(AppSizes.h12),
             ShipmentDetailsBoxVolumeWeightRow(
-              totalVolume: totalVolume,
-              totalWeight: totalWeight,
+              totalVolume: '${box.size ?? 0} CMB',
+              totalWeight: '${box.weight ?? 0} KG',
             ),
             verticalSpace(AppSizes.h12),
             Divider(height: 1, color: AppColors.gray.withValues(alpha: 0.5)),
@@ -73,31 +54,32 @@ class ShipmentDetailsBoxCard extends StatelessWidget {
             ShipmentDetailsBoxInfoRow(
               icon: AppAssets.svgCalendar,
               label: LocaleKeys.shipment_details_box_code.tr(),
-              value: boxCode,
+              value: box.code ?? '',
             ),
             ShipmentDetailsBoxInfoRow(
               icon: AppAssets.svgThree,
               isDimensions: true,
               label: LocaleKeys.shipment_details_dimensions.tr(),
-              value: dimensions,
+              value:
+                  '${box.dimensions?.length ?? 0}سم ,${box.dimensions?.width ?? 0}سم ,${box.dimensions?.height ?? 0}سم',
             ),
             ShipmentDetailsBoxInfoRow(
               icon: AppAssets.svgCalendar,
               label: LocaleKeys.shipment_details_shipment_code_label.tr(),
-              value: shipmentCode,
+              value: shipment.code ?? '',
             ),
             ShipmentDetailsBoxInfoRow(
               icon: AppAssets.svgCalendar,
               label: LocaleKeys.shipment_details_trip_code.tr(),
-              value: tripCode,
+              value: box.tripCode ?? '',
             ),
             verticalSpace(AppSizes.h8),
             Divider(height: 1, color: AppColors.gray.withValues(alpha: 0.5)),
             verticalSpace(AppSizes.h12),
             ShipmentDetailsBoxPricingRow(
-              boxPrice: boxPrice,
-              discount: discount,
-              dueAmount: dueAmount,
+              boxPrice: '\$${box.price ?? 0}',
+              discount: '\$${box.discountValue ?? 0}',
+              dueAmount: '\$${box.priceAfterDiscount ?? 0}',
             ),
           ],
         ),

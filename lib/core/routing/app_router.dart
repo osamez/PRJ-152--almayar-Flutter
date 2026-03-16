@@ -8,10 +8,12 @@ import 'package:almeyar/features/pickup_request/presentation/feature_imports.dar
 import 'package:almeyar/features/price_calculator/presentation/feature_imports.dart';
 import 'package:almeyar/features/delivery-requests/presentation/feature_imports.dart';
 import 'package:almeyar/features/purchase_orders/presentation/feature_imports.dart';
+import 'package:almeyar/features/shipment_tracking/data/models/shipment_tracking_model.dart';
 import 'package:almeyar/features/shipment_tracking/presentation/feature_imports.dart';
 import 'package:almeyar/features/money_transfers/presentation/feature_imports.dart';
 import 'package:almeyar/features/profile/presentation/feature_imports.dart';
 import 'package:almeyar/features/tickets/presentation/feature_imports.dart';
+import 'package:almeyar/features/shipment_tracking/data/models/shipments_type_params.dart';
 import 'package:almeyar/features/wallets/presentation/feature_imports.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
@@ -112,12 +114,15 @@ final router = GoRouter(
     GoRoute(
       path: Routes.shipmentsType,
       name: Routes.shipmentsType,
-      builder: (context, state) => const ShipmentsTypeView(),
+      builder: (context, state) =>
+          ShipmentsTypeView(params: state.extra as ShipmentsTypeParams?),
     ),
+
     GoRoute(
       path: Routes.shipmentDetails,
       name: Routes.shipmentDetails,
-      builder: (context, state) => const ShipmentDetailsView(),
+      builder: (context, state) =>
+          ShipmentDetailsView(shipmentModel: state.extra as ShipmentModel),
     ),
     GoRoute(
       path: Routes.deliveryRequests,

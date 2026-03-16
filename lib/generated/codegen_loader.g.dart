@@ -520,7 +520,8 @@ class CodegenLoader extends AssetLoader{
   "go_to_login": "الذهاب لتسجيل الدخول",
   "shipments_no_branches_found": "لم يتم العثور على أي عناوين شحن",
   "shipment_pickup_requests_no_requests": "لم يتم العثور على أي طلبات إستلام شحنات",
-  "shipment_pickup_requests_retry": "إعادة المحاولة"
+  "shipment_pickup_requests_retry": "إعادة المحاولة",
+  "shipment_tracking_no_shipments": "لم يتم العثور على أي شحنات"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -1028,7 +1029,8 @@ static const Map<String,dynamic> _en = {
   "go_to_login": "Go to Login",
   "shipments_no_branches_found": "No shipping addresses found",
   "shipment_pickup_requests_no_requests": "No shipment pickup requests found",
-  "shipment_pickup_requests_retry": "Retry"
+  "shipment_pickup_requests_retry": "Retry",
+  "shipment_tracking_no_shipments": "No shipments found"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

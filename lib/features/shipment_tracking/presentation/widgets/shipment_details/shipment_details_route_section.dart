@@ -7,12 +7,14 @@ class ShipmentDetailsRouteSection extends StatelessWidget {
     required this.originCountry,
     required this.destinationWarehouse,
     required this.destinationCountry,
+    required this.isAir,
   });
 
   final String originWarehouse;
   final String originCountry;
   final String destinationWarehouse;
   final String destinationCountry;
+  final bool isAir;
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +49,7 @@ class ShipmentDetailsRouteSection extends StatelessWidget {
                 ),
                 child: Center(
                   child: SvgPicture.asset(
-                    AppAssets.svgBoat,
+                    isAir ? AppAssets.svgAirplane : AppAssets.svgBoat,
                     width: AppSizes.w14,
                     height: AppSizes.h14,
                     colorFilter: const ColorFilter.mode(

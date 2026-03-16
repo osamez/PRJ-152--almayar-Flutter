@@ -1,47 +1,42 @@
 part of '../../feature_imports.dart';
 
 class ShipmentDetailsBoxesDataTab extends StatelessWidget {
-  const ShipmentDetailsBoxesDataTab({super.key});
+  const ShipmentDetailsBoxesDataTab({super.key, required this.shipment});
+
+  final ShipmentModel shipment;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        ShipmentDetailsSectionTitle(
-          title: LocaleKeys.shipment_details_boxes_data_tab.tr(),
-        ),
-        verticalSpace(AppSizes.h20),
-        const ShipmentDetailsBoxCard(
-          statusLabel: 'قيد التوصيل',
-          date: '2026-01-01',
-          shippingType: 'بحري مشترك',
-          totalVolume: 'CMB 20',
-          totalWeight: 'KG 2000',
-          boxCode: 'AIR-3486-TIP-F-3311-GU-PK1/1',
-          dimensions: '20سم ,30.8سم ,40.5سم',
-          shipmentCode: 'AIR-3486-TIP-F-3311-GU-PK1/1',
-          tripCode: 'GU-TIP-AIR-F-56',
-          boxPrice: '\$200',
-          discount: '\$50-',
-          dueAmount: '\$150',
-        ),
-        verticalSpace(AppSizes.h16),
-        const ShipmentDetailsBoxCard(
-          statusLabel: 'قيد التوصيل',
-          date: '2026-01-01',
-          shippingType: 'بحري مشترك',
-          totalVolume: 'CMB 20',
-          totalWeight: 'KG 2000',
-          boxCode: 'AIR-3486-TIP-F-3311-GU-PK1/1',
-          dimensions: '20سم ,30.8سم ,40.5سم',
-          shipmentCode: 'AIR-3486-TIP-F-3311-GU-PK1/1',
-          tripCode: 'GU-TIP-AIR-F-56',
-          boxPrice: '\$200',
-          discount: '\$50-',
-          dueAmount: '\$150',
-        ),
-      ],
-    );
+    return shipment.boxes == null || shipment.boxes!.isEmpty
+        ? Center(
+            child: Text(
+              "لا توجد صناديق",
+              style: AppTextStyleFactory.create(
+                size: 16,
+                weight: FontWeight.w500,
+                color: AppColors.gray,
+              ),
+            ),
+          )
+        : Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              ShipmentDetailsSectionTitle(
+                title: LocaleKeys.shipment_details_boxes_data_tab.tr(),
+              ),
+              verticalSpace(AppSizes.h20),
+              ListView.separated(
+                itemCount: shipment.boxes!.length,
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                separatorBuilder: (context, index) =>
+                    verticalSpace(AppSizes.h16),
+                itemBuilder: (context, index) {
+                  final box = shipment.boxes![index];
+                  return ShipmentDetailsBoxCard(shipment: shipment, box: box);
+                },
+              ),
+            ],
+          );
   }
 }

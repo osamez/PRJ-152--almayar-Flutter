@@ -1,66 +1,51 @@
 part of '../../feature_imports.dart';
 
 class ShipmentsTrackingStatusGrid extends StatelessWidget {
-  const ShipmentsTrackingStatusGrid({super.key});
+  const ShipmentsTrackingStatusGrid({super.key, this.statusCounts});
+
+  final List<ShipmentStatusCountModel>? statusCounts;
 
   @override
   Widget build(BuildContext context) {
-    final List<_StatusItem> statusItems = [
-      const _StatusItem(
-        titleKey: LocaleKeys.shipment_tracking_at_pickup_point,
-        count: 373,
-      ),
-      const _StatusItem(
-        titleKey: LocaleKeys.shipment_tracking_being_prepared,
-        count: 373,
-      ),
-      const _StatusItem(
-        titleKey: LocaleKeys.shipment_tracking_prepared,
-        count: 373,
-      ),
-      const _StatusItem(
-        titleKey: LocaleKeys.shipment_tracking_being_shipped,
-        count: 373,
-      ),
-      const _StatusItem(
-        titleKey: LocaleKeys.shipment_tracking_at_delivery_point,
-        count: 373,
-      ),
-      const _StatusItem(
-        titleKey: LocaleKeys.shipment_tracking_ready_for_delivery,
-        count: 373,
-      ),
-      const _StatusItem(
-        titleKey: LocaleKeys.shipment_tracking_cancelled,
-        count: 373,
-      ),
-    ];
+    // If no data, use the default mock list for structure during development/loading
+    final displayCounts =
+        statusCounts ??
+        [
+          const ShipmentStatusCountModel(count: 0),
+          const ShipmentStatusCountModel(count: 0),
+          const ShipmentStatusCountModel(count: 0),
+          const ShipmentStatusCountModel(count: 0),
+          const ShipmentStatusCountModel(count: 0),
+          const ShipmentStatusCountModel(count: 0),
+          const ShipmentStatusCountModel(count: 0),
+        ];
 
-    return GridView.builder(
-      itemCount: statusItems.length + 1,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        crossAxisSpacing: AppSizes.w12,
-        mainAxisSpacing: AppSizes.h12,
-        childAspectRatio: 1.1,
-      ),
-      itemBuilder: (context, index) {
-        if (index == statusItems.length) {
-          return const ShipmentsTrackingAllShipmentsCard();
-        }
-        final item = statusItems[index];
-        return ShipmentsTrackingStatusCard(
-          title: item.titleKey.tr(),
-          count: item.count,
-        );
+    return RefreshIndicator(
+      onRefresh: () async {
+        context.read<ShipmentTrackingCubit>().getShipmentStatusCounts();
       },
+      child: GridView.builder(
+        itemCount: displayCounts.length + 1,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: AppSizes.w12,
+          mainAxisSpacing: AppSizes.h12,
+          childAspectRatio: 1.1,
+        ),
+        itemBuilder: (context, index) {
+          if (index == displayCounts.length) {
+            return const ShipmentsTrackingAllShipmentsCard();
+          }
+
+          final item = displayCounts[index];
+          return ShipmentsTrackingStatusCard(
+            title: item.status?.name ?? '...',
+            count: item.count ?? 0,
+            status: item.status,
+          );
+
+        },
+      ),
     );
   }
-}
-
-class _StatusItem {
-  final String titleKey;
-  final int count;
-
-  const _StatusItem({required this.titleKey, required this.count});
 }
