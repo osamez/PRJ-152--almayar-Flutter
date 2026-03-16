@@ -7,6 +7,7 @@ class ShipmentsTypeSearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppTextFormField(
       hintText: LocaleKeys.shipment_tracking_search_hint.tr(),
+      onChanged: (value) => context.read<ShipmentTrackingCubit>().searchShipments(value),
       suffixIcon: SvgPicture.asset(
         AppAssets.svgBarcode2,
       ).withPadding(vertical: AppSizes.w12, horizontal: AppSizes.w12),

@@ -36,7 +36,7 @@ class ShipmentsTypeFilterHeader extends StatelessWidget {
         const Spacer(),
         CustomInkWellWidget(
           onTap: () {
-            PickupFilterBottomSheet.show(context);
+            ShipmentTrackingFilterBottomSheet.show(context);
           },
           radius: 12,
           padding: const EdgeInsets.all(2),

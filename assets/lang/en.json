@@ -521,5 +521,6 @@
   "go_to_login": "Go to Login",
   "shipments_no_branches_found": "No shipping addresses found",
   "shipment_pickup_requests_no_requests": "No shipment pickup requests found",
-  "shipment_pickup_requests_retry": "Retry"
+  "shipment_pickup_requests_retry": "Retry",
+  "shipment_tracking_no_shipments": "No shipments found"
 }

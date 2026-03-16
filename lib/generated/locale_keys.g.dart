@@ -509,5 +509,6 @@ abstract class  LocaleKeys {
   static const shipments_no_branches_found = 'shipments_no_branches_found';
   static const shipment_pickup_requests_no_requests = 'shipment_pickup_requests_no_requests';
   static const shipment_pickup_requests_retry = 'shipment_pickup_requests_retry';
+  static const shipment_tracking_no_shipments = 'shipment_tracking_no_shipments';
 
 }

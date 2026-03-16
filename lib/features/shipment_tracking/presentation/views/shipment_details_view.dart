@@ -1,7 +1,8 @@
 part of '../feature_imports.dart';
 
 class ShipmentDetailsView extends StatelessWidget {
-  const ShipmentDetailsView({super.key});
+  const ShipmentDetailsView({super.key, required this.shipmentModel});
+  final ShipmentModel shipmentModel;
 
   @override
   Widget build(BuildContext context) {

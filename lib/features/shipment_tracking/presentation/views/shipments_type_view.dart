@@ -10,7 +10,7 @@ class ShipmentsTypeView extends StatelessWidget {
     return BlocProvider(
       create: (context) => getIt<ShipmentTrackingCubit>(
         param1: params,
-      ),
+      )..initialize(),
       child: Scaffold(
         backgroundColor: AppColors.offWhite,
         appBar: CustomAppBar(title: LocaleKeys.shipment_tracking_title.tr()),
