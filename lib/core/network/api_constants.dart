@@ -23,4 +23,7 @@ class ApiConstants {
   static const String calculateShipmentPrice = 'user/calculate-shipment-price';
   static const String allShipments = 'user/all-shipments';
   static const String shipmentStatusCounts = 'user/shipment-status-counts';
+
+  // Profile
+  static const String giftCards = 'user/gift-cards';
 }
