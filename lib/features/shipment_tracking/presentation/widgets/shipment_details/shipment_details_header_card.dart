@@ -4,7 +4,7 @@ class ShipmentDetailsHeaderCard extends StatelessWidget {
   const ShipmentDetailsHeaderCard({
     super.key,
     required this.shipmentCode,
-    required this.statusLabel,
+    required this.status,
     required this.date,
     required this.shippingType,
     required this.originWarehouse,
@@ -14,7 +14,7 @@ class ShipmentDetailsHeaderCard extends StatelessWidget {
   });
 
   final String shipmentCode;
-  final String statusLabel;
+  final StatusModel status;
   final String date;
   final String shippingType;
   final String originWarehouse;
@@ -39,6 +39,7 @@ class ShipmentDetailsHeaderCard extends StatelessWidget {
             shipmentCode: shipmentCode,
             date: date,
             shippingType: shippingType,
+            status: status,
           ),
           verticalSpace(AppSizes.h16),
           ShipmentDetailsRouteSection(
@@ -46,6 +47,7 @@ class ShipmentDetailsHeaderCard extends StatelessWidget {
             originCountry: originCountry,
             destinationWarehouse: destinationWarehouse,
             destinationCountry: destinationCountry,
+            isAir: shippingType == "جوي",
           ),
           verticalSpace(AppSizes.h12),
         ],

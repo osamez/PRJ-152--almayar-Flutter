@@ -97,7 +97,7 @@ class _ShipmentsTypeShipmentListState extends State<ShipmentsTypeShipmentList> {
               return PickupCard(
                 status: mapStatus(shipment.status?.name),
                 isAir:
-                    shipment.shipmentType == 'air' ||
+                    shipment.shipmentType == 'جوي' ||
                     shipment.shipmentType == null,
                 shipmentCode: shipment.code ?? '---',
                 date: shipment.createdAt ?? '---',

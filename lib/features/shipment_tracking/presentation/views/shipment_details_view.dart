@@ -9,7 +9,7 @@ class ShipmentDetailsView extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.offWhite,
       appBar: CustomAppBar(title: LocaleKeys.shipment_details_view_title.tr()),
-      body: const ShipmentDetailsViewBody(),
+      body: ShipmentDetailsViewBody(shipmentModel: shipmentModel),
     );
   }
 }

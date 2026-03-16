@@ -16,14 +16,16 @@ class ShipmentsTrackingViewBody extends StatelessWidget {
           error: (failure) {
             if (failure.status == LocalStatusCodes.connectionError) {
               return InternetConnectionWidget(
-                onPressed: () =>
-                    context.read<ShipmentTrackingCubit>().getShipmentStatusCounts(),
+                onPressed: () => context
+                    .read<ShipmentTrackingCubit>()
+                    .getShipmentStatusCounts(),
               );
             }
             return CustomErrorWidget(
               message: failure.error,
-              onPressed: () =>
-                  context.read<ShipmentTrackingCubit>().getShipmentStatusCounts(),
+              onPressed: () => context
+                  .read<ShipmentTrackingCubit>()
+                  .getShipmentStatusCounts(),
             );
           },
         );
@@ -44,13 +46,10 @@ class ShipmentsTrackingViewBody extends StatelessWidget {
         Expanded(
           child: Skeletonizer(
             enabled: isLoading,
-            child: ShipmentsTrackingStatusGrid(
-              statusCounts: data,
-            ),
+            child: ShipmentsTrackingStatusGrid(statusCounts: data),
           ),
         ),
       ],
     );
   }
 }
-

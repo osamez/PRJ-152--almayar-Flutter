@@ -6,7 +6,8 @@ class ShipmentsTrackingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<ShipmentTrackingCubit>()..getShipmentStatusCounts(),
+      create: (context) =>
+          getIt<ShipmentTrackingCubit>()..getShipmentStatusCounts(),
       child: Scaffold(
         backgroundColor: AppColors.offWhite,
         appBar: CustomAppBar(title: LocaleKeys.shipment_tracking_title.tr()),

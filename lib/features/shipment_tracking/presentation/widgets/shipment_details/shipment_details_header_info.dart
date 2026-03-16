@@ -2,6 +2,7 @@ part of '../../feature_imports.dart';
 
 class ShipmentDetailsHeaderInfo extends StatelessWidget {
   const ShipmentDetailsHeaderInfo({
+    required this.status,
     super.key,
     required this.shipmentCode,
     required this.date,
@@ -11,6 +12,7 @@ class ShipmentDetailsHeaderInfo extends StatelessWidget {
   final String shipmentCode;
   final String date;
   final String shippingType;
+  final StatusModel status;
 
   @override
   Widget build(BuildContext context) {
@@ -44,10 +46,7 @@ class ShipmentDetailsHeaderInfo extends StatelessWidget {
                     ),
                   ),
                   horizontalSpace(AppSizes.w8),
-                  StatusBadge(
-                    label: LocaleKeys.shipment_details_ready_for_delivery.tr(),
-                    color: AppColors.green,
-                  ),
+                  PickupRequestStatusBadge(status: mapStatus(status.name)),
                 ],
               ),
               verticalSpace(AppSizes.h6),
@@ -63,7 +62,9 @@ class ShipmentDetailsHeaderInfo extends StatelessWidget {
               ),
               verticalSpace(AppSizes.h4),
               IconTextRow(
-                iconPath: AppAssets.svgBoat,
+                iconPath: shippingType == "جوي"
+                    ? AppAssets.svgAirplane
+                    : AppAssets.svgBoat,
                 text: shippingType.isEmpty
                     ? LocaleKeys.shipment_details_shared_sea.tr()
                     : shippingType,

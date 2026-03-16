@@ -1,8 +1,8 @@
 part of '../../feature_imports.dart';
 
 class ShipmentDetailsBasicDataTab extends StatelessWidget {
-  const ShipmentDetailsBasicDataTab({super.key});
-
+  const ShipmentDetailsBasicDataTab({required this.shipment, super.key});
+  final ShipmentModel shipment;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -12,54 +12,70 @@ class ShipmentDetailsBasicDataTab extends StatelessWidget {
           title: LocaleKeys.shipment_details_basic_data_tab.tr(),
         ),
         verticalSpace(AppSizes.h20),
-        const ShipmentDetailsStatsRow(
-          boxesCount: '20',
-          totalVolume: '20',
-          totalWeight: '20',
+        ShipmentDetailsStatsRow(
+          boxesCount: (shipment.boxesCount ?? 0).toString(),
+          totalVolume: (shipment.totalSize ?? 0).toString(),
+          totalWeight: (shipment.totalWeight ?? 0).toString(),
         ),
         verticalSpace(AppSizes.h30),
         ShipmentDetailsInfoSection(
           rows: [
             ShipmentDetailsInfoRowData(
               label: LocaleKeys.shipment_details_classification_label.tr(),
-              value: 'إلكترونيات',
+              value: shipment.categoryName ?? '',
             ),
             ShipmentDetailsInfoRowData(
               label: LocaleKeys.shipment_details_contents_label.tr(),
-              value: 'هواتف ذكية',
+              value: shipment.contentName ?? '',
             ),
             ShipmentDetailsInfoRowData(
               label: LocaleKeys.shipment_details_tracking_code_label.tr(),
-              value: 'JHDF7653829HSH',
+              value: shipment.code ?? '-',
             ),
             ShipmentDetailsInfoRowData(
               label: LocaleKeys.shipment_details_supplier_phone_label.tr(),
-              value: '+218 91 123 4567',
+              value: shipment.supplierPhone ?? '-',
             ),
           ],
         ),
-        verticalSpace(AppSizes.h24),
-        ShipmentDetailsSectionTitle(
-          title: LocaleKeys.shipment_details_photos_title.tr(),
-        ),
-        verticalSpace(AppSizes.h16),
-        const MediaGrid(
-          items: [
-            MediaItem(fileName: 'Box_Image.jpg', isImage: true),
-            MediaItem(fileName: 'Box_Image.jpg', isImage: true),
-          ],
-        ),
-        verticalSpace(AppSizes.h24),
-        ShipmentDetailsSectionTitle(
-          title: LocaleKeys.shipment_details_documents_title.tr(),
-        ),
-        verticalSpace(AppSizes.h12),
-        const MediaGrid(
-          items: [
-            MediaItem(fileName: 'Box_Image.jpg', isImage: true),
-            MediaItem(fileName: 'Invoice.pdf', isImage: false),
-          ],
-        ),
+        if (shipment.shipmentImages != null &&
+            shipment.shipmentImages!.isNotEmpty) ...[
+          verticalSpace(AppSizes.h24),
+          ShipmentDetailsSectionTitle(
+            title: LocaleKeys.shipment_details_photos_title.tr(),
+          ),
+          verticalSpace(AppSizes.h16),
+          DetailsMediaGrid(
+            items: shipment.shipmentImages!
+                .map(
+                  (url) => DetailsMediaItem(
+                    url: url,
+                    fileName: url.split('/').last,
+                    isImage: true,
+                  ),
+                )
+                .toList(),
+          ),
+        ],
+        if (shipment.customsFiles != null &&
+            shipment.customsFiles!.isNotEmpty) ...[
+          verticalSpace(AppSizes.h24),
+          ShipmentDetailsSectionTitle(
+            title: LocaleKeys.shipment_details_documents_title.tr(),
+          ),
+          verticalSpace(AppSizes.h12),
+          DetailsMediaGrid(
+            items: shipment.customsFiles!
+                .map(
+                  (url) => DetailsMediaItem(
+                    url: url,
+                    fileName: url.split('/').last,
+                    isImage: false,
+                  ),
+                )
+                .toList(),
+          ),
+        ],
       ],
     );
   }

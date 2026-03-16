@@ -1,9 +1,14 @@
 part of '../../feature_imports.dart';
 
 class ShipmentDetailsBoxStatusBadges extends StatelessWidget {
-  const ShipmentDetailsBoxStatusBadges({super.key, required this.statusLabel});
+  const ShipmentDetailsBoxStatusBadges({
+    super.key,
+    required this.statusLabel,
+    this.boxImage,
+  });
 
   final String statusLabel;
+  final String? boxImage;
 
   @override
   Widget build(BuildContext context) {
@@ -19,14 +24,50 @@ class ShipmentDetailsBoxStatusBadges extends StatelessWidget {
           iconWidth: AppSizes.w8,
           iconHeight: AppSizes.h8,
         ),
-        _buildBoxDetails(
-          label: LocaleKeys.shipment_details_box_image_label.tr(),
-          titleColor: AppColors.white,
-          svgPath: AppAssets.svgEyes,
-          backgroundColor: AppColors.orange,
-          iconWidth: AppSizes.w12,
-          iconHeight: AppSizes.h12,
-        ),
+        if (boxImage != null)
+          GestureDetector(
+            onTap: () {
+              showDialog(
+                context: context,
+                builder: (context) => Dialog(
+                  backgroundColor: Colors.transparent,
+                  insetPadding: EdgeInsets.zero,
+                  child: Stack(
+                    children: [
+                      Center(
+                        child: InteractiveViewer(
+                          child: CustomCachedImage(
+                            imageUrl: boxImage!,
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        top: AppSizes.h40,
+                        right: AppSizes.w16,
+                        child: IconButton(
+                          icon: const Icon(
+                            Icons.close,
+                            color: AppColors.white,
+                            size: 30,
+                          ),
+                          onPressed: () => Navigator.pop(context),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
+            child: _buildBoxDetails(
+              label: LocaleKeys.shipment_details_box_image_label.tr(),
+              titleColor: AppColors.white,
+              svgPath: AppAssets.svgEyes,
+              backgroundColor: AppColors.orange,
+              iconWidth: AppSizes.w12,
+              iconHeight: AppSizes.h12,
+            ),
+          ),
       ],
     );
   }
@@ -51,17 +92,20 @@ class ShipmentDetailsBoxStatusBadges extends StatelessWidget {
         borderRadius: BorderRadius.circular(6),
       ),
       child: Row(
-        mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SvgPicture.asset(svgPath, width: iconWidth, height: iconHeight),
           horizontalSpace(AppSizes.w6),
-          Text(
-            label,
-            style: AppTextStyleFactory.create(
-              size: 10,
-              weight: FontWeight.w600,
-              color: titleColor,
+          Flexible(
+            child: Text(
+              label,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: AppTextStyleFactory.create(
+                size: 10,
+                weight: FontWeight.w600,
+                color: titleColor,
+              ),
             ),
           ),
         ],

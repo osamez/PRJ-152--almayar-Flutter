@@ -1,7 +1,8 @@
 part of '../../feature_imports.dart';
 
 class ShipmentDetailsViewBody extends StatefulWidget {
-  const ShipmentDetailsViewBody({super.key});
+  const ShipmentDetailsViewBody({super.key, required this.shipmentModel});
+  final ShipmentModel shipmentModel;
 
   @override
   State<ShipmentDetailsViewBody> createState() =>
@@ -24,15 +25,15 @@ class _ShipmentDetailsViewBodyState extends State<ShipmentDetailsViewBody> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const ShipmentDetailsHeaderCard(
-            shipmentCode: 'SEA-888-TIP-F-4852-GU',
-            statusLabel: '',
-            date: '2026-01-01',
-            shippingType: '',
-            originWarehouse: 'مخزن جوانزو',
-            originCountry: 'الصين',
-            destinationWarehouse: 'مخزن طرابلس',
-            destinationCountry: 'ليبيا',
+          ShipmentDetailsHeaderCard(
+            shipmentCode: widget.shipmentModel.code ?? '',
+            status: widget.shipmentModel.status!,
+            date: formatDateFromApi(widget.shipmentModel.createdAt ?? ''),
+            shippingType: widget.shipmentModel.shipmentType ?? '',
+            originWarehouse: widget.shipmentModel.deliveryBranch ?? '',
+            originCountry: widget.shipmentModel.deliveryBranch ?? '',
+            destinationWarehouse: widget.shipmentModel.receivingBranch ?? '',
+            destinationCountry: widget.shipmentModel.receivingBranch ?? '',
           ),
           verticalSpace(AppSizes.h30),
           ShipmentDetailsTabBar(
@@ -50,13 +51,13 @@ class _ShipmentDetailsViewBodyState extends State<ShipmentDetailsViewBody> {
   Widget _buildTabContent() {
     switch (_selectedTabIndex) {
       case 0:
-        return const ShipmentDetailsBasicDataTab();
+        return ShipmentDetailsBasicDataTab(shipment: widget.shipmentModel);
       case 1:
-        return const ShipmentDetailsFinancialDataTab();
+        return ShipmentDetailsFinancialDataTab(shipment: widget.shipmentModel);
       case 2:
-        return const ShipmentDetailsBoxesDataTab();
+        return ShipmentDetailsBoxesDataTab(shipment: widget.shipmentModel);
       default:
-        return const ShipmentDetailsBasicDataTab();
+        return ShipmentDetailsBasicDataTab(shipment: widget.shipmentModel);
     }
   }
 }
