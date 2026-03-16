@@ -522,5 +522,8 @@
   "shipments_no_branches_found": "لم يتم العثور على أي عناوين شحن",
   "shipment_pickup_requests_no_requests": "لم يتم العثور على أي طلبات إستلام شحنات",
   "shipment_pickup_requests_retry": "إعادة المحاولة",
-  "shipment_tracking_no_shipments": "لم يتم العثور على أي شحنات"
+  "shipment_tracking_no_shipments": "لم يتم العثور على أي شحنات",
+  "no_internet_error": "لا يوجد اتصال بالإنترنت",
+  "generic_error": "حدث خطأ ما، يرجى المحاولة مرة أخرى",
+  "gift_cards_empty_state": "لم يتم العثور على أي بطاقات هدايا"
 }

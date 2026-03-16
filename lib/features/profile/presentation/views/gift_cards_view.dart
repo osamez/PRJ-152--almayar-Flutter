@@ -5,10 +5,13 @@ class GiftCardsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.offWhite,
-      appBar: CustomAppBar(title: LocaleKeys.gift_cards_title.tr()),
-      body: const GiftCardsViewBody(),
+    return BlocProvider(
+      create: (context) => getIt<GiftCardsCubit>()..getGiftCards(),
+      child: Scaffold(
+        backgroundColor: AppColors.offWhite,
+        appBar: CustomAppBar(title: LocaleKeys.gift_cards_title.tr()),
+        body: const GiftCardsViewBody(),
+      ),
     );
   }
 }

@@ -510,5 +510,8 @@ abstract class  LocaleKeys {
   static const shipment_pickup_requests_no_requests = 'shipment_pickup_requests_no_requests';
   static const shipment_pickup_requests_retry = 'shipment_pickup_requests_retry';
   static const shipment_tracking_no_shipments = 'shipment_tracking_no_shipments';
+  static const no_internet_error = 'no_internet_error';
+  static const generic_error = 'generic_error';
+  static const gift_cards_empty_state = 'gift_cards_empty_state';
 
 }
