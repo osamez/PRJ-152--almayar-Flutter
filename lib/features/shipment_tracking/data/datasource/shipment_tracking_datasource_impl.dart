@@ -1,6 +1,7 @@
 import 'package:almeyar/core/models/base_response.dart';
 import 'package:almeyar/features/shipment_tracking/data/api_service/shipment_tracking_api_service.dart';
 import 'package:almeyar/features/shipment_tracking/data/datasource/shipment_tracking_datasource.dart';
+import 'package:almeyar/features/shipment_tracking/data/models/shipment_status_count_model.dart';
 import 'package:almeyar/features/shipment_tracking/data/models/shipment_tracking_model.dart';
 
 class ShipmentTrackingDataSourceImpl implements ShipmentTrackingDataSource {
@@ -22,6 +23,15 @@ class ShipmentTrackingDataSourceImpl implements ShipmentTrackingDataSource {
       code: code,
       flightType: flightType,
       page: page,
+    );
+  }
+
+  @override
+  Future<BaseResponse<List<ShipmentStatusCountModel>>> getShipmentStatusCounts({
+    String? shipmentType,
+  }) {
+    return _apiService.getShipmentStatusCounts(
+      shipmentType: shipmentType,
     );
   }
 }

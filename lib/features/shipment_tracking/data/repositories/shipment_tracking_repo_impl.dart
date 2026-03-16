@@ -1,6 +1,7 @@
 import 'package:almeyar/core/network/result.dart';
 import 'package:almeyar/core/utils/app_logger.dart';
 import 'package:almeyar/features/shipment_tracking/data/datasource/shipment_tracking_datasource.dart';
+import 'package:almeyar/features/shipment_tracking/data/models/shipment_status_count_model.dart';
 import 'package:almeyar/features/shipment_tracking/data/models/shipment_tracking_model.dart';
 import 'package:almeyar/features/shipment_tracking/data/repositories/shipment_tracking_repo.dart';
 
@@ -34,6 +35,27 @@ class ShipmentTrackingRepositoryImpl implements ShipmentTrackingRepository {
       }
     } catch (e, st) {
       AppLogger.error('ShipmentTrackingRepositoryImpl - getAllShipments: Error', e, st);
+      return Result.failure(e, st);
+    }
+  }
+
+  @override
+  Future<Result<List<ShipmentStatusCountModel>>> getShipmentStatusCounts({
+    String? shipmentType,
+  }) async {
+    try {
+      final response = await _dataSource.getShipmentStatusCounts(
+        shipmentType: shipmentType,
+      );
+      if (response.data != null) {
+        AppLogger.info('ShipmentTrackingRepositoryImpl - getShipmentStatusCounts: Success');
+        return Result.success(response.data!);
+      } else {
+        AppLogger.error('ShipmentTrackingRepositoryImpl - getShipmentStatusCounts: Data is null');
+        return Result.failure(Exception('Data is null'), StackTrace.current);
+      }
+    } catch (e, st) {
+      AppLogger.error('ShipmentTrackingRepositoryImpl - getShipmentStatusCounts: Error', e, st);
       return Result.failure(e, st);
     }
   }
