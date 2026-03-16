@@ -21,4 +21,5 @@ class ApiConstants {
 
   // Price Calculator
   static const String calculateShipmentPrice = 'user/calculate-shipment-price';
+  static const String allShipments = 'user/all-shipments';
 }
