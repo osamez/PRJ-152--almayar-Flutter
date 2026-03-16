@@ -13,7 +13,7 @@ class ShipmentsTypeViewBody extends StatelessWidget {
         const ShipmentsTypeShippingTabs().withPadding(horizontal: AppSizes.w20),
         verticalSpace(AppSizes.h20),
         const ShipmentsTypeFilterHeader(
-          resultCount: 3,
+          resultCount: 0,
         ).withPadding(horizontal: AppSizes.w20),
         verticalSpace(AppSizes.h16),
         const Expanded(child: ShipmentsTypeShipmentList()),

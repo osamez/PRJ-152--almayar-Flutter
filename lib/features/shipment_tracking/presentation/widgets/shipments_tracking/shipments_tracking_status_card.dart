@@ -5,73 +5,84 @@ class ShipmentsTrackingStatusCard extends StatelessWidget {
     super.key,
     required this.title,
     required this.count,
+    this.status,
   });
 
   final String title;
   final int count;
+  final ShipmentStatusModel? status;
+
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: AppColors.white,
-        borderRadius: BorderRadius.circular(AppSizes.radiusMd),
-      ),
-
-      child: CustomInkWellWidget(
-        onTap: () {
-          context.push(Routes.shipmentsType);
-        },
-        padding: EdgeInsets.symmetric(
-          horizontal: AppSizes.w16,
-          vertical: AppSizes.h12,
+    return Skeleton.leaf(
+      child: Container(
+        decoration: BoxDecoration(
+          color: AppColors.white,
+          borderRadius: BorderRadius.circular(AppSizes.radiusMd),
         ),
-        radius: AppSizes.radiusMd,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CustomIconRoundedBox(
-              iconPath: AppAssets.svgBox,
-              width: AppSizes.w48,
-              height: AppSizes.h48,
-              backgroundColor: AppColors.grey97,
-              iconColor: AppColors.deepViolet,
-              iconWidth: AppSizes.w24,
-              iconHeight: AppSizes.h24,
-              radius: AppSizes.radiusSm,
+
+        child: CustomInkWellWidget(
+          onTap: () {
+          context.push(
+            Routes.shipmentsType,
+            extra: ShipmentsTypeParams(
+              selectedTabIndex: context.read<ShipmentTrackingCubit>().state.selectedTabIndex,
+              status: status,
             ),
-            verticalSpace(AppSizes.h10),
-            Text(
-              title,
-              style: AppTextStyleFactory.create(
-                size: 16,
-                weight: FontWeight.w700,
-                color: AppColors.grey19,
+          );
+        },
+          padding: EdgeInsets.symmetric(
+            horizontal: AppSizes.w16,
+            vertical: AppSizes.h12,
+          ),
+          radius: AppSizes.radiusMd,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CustomIconRoundedBox(
+                iconPath: AppAssets.svgBox,
+                width: AppSizes.w48,
+                height: AppSizes.h48,
+                backgroundColor: AppColors.grey97,
+                iconColor: AppColors.deepViolet,
+                iconWidth: AppSizes.w24,
+                iconHeight: AppSizes.h24,
+                radius: AppSizes.radiusSm,
               ),
-              textAlign: TextAlign.center,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-            ),
-            verticalSpace(AppSizes.h12),
-            Container(
-              padding: EdgeInsets.symmetric(
-                horizontal: AppSizes.w16,
-                vertical: AppSizes.h4,
-              ),
-              decoration: BoxDecoration(
-                color: AppColors.grey98,
-                borderRadius: BorderRadius.circular(AppSizes.radiusSm),
-              ),
-              child: Text(
-                '$count',
+              verticalSpace(AppSizes.h10),
+              Text(
+                title,
                 style: AppTextStyleFactory.create(
                   size: 16,
                   weight: FontWeight.w700,
                   color: AppColors.grey19,
                 ),
+                textAlign: TextAlign.center,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
-            ),
-          ],
+              verticalSpace(AppSizes.h12),
+              Container(
+                padding: EdgeInsets.symmetric(
+                  horizontal: AppSizes.w16,
+                  vertical: AppSizes.h4,
+                ),
+                decoration: BoxDecoration(
+                  color: AppColors.grey98,
+                  borderRadius: BorderRadius.circular(AppSizes.radiusSm),
+                ),
+                child: Text(
+                  '$count',
+                  style: AppTextStyleFactory.create(
+                    size: 16,
+                    weight: FontWeight.w700,
+                    color: AppColors.grey19,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

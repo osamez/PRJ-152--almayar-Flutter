@@ -12,6 +12,7 @@ import 'package:almeyar/features/shipment_tracking/presentation/feature_imports.
 import 'package:almeyar/features/money_transfers/presentation/feature_imports.dart';
 import 'package:almeyar/features/profile/presentation/feature_imports.dart';
 import 'package:almeyar/features/tickets/presentation/feature_imports.dart';
+import 'package:almeyar/features/shipment_tracking/data/models/shipments_type_params.dart';
 import 'package:almeyar/features/wallets/presentation/feature_imports.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
@@ -112,8 +113,11 @@ final router = GoRouter(
     GoRoute(
       path: Routes.shipmentsType,
       name: Routes.shipmentsType,
-      builder: (context, state) => const ShipmentsTypeView(),
+      builder: (context, state) => ShipmentsTypeView(
+        params: state.extra as ShipmentsTypeParams?,
+      ),
     ),
+
     GoRoute(
       path: Routes.shipmentDetails,
       name: Routes.shipmentDetails,
