@@ -522,5 +522,8 @@
   "shipments_no_branches_found": "No shipping addresses found",
   "shipment_pickup_requests_no_requests": "No shipment pickup requests found",
   "shipment_pickup_requests_retry": "Retry",
-  "shipment_tracking_no_shipments": "No shipments found"
+  "shipment_tracking_no_shipments": "No shipments found",
+  "no_internet_error": "No internet connection",
+  "generic_error": "Something went wrong, please try again",
+  "gift_cards_empty_state": "No gift cards found"
 }
