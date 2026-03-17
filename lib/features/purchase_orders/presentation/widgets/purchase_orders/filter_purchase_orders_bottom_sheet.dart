@@ -1,7 +1,9 @@
 part of '../../feature_imports.dart';
 
 class FilterPurchaseOrdersBottomSheet extends StatefulWidget {
-  const FilterPurchaseOrdersBottomSheet({super.key});
+  const FilterPurchaseOrdersBottomSheet({super.key, this.selectedStatusId});
+
+  final int? selectedStatusId;
 
   @override
   State<FilterPurchaseOrdersBottomSheet> createState() =>
@@ -10,7 +12,13 @@ class FilterPurchaseOrdersBottomSheet extends StatefulWidget {
 
 class _FilterPurchaseOrdersBottomSheetState
     extends State<FilterPurchaseOrdersBottomSheet> {
-  int _selectedIndex = 0;
+  late int? _selectedStatusId;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedStatusId = widget.selectedStatusId;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,33 +54,33 @@ class _FilterPurchaseOrdersBottomSheetState
             children: [
               FilterPurchaseOrderOption(
                 label: LocaleKeys.purchase_orders_all_orders.tr(),
-                isSelected: _selectedIndex == 0,
-                onTap: () => setState(() => _selectedIndex = 0),
+                isSelected: _selectedStatusId == null,
+                onTap: () => setState(() => _selectedStatusId = null),
               ),
               verticalSpace(AppSizes.h12),
               FilterPurchaseOrderOption(
                 label: LocaleKeys.purchase_orders_under_review.tr(),
-                isSelected: _selectedIndex == 1,
-                onTap: () => setState(() => _selectedIndex = 1),
+                isSelected: _selectedStatusId == 4,
+                onTap: () => setState(() => _selectedStatusId = 4),
               ),
               verticalSpace(AppSizes.h12),
               FilterPurchaseOrderOption(
                 label: LocaleKeys.purchase_orders_in_progress.tr(),
-                isSelected: _selectedIndex == 2,
-                onTap: () => setState(() => _selectedIndex = 2),
+                isSelected: _selectedStatusId == 36,
+                onTap: () => setState(() => _selectedStatusId = 36),
               ),
               verticalSpace(AppSizes.h12),
               FilterPurchaseOrderOption(
                 label: LocaleKeys.purchase_orders_purchased.tr(),
-                isSelected: _selectedIndex == 3,
-                onTap: () => setState(() => _selectedIndex = 3),
+                isSelected: _selectedStatusId == 35,
+                onTap: () => setState(() => _selectedStatusId = 35),
               ),
             ],
           ),
           verticalSpace(AppSizes.h24),
           AppElevatedButton(
             text: LocaleKeys.purchase_orders_filter_apply.tr(),
-            onPressed: () => context.pop(_selectedIndex),
+            onPressed: () => context.pop(_selectedStatusId),
           ),
           verticalSpace(AppSizes.h30),
         ],

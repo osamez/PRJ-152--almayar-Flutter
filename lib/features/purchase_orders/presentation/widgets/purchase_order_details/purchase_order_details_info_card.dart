@@ -8,7 +8,7 @@ class PurchaseOrderDetailsInfoCard extends StatelessWidget {
   });
 
   final String orderNumber;
-  final String status;
+  final StatusModel? status;
 
   @override
   Widget build(BuildContext context) {
@@ -55,10 +55,7 @@ class PurchaseOrderDetailsInfoCard extends StatelessWidget {
             ),
           ),
           horizontalSpace(AppSizes.w8),
-          PurchaseOrderStatusBadge(
-            label: LocaleKeys.purchase_orders_under_review.tr(),
-            color: AppColors.yellow,
-          ),
+          PurchaseOrderStatusBadge(status: status),
         ],
       ),
     );

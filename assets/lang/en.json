@@ -502,7 +502,8 @@
   "confirm_transfer_resend_after": "Resend after ({time})",
   "confirm_transfer_resend": "Resend",
   "confirm_transfer_submit": "Confirm Transfer",
-
+  "link_required": "Payment link is required",
+  "amount_required": "Amount is required",
   "phone_required": "Phone number is required",
   "password_required": "Password is required",
   "password_too_short": "Password must be at least 6 characters",
@@ -525,5 +526,6 @@
   "shipment_tracking_no_shipments": "No shipments found",
   "no_internet_error": "No internet connection",
   "generic_error": "Something went wrong, please try again",
-  "gift_cards_empty_state": "No gift cards found"
+  "gift_cards_empty_state": "No gift cards found",
+  "added_successfully": "Added successfully"
 }

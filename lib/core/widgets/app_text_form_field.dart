@@ -1,5 +1,4 @@
 import 'package:almeyar/core/utils/exports.dart';
-import 'package:flutter/services.dart';
 
 class AppTextFormField extends StatelessWidget {
   const AppTextFormField({
@@ -39,6 +38,7 @@ class AppTextFormField extends StatelessWidget {
     this.focusNode,
     this.autovalidateMode,
     this.showResetPassword = false,
+    this.onTap,
   });
   final EdgeInsetsGeometry? contentPadding;
   final InputBorder? focusedBorder;
@@ -76,10 +76,39 @@ class AppTextFormField extends StatelessWidget {
   final bool showResetPassword;
 
   final AutovalidateMode? autovalidateMode;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Skeleton.leaf(
+    return Skeleton.replace(
+      replacement: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          if (title != null && showLabel == false) ...[
+            Skeleton.leaf(
+              child: Container(
+                width: 100.w,
+                height: 15.h,
+                decoration: BoxDecoration(
+                  color: AppColors.white,
+                  borderRadius: BorderRadius.circular(AppSizes.radiusXxs),
+                ),
+              ),
+            ),
+            verticalSpace(AppSizes.h8),
+          ],
+          Skeleton.leaf(
+            child: Container(
+              height: height ?? 48.h,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: AppColors.white,
+                borderRadius: BorderRadius.circular(radius ?? AppSizes.radiusSm),
+              ),
+            ),
+          ),
+        ],
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -127,6 +156,7 @@ class AppTextFormField extends StatelessWidget {
           SizedBox(
             height: height,
             child: TextFormField(
+              onTap: onTap,
               readOnly: readOnly,
               onSaved: onSaved,
               textAlign: textAlign,

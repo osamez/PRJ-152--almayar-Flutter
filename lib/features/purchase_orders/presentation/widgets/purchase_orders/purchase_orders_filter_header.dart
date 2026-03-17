@@ -36,13 +36,19 @@ class PurchaseOrdersFilterHeader extends StatelessWidget {
         const Spacer(),
 
         CustomInkWellWidget(
-          onTap: () {
-            showModalBottomSheet(
+          onTap: () async {
+            final result = await showModalBottomSheet<int?>(
               context: context,
               isScrollControlled: true,
               backgroundColor: Colors.transparent,
-              builder: (_) => const FilterPurchaseOrdersBottomSheet(),
+              builder: (_) => FilterPurchaseOrdersBottomSheet(
+                selectedStatusId: context.read<PurchaseOrdersCubit>().state.selectedStatusId,
+              ),
             );
+            
+            if (context.mounted) {
+              context.read<PurchaseOrdersCubit>().filterByStatus(result);
+            }
           },
           radius: 2,
           child: SvgPicture.asset(

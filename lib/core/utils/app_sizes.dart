@@ -72,6 +72,7 @@ class AppSizes {
   static late double w150;
   static late double w160;
   static late double w308;
+  static late double w500;
   static late double sp8;
 
   static late double h2;
@@ -136,6 +137,7 @@ class AppSizes {
   static late double h150;
   static late double h160;
   static late double h308;
+  static late double h500;
 
   static void init() {
     radiusXxs = 4;
@@ -208,6 +210,7 @@ class AppSizes {
     w150 = 150.w;
     w160 = 160.w;
     w308 = 308.w;
+    w500 = 500.w;
 
     // Heights initialization
     h2 = 2.h;
@@ -272,6 +275,7 @@ class AppSizes {
     h150 = 150.h;
     h160 = 160.h;
     h308 = 308.h;
+    h500 = 500.h;
     sp8 = 8.sp;
   }
 }

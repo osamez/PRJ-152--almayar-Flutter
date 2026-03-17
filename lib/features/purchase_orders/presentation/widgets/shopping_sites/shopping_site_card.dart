@@ -12,45 +12,47 @@ class ShoppingSiteCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Expanded(
-          child: Container(
-            decoration: BoxDecoration(
-              color: AppColors.white,
-              borderRadius: BorderRadius.circular(AppSizes.radiusLg),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.04),
-                  blurRadius: 8,
-                  offset: const Offset(0, 2),
+    return Skeleton.leaf(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                color: AppColors.white,
+                borderRadius: BorderRadius.circular(AppSizes.radiusLg),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: 0.04),
+                    blurRadius: 8,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
+              ),
+              child: Center(
+                child: CustomCachedImage(
+                  imageUrl: logoPath,
+                  width: AppSizes.w60,
+                  height: AppSizes.h60,
+                  fit: BoxFit.contain,
                 ),
-              ],
-            ),
-            child: Center(
-              child: Image.asset(
-                logoPath,
-                width: AppSizes.w60,
-                height: AppSizes.h60,
-                fit: BoxFit.contain,
               ),
             ),
           ),
-        ),
-        verticalSpace(AppSizes.h8),
-        Text(
-          name,
-          style: AppTextStyleFactory.create(
-            size: 12,
-            weight: FontWeight.w600,
-            color: AppColors.darkText,
+          verticalSpace(AppSizes.h8),
+          Text(
+            name,
+            style: AppTextStyleFactory.create(
+              size: 12,
+              weight: FontWeight.w600,
+              color: AppColors.darkText,
+            ),
+            textAlign: TextAlign.center,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
           ),
-          textAlign: TextAlign.center,
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

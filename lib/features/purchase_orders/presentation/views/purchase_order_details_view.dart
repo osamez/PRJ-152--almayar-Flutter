@@ -1,17 +1,17 @@
 part of '../feature_imports.dart';
 
 class PurchaseOrderDetailsView extends StatelessWidget {
-  const PurchaseOrderDetailsView({super.key});
+  const PurchaseOrderDetailsView({super.key, required this.order});
+  final PurchaseOrderModel order;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(title: 'RH2053'),
+      appBar: CustomAppBar(title: order.code ?? ''),
       backgroundColor: AppColors.offWhite,
-      body: const PurchaseOrderDetailsViewBody().withPadding(
-        horizontal: AppSizes.w20,
-        vertical: AppSizes.h24,
-      ),
+      body: PurchaseOrderDetailsViewBody(
+        order: order,
+      ).withPadding(horizontal: AppSizes.w20, vertical: AppSizes.h24),
     );
   }
 }

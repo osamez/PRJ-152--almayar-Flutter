@@ -7,6 +7,7 @@ import 'package:almeyar/features/pickup_request/data/models/shipment_request_mod
 import 'package:almeyar/features/pickup_request/presentation/feature_imports.dart';
 import 'package:almeyar/features/price_calculator/presentation/feature_imports.dart';
 import 'package:almeyar/features/delivery-requests/presentation/feature_imports.dart';
+import 'package:almeyar/features/purchase_orders/data/models/purchase_order_model.dart';
 import 'package:almeyar/features/purchase_orders/presentation/feature_imports.dart';
 import 'package:almeyar/features/shipment_tracking/data/models/shipment_tracking_model.dart';
 import 'package:almeyar/features/shipment_tracking/presentation/feature_imports.dart';
@@ -152,7 +153,8 @@ final router = GoRouter(
     GoRoute(
       path: Routes.purchaseOrderDetails,
       name: Routes.purchaseOrderDetails,
-      builder: (context, state) => const PurchaseOrderDetailsView(),
+      builder: (context, state) =>
+          PurchaseOrderDetailsView(order: state.extra as PurchaseOrderModel),
     ),
     GoRoute(
       path: Routes.moneyTransfers,

@@ -63,7 +63,7 @@ class _FilterAccountBottomSheetState extends State<FilterAccountBottomSheet> {
           Text(
             LocaleKeys.account_statement_filter_sheet_title.tr(),
             style: AppTextStyleFactory.create(
-              size: 24,
+              size: AppSizes.h24,
               weight: FontWeight.w700,
               color: AppColors.deepViolet,
             ),
@@ -88,6 +88,7 @@ class _FilterAccountBottomSheetState extends State<FilterAccountBottomSheet> {
             readOnly: true,
             isRequired: false,
             controller: _fromDateController,
+            onTap: () => _pickDate(_fromDateController),
             validator: (_) => null,
             suffixIcon: Padding(
               padding: EdgeInsets.all(AppSizes.w12),
@@ -101,7 +102,7 @@ class _FilterAccountBottomSheetState extends State<FilterAccountBottomSheet> {
                 ),
               ),
             ),
-          ).onTap(function: () => _pickDate(_fromDateController)),
+          ),
           verticalSpace(AppSizes.h16),
           AppTextFormField(
             title: LocaleKeys.account_statement_filter_to_date.tr(),
@@ -109,6 +110,7 @@ class _FilterAccountBottomSheetState extends State<FilterAccountBottomSheet> {
             readOnly: true,
             isRequired: false,
             controller: _toDateController,
+            onTap: () => _pickDate(_toDateController),
             validator: (_) => null,
             suffixIcon: Padding(
               padding: EdgeInsets.all(AppSizes.w12),
@@ -122,7 +124,7 @@ class _FilterAccountBottomSheetState extends State<FilterAccountBottomSheet> {
                 ),
               ),
             ),
-          ).onTap(function: () => _pickDate(_toDateController)),
+          ),
           verticalSpace(AppSizes.h24),
           AppElevatedButton(
             text: LocaleKeys.account_statement_filter_apply.tr(),

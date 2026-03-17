@@ -19,6 +19,12 @@ class CustomDropdownSearchList<T> extends StatefulWidget {
     required this.hintText,
     this.isMulti = false,
     this.validator,
+    // Pagination support (single-select only)
+    this.onPopupOpen,
+    this.onSearchChanged,
+    this.onLoadMore,
+    this.isLoadingMore = false,
+    this.hasMore = false,
   });
 
   final List<T> items;
@@ -39,6 +45,21 @@ class CustomDropdownSearchList<T> extends StatefulWidget {
   final bool isMulti;
   final String? Function(T?)? validator;
 
+  /// Called once when the dropdown popup opens (load page 1).
+  final VoidCallback? onPopupOpen;
+
+  /// Called when the search query changes (load page 1 with filter).
+  final ValueChanged<String>? onSearchChanged;
+
+  /// Called when the user scrolls near the end of the list (load next page).
+  final VoidCallback? onLoadMore;
+
+  /// Whether a next-page fetch is currently in-flight.
+  final bool isLoadingMore;
+
+  /// Whether there are more pages to load.
+  final bool hasMore;
+
   @override
   State<CustomDropdownSearchList<T>> createState() =>
       _CustomDropdownSearchListState<T>();
@@ -47,11 +68,30 @@ class CustomDropdownSearchList<T> extends StatefulWidget {
 class _CustomDropdownSearchListState<T>
     extends State<CustomDropdownSearchList<T>> {
   late List<T> _selectedItems;
+  final ScrollController _popupScrollController = ScrollController();
+  String _lastSearchQuery = '';
+  bool _popupOpened = false;
 
   @override
   void initState() {
     super.initState();
     _selectedItems = widget.initialValues ?? [];
+    _popupScrollController.addListener(_onScroll);
+  }
+
+  void _onScroll() {
+    final pos = _popupScrollController.position;
+    final nearEnd = pos.pixels >= pos.maxScrollExtent - 150;
+    if (nearEnd && widget.hasMore && !widget.isLoadingMore) {
+      widget.onLoadMore?.call();
+    }
+  }
+
+  @override
+  void dispose() {
+    _popupScrollController.removeListener(_onScroll);
+    _popupScrollController.dispose();
+    super.dispose();
   }
 
   @override
@@ -64,6 +104,26 @@ class _CustomDropdownSearchListState<T>
 
   @override
   Widget build(BuildContext context) {
+    return Skeleton.replace(
+      replacement: Skeleton.leaf(
+        child: Container(
+          height: 55.h,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: widget.backgroundColor ?? AppColors.white,
+            borderRadius: BorderRadius.circular(widget.radius ?? 12),
+            border: Border.all(
+              color: widget.borderColor ?? AppColors.greyScale30,
+              width: 1.5.w,
+            ),
+          ),
+        ),
+      ),
+      child: _buildChild(context),
+    );
+  }
+
+  Widget _buildChild(BuildContext context) {
     if (!widget.isMulti) {
       return Theme(
         data: Theme.of(context).copyWith(
@@ -72,7 +132,20 @@ class _CustomDropdownSearchListState<T>
         ),
         child: DropdownSearch<T>(
           compareFn: (item1, item2) => item1 == item2,
-          items: (filter, infiniteScrollProps) => widget.items,
+          items: (filter, infiniteScrollProps) {
+            // Trigger server-side load on popup open (first time, empty filter)
+            // or when search query changes.
+            if (widget.onPopupOpen != null || widget.onSearchChanged != null) {
+              if (!_popupOpened && filter.isEmpty) {
+                _popupOpened = true;
+                widget.onPopupOpen?.call();
+              } else if (filter != _lastSearchQuery) {
+                _lastSearchQuery = filter;
+                widget.onSearchChanged?.call(filter);
+              }
+            }
+            return widget.items;
+          },
           itemAsString: widget.itemAsString,
           onChanged: (value) {
             widget.onChanged(value);
@@ -86,7 +159,11 @@ class _CustomDropdownSearchListState<T>
               widget.itemAsString(selectedItem),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w500),
+              style: AppTextStyleFactory.create(
+                size: 13,
+                weight: FontWeight.w400,
+                color: AppColors.black,
+              ),
             );
           },
           selectedItem: widget.initialValue,
@@ -103,20 +180,31 @@ class _CustomDropdownSearchListState<T>
           popupProps: PopupProps.menu(
             showSearchBox: widget.showSearch,
             fit: FlexFit.loose,
+            listViewProps: ListViewProps(
+              controller: widget.onLoadMore != null
+                  ? _popupScrollController
+                  : null,
+            ),
             searchFieldProps: TextFieldProps(
+              onChanged: (query) {
+                if (query != _lastSearchQuery) {
+                  _lastSearchQuery = query;
+                  widget.onSearchChanged?.call(query);
+                }
+              },
               decoration: InputDecoration(
                 hintText: widget.hintText,
                 hintStyle: AppTextStyleFactory.create(
                   size: 14,
-                  weight: FontWeight.w400,
-                  color: widget.hintColor ?? AppColors.gray10,
+                  weight: FontWeight.w300,
+                  color: AppColors.hintColor,
                 ),
                 border: _buildBorder(),
                 enabledBorder: _buildBorder(),
                 focusedBorder: _buildBorder(),
                 contentPadding: EdgeInsets.symmetric(
                   horizontal: AppSizes.w16,
-                  vertical: AppSizes.h12,
+                  // vertical: AppSizes.h8,
                 ),
               ),
             ),
@@ -143,16 +231,32 @@ class _CustomDropdownSearchListState<T>
               );
             },
             itemBuilder: (context, item, isDisabled, isSelected) {
-              return ListTile(
-                title: Text(
-                  widget.itemAsString(item),
-                  style: AppTextStyleFactory.create(
-                    size: 14,
-                    weight: FontWeight.w500,
+              final isLastItem =
+                  widget.items.isNotEmpty && widget.items.last == item;
+              return Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  ListTile(
+                    title: Text(
+                      widget.itemAsString(item),
+                      style: AppTextStyleFactory.create(
+                        size: 14,
+                        weight: FontWeight.w500,
+                      ),
+                    ),
+                    contentPadding: EdgeInsets.symmetric(horizontal: 10.w),
+                    visualDensity: VisualDensity.compact,
                   ),
-                ),
-                contentPadding: EdgeInsets.symmetric(horizontal: 10.w),
-                visualDensity: VisualDensity.compact,
+                  // Show a spinner at the bottom when loading more pages.
+                  if (isLastItem && widget.isLoadingMore)
+                    const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: CircularProgressIndicator(
+                        color: AppColors.orange,
+                        strokeWidth: 2,
+                      ),
+                    ),
+                ],
               );
             },
           ),

@@ -26,4 +26,10 @@ class ApiConstants {
 
   // Profile
   static const String giftCards = 'user/gift-cards';
+
+  // Purchase Orders
+  static const String purchaseRequests = 'user/my-purchase-requests';
+  static const String addPurchaseRequest = 'user/add-purchase-request';
+  static const String myWallets = 'user/my-wallets';
+  static const String shoppingSites = 'user/shopping-sites';
 }

@@ -268,3 +268,174 @@ BlocSelector<ProductCubit, ProductState, bool>(
 | `BlocBuilder`  | Main layout based on `Async<T>.when()`                       | Moderate           |
 | `BlocSelector` | Atomic widgets (Icons, Badges, Text)                         | Lowest             |
 | `BlocListener` | Side effects only (Toasts, Nav, Dialogs) — **separate file** | Zero Rebuilds      |
+### H. Handling Multiple Independent Async Operations:
+
+When a screen requires loading multiple datasets simultaneously (e.g., dropdown options, initial profile data), follow the **Multi-Async Pattern** as seen in `price_calculator`.
+
+#### 1. State Class Aggregators:
+Add getters to the state to simplify UI logic:
+
+```dart
+bool get isLoadingInitial =>
+    operationAState.isLoading || operationBState.isLoading;
+
+bool get isErrorInitial =>
+    operationAState.isError || operationBState.isError;
+
+ApiErrorModel? get errorInitial => (operationAState is AsyncError)
+    ? (operationAState as AsyncError).failure
+    : (operationBState is AsyncError)
+    ? (operationBState as AsyncError).failure
+    : null;
+```
+
+#### 2. Cubit `loadInitialData`:
+Use `Future.wait` for concurrent execution and `toAsyncUnwrapped()` for easy result mapping:
+
+```dart
+Future<void> loadInitialData() async {
+  emit(state.copyWith(
+    operationAState: const AsyncLoading(),
+    operationBState: const AsyncLoading(),
+  ));
+
+  final results = await Future.wait([
+    _repo.fetchA(),
+    _repo.fetchB(),
+  ]);
+
+  emit(state.copyWith(
+    operationAState: (results[0] as Result<T>).toAsyncUnwrapped(),
+    operationBState: (results[1] as Result<R>).toAsyncUnwrapped(),
+  ));
+}
+```
+
+#### 3. UI Implementation:
+Handle the initial error state globally and wrap the content in `Skeletonizer`:
+
+```dart
+@override
+Widget build(BuildContext context) {
+  return BlocBuilder<MyCubit, MyState>(
+    builder: (context, state) {
+      if (state.isErrorInitial) {
+        return CustomErrorWidget(
+          message: state.errorInitial?.message ?? '',
+          onPressed: () => context.read<MyCubit>().loadInitialData(),
+        ).center;
+      }
+
+      return Skeletonizer(
+        enabled: state.isLoadingInitial,
+        child: MyViewBodyContent(state: state),
+      );
+    },
+  );
+}
+```
+
+### I. Granular Dropdown / Partial UI BlocBuilders:
+
+Each UI part whose data can **independently** change the UI (e.g., a dropdown whose items are paginated, or a field that reacts to its own async state) MUST have its own dedicated `BlocBuilder` in a **separate file**.
+
+#### Rules:
+
+- **Self-contained widget**: The widget reads its own data from the cubit internally. Do **not** pass data as constructor props.
+- **Scoped `buildWhen`**: Only declare the specific state fields this widget depends on.
+- **Separate file**: Place the widget in the same `widgets/{screen}/` subfolder and register it as a `part` in `feature_imports.dart`.
+- **Outer BlocBuilder scope**: The parent/view-body's `BlocBuilder` must use `buildWhen` to only react to the *initial loading* flags (`isLoadingInitial`, `isErrorInitial`), not to dropdown-level state.
+
+**Example — self-contained dropdown:**
+
+```dart
+// widgets/add_purchase_order/add_purchase_order_shopping_site_field.dart
+part of '../../feature_imports.dart';
+
+class AddPurchaseOrderShoppingSiteField extends StatelessWidget {
+  const AddPurchaseOrderShoppingSiteField({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<AddPurchaseOrderCubit, AddPurchaseOrderState>(
+      buildWhen: (prev, curr) =>
+          prev.shoppingSitesList != curr.shoppingSitesList ||
+          prev.selectedShoppingSite != curr.selectedShoppingSite,
+      builder: (context, state) {
+        final cubit = context.read<AddPurchaseOrderCubit>();
+        return CustomDropdownSearchList<ShoppingSiteModel>(
+          items: state.shoppingSitesList,
+          initialValue: state.selectedShoppingSite,
+          onChanged: cubit.selectShoppingSite,
+          itemAsString: (item) => item.name ?? '',
+          hintText: LocaleKeys.add_purchase_order_shopping_site_hint.tr(),
+          // Pagination hooks:
+          onPopupOpen: () => cubit.getShoppingSites(page: 1),
+          onSearchChanged: (q) => cubit.getShoppingSites(name: q, page: 1),
+          onLoadMore: cubit.loadMoreShoppingSites,
+          isLoadingMore: state.getShoppingSitesState.isLoading && state.shoppingSitesPage > 1,
+          hasMore: state.shoppingSitesHasMore,
+        );
+      },
+    );
+  }
+}
+```
+
+**Usage in parent view body — outer BlocBuilder scoped to initial load only:**
+
+```dart
+return BlocBuilder<AddPurchaseOrderCubit, AddPurchaseOrderState>(
+  buildWhen: (prev, curr) =>
+      prev.isLoadingInitial != curr.isLoadingInitial ||
+      prev.isErrorInitial != curr.isErrorInitial,
+  builder: (context, state) {
+    if (state.isErrorInitial) { ... }
+    return Skeletonizer(
+      enabled: state.isLoadingInitial,
+      child: Column(children: [
+        const AddPurchaseOrderShoppingSiteField(), // no props, self-contained
+        const AddPurchaseOrderWalletField(),       // no props, self-contained
+      ]),
+    );
+  },
+);
+```
+
+#### Paginated Dropdown State Pattern:
+
+When a dropdown needs server-side pagination, add these fields to the state:
+
+```dart
+final List<T> itemsList;       // accumulated across pages
+final int currentPage;         // last loaded page
+final bool hasMore;            // whether more pages exist
+final Async<Response> fetchState; // tracks per-fetch loading (for spinner)
+```
+
+And in the Cubit:
+
+```dart
+Future<void> fetchItems({String? name, int page = 1}) async {
+  emit(state.copyWith(fetchState: const AsyncLoading()));
+  final result = await _repo.fetchItems(name, page);
+  result.when(
+    onSuccess: (response) {
+      final newItems = response.items ?? [];
+      final updated = page == 1 ? newItems : [...state.itemsList, ...newItems];
+      emit(state.copyWith(
+        fetchState: AsyncData(response),
+        itemsList: updated,
+        currentPage: response.meta?.currentPage ?? page,
+        hasMore: (response.meta?.currentPage ?? page) < (response.meta?.lastPage ?? page),
+      ));
+    },
+    onFailure: (error) => emit(state.copyWith(fetchState: AsyncError(error))),
+  );
+}
+
+Future<void> loadMore({String? name}) async {
+  if (state.fetchState.isLoading || !state.hasMore) return;
+  await fetchItems(name: name, page: state.currentPage + 1);
+}
+```

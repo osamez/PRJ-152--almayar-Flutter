@@ -313,7 +313,6 @@
   "delivery_request_details_box": "صندوق",
   "shopping_sites_title": "مواقع التسوق",
   "shopping_sites_search_hint": "بحث باسم الموقع",
-
   "purchase_orders_title": "طلبات الشراء",
   "purchase_orders_search_hint": "بحث بكود الطلب",
   "purchase_orders_add_order": "إضافة طلب شراء",
@@ -330,7 +329,6 @@
   "purchase_orders_in_progress": "قيد التنفيذ",
   "purchase_orders_purchased": "تم الشراء",
   "purchase_orders_filter_apply": "تصفية",
-
   "add_purchase_order_title": "طلب شراء",
   "add_purchase_order_shopping_site": "موقع التسوق",
   "add_purchase_order_shopping_site_hint": "اختر من قائمة مواقع التسوق",
@@ -349,7 +347,6 @@
   "purchase_order_details_creation_date": "تاريخ الإنشاء",
   "purchase_order_details_purchase_date": "تاريخ الشراء",
   "purchase_order_details_payment_proof": "مرفق اثبات الدفع",
-
   "money_transfers_title": "الحوالات المالية",
   "money_transfers_new_transfer": "حوالة جديدة",
   "money_transfers_deducted": "تم الخصم",
@@ -358,7 +355,6 @@
   "money_transfers_invoice_value": "قيمة الفاتورة:",
   "money_transfers_payment_currency": "العملة السداد:",
   "money_transfers_due_amount": "المستحق:",
-
   "add_money_transfer_title": "الحوالات المالية",
   "add_money_transfer_heading": "إضافة حوالة جديدة",
   "add_money_transfer_supplier_name": "اسم المورد",
@@ -379,20 +375,17 @@
   "add_money_transfer_notes": "ملاحظات",
   "add_money_transfer_notes_hint": "ادخل ملاحظة",
   "add_money_transfer_submit": "حفظ البيانات",
-
   "money_transfer_details_transfer_data": "بيانات الحوالة المالية",
   "money_transfer_details_amount_in_yuan": "المبلغ باليوان",
   "money_transfer_details_due_in_dollars": "المستحق بالدولار",
   "money_transfer_details_invoice_and_proof": "الفاتورة المرفقة وإثبات الدفع",
-
   "profile_change_password": "تغيير كلمة المرور",
   "profile_support_tickets": "تذاكر الدعم",
   "profile_gift_cards": "بطاقات الهدايا",
   "profile_terms_and_conditions": "الشروط و الأحكام",
-  "profile_terms_and_conditions_content": "ما هو لوريم ايبسوم Lorem ipsum\nلوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل ليتصور طريقه وضع النصوص بالتصاميم سواء كانت تصاميم مطبوعه ... بروشور او فلاير على سبيل المثال ...\nاو نماذج مواقع انترنت ...\nوعند موافقه العميل المبدئيه على التصميم يتم ازالة هذا النص من التصميم ويتم وضع النصوص النهائية المطلوبة للتصميم ويقول البعض ان وضع النصوص التجريبية بالتصميم قد تشغل المشاهد عن وضع الكثير من الملاحظات او الانتقادات للتصميم الاساسي.\nوخلافاً للاعتقاد السائد فإن لوريم إيبسوم ليس نصاً عشوائياً، بل إن له جذور في الأدب اللاتيني الكلاسيكي منذ العام 45 قبل الميلاد. من كتاب \"حول أقاصي الخير والشر\"",
+  "profile_terms_and_conditions_content": "لوريم إيبسوم ليس نصاً عشوائياً، بل إن له جذور في الأدب اللاتيني الكلاسيكي منذ العام 45 قبل الميلاد. من كتاب \"حول أقاصي الخير والشر\"",
   "profile_privacy_policy": "سياسة الخصوصية",
   "profile_about_app": "عن التطبيق",
-
   "edit_profile_title": "الملف الشخصي",
   "edit_profile_change_photo": "تغيير الصورة الشخصية",
   "edit_profile_name": "الإسم",
@@ -404,12 +397,16 @@
   "edit_profile_update_account_data": "تحديث بيانات الحساب",
   "edit_profile_whatsapp_number": "رقم واتساب ({number})",
   "edit_profile_save_data": "حفظ البيانات",
-
+  "added_successfully": "تمت الإضافة بنجاح",
+  "shipment_pickup_requests_retry": "إعادة المحاولة",
+  "shipment_tracking_no_shipments": "لم يتم العثور على أي شحنات",
+  "no_internet_error": "لا يوجد اتصال بالإنترنت",
+  "generic_error": "حدث خطأ ما، يرجى المحاولة مرة أخرى",
+  "gift_cards_empty_state": "لا توجد بطاقات هدايا",
   "change_password_current": "كلمة المرور الحالية",
   "change_password_new": "كلمة المرور الجديدة",
   "change_password_confirm": "تأكيد كلمة المرور الجديدة",
   "change_password_save": "حفظ البيانات",
-
   "gift_cards_title": "بطاقات الهدايا",
   "gift_cards_gift_card": "بطاقة هدايا",
   "gift_cards_card_value": "قيمة البطاقة:",
@@ -419,7 +416,6 @@
   "gift_cards_status_valid": "صالحة",
   "gift_cards_status_expired": "منتهية",
   "gift_cards_currency": "دينار ليبي",
-
   "support_tickets_title": "تذاكر الدعم",
   "support_tickets_open": "التذاكر المفتوحة",
   "support_tickets_pending": "التذاكر المعلقة",
@@ -432,7 +428,6 @@
   "support_tickets_priority_high": "عالية",
   "support_tickets_priority_medium": "متوسطة",
   "support_tickets_priority_low": "منخفضة",
-
   "add_ticket_heading": "إضافة تذكرة دعم جديدة",
   "add_ticket_title": "العنوان",
   "add_ticket_title_hint": "ادخل عنوان التذكرة",
@@ -447,7 +442,6 @@
   "add_ticket_attachment": "مرفق (اختياري)",
   "add_ticket_attachment_hint": "قم بتحميل ملف مرفق هنا",
   "add_ticket_save": "حفظ البيانات",
-
   "ticket_details_title": "تفاصيل التذكرة",
   "ticket_details_ticket_number": "رقم التذكرة",
   "ticket_details_creation_date": "تاريخ الإنشاء",
@@ -456,7 +450,6 @@
   "ticket_details_description": "الوصف:",
   "ticket_details_correspondence": "المراسلات والردود",
   "ticket_details_reply_hint": "اكتب ردودك هنا",
-
   "wallets_title": "المحافظ المالية",
   "wallets_libyan_dinar": "محفظة الدينار الليبي",
   "wallets_us_dollar": "محفظة الدولار الأمريكي",
@@ -465,7 +458,6 @@
   "wallets_currency_lyd": "دينار ليبي",
   "wallets_currency_usd": "دولار امريكي",
   "wallets_currency_try": "ليرة تركية",
-
   "account_statement_title": "كشف الحساب",
   "account_statement_charge_wallet": "شحن المحفظة",
   "account_statement_transfer_funds": "تحويل الأموال",
@@ -485,7 +477,6 @@
   "account_statement_filter_to_date": "حتى تاريخ",
   "account_statement_filter_to_date_hint": "ادخل تاريخ لنهاية نطاق البحث",
   "account_statement_filter_apply": "تصفية",
-
   "wallet_money_transfer_title": "تحويل الأموال",
   "wallet_money_transfer_customer_code": "كود العميل (المستفيد)",
   "wallet_money_transfer_customer_code_hint": "يرجى ادخال كود العميل",
@@ -496,13 +487,13 @@
   "wallet_money_transfer_beneficiary_name": "اسم المستفيد",
   "wallet_money_transfer_amount_to_transfer": "المبلغ المراد تحويله",
   "wallet_money_transfer_submit": "بدء إجراء التحويل",
-
   "confirm_transfer_title": "تأكيد التحويل",
   "confirm_transfer_subtitle": "ادخل رمز التحقق المرسل على رقم هاتفكم الخاص بالحساب",
   "confirm_transfer_resend_after": "إعادة الإرسال بعد ({time})",
   "confirm_transfer_resend": "إعادة الإرسال",
   "confirm_transfer_submit": "تأكيد التحويل",
-
+  "link_required": "رابط الدفع مطلوب",
+  "amount_required": "المبلغ مطلوب",
   "phone_required": "رقم الهاتف مطلوب",
   "password_required": "كلمة المرور مطلوبة",
   "password_too_short": "كلمة المرور يجب أن تكون 6 أحرف على الأقل",
@@ -520,10 +511,5 @@
   "registration_success_title": "تم التسجيل بنجاح",
   "go_to_login": "الذهاب لتسجيل الدخول",
   "shipments_no_branches_found": "لم يتم العثور على أي عناوين شحن",
-  "shipment_pickup_requests_no_requests": "لم يتم العثور على أي طلبات إستلام شحنات",
-  "shipment_pickup_requests_retry": "إعادة المحاولة",
-  "shipment_tracking_no_shipments": "لم يتم العثور على أي شحنات",
-  "no_internet_error": "لا يوجد اتصال بالإنترنت",
-  "generic_error": "حدث خطأ ما، يرجى المحاولة مرة أخرى",
-  "gift_cards_empty_state": "لم يتم العثور على أي بطاقات هدايا"
+  "shipment_pickup_requests_no_requests": "لم يتم العثور على أي طلبات إستلام شحنات"
 }

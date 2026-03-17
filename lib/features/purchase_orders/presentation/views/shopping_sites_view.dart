@@ -5,12 +5,15 @@ class ShoppingSitesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CustomAppBar(title: LocaleKeys.shopping_sites_title.tr()),
-      backgroundColor: AppColors.offWhite,
-      body: const ShoppingSitesViewBody().withPadding(
-        horizontal: AppSizes.w20,
-        vertical: AppSizes.h24,
+    return BlocProvider(
+      create: (context) => getIt<ShoppingSitesCubit>()..getShoppingSites(),
+      child: Scaffold(
+        appBar: CustomAppBar(title: LocaleKeys.shopping_sites_title.tr()),
+        backgroundColor: AppColors.offWhite,
+        body: const ShoppingSitesViewBody().withPadding(
+          horizontal: AppSizes.w20,
+          vertical: AppSizes.h24,
+        ),
       ),
     );
   }
