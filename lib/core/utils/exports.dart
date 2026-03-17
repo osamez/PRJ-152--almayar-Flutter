@@ -24,3 +24,4 @@ export 'package:flutter_html/flutter_html.dart';
 export 'package:almeyar/core/widgets/custom_rounder_arrow.dart';
 export 'package:almeyar/core/di/dependency_injection.dart';
 export 'package:almeyar/core/enums/enums.dart';
+export 'package:almeyar/core/widgets/custom_cached_image.dart';

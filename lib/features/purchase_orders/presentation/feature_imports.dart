@@ -29,6 +29,8 @@ import 'package:almeyar/features/purchase_orders/data/repos/purchase_orders_repo
 // Cubits
 part 'cubits/purchase_orders/purchase_orders_cubit.dart';
 part 'cubits/purchase_orders/purchase_orders_state.dart';
+part 'cubits/shopping_sites/shopping_sites_cubit.dart';
+part 'cubits/shopping_sites/shopping_sites_state.dart';
 part 'cubits/add_purchase_order/add_purchase_order_cubit.dart';
 part 'cubits/add_purchase_order/add_purchase_order_state.dart';
 

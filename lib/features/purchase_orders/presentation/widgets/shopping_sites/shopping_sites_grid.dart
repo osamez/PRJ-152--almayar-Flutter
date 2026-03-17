@@ -1,53 +1,102 @@
 part of '../../feature_imports.dart';
 
-class _ShoppingSiteData {
-  const _ShoppingSiteData({required this.name, required this.logo});
+class ShoppingSitesGrid extends StatefulWidget {
+  const ShoppingSitesGrid({
+    super.key,
+    required this.sites,
+    required this.isPaginationLoading,
+  });
 
-  final String name;
-  final String logo;
+  final List<ShoppingSiteModel> sites;
+  final bool isPaginationLoading;
+
+  @override
+  State<ShoppingSitesGrid> createState() => _ShoppingSitesGridState();
 }
 
-const List<_ShoppingSiteData> shoppingSites = [
-  _ShoppingSiteData(name: 'Amazon', logo: AppAssets.imagesLogo),
-  _ShoppingSiteData(name: 'Ali Express', logo: AppAssets.imagesLogo),
-  _ShoppingSiteData(name: 'IHerb', logo: AppAssets.imagesLogo),
-  _ShoppingSiteData(name: 'Trendyol', logo: AppAssets.imagesLogo),
-  _ShoppingSiteData(name: 'Alibaba', logo: AppAssets.imagesLogo),
-  _ShoppingSiteData(name: 'Shein', logo: AppAssets.imagesLogo),
-  _ShoppingSiteData(name: 'Amazon', logo: AppAssets.imagesLogo),
-  _ShoppingSiteData(name: 'Ali Express', logo: AppAssets.imagesLogo),
-  _ShoppingSiteData(name: 'IHerb', logo: AppAssets.imagesLogo),
-  _ShoppingSiteData(name: 'Trendyol', logo: AppAssets.imagesLogo),
-  _ShoppingSiteData(name: 'Alibaba', logo: AppAssets.imagesLogo),
-  _ShoppingSiteData(name: 'Shein', logo: AppAssets.imagesLogo),
-  _ShoppingSiteData(name: 'Amazon', logo: AppAssets.imagesLogo),
-  _ShoppingSiteData(name: 'Ali Express', logo: AppAssets.imagesLogo),
-  _ShoppingSiteData(name: 'IHerb', logo: AppAssets.imagesLogo),
-];
+class _ShoppingSitesGridState extends State<ShoppingSitesGrid> {
+  final ScrollController _scrollController = ScrollController();
 
-class ShoppingSitesGrid extends StatelessWidget {
-  const ShoppingSitesGrid({super.key});
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(_onScroll);
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _onScroll() {
+    if (_scrollController.position.pixels >=
+        _scrollController.position.maxScrollExtent - 200) {
+      context.read<ShoppingSitesCubit>().loadMoreShoppingSites();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3,
-        crossAxisSpacing: AppSizes.w16,
-        mainAxisSpacing: AppSizes.h16,
-        childAspectRatio: calculateGridChildAspectRatio(
-          context: context,
-          cardHeight: 126.h,
-          spacing: AppSizes.w10,
-          crossAxisCount: 3,
-          sectionPadding: AppSizes.w20 * 2,
+    final sitesList = widget.sites;
+    final listLength = sitesList.isEmpty ? 9 : sitesList.length;
+
+    if (sitesList.isEmpty) {
+      return SingleChildScrollView(
+        physics: const AlwaysScrollableScrollPhysics(),
+        child: SizedBox(
+          height: AppSizes.h500,
+          child: EmptyWidget(
+            message: LocaleKeys.shipment_pickup_requests_no_requests.tr(),
+            imagePath: AppAssets.animationsEmpty,
+          ),
         ),
+      );
+    }
+
+    return RefreshIndicator(
+      onRefresh: () => context.read<ShoppingSitesCubit>().getShoppingSites(),
+      child: Column(
+        children: [
+          Expanded(
+            child: GridView.builder(
+              controller: _scrollController,
+              physics: const AlwaysScrollableScrollPhysics(),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                crossAxisSpacing: AppSizes.w16,
+                mainAxisSpacing: AppSizes.h16,
+                childAspectRatio: calculateGridChildAspectRatio(
+                  context: context,
+                  cardHeight: 126.h,
+                  spacing: AppSizes.w10,
+                  crossAxisCount: 3,
+                  sectionPadding: AppSizes.w20 * 2,
+                ),
+              ),
+              itemCount: listLength,
+              itemBuilder: (context, index) {
+                if (sitesList.isEmpty) {
+                  return const ShoppingSiteCard(
+                    name: 'Mock',
+                    logoPath: AppAssets.imagesLogo,
+                  );
+                }
+                final site = sitesList[index];
+                return ShoppingSiteCard(
+                  name: site.name ?? '',
+                  logoPath: site.image ?? AppAssets.imagesLogo,
+                );
+              },
+            ),
+          ),
+          if (widget.isPaginationLoading)
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: AppSizes.h16),
+              child: const Center(child: CircularProgressIndicator()),
+            ),
+        ],
       ),
-      itemCount: shoppingSites.length,
-      itemBuilder: (context, index) {
-        final site = shoppingSites[index];
-        return ShoppingSiteCard(name: site.name, logoPath: site.logo);
-      },
     );
   }
 }

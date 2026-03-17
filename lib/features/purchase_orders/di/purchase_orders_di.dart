@@ -34,4 +34,11 @@ void setupPurchaseOrdersDI() {
       getIt<InternetService>(),
     ),
   );
+
+  getIt.registerFactory<ShoppingSitesCubit>(
+    () => ShoppingSitesCubit(
+      getIt<PurchaseOrdersRepo>(),
+      getIt<InternetService>(),
+    ),
+  );
 }
