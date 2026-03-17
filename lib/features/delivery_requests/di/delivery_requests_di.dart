@@ -22,4 +22,8 @@ void setupDeliveryRequestsDI() {
   getIt.registerFactory<DeliveryRequestsCubit>(
     () => DeliveryRequestsCubit(getIt(), getIt()),
   );
+
+  getIt.registerFactory<DeliveryRequestDetailsCubit>(
+    () => DeliveryRequestDetailsCubit(getIt(), getIt()),
+  );
 }

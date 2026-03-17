@@ -1,7 +1,8 @@
 part of '../../feature_imports.dart';
 
 class RequestItemDetailsFinancialDataTab extends StatelessWidget {
-  const RequestItemDetailsFinancialDataTab({super.key});
+  const RequestItemDetailsFinancialDataTab({super.key, this.order});
+  final DeliveryOrderDetailsModel? order;
 
   @override
   Widget build(BuildContext context) {
@@ -16,32 +17,34 @@ class RequestItemDetailsFinancialDataTab extends StatelessWidget {
           rows: [
             RequestItemDetailsInfoRowData(
               label: LocaleKeys.delivery_request_details_delivery_cost.tr(),
-              value: '20 دينار ليبي',
+              value:
+                  '${order?.deliveryPrice ?? 0} ${LocaleKeys.wallets_currency_lyd.tr()}',
             ),
             RequestItemDetailsInfoRowData(
               label: LocaleKeys
                   .delivery_request_details_total_boxes_shipping_cost
                   .tr(),
-              value: '\$4000',
+              value: '\$${order?.invoice?.totalPriceBoxes ?? 0}',
             ),
             RequestItemDetailsInfoRowData(
               label: LocaleKeys.delivery_request_details_bundle_discount.tr(),
-              value: '\$200-',
+              value: '\$${order?.invoice?.planDiscountValue ?? '0'}-',
               valueColor: AppColors.orange,
             ),
             RequestItemDetailsInfoRowData(
               label: LocaleKeys.delivery_request_details_coupon_discount.tr(),
-              value: '\$200-',
+              value: '\$${order?.invoice?.couponDiscountValue ?? '0'}-',
               valueColor: AppColors.orange,
             ),
             RequestItemDetailsInfoRowData(
               label: LocaleKeys.delivery_request_details_gift_card_discount
                   .tr(),
-              value: LocaleKeys.delivery_request_details_no_value.tr(),
+              value: '\$${order?.invoice?.giftCardDiscountValue ?? '0'}-',
+              valueColor: AppColors.orange,
             ),
             RequestItemDetailsInfoRowData(
               label: LocaleKeys.delivery_request_details_admin_discount.tr(),
-              value: '\$200-',
+              value: '\$${order?.invoice?.administrativeDiscount ?? '0'}-',
               valueColor: AppColors.orange,
             ),
           ],
@@ -51,11 +54,12 @@ class RequestItemDetailsFinancialDataTab extends StatelessWidget {
           title: LocaleKeys.delivery_request_details_financial_summary.tr(),
         ),
         verticalSpace(AppSizes.h16),
-        const RequestItemDetailsFinancialSummary(
-          totalBoxesCost: '\$4000',
-          totalDiscounts: '\$600-',
-          amountDue: '\$3400',
-          deliveryCost: '20 دينار ليبي',
+        RequestItemDetailsFinancialSummary(
+          totalBoxesCost: '\$${order?.invoice?.totalPriceBoxes ?? 0}',
+          totalDiscounts: '\$${order?.invoice?.totalDiscount ?? '0'}-',
+          amountDue: '\$${order?.invoice?.totalPrice ?? 0}',
+          deliveryCost:
+              '${order?.deliveryPrice ?? 0} ${LocaleKeys.wallets_currency_lyd.tr()}',
         ),
         verticalSpace(AppSizes.h24),
         RequestItemDetailsSectionTitle(
@@ -66,28 +70,33 @@ class RequestItemDetailsFinancialDataTab extends StatelessWidget {
           rows: [
             RequestItemDetailsInfoRowData(
               label: LocaleKeys.delivery_request_details_payment_method.tr(),
-              value: 'نقدي',
+              value: order?.invoice?.paymentMethod ?? '-',
+              valueColor: AppColors.deepViolet,
             ),
             RequestItemDetailsInfoRowData(
               label: LocaleKeys.delivery_request_details_payment_currency.tr(),
-              value: 'دولار ودينار',
+              value: order?.invoice?.currencyUsedPayment ?? '-',
+              valueColor: AppColors.deepViolet,
             ),
             RequestItemDetailsInfoRowData(
               label: LocaleKeys.delivery_request_details_amount_paid_usd.tr(),
-              value: '\$3000',
+              value: '\$${order?.invoice?.amountPaidDollar ?? '0'}',
             ),
             RequestItemDetailsInfoRowData(
               label: LocaleKeys.delivery_request_details_amount_paid_lyd.tr(),
-              value: '4000 د.ل',
+              value: '${order?.invoice?.amountPaidDinar ?? '0'} د.ل',
             ),
+
             RequestItemDetailsInfoRowData(
               label: LocaleKeys.delivery_request_details_cash_from_delivery
                   .tr(),
-              value: '20 دينار ليبي',
+              value:
+                  '${order?.invoice?.deliveryCashTaken ?? 0} ${LocaleKeys.wallets_currency_lyd.tr()}',
             ),
             RequestItemDetailsInfoRowData(
               label: LocaleKeys.delivery_request_details_delivery_cost.tr(),
-              value: '20 دينار ليبي',
+              value:
+                  '${order?.deliveryPrice ?? 0} ${LocaleKeys.wallets_currency_lyd.tr()}',
             ),
           ],
         ),

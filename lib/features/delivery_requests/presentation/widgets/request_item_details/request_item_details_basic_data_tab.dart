@@ -1,7 +1,8 @@
 part of '../../feature_imports.dart';
 
 class RequestItemDetailsBasicDataTab extends StatelessWidget {
-  const RequestItemDetailsBasicDataTab({super.key});
+  const RequestItemDetailsBasicDataTab({super.key, this.order});
+  final DeliveryOrderDetailsModel? order;
 
   @override
   Widget build(BuildContext context) {
@@ -16,32 +17,36 @@ class RequestItemDetailsBasicDataTab extends StatelessWidget {
           rows: [
             RequestItemDetailsInfoRowData(
               label: LocaleKeys.delivery_request_details_order_number.tr(),
-              value: '31493548089',
+              value: order?.code ?? '',
               valueColor: AppColors.deepViolet,
             ),
             RequestItemDetailsInfoRowData(
               label: LocaleKeys.delivery_request_details_boxes_count.tr(),
-              value: '86 ${LocaleKeys.delivery_request_details_box.tr()}',
+              value:
+                  '${order?.boxes?.length ?? 0} ${LocaleKeys.delivery_request_details_box.tr()}',
               valueColor: AppColors.deepViolet,
             ),
             RequestItemDetailsInfoRowData(
               label: LocaleKeys.delivery_request_details_delegate.tr(),
-              value: 'أسامة المرغني',
+              value: order?.delegate ?? '',
               valueColor: AppColors.deepViolet,
             ),
             RequestItemDetailsInfoRowData(
               label: LocaleKeys.delivery_request_details_order_status.tr(),
-              value: LocaleKeys.delivery_requests_delivering.tr(),
+              value: order?.status?.name ?? '',
               valueColor: AppColors.deepViolet,
             ),
             RequestItemDetailsInfoRowData(
               label: LocaleKeys.delivery_request_details_delivery_date.tr(),
-              value: 'م 05:01 2026-01-29',
+              value: order?.deliveryDate ?? '',
               valueColor: AppColors.deepViolet,
             ),
             RequestItemDetailsInfoRowData(
               label: LocaleKeys.delivery_request_details_failure_reason.tr(),
-              value: LocaleKeys.delivery_request_details_no_value.tr(),
+              value:
+                  order?.failedDeliveryReason ??
+                  order?.reasonRefuse ??
+                  LocaleKeys.delivery_request_details_no_value.tr(),
               valueColor: AppColors.deepViolet,
             ),
           ],

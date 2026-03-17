@@ -13,6 +13,8 @@ class DeliveryRequestsViewBody extends StatelessWidget {
         const DeliveryTypeTabs(),
         verticalSpace(AppSizes.h20),
         const DeliveryRequestsHeader(),
+        verticalSpace(AppSizes.h20),
+
         Expanded(
           child: BlocBuilder<DeliveryRequestsCubit, DeliveryRequestsState>(
             buildWhen: (previous, current) =>

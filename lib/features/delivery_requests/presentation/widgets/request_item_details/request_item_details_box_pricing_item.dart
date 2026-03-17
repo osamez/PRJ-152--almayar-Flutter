@@ -29,14 +29,14 @@ class RequestItemDetailsBoxPricingItem extends StatelessWidget {
               style: AppTextStyleFactory.create(
                 size: 10,
                 weight: FontWeight.w700,
-                color: AppColors.darkText,
+                color: AppColors.deepViolet,
               ),
             ),
             verticalSpace(AppSizes.h4),
             Text(
               value,
               style: AppTextStyleFactory.create(
-                size: 14,
+                size: 10,
                 weight: FontWeight.w700,
                 color: valueColor,
               ),

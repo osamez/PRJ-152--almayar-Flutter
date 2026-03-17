@@ -20,7 +20,7 @@ class RequestItemDetailsBoxPricingRow extends StatelessWidget {
           child: RequestItemDetailsBoxPricingItem(
             label: LocaleKeys.shipment_details_box_price.tr(),
             value: boxPrice,
-            valueColor: AppColors.darkText,
+            valueColor: AppColors.deepViolet,
             icon: AppAssets.svgInvoice,
           ),
         ),
@@ -38,7 +38,7 @@ class RequestItemDetailsBoxPricingRow extends StatelessWidget {
           child: RequestItemDetailsBoxPricingItem(
             label: LocaleKeys.shipment_details_due_amount.tr(),
             value: dueAmount,
-            valueColor: AppColors.darkText,
+            valueColor: AppColors.deepViolet,
             icon: AppAssets.svgMoneyWavy,
           ),
         ),

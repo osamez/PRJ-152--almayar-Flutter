@@ -1,25 +1,26 @@
+import 'package:almeyar/core/helpers/helper_func.dart';
 import 'package:almeyar/core/utils/exports.dart';
 import 'package:almeyar/core/widgets/custom_error_widget.dart';
 import 'package:almeyar/core/widgets/custom_icon_rounded_box.dart';
-import 'package:almeyar/core/widgets/custom_rounder_arrow.dart';
 import 'package:almeyar/core/widgets/internet_connection_widget.dart';
 import 'package:almeyar/features/pickup_request/presentation/feature_imports.dart';
 import 'package:almeyar/features/shipment_tracking/presentation/feature_imports.dart';
 import 'package:almeyar/core/utils/async.dart';
 import 'package:almeyar/core/models/status_model.dart';
 import 'package:almeyar/features/delivery_requests/data/models/delivery_order_model.dart';
+import 'package:almeyar/features/delivery_requests/data/models/delivery_order_details_model.dart';
 import 'package:almeyar/features/delivery_requests/data/models/delivery_orders_response_model.dart';
-import 'package:equatable/equatable.dart';
 import 'package:almeyar/core/network/api_error_model.dart';
 import 'package:almeyar/core/network/local_status_codes.dart';
 import 'package:almeyar/core/services/internet_service.dart';
 import 'package:almeyar/features/delivery_requests/data/repos/delivery_requests_repo.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'dart:async';
 
 // Cubits
 part 'cubits/delivery_requests_cubit.dart';
 part 'cubits/delivery_requests_state.dart';
+part 'cubits/delivery_request_details_cubit.dart';
+part 'cubits/delivery_request_details_state.dart';
 
 // Views
 part 'views/delivery_requests_view.dart';
@@ -43,6 +44,7 @@ part 'widgets/request_item_details/request_item_details_view_body.dart';
 part 'widgets/request_item_details/request_item_details_header.dart';
 part 'widgets/request_item_details/request_item_details_info_card.dart';
 part 'widgets/request_item_details/request_item_details_tab_bar.dart';
+part 'widgets/request_item_details/request_item_details_tab_section.dart';
 part 'widgets/request_item_details/request_item_details_tab_item.dart';
 part 'widgets/request_item_details/request_item_details_section_title.dart';
 part 'widgets/request_item_details/request_item_details_info_row.dart';

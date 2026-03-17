@@ -134,9 +134,8 @@ final router = GoRouter(
     GoRoute(
       path: Routes.deliveryRequestsDetails,
       name: Routes.deliveryRequestsDetails,
-      builder: (context, state) => DeliveryRequestItemDetailsView(
-        order: state.extra as DeliveryOrderModel,
-      ),
+      builder: (context, state) =>
+          DeliveryRequestItemDetailsView(id: state.extra as int),
     ),
     GoRoute(
       path: Routes.shoppingSites,

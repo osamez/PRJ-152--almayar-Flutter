@@ -63,7 +63,7 @@ class _DeliveryRequestsListViewState extends State<DeliveryRequestsListView> {
                 onTap: () {
                   context.pushNamed(
                     Routes.deliveryRequestsDetails,
-                    extra: order,
+                    extra: order.id,
                   );
                 },
               );
