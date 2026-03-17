@@ -1,7 +1,8 @@
 part of '../../feature_imports.dart';
 
 class PurchaseOrderDetailsViewBody extends StatelessWidget {
-  const PurchaseOrderDetailsViewBody({super.key});
+  const PurchaseOrderDetailsViewBody({super.key, required this.order});
+  final PurchaseOrderModel order;
 
   @override
   Widget build(BuildContext context) {
@@ -9,9 +10,9 @@ class PurchaseOrderDetailsViewBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const PurchaseOrderDetailsInfoCard(
-            orderNumber: '8274875EDFCHVGJB',
-            status: StatusModel(name: 'قيد الانتظار', color: 'warning'),
+          PurchaseOrderDetailsInfoCard(
+            orderNumber: order.code ?? '',
+            status: order.status!,
           ),
           verticalSpace(AppSizes.h24),
           PurchaseOrderDetailsSectionTitle(
@@ -22,24 +23,24 @@ class PurchaseOrderDetailsViewBody extends StatelessWidget {
             rows: [
               PurchaseOrderDetailsInfoRowData(
                 label: LocaleKeys.purchase_order_details_order_number.tr(),
-                value: '8274875EDFCHVGJB',
+                value: order.code ?? '-',
                 valueColor: AppColors.darkText,
               ),
               PurchaseOrderDetailsInfoRowData(
                 label: LocaleKeys.purchase_order_details_order_value.tr(),
-                value: '\$2098',
+                value: '\$${order.orderValue ?? 0}',
               ),
               PurchaseOrderDetailsInfoRowData(
                 label: LocaleKeys.purchase_order_details_order_status.tr(),
-                value: LocaleKeys.purchase_orders_under_review.tr(),
+                value: order.status!.name ?? '',
               ),
               PurchaseOrderDetailsInfoRowData(
                 label: LocaleKeys.purchase_order_details_creation_date.tr(),
-                value: 'م 05:01 2026-01-29',
+                value: order.createdAt ?? '-',
               ),
               PurchaseOrderDetailsInfoRowData(
                 label: LocaleKeys.purchase_order_details_purchase_date.tr(),
-                value: 'م 05:01 2026-01-29',
+                value: order.purchaseDate ?? '-',
               ),
             ],
           ),

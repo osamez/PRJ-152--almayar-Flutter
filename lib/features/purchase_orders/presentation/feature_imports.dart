@@ -7,7 +7,7 @@ import 'package:almeyar/core/widgets/media_grid.dart';
 import 'package:almeyar/core/network/local_status_codes.dart';
 import 'package:almeyar/core/widgets/internet_connection_widget.dart';
 import 'package:almeyar/core/widgets/custom_error_widget.dart';
-import 'package:almeyar/features/purchase_orders/presentation/cubits/purchase_orders_cubit.dart';
+import 'package:almeyar/features/purchase_orders/presentation/cubits/purchase_orders/purchase_orders_cubit.dart';
 //
 import 'package:almeyar/features/purchase_orders/data/models/purchase_order_model.dart';
 

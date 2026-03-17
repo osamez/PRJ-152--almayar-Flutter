@@ -9,10 +9,9 @@ class PurchaseOrderDetailsView extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppBar(title: order.code ?? ''),
       backgroundColor: AppColors.offWhite,
-      body: const PurchaseOrderDetailsViewBody().withPadding(
-        horizontal: AppSizes.w20,
-        vertical: AppSizes.h24,
-      ),
+      body: PurchaseOrderDetailsViewBody(
+        order: order,
+      ).withPadding(horizontal: AppSizes.w20, vertical: AppSizes.h24),
     );
   }
 }

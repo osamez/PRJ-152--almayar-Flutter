@@ -26,9 +26,7 @@ class PurchaseOrderCard extends StatelessWidget {
           ],
         ),
         child: CustomInkWellWidget(
-          onTap: () {
-            context.pushNamed(Routes.purchaseOrderDetails);
-          },
+          onTap: onTap,
           radius: AppSizes.radiusMd,
           padding: EdgeInsets.symmetric(
             horizontal: AppSizes.w15,
