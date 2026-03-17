@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'wallet_model.g.dart';
 
 @JsonSerializable()
-class Wallet {
+class WalletModel {
   final int? id;
   @JsonKey(name: 'wallet_name')
   final String? walletName;
@@ -26,9 +26,9 @@ class Wallet {
     this.createdAt,
   });
 
-  factory Wallet.fromJson(Map<String, dynamic> json) => _$WalletFromJson(json);
+  factory WalletModel.fromJson(Map<String, dynamic> json) => _$WalletModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$WalletToJson(this);
+  Map<String, dynamic> toJson() => _$WalletModelToJson(this);
 }
 
 @JsonSerializable()

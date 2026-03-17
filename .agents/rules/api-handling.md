@@ -20,8 +20,8 @@ Your task is to generate or update the Data Layer for a specific feature based o
 feature_name/
 ├── data/
 │ ├── models/ # Request/Response models
-│ ├── datasource/ # Abstract DataSource and DataSourceImpl (Separate files)
-│ ├── repos/ # Abstract Repo and RepoImpl (Separate files)
+│ ├── datasource/ # Abstract DataSource ({feature}_datasource.dart) and DataSourceImpl ({feature}_datasource_impl.dart)
+│ ├── repos/ # Abstract Repo ({feature}_repo.dart) and RepoImpl ({feature}_repo_impl.dart)
 │ └── api_service/ # Retrofit interface
 
 ## 3. Workflow Steps (Strict Order)
@@ -81,6 +81,7 @@ abstract class AuthApiService {
 
 - Create **abstract class** `{FeatureName}DataSource` in `{feature_name}_datasource.dart`.
 - Create its **implementation class** `{FeatureName}DataSourceImpl` in a **SEPARATE** file: `{feature_name}_datasource_impl.dart`.
+- **MANDATORY:** Do NOT keep the implementation in the same file as the abstract class.
 - `DataSourceImpl` MUST take `{FeatureName}ApiService` in its constructor via DI.
 - Implement the new method by directly calling the ApiService.
 
@@ -100,6 +101,7 @@ class AuthDataSourceImpl implements AuthDataSource {
 
 - Create **abstract class** `{FeatureName}Repo` in `{feature_name}_repo.dart`.
 - Create its **implementation class** `{FeatureName}RepoImpl` in a **SEPARATE** file: `{feature_name}_repo_impl.dart`.
+- **MANDATORY:** Do NOT keep the implementation in the same file as the abstract class.
 - `RepoImpl` MUST take `{FeatureName}DataSource` in its constructor.
 
 Strict Implementation Rules for the new method:
