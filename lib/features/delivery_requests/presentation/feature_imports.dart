@@ -30,6 +30,7 @@ part 'widgets/delivery_requests/delivery_requests_view_body.dart';
 part 'widgets/delivery_requests/delivery_requests_search_bar.dart';
 part 'widgets/delivery_requests/delivery_type_tabs.dart';
 part 'widgets/delivery_requests/delivery_requests_header.dart';
+part 'widgets/delivery_requests/delivery_requests_list_view.dart';
 part 'widgets/delivery_requests/delivery_request_card.dart';
 part 'widgets/delivery_requests/delivery_request_card_header.dart';
 part 'widgets/delivery_requests/delivery_request_status_badge.dart';

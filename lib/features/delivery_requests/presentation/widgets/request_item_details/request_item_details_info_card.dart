@@ -1,23 +1,16 @@
 part of '../../feature_imports.dart';
 
 class RequestItemDetailsInfoCard extends StatelessWidget {
-  const RequestItemDetailsInfoCard({
-    super.key,
-    required this.orderNumber,
-    required this.date,
-    required this.isDeliveryOrder,
-    required this.isCompleted,
-    required this.isPaid,
-  });
+  const RequestItemDetailsInfoCard({super.key, required this.order});
 
-  final String orderNumber;
-  final String date;
-  final bool isDeliveryOrder;
-  final bool isCompleted;
-  final bool isPaid;
+  final DeliveryOrderModel order;
 
   @override
   Widget build(BuildContext context) {
+    final bool isDeliveryOrder = order.type != 'شخصي';
+    final bool isCompleted = order.status?.name == 'تم التسليم';
+    final bool isPaid = order.financialStatus?.name == 'تم الدفع';
+
     return Container(
       padding: EdgeInsets.all(AppSizes.w14),
       decoration: BoxDecoration(
@@ -42,7 +35,7 @@ class RequestItemDetailsInfoCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  orderNumber,
+                  order.code ?? "",
                   style: AppTextStyleFactory.create(
                     size: 12,
                     weight: FontWeight.w700,
@@ -52,7 +45,7 @@ class RequestItemDetailsInfoCard extends StatelessWidget {
                 verticalSpace(AppSizes.h4),
                 IconTextRow(
                   iconPath: AppAssets.svgCalendar,
-                  text: date,
+                  text: order.createdAt ?? "",
                   textColor: AppColors.deepViolet,
                   iconColor: AppColors.deepViolet,
                   textWeight: FontWeight.w700,
@@ -80,20 +73,16 @@ class RequestItemDetailsInfoCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               DeliveryRequestStatusBadge(
-                label: isCompleted
-                    ? LocaleKeys.delivery_requests_completed.tr()
-                    : LocaleKeys.delivery_requests_delivering.tr(),
-                color: isCompleted ? AppColors.green : AppColors.deepViolet,
+                label: order.status?.name ?? "",
+                color: _getStatusColor(order.status?.color),
                 iconPath: AppAssets.svgDot,
                 iconHeight: AppSizes.h8,
                 iconWidth: AppSizes.w8,
               ),
               verticalSpace(AppSizes.h6),
               DeliveryRequestStatusBadge(
-                label: isPaid
-                    ? LocaleKeys.delivery_requests_paid.tr()
-                    : LocaleKeys.delivery_requests_unpaid.tr(),
-                color: isPaid ? AppColors.green : AppColors.orange,
+                label: order.financialStatus?.name ?? "",
+                color: _getStatusColor(order.financialStatus?.color),
                 iconPath: AppAssets.svgHand,
                 iconHeight: AppSizes.h16,
                 iconWidth: AppSizes.w16,
@@ -103,5 +92,20 @@ class RequestItemDetailsInfoCard extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Color _getStatusColor(String? color) {
+    switch (color?.toLowerCase()) {
+      case 'success':
+        return AppColors.green;
+      case 'danger':
+        return AppColors.orange;
+      case 'warning':
+        return AppColors.yellow;
+      case 'info':
+        return AppColors.lightViolet;
+      default:
+        return AppColors.deepViolet;
+    }
   }
 }

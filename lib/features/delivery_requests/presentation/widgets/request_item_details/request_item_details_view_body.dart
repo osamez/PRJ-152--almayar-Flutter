@@ -1,7 +1,8 @@
 part of '../../feature_imports.dart';
 
 class RequestItemDetailsViewBody extends StatefulWidget {
-  const RequestItemDetailsViewBody({super.key});
+  const RequestItemDetailsViewBody({super.key, required this.order});
+  final DeliveryOrderModel order;
 
   @override
   State<RequestItemDetailsViewBody> createState() =>
@@ -27,13 +28,8 @@ class _RequestItemDetailsViewBodyState
         children: [
           verticalSpace(AppSizes.h24),
           verticalSpace(AppSizes.h20),
-          const RequestItemDetailsInfoCard(
-            orderNumber: '31493548089',
-            date: '2026-01-01',
-            isDeliveryOrder: true,
-            isCompleted: false,
-            isPaid: false,
-          ),
+          verticalSpace(AppSizes.h20),
+          RequestItemDetailsInfoCard(order: widget.order),
           verticalSpace(AppSizes.h20),
           RequestItemDetailsTabBar(
             selectedIndex: _selectedTabIndex,

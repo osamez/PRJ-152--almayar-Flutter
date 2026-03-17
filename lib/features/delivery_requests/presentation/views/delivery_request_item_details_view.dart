@@ -1,7 +1,8 @@
 part of '../feature_imports.dart';
 
 class DeliveryRequestItemDetailsView extends StatelessWidget {
-  const DeliveryRequestItemDetailsView({super.key});
+  const DeliveryRequestItemDetailsView({super.key, required this.order});
+  final DeliveryOrderModel order;
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +11,7 @@ class DeliveryRequestItemDetailsView extends StatelessWidget {
         title: LocaleKeys.delivery_request_details_title.tr(),
       ),
       backgroundColor: AppColors.offWhite,
-      body: const SafeArea(child: RequestItemDetailsViewBody()),
+      body: SafeArea(child: RequestItemDetailsViewBody(order: order)),
     );
   }
 }
