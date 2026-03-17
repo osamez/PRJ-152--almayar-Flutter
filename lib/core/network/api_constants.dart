@@ -29,4 +29,5 @@ class ApiConstants {
 
   // Purchase Orders
   static const String purchaseRequests = 'user/my-purchase-requests';
+  static const String addPurchaseRequest = 'user/add-purchase-request';
 }
