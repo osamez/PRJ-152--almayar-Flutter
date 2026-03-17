@@ -20,9 +20,17 @@ class _PurchaseOrdersApiService implements PurchaseOrdersApiService {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<PurchaseOrdersResponseModel> getPurchaseRequests(int? page) async {
+  Future<PurchaseOrdersResponseModel> getPurchaseRequests(
+    int? page,
+    int? status,
+    String? code,
+  ) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'page': page};
+    final queryParameters = <String, dynamic>{
+      r'page': page,
+      r'status': status,
+      r'code': code,
+    };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;

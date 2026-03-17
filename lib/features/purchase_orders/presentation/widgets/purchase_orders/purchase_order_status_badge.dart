@@ -3,15 +3,29 @@ part of '../../feature_imports.dart';
 class PurchaseOrderStatusBadge extends StatelessWidget {
   const PurchaseOrderStatusBadge({
     super.key,
-    required this.label,
-    required this.color,
+    required this.status,
   });
 
-  final String label;
-  final Color color;
+  final StatusModel? status;
+
+  Color _getStatusColor() {
+    switch (status?.color?.toLowerCase()) {
+      case 'success':
+        return AppColors.green;
+      case 'warning':
+        return AppColors.yellow;
+      case 'danger':
+        return AppColors.error500;
+      case 'primary':
+        return AppColors.lightViolet;
+      default:
+        return AppColors.yellow;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+    final color = _getStatusColor();
     return Container(
       padding: EdgeInsets.symmetric(
         horizontal: AppSizes.w10,
@@ -32,7 +46,7 @@ class PurchaseOrderStatusBadge extends StatelessWidget {
           ),
           horizontalSpace(AppSizes.w4),
           Text(
-            label,
+            status?.name ?? '',
             style: AppTextStyleFactory.create(
               size: 10,
               weight: FontWeight.w600,

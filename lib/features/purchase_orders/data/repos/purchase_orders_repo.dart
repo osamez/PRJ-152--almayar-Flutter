@@ -4,7 +4,11 @@ import 'package:almeyar/features/purchase_orders/data/datasource/purchase_orders
 import 'package:almeyar/features/purchase_orders/data/models/purchase_orders_response_model.dart';
 
 abstract class PurchaseOrdersRepo {
-  Future<Result<PurchaseOrdersResponseModel>> getPurchaseRequests(int? page);
+  Future<Result<PurchaseOrdersResponseModel>> getPurchaseRequests(
+    int? page,
+    int? status,
+    String? code,
+  );
 }
 
 class PurchaseOrdersRepoImpl implements PurchaseOrdersRepo {
@@ -13,9 +17,13 @@ class PurchaseOrdersRepoImpl implements PurchaseOrdersRepo {
   PurchaseOrdersRepoImpl(this._dataSource);
 
   @override
-  Future<Result<PurchaseOrdersResponseModel>> getPurchaseRequests(int? page) async {
+  Future<Result<PurchaseOrdersResponseModel>> getPurchaseRequests(
+    int? page,
+    int? status,
+    String? code,
+  ) async {
     try {
-      final response = await _dataSource.getPurchaseRequests(page);
+      final response = await _dataSource.getPurchaseRequests(page, status, code);
       AppLogger.info('PurchaseOrdersRepoImpl - getPurchaseRequests: Success');
       return Result.success(response);
     } catch (e, st) {

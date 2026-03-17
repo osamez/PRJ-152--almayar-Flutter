@@ -11,7 +11,7 @@ class PurchaseOrderDetailsViewBody extends StatelessWidget {
         children: [
           const PurchaseOrderDetailsInfoCard(
             orderNumber: '8274875EDFCHVGJB',
-            status: 'under_review',
+            status: StatusModel(name: 'قيد الانتظار', color: 'warning'),
           ),
           verticalSpace(AppSizes.h24),
           PurchaseOrderDetailsSectionTitle(

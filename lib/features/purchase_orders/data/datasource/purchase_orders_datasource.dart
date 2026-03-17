@@ -2,7 +2,11 @@ import 'package:almeyar/features/purchase_orders/data/api_service/purchase_order
 import 'package:almeyar/features/purchase_orders/data/models/purchase_orders_response_model.dart';
 
 abstract class PurchaseOrdersDataSource {
-  Future<PurchaseOrdersResponseModel> getPurchaseRequests(int? page);
+  Future<PurchaseOrdersResponseModel> getPurchaseRequests(
+    int? page,
+    int? status,
+    String? code,
+  );
 }
 
 class PurchaseOrdersDataSourceImpl implements PurchaseOrdersDataSource {
@@ -11,7 +15,11 @@ class PurchaseOrdersDataSourceImpl implements PurchaseOrdersDataSource {
   PurchaseOrdersDataSourceImpl(this._apiService);
 
   @override
-  Future<PurchaseOrdersResponseModel> getPurchaseRequests(int? page) {
-    return _apiService.getPurchaseRequests(page);
+  Future<PurchaseOrdersResponseModel> getPurchaseRequests(
+    int? page,
+    int? status,
+    String? code,
+  ) {
+    return _apiService.getPurchaseRequests(page, status, code);
   }
 }

@@ -10,5 +10,9 @@ abstract class PurchaseOrdersApiService {
   factory PurchaseOrdersApiService(Dio dio, {String baseUrl}) = _PurchaseOrdersApiService;
 
   @GET(ApiConstants.purchaseRequests)
-  Future<PurchaseOrdersResponseModel> getPurchaseRequests(@Query("page") int? page);
+  Future<PurchaseOrdersResponseModel> getPurchaseRequests(
+    @Query("page") int? page,
+    @Query("status") int? status,
+    @Query("code") String? code,
+  );
 }

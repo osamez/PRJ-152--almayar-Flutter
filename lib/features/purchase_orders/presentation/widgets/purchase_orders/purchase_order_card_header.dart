@@ -8,7 +8,7 @@ class PurchaseOrderCardHeader extends StatelessWidget {
   });
 
   final String orderNumber;
-  final String status;
+  final StatusModel? status;
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +49,7 @@ class PurchaseOrderCardHeader extends StatelessWidget {
         ),
 
         const Spacer(),
-        PurchaseOrderStatusBadge(label: status, color: AppColors.yellow),
+        PurchaseOrderStatusBadge(status: status),
       ],
     );
   }
