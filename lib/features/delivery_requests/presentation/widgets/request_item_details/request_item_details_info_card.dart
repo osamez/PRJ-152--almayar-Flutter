@@ -6,7 +6,7 @@ class RequestItemDetailsInfoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool isDeliveryOrder = order.type == 'delivery_service';
+    final bool isDeliveryOrder = order.type != 'شخصي';
     return Skeleton.leaf(
       child: Container(
         padding: EdgeInsets.all(AppSizes.w14),
