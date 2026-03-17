@@ -6,15 +6,15 @@ class DeliveryRequestCardHeader extends StatelessWidget {
     required this.orderNumber,
     required this.date,
     required this.isDeliveryOrder,
-    required this.isCompleted,
-    required this.isPaid,
+    required this.status,
+    required this.financialStatus,
   });
 
   final String orderNumber;
   final String date;
   final bool isDeliveryOrder;
-  final bool isCompleted;
-  final bool isPaid;
+  final StatusModel status;
+  final StatusModel financialStatus;
 
   @override
   Widget build(BuildContext context) {
@@ -80,20 +80,16 @@ class DeliveryRequestCardHeader extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               DeliveryRequestStatusBadge(
-                label: isCompleted
-                    ? LocaleKeys.delivery_requests_completed.tr()
-                    : LocaleKeys.delivery_requests_delivering.tr(),
-                color: isCompleted ? AppColors.green : AppColors.deepViolet,
+                label: status.name ?? '',
+                color: AppColors.deepViolet,
                 iconPath: AppAssets.svgDot,
                 iconHeight: AppSizes.h8,
                 iconWidth: AppSizes.w8,
               ),
               verticalSpace(AppSizes.h6),
               DeliveryRequestStatusBadge(
-                label: isPaid
-                    ? LocaleKeys.delivery_requests_paid.tr()
-                    : LocaleKeys.delivery_requests_unpaid.tr(),
-                color: isPaid ? AppColors.green : AppColors.orange,
+                label: financialStatus.name ?? '',
+                color: _getStatusColor(financialStatus.color),
                 iconPath: AppAssets.svgHand,
                 iconHeight: AppSizes.h16,
                 iconWidth: AppSizes.w16,
@@ -105,5 +101,20 @@ class DeliveryRequestCardHeader extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Color _getStatusColor(String? color) {
+    switch (color?.toLowerCase()) {
+      case 'success':
+        return AppColors.green;
+      case 'danger':
+        return AppColors.orange;
+      case 'warning':
+        return AppColors.yellow;
+      case 'info':
+        return AppColors.lightViolet;
+      default:
+        return AppColors.deepViolet;
+    }
   }
 }

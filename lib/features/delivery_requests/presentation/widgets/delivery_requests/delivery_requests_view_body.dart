@@ -9,6 +9,29 @@ class DeliveryRequestsViewBody extends StatefulWidget {
 }
 
 class _DeliveryRequestsViewBodyState extends State<DeliveryRequestsViewBody> {
+  final ScrollController _scrollController = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(_onScroll);
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _onScroll() {
+    if (_scrollController.position.pixels >=
+        _scrollController.position.maxScrollExtent * 0.8) {
+      context.read<DeliveryRequestsCubit>().getDeliveryRequestsOrders(
+        loadMore: true,
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -18,36 +41,91 @@ class _DeliveryRequestsViewBodyState extends State<DeliveryRequestsViewBody> {
         verticalSpace(AppSizes.h12),
         const DeliveryTypeTabs(),
         verticalSpace(AppSizes.h20),
-        const DeliveryRequestsHeader(resultCount: 3),
-        verticalSpace(AppSizes.h20),
+        const DeliveryRequestsHeader(),
         Expanded(
-          child: ListView.separated(
-            itemCount: 3,
-            separatorBuilder: (_, _) => verticalSpace(AppSizes.h16),
-            itemBuilder: (BuildContext context, int index) {
-              final bool isDelivery = index == 0 || index == 2;
-              final bool isCompleted = index == 1;
-              return DeliveryRequestCard(
-                orderNumber: '31493548089',
-                date: '2026-01-01',
-                isDeliveryOrder: isDelivery,
-                isCompleted: isCompleted,
-                isPaid: isCompleted,
-                address:
-                    '\u0637\u0631\u0627\u0628\u0644\u0633\u060c \u0627\u0644\u0645\u062f\u064a\u0646\u0629 \u0627\u0644\u0633\u064a\u0627\u062d\u064a\u0629\u060c \u0634\u0627\u0631\u0639 \u0627\u0644\u062e\u0648\u064a\u0644\u062f\u064a',
-                branch:
-                    '\u0627\u0644\u0645\u0642\u0631 \u0627\u0644\u0631\u0626\u064a\u0633\u064a - \u0637\u0631\u0627\u0628\u0644\u0633',
-                deliveryDate: '2026-01-29 05:01 \u0645',
-                boxesCount: '2002',
-                orderValue: '\$480',
-                deliveryCost: isDelivery
-                    ? '80 \u062f.\u0644'
-                    : '0 \u062f.\u0644',
-                onTap: () {
-                  context.pushNamed(Routes.deliveryRequestsDetails);
+          child: BlocBuilder<DeliveryRequestsCubit, DeliveryRequestsState>(
+            buildWhen: (previous, current) =>
+                previous.getDeliveryRequestsOrdersState !=
+                current.getDeliveryRequestsOrdersState,
+            builder: (context, state) {
+              return state.getDeliveryRequestsOrdersState.when(
+                initial: () => const SizedBox.shrink(),
+                loading: () => _buildContent(context, state, isLoading: true),
+                data: (data) {
+                  if (state.deliveryRequestsOrdersList.isEmpty) {
+                    return Expanded(
+                      child: Center(
+                        child: EmptyWidget(
+                          message: LocaleKeys.delivery_requests_empty_state
+                              .tr(),
+                          imagePath: AppAssets.animationsEmpty,
+                        ),
+                      ),
+                    );
+                  }
+                  return _buildContent(context, state);
+                },
+                error: (failure) {
+                  if (failure.status == LocalStatusCodes.connectionError) {
+                    return InternetConnectionWidget(
+                      onPressed: () => context
+                          .read<DeliveryRequestsCubit>()
+                          .getDeliveryRequestsOrders(),
+                    );
+                  }
+                  return CustomErrorWidget(
+                    message: failure.error,
+                    onPressed: () => context
+                        .read<DeliveryRequestsCubit>()
+                        .getDeliveryRequestsOrders(),
+                  );
                 },
               );
             },
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildContent(
+    BuildContext context,
+    DeliveryRequestsState state, {
+    bool isLoading = false,
+  }) {
+    final List<DeliveryOrderModel> orders = isLoading
+        ? List.generate(5, (_) => const DeliveryOrderModel())
+        : state.deliveryRequestsOrdersList;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        verticalSpace(AppSizes.h20),
+        Expanded(
+          child: Skeletonizer(
+            enabled: isLoading,
+            child: ListView.separated(
+              controller: _scrollController,
+              itemCount: orders.length + (state.hasMore && !isLoading ? 1 : 0),
+              separatorBuilder: (_, _) => verticalSpace(AppSizes.h16),
+              itemBuilder: (context, index) {
+                if (index < orders.length) {
+                  final order = orders[index];
+                  return DeliveryRequestCard(
+                    order: order,
+                    onTap: () {
+                      context.pushNamed(
+                        Routes.deliveryRequestsDetails,
+                        extra: order.id,
+                      );
+                    },
+                  );
+                } else {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  ).withPadding(vertical: AppSizes.h10);
+                }
+              },
+            ),
           ),
         ),
       ],

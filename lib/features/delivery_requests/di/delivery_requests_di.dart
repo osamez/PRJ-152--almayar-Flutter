@@ -4,6 +4,7 @@ import 'package:almeyar/features/delivery_requests/data/datasource/delivery_requ
 import 'package:almeyar/features/delivery_requests/data/datasource/delivery_requests_datasource_impl.dart';
 import 'package:almeyar/features/delivery_requests/data/repos/delivery_requests_repo.dart';
 import 'package:almeyar/features/delivery_requests/data/repos/delivery_requests_repo_impl.dart';
+import 'package:almeyar/features/delivery_requests/presentation/feature_imports.dart';
 
 void setupDeliveryRequestsDI() {
   getIt.registerLazySingleton<DeliveryRequestsApiService>(
@@ -16,5 +17,9 @@ void setupDeliveryRequestsDI() {
 
   getIt.registerLazySingleton<DeliveryRequestsRepo>(
     () => DeliveryRequestsRepoImpl(getIt()),
+  );
+
+  getIt.registerFactory<DeliveryRequestsCubit>(
+    () => DeliveryRequestsCubit(getIt(), getIt()),
   );
 }
