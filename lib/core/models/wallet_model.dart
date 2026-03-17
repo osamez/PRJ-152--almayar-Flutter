@@ -16,7 +16,7 @@ class WalletModel {
   @JsonKey(name: 'created_at')
   final String? createdAt;
 
-  const Wallet({
+  const WalletModel({
     this.id,
     this.walletName,
     this.amount,
@@ -26,7 +26,8 @@ class WalletModel {
     this.createdAt,
   });
 
-  factory WalletModel.fromJson(Map<String, dynamic> json) => _$WalletModelFromJson(json);
+  factory WalletModel.fromJson(Map<String, dynamic> json) =>
+      _$WalletModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$WalletModelToJson(this);
 }
@@ -37,13 +38,10 @@ class Currency {
   final String? name;
   final String? code;
 
-  const Currency({
-    this.id,
-    this.name,
-    this.code,
-  });
+  const Currency({this.id, this.name, this.code});
 
-  factory Currency.fromJson(Map<String, dynamic> json) => _$CurrencyFromJson(json);
+  factory Currency.fromJson(Map<String, dynamic> json) =>
+      _$CurrencyFromJson(json);
 
   Map<String, dynamic> toJson() => _$CurrencyToJson(this);
 }

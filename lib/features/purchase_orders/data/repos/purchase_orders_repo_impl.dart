@@ -6,6 +6,7 @@ import 'package:almeyar/core/utils/app_logger.dart';
 import 'package:almeyar/features/purchase_orders/data/datasource/purchase_orders_datasource.dart';
 import 'package:almeyar/features/purchase_orders/data/models/add_purchase_request_model.dart';
 import 'package:almeyar/features/purchase_orders/data/models/purchase_orders_response_model.dart';
+import 'package:almeyar/features/purchase_orders/data/models/shopping_sites_response_model.dart';
 import 'purchase_orders_repo.dart';
 
 class PurchaseOrdersRepoImpl implements PurchaseOrdersRepo {
@@ -63,6 +64,25 @@ class PurchaseOrdersRepoImpl implements PurchaseOrdersRepo {
       return Result.success(response);
     } catch (e, st) {
       AppLogger.error('PurchaseOrdersRepoImpl - getMyWallets: Error', e, st);
+      return Result.failure(e, st);
+    }
+  }
+
+  @override
+  Future<Result<BaseResponse<ShoppingSitesResponseModel>>> getShoppingSites(
+    String? name,
+    int? page,
+  ) async {
+    try {
+      final response = await _dataSource.getShoppingSites(name, page);
+      AppLogger.info('PurchaseOrdersRepoImpl - getShoppingSites: Success');
+      return Result.success(response);
+    } catch (e, st) {
+      AppLogger.error(
+        'PurchaseOrdersRepoImpl - getShoppingSites: Error',
+        e,
+        st,
+      );
       return Result.failure(e, st);
     }
   }

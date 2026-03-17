@@ -1,5 +1,4 @@
 import 'package:almeyar/core/utils/exports.dart';
-import 'package:flutter/services.dart';
 
 class AppTextFormField extends StatelessWidget {
   const AppTextFormField({
@@ -39,6 +38,7 @@ class AppTextFormField extends StatelessWidget {
     this.focusNode,
     this.autovalidateMode,
     this.showResetPassword = false,
+    this.onTap,
   });
   final EdgeInsetsGeometry? contentPadding;
   final InputBorder? focusedBorder;
@@ -76,6 +76,7 @@ class AppTextFormField extends StatelessWidget {
   final bool showResetPassword;
 
   final AutovalidateMode? autovalidateMode;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -127,6 +128,7 @@ class AppTextFormField extends StatelessWidget {
           SizedBox(
             height: height,
             child: TextFormField(
+              onTap: onTap,
               readOnly: readOnly,
               onSaved: onSaved,
               textAlign: textAlign,

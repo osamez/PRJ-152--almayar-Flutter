@@ -1,4 +1,4 @@
-part of 'purchase_orders_cubit.dart';
+part of '../../feature_imports.dart';
 
 class PurchaseOrdersState extends Equatable {
   final Async<PurchaseOrdersResponseModel> getPurchaseRequestsState;

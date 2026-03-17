@@ -5,7 +5,7 @@ import 'package:almeyar/features/purchase_orders/data/datasource/purchase_orders
 import 'package:almeyar/features/purchase_orders/data/datasource/purchase_orders_datasource_impl.dart';
 import 'package:almeyar/features/purchase_orders/data/repos/purchase_orders_repo.dart';
 import 'package:almeyar/features/purchase_orders/data/repos/purchase_orders_repo_impl.dart';
-import 'package:almeyar/features/purchase_orders/presentation/cubits/purchase_orders/purchase_orders_cubit.dart';
+import 'package:almeyar/features/purchase_orders/presentation/feature_imports.dart';
 import 'package:dio/dio.dart';
 
 void setupPurchaseOrdersDI() {
@@ -23,6 +23,13 @@ void setupPurchaseOrdersDI() {
 
   getIt.registerFactory<PurchaseOrdersCubit>(
     () => PurchaseOrdersCubit(
+      getIt<PurchaseOrdersRepo>(),
+      getIt<InternetService>(),
+    ),
+  );
+
+  getIt.registerFactory<AddPurchaseOrderCubit>(
+    () => AddPurchaseOrderCubit(
       getIt<PurchaseOrdersRepo>(),
       getIt<InternetService>(),
     ),

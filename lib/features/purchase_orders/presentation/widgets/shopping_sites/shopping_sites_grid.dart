@@ -7,7 +7,7 @@ class _ShoppingSiteData {
   final String logo;
 }
 
-const List<_ShoppingSiteData> _shoppingSites = [
+const List<_ShoppingSiteData> shoppingSites = [
   _ShoppingSiteData(name: 'Amazon', logo: AppAssets.imagesLogo),
   _ShoppingSiteData(name: 'Ali Express', logo: AppAssets.imagesLogo),
   _ShoppingSiteData(name: 'IHerb', logo: AppAssets.imagesLogo),
@@ -43,9 +43,9 @@ class ShoppingSitesGrid extends StatelessWidget {
           sectionPadding: AppSizes.w20 * 2,
         ),
       ),
-      itemCount: _shoppingSites.length,
+      itemCount: shoppingSites.length,
       itemBuilder: (context, index) {
-        final site = _shoppingSites[index];
+        final site = shoppingSites[index];
         return ShoppingSiteCard(name: site.name, logoPath: site.logo);
       },
     );

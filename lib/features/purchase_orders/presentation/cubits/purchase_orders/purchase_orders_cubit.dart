@@ -1,13 +1,4 @@
-import 'package:almeyar/core/network/api_error_model.dart';
-import 'package:almeyar/core/network/local_status_codes.dart';
-import 'package:almeyar/core/services/internet_service.dart';
-import 'package:almeyar/core/utils/async.dart';
-import 'package:almeyar/core/utils/exports.dart';
-import 'package:almeyar/features/purchase_orders/data/models/purchase_orders_response_model.dart';
-import 'package:almeyar/features/purchase_orders/data/models/purchase_order_model.dart';
-import 'package:almeyar/features/purchase_orders/data/repos/purchase_orders_repo.dart';
-
-part 'purchase_orders_state.dart';
+part of '../../feature_imports.dart';
 
 class PurchaseOrdersCubit extends Cubit<PurchaseOrdersState> {
   final PurchaseOrdersRepo _repo;
