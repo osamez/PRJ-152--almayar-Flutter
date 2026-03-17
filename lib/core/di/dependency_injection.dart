@@ -6,6 +6,7 @@ import 'package:almeyar/features/home/di/home_di.dart';
 import 'package:almeyar/features/pickup_request/di/pickup_request_di.dart';
 import 'package:almeyar/features/price_calculator/di/price_calculator_di.dart';
 import 'package:almeyar/features/profile/di/profile_di.dart';
+import 'package:almeyar/features/purchase_orders/di/purchase_orders_di.dart';
 import 'package:almeyar/features/shipment_tracking/di/shipment_tracking_di.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
@@ -20,6 +21,7 @@ Future<void> setupDependencyInjection() async {
   setupPriceCalculatorDI();
   setupShipmentTrackingDI();
   setupProfileDI();
+  setupPurchaseOrdersDI();
 }
 
 Future<void> _initCoreDependencies() async {

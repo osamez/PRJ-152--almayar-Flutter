@@ -1,0 +1,19 @@
+import 'package:almeyar/core/di/dependency_injection.dart';
+import 'package:almeyar/features/purchase_orders/data/api_service/purchase_orders_api_service.dart';
+import 'package:almeyar/features/purchase_orders/data/datasource/purchase_orders_datasource.dart';
+import 'package:almeyar/features/purchase_orders/data/repos/purchase_orders_repo.dart';
+import 'package:dio/dio.dart';
+
+void setupPurchaseOrdersDI() {
+  getIt.registerLazySingleton<PurchaseOrdersApiService>(
+    () => PurchaseOrdersApiService(getIt<Dio>()),
+  );
+
+  getIt.registerLazySingleton<PurchaseOrdersDataSource>(
+    () => PurchaseOrdersDataSourceImpl(getIt<PurchaseOrdersApiService>()),
+  );
+
+  getIt.registerLazySingleton<PurchaseOrdersRepo>(
+    () => PurchaseOrdersRepoImpl(getIt<PurchaseOrdersDataSource>()),
+  );
+}

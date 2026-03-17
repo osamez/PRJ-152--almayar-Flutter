@@ -1,5 +1,4 @@
 import 'package:almeyar/almeyar_app.dart';
-import 'package:almeyar/core/di/dependency_injection.dart';
 import 'package:almeyar/core/helpers/cache_helper.dart';
 import 'package:almeyar/core/routing/app_router.dart';
 import 'package:almeyar/core/utils/app_logger.dart';
