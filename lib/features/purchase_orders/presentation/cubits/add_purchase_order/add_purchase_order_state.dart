@@ -24,14 +24,19 @@ class AddPurchaseOrderState extends Equatable {
   });
 
   // Only wallets govern the initial skeleton/error — sites load lazily in the dropdown.
-  bool get isLoadingInitial => getMyWalletsState.isLoading;
+  bool get isLoadingInitial =>
+      getMyWalletsState.isLoading || getShoppingSitesState.isLoading;
 
-  bool get isErrorInitial => getMyWalletsState.isError;
+  bool get isErrorInitial =>
+      getMyWalletsState.isError || getShoppingSitesState.isError;
 
   ApiErrorModel? get errorInitial =>
       (getMyWalletsState is AsyncError<List<WalletModel>>)
-          ? (getMyWalletsState as AsyncError<List<WalletModel>>).failure
-          : null;
+      ? (getMyWalletsState as AsyncError<List<WalletModel>>).failure
+      : (getShoppingSitesState is AsyncError<ShoppingSitesResponseModel>)
+      ? (getShoppingSitesState as AsyncError<ShoppingSitesResponseModel>)
+            .failure
+      : null;
 
   AddPurchaseOrderState copyWith({
     Async<List<WalletModel>>? getMyWalletsState,
@@ -51,8 +56,9 @@ class AddPurchaseOrderState extends Equatable {
           getShoppingSitesState ?? this.getShoppingSitesState,
       addPurchaseRequestState:
           addPurchaseRequestState ?? this.addPurchaseRequestState,
-      selectedWallet:
-          clearSelectedWallet ? null : selectedWallet ?? this.selectedWallet,
+      selectedWallet: clearSelectedWallet
+          ? null
+          : selectedWallet ?? this.selectedWallet,
       selectedShoppingSite: clearSelectedShoppingSite
           ? null
           : selectedShoppingSite ?? this.selectedShoppingSite,
@@ -64,13 +70,13 @@ class AddPurchaseOrderState extends Equatable {
 
   @override
   List<Object?> get props => [
-        getMyWalletsState,
-        getShoppingSitesState,
-        addPurchaseRequestState,
-        selectedWallet,
-        selectedShoppingSite,
-        shoppingSitesList,
-        shoppingSitesPage,
-        shoppingSitesHasMore,
-      ];
+    getMyWalletsState,
+    getShoppingSitesState,
+    addPurchaseRequestState,
+    selectedWallet,
+    selectedShoppingSite,
+    shoppingSitesList,
+    shoppingSitesPage,
+    shoppingSitesHasMore,
+  ];
 }

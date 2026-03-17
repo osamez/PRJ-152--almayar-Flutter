@@ -10,6 +10,7 @@ class AddPurchaseOrderCubit extends Cubit<AddPurchaseOrderState> {
   /// Fetches wallets only — shopping sites load lazily via the dropdown.
   Future<void> initAdditionData() async {
     await getMyWallets();
+    await getShoppingSites();
   }
 
   Future<void> getMyWallets() async {

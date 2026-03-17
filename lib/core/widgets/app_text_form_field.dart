@@ -80,7 +80,35 @@ class AppTextFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Skeleton.leaf(
+    return Skeleton.replace(
+      replacement: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          if (title != null && showLabel == false) ...[
+            Skeleton.leaf(
+              child: Container(
+                width: 100.w,
+                height: 15.h,
+                decoration: BoxDecoration(
+                  color: AppColors.white,
+                  borderRadius: BorderRadius.circular(AppSizes.radiusXxs),
+                ),
+              ),
+            ),
+            verticalSpace(AppSizes.h8),
+          ],
+          Skeleton.leaf(
+            child: Container(
+              height: height ?? 48.h,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: AppColors.white,
+                borderRadius: BorderRadius.circular(radius ?? AppSizes.radiusSm),
+              ),
+            ),
+          ),
+        ],
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

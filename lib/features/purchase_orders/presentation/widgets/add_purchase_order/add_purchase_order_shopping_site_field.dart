@@ -39,7 +39,6 @@ class AddPurchaseOrderShoppingSiteField extends StatelessWidget {
               hintText: LocaleKeys.add_purchase_order_shopping_site_hint.tr(),
               isLoadingMore: isLoadingMore,
               hasMore: state.shoppingSitesHasMore,
-              onPopupOpen: () => cubit.getShoppingSites(page: 1),
               onSearchChanged: (query) =>
                   cubit.getShoppingSites(name: query, page: 1),
               onLoadMore: () => cubit.loadMoreShoppingSites(),

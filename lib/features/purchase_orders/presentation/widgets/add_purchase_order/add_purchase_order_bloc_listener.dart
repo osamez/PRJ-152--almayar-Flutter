@@ -19,9 +19,6 @@ class AddPurchaseOrderBlocListener extends StatelessWidget {
               description: message.message ?? '',
             );
             Navigator.pop(context, true);
-            context.read<PurchaseOrdersCubit>().getPurchaseRequests(
-                  isRefresh: true,
-                );
           },
           error: (error) {
             LoadingDialog.hide(context);

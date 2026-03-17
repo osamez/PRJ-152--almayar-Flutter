@@ -102,9 +102,28 @@ class _CustomDropdownSearchListState<T>
     }
   }
 
-
   @override
   Widget build(BuildContext context) {
+    return Skeleton.replace(
+      replacement: Skeleton.leaf(
+        child: Container(
+          height: 55.h,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: widget.backgroundColor ?? AppColors.white,
+            borderRadius: BorderRadius.circular(widget.radius ?? 12),
+            border: Border.all(
+              color: widget.borderColor ?? AppColors.greyScale30,
+              width: 1.5.w,
+            ),
+          ),
+        ),
+      ),
+      child: _buildChild(context),
+    );
+  }
+
+  Widget _buildChild(BuildContext context) {
     if (!widget.isMulti) {
       return Theme(
         data: Theme.of(context).copyWith(
@@ -140,7 +159,11 @@ class _CustomDropdownSearchListState<T>
               widget.itemAsString(selectedItem),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w500),
+              style: AppTextStyleFactory.create(
+                size: 13,
+                weight: FontWeight.w400,
+                color: AppColors.black,
+              ),
             );
           },
           selectedItem: widget.initialValue,
@@ -173,15 +196,15 @@ class _CustomDropdownSearchListState<T>
                 hintText: widget.hintText,
                 hintStyle: AppTextStyleFactory.create(
                   size: 14,
-                  weight: FontWeight.w400,
-                  color: widget.hintColor ?? AppColors.gray10,
+                  weight: FontWeight.w300,
+                  color: AppColors.hintColor,
                 ),
                 border: _buildBorder(),
                 enabledBorder: _buildBorder(),
                 focusedBorder: _buildBorder(),
                 contentPadding: EdgeInsets.symmetric(
                   horizontal: AppSizes.w16,
-                  vertical: AppSizes.h12,
+                  // vertical: AppSizes.h8,
                 ),
               ),
             ),
@@ -208,8 +231,8 @@ class _CustomDropdownSearchListState<T>
               );
             },
             itemBuilder: (context, item, isDisabled, isSelected) {
-              final isLastItem = widget.items.isNotEmpty &&
-                  widget.items.last == item;
+              final isLastItem =
+                  widget.items.isNotEmpty && widget.items.last == item;
               return Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
