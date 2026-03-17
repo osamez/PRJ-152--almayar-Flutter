@@ -1,6 +1,7 @@
 import 'package:almeyar/core/network/result.dart';
 import 'package:almeyar/core/utils/app_logger.dart';
 import 'package:almeyar/features/delivery_requests/data/datasource/delivery_requests_datasource.dart';
+import 'package:almeyar/features/delivery_requests/data/models/delivery_order_details_model.dart';
 import 'package:almeyar/features/delivery_requests/data/models/delivery_orders_response_model.dart';
 import 'package:almeyar/features/delivery_requests/data/repos/delivery_requests_repo.dart';
 
@@ -21,10 +22,38 @@ class DeliveryRequestsRepoImpl implements DeliveryRequestsRepo {
         type: type,
         page: page,
       );
-      AppLogger.info('DeliveryRequestsRepoImpl - getDeliveryRequestsOrders: Success');
+      AppLogger.info(
+        'DeliveryRequestsRepoImpl - getDeliveryRequestsOrders: Success',
+      );
       return Result.success(response.data!);
     } catch (e, st) {
-      AppLogger.error('DeliveryRequestsRepoImpl - getDeliveryRequestsOrders: Error', e, st);
+      AppLogger.error(
+        'DeliveryRequestsRepoImpl - getDeliveryRequestsOrders: Error',
+        e,
+        st,
+      );
+      return Result.failure(e, st);
+    }
+  }
+
+  @override
+  Future<Result<DeliveryOrderDetailsModel>> getDeliveryRequestDetails({
+    required int orderId,
+  }) async {
+    try {
+      final response = await _dataSource.getDeliveryRequestDetails(
+        orderId: orderId,
+      );
+      AppLogger.info(
+        'DeliveryRequestsRepoImpl - getDeliveryRequestDetails: Success',
+      );
+      return Result.success(response.data!);
+    } catch (e, st) {
+      AppLogger.error(
+        'DeliveryRequestsRepoImpl - getDeliveryRequestDetails: Error',
+        e,
+        st,
+      );
       return Result.failure(e, st);
     }
   }

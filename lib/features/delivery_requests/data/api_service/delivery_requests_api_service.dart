@@ -1,5 +1,6 @@
 import 'package:almeyar/core/models/base_response.dart';
 import 'package:almeyar/core/network/api_constants.dart';
+import 'package:almeyar/features/delivery_requests/data/models/delivery_order_details_model.dart';
 import 'package:almeyar/features/delivery_requests/data/models/delivery_orders_response_model.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
@@ -15,5 +16,10 @@ abstract class DeliveryRequestsApiService {
     @Query('code') String? code,
     @Query('type') String? type,
     @Query('page') int? page,
+  });
+
+  @GET(ApiConstants.deliveryRequestsDetails)
+  Future<BaseResponse<DeliveryOrderDetailsModel>> getDeliveryRequestDetails({
+    @Query('order_id') required int orderId,
   });
 }

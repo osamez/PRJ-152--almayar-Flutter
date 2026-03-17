@@ -33,4 +33,5 @@ class ApiConstants {
   static const String myWallets = 'user/my-wallets';
   static const String shoppingSites = 'user/shopping-sites';
   static const String deliveryRequestsOrders = 'user/delivery-requests-orders';
+  static const String deliveryRequestsDetails = 'user/delivery-requests-details';
 }
