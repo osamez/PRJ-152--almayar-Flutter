@@ -46,10 +46,11 @@ class ShoppingSitesViewBody extends StatelessWidget {
     ShoppingSitesState state, {
     bool isLoading = false,
   }) {
+    final dummyList = List.generate(9, (index) => const ShoppingSiteModel());
     return Skeletonizer(
       enabled: isLoading,
       child: ShoppingSitesGrid(
-        sites: state.sitesList.isEmpty && isLoading ? [] : state.sitesList,
+        sites: isLoading ? dummyList : state.sitesList,
         isPaginationLoading: state.isPaginationLoading,
       ),
     );
