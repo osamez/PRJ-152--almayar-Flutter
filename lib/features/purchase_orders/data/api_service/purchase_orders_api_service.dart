@@ -1,6 +1,7 @@
 import 'package:almeyar/core/network/api_constants.dart';
 import 'package:almeyar/core/models/message_model.dart';
 import 'package:almeyar/features/purchase_orders/data/models/add_purchase_request_model.dart';
+import 'package:almeyar/features/purchase_orders/data/models/my_wallets_response_model.dart';
 import 'package:almeyar/features/purchase_orders/data/models/purchase_orders_response_model.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
@@ -22,4 +23,7 @@ abstract class PurchaseOrdersApiService {
   Future<MessageModel> addPurchaseRequest(
     @Body() AddPurchaseRequestModel request,
   );
+
+  @GET(ApiConstants.myWallets)
+  Future<MyWalletsResponseModel> getMyWallets();
 }

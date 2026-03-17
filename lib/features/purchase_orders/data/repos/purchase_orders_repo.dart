@@ -3,6 +3,7 @@ import 'package:almeyar/core/network/result.dart';
 import 'package:almeyar/core/utils/app_logger.dart';
 import 'package:almeyar/features/purchase_orders/data/datasource/purchase_orders_datasource.dart';
 import 'package:almeyar/features/purchase_orders/data/models/add_purchase_request_model.dart';
+import 'package:almeyar/features/purchase_orders/data/models/my_wallets_response_model.dart';
 import 'package:almeyar/features/purchase_orders/data/models/purchase_orders_response_model.dart';
 
 abstract class PurchaseOrdersRepo {
@@ -15,6 +16,8 @@ abstract class PurchaseOrdersRepo {
   Future<Result<MessageModel>> addPurchaseRequest(
     AddPurchaseRequestModel request,
   );
+
+  Future<Result<MyWalletsResponseModel>> getMyWallets();
 }
 
 class PurchaseOrdersRepoImpl implements PurchaseOrdersRepo {
@@ -57,6 +60,22 @@ class PurchaseOrdersRepoImpl implements PurchaseOrdersRepo {
     } catch (e, st) {
       AppLogger.error(
         'PurchaseOrdersRepoImpl - addPurchaseRequest: Error',
+        e,
+        st,
+      );
+      return Result.failure(e, st);
+    }
+  }
+
+  @override
+  Future<Result<MyWalletsResponseModel>> getMyWallets() async {
+    try {
+      final response = await _dataSource.getMyWallets();
+      AppLogger.info('PurchaseOrdersRepoImpl - getMyWallets: Success');
+      return Result.success(response);
+    } catch (e, st) {
+      AppLogger.error(
+        'PurchaseOrdersRepoImpl - getMyWallets: Error',
         e,
         st,
       );
