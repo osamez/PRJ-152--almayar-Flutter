@@ -1,10 +1,24 @@
 part of '../../feature_imports.dart';
 
 class MoneyTransferDetailsViewBody extends StatelessWidget {
-  const MoneyTransferDetailsViewBody({super.key});
+  const MoneyTransferDetailsViewBody({super.key, required this.model});
+  final MoneyTransferModel model;
 
   @override
   Widget build(BuildContext context) {
+    final mediaItems = [model.paymentProofImage, model.invoiceImage]
+        .whereType<String>()
+        .map((url) => url.trim())
+        .where((url) => url.isNotEmpty)
+        .map(
+          (url) => DetailsMediaItem(
+            url: url,
+            fileName: url.split('/').last,
+            isImage: true,
+          ),
+        )
+        .toList();
+
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -23,55 +37,55 @@ class MoneyTransferDetailsViewBody extends StatelessWidget {
             rows: [
               DetailsInfoRowData(
                 label: LocaleKeys.add_money_transfer_supplier_name.tr(),
-                value: 'مورد تجريبي',
+                value: model.supplierName ?? '-',
               ),
               DetailsInfoRowData(
                 label: LocaleKeys.add_money_transfer_supplier_address.tr(),
-                value: 'جوانزو الصين',
+                value: model.supplierAddress ?? '-',
               ),
               DetailsInfoRowData(
                 label: LocaleKeys.add_money_transfer_supplier_phone.tr(),
-                value: '+6476237482437',
+                value: model.supplierPhone ?? '-',
               ),
               DetailsInfoRowData(
                 label: LocaleKeys.add_money_transfer_invoice_value.tr(),
-                value: '\$2900',
+                value: '\$${model.invoiceValue?.amount ?? '-'}',
               ),
               DetailsInfoRowData(
                 label: LocaleKeys.add_money_transfer_invoice_currency.tr(),
-                value: 'الدولار الأمريكي',
+                value: model.invoiceCurrency ?? '-',
               ),
               DetailsInfoRowData(
                 label: LocaleKeys.add_money_transfer_payment_currency.tr(),
-                value: 'اليوان الصيني',
+                value: model.paymentCurrency ?? '-',
               ),
               DetailsInfoRowData(
                 label: LocaleKeys.money_transfer_details_amount_in_yuan.tr(),
-                value: '14000 يوان',
+                value: model.yuanAmount != null
+                    ? '${model.yuanAmount} يوان'
+                    : '-',
               ),
               DetailsInfoRowData(
                 label: LocaleKeys.money_transfer_details_due_in_dollars.tr(),
-                value: '\$3000',
+                value: model.dollarAmount != null
+                    ? '\$${model.dollarAmount}'
+                    : '-',
               ),
             ],
           ),
-          verticalSpace(AppSizes.h24),
-          Text(
-            LocaleKeys.money_transfer_details_invoice_and_proof.tr(),
-            style: AppTextStyleFactory.create(
-              size: 16,
-              weight: FontWeight.w700,
-              color: AppColors.deepViolet,
+          if (mediaItems.isNotEmpty) ...[
+            verticalSpace(AppSizes.h24),
+            Text(
+              LocaleKeys.money_transfer_details_invoice_and_proof.tr(),
+              style: AppTextStyleFactory.create(
+                size: 16,
+                weight: FontWeight.w700,
+                color: AppColors.deepViolet,
+              ),
             ),
-          ),
-
-          verticalSpace(AppSizes.h16),
-          const MediaGrid(
-            items: [
-              MediaItem(fileName: 'Box_Image.jpg', isImage: true),
-              MediaItem(fileName: 'Box_Image.jpg', isImage: true),
-            ],
-          ),
+            verticalSpace(AppSizes.h16),
+            DetailsMediaGrid(items: mediaItems),
+          ],
         ],
       ),
     );

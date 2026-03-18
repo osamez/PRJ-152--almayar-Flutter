@@ -53,7 +53,12 @@ class _MoneyTransferListViewState extends State<MoneyTransferListView> {
           return const Center(child: CircularProgressIndicator());
         }
         final item = widget.data[index];
-        return MoneyTransferCard(model: item, onTap: () {});
+        return MoneyTransferCard(
+          model: item,
+          onTap: () {
+            context.pushNamed(Routes.moneyTransferDetails, extra: item);
+          },
+        );
       },
     );
   }

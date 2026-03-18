@@ -26,9 +26,7 @@ class MoneyTransferCard extends StatelessWidget {
           ],
         ),
         child: CustomInkWellWidget(
-          onTap: () {
-            context.pushNamed(Routes.moneyTransferDetails);
-          },
+          onTap: onTap,
           radius: AppSizes.radiusMd,
           padding: EdgeInsets.symmetric(
             horizontal: AppSizes.w12,

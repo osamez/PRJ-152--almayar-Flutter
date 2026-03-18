@@ -9,6 +9,7 @@ import 'package:almeyar/core/widgets/details_info_section.dart';
 import 'package:almeyar/core/widgets/media_grid.dart';
 import 'package:almeyar/features/auth/presentation/feature_imports.dart';
 import 'package:almeyar/features/money_transfers/data/repos/money_transfers_repo.dart';
+import 'package:almeyar/features/pickup_request/presentation/feature_imports.dart';
 import 'package:almeyar/features/shipment_tracking/presentation/feature_imports.dart';
 import 'package:almeyar/core/widgets/internet_connection_widget.dart';
 import 'package:almeyar/core/widgets/custom_error_widget.dart';
