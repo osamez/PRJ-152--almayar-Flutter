@@ -1,4 +1,4 @@
-part of '../feature_imports.dart';
+part of '../../feature_imports.dart';
 
 class MoneyTransfersCubit extends Cubit<MoneyTransfersState> {
   final MoneyTransfersRepo _repo;

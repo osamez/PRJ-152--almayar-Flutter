@@ -4,6 +4,7 @@ import 'package:almeyar/core/models/base_response.dart';
 import 'package:almeyar/core/models/message_model.dart';
 
 import '../api_service/money_transfers_api_service.dart';
+import '../models/money_transfer_currency_model.dart';
 import '../models/money_transfer_model.dart';
 import 'money_transfers_datasource.dart';
 
@@ -18,6 +19,12 @@ class MoneyTransfersDataSourceImpl implements MoneyTransfersDataSource {
     int? page,
   }) async {
     return await _apiService.getMoneyTransfers(status: status, page: page);
+  }
+
+  @override
+  Future<BaseResponse<List<MoneyTransferCurrencyModel>>>
+  getMoneyTransferCurrencies() async {
+    return await _apiService.getMoneyTransferCurrencies();
   }
 
   @override

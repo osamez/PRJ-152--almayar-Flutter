@@ -1,4 +1,4 @@
-part of '../feature_imports.dart';
+part of '../../feature_imports.dart';
 
 class MoneyTransfersState extends Equatable {
   final Async<List<MoneyTransferModel>> moneyTransfersState;

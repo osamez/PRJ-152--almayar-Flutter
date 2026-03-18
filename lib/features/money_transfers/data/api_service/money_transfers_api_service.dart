@@ -5,6 +5,7 @@ import 'package:almeyar/core/models/message_model.dart';
 import 'package:almeyar/core/network/api_constants.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
+import '../models/money_transfer_currency_model.dart';
 import '../models/money_transfer_model.dart';
 
 part 'money_transfers_api_service.g.dart';
@@ -19,6 +20,10 @@ abstract class MoneyTransfersApiService {
     @Query('status') int? status,
     @Query('page') int? page,
   });
+
+  @GET(ApiConstants.moneyTransferCurrencies)
+  Future<BaseResponse<List<MoneyTransferCurrencyModel>>>
+  getMoneyTransferCurrencies();
 
   @POST(ApiConstants.addMoneyTransfer)
   @MultiPart()

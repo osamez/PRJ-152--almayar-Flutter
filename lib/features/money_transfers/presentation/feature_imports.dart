@@ -17,8 +17,8 @@ import 'package:almeyar/core/utils/async.dart';
 import '../data/models/money_transfer_model.dart';
 
 // Cubits
-part 'cubit/money_transfers_cubit.dart';
-part 'cubit/money_transfers_state.dart';
+part 'cubit/money_transfers/money_transfers_cubit.dart';
+part 'cubit/money_transfers/money_transfers_state.dart';
 
 // Views
 part 'views/money_transfers_view.dart';

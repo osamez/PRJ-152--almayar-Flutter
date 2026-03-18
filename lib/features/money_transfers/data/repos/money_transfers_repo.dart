@@ -4,6 +4,7 @@ import 'package:almeyar/core/models/base_response.dart';
 import 'package:almeyar/core/models/message_model.dart';
 import 'package:almeyar/core/network/result.dart';
 
+import '../models/money_transfer_currency_model.dart';
 import '../models/money_transfer_model.dart';
 
 abstract class MoneyTransfersRepo {
@@ -11,6 +12,9 @@ abstract class MoneyTransfersRepo {
     int? status,
     int? page,
   });
+
+  Future<Result<BaseResponse<List<MoneyTransferCurrencyModel>>>>
+  getMoneyTransferCurrencies();
 
   Future<Result<MessageModel>> addMoneyTransfer({
     File? invoiceImages,
