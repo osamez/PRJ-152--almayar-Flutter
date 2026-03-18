@@ -269,6 +269,7 @@
   "delivery_requests_personal_pickup": "إستلام شخصي",
   "delivery_requests_delivery_service": "خدمة توصيل",
   "delivery_requests_results_found": "تم العثور على {count} نتائج",
+  "delivery_requests_empty_state": "لم يتم العثور على أي طلبات تسليم",
   "delivery_requests_delivering": "قيد التوصيل",
   "delivery_requests_completed": "مكتمل",
   "delivery_requests_unpaid": "غير مدفوع",

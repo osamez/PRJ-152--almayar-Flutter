@@ -285,6 +285,7 @@ class CodegenLoader extends AssetLoader{
   "delivery_requests_personal_pickup": "إستلام شخصي",
   "delivery_requests_delivery_service": "خدمة توصيل",
   "delivery_requests_results_found": "تم العثور على {count} نتائج",
+  "delivery_requests_empty_state": "لم يتم العثور على أي طلبات تسليم",
   "delivery_requests_delivering": "قيد التوصيل",
   "delivery_requests_completed": "مكتمل",
   "delivery_requests_unpaid": "غير مدفوع",
@@ -529,6 +530,7 @@ class CodegenLoader extends AssetLoader{
   "shipments_no_branches_found": "لم يتم العثور على أي عناوين شحن",
   "shipment_pickup_requests_no_requests": "لم يتم العثور على أي طلبات إستلام شحنات",
   "no_data": "لا يوجد بيانات لعرضها"
+  "shipment_pickup_requests_no_requests": "لم يتم العثور على أي طلبات إستلام شحنات"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -801,6 +803,7 @@ static const Map<String,dynamic> _en = {
   "delivery_requests_personal_pickup": "Personal Pickup",
   "delivery_requests_delivery_service": "Delivery Service",
   "delivery_requests_results_found": "Found {count} results",
+  "delivery_requests_empty_state": "No delivery requests found",
   "delivery_requests_delivering": "Delivering",
   "delivery_requests_completed": "Completed",
   "delivery_requests_unpaid": "Unpaid",
@@ -1045,6 +1048,7 @@ static const Map<String,dynamic> _en = {
   "gift_cards_empty_state": "No gift cards found",
   "added_successfully": "Added successfully",
   "no_data": "No data found"
+  "added_successfully": "Added successfully"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

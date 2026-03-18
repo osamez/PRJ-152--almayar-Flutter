@@ -1,5 +1,6 @@
 import 'package:almeyar/core/enums/enums.dart';
 import 'package:almeyar/features/auth/presentation/feature_imports.dart';
+import 'package:almeyar/features/delivery_requests/data/models/delivery_order_model.dart';
 import 'package:almeyar/features/home/presentation/feature_imports.dart';
 import 'package:almeyar/features/main/presentation/features_imports.dart';
 import 'package:almeyar/features/money_transfers/data/models/money_transfer_model.dart';
@@ -7,7 +8,7 @@ import 'package:almeyar/features/onboarding/presentation/feature_imports.dart';
 import 'package:almeyar/features/pickup_request/data/models/shipment_request_model.dart';
 import 'package:almeyar/features/pickup_request/presentation/feature_imports.dart';
 import 'package:almeyar/features/price_calculator/presentation/feature_imports.dart';
-import 'package:almeyar/features/delivery-requests/presentation/feature_imports.dart';
+import 'package:almeyar/features/delivery_requests/presentation/feature_imports.dart';
 import 'package:almeyar/features/purchase_orders/data/models/purchase_order_model.dart';
 import 'package:almeyar/features/purchase_orders/presentation/feature_imports.dart';
 import 'package:almeyar/features/shipment_tracking/data/models/shipment_tracking_model.dart';
@@ -134,7 +135,8 @@ final router = GoRouter(
     GoRoute(
       path: Routes.deliveryRequestsDetails,
       name: Routes.deliveryRequestsDetails,
-      builder: (context, state) => const DeliveryRequestItemDetailsView(),
+      builder: (context, state) =>
+          DeliveryRequestItemDetailsView(id: state.extra as int),
     ),
     GoRoute(
       path: Routes.shoppingSites,

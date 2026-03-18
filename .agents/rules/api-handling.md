@@ -81,7 +81,7 @@ abstract class AuthApiService {
 
 - Create **abstract class** `{FeatureName}DataSource` in `{feature_name}_datasource.dart`.
 - Create its **implementation class** `{FeatureName}DataSourceImpl` in a **SEPARATE** file: `{feature_name}_datasource_impl.dart`.
-- **MANDATORY:** Do NOT keep the implementation in the same file as the abstract class.
+- **CRITICAL:** NEVER keep the abstract class and its implementation in the same file. They MUST be in separate files.
 - `DataSourceImpl` MUST take `{FeatureName}ApiService` in its constructor via DI.
 - Implement the new method by directly calling the ApiService.
 
@@ -101,7 +101,7 @@ class AuthDataSourceImpl implements AuthDataSource {
 
 - Create **abstract class** `{FeatureName}Repo` in `{feature_name}_repo.dart`.
 - Create its **implementation class** `{FeatureName}RepoImpl` in a **SEPARATE** file: `{feature_name}_repo_impl.dart`.
-- **MANDATORY:** Do NOT keep the implementation in the same file as the abstract class.
+- **CRITICAL:** NEVER keep the abstract class and its implementation in the same file. They MUST be in separate files.
 - `RepoImpl` MUST take `{FeatureName}DataSource` in its constructor.
 
 Strict Implementation Rules for the new method:

@@ -37,4 +37,6 @@ class ApiConstants {
   static const String moneyTransfers = 'user/money-transfers';
   static const String addMoneyTransfer = 'user/add-money-transfer';
   static const String moneyTransferCurrencies = 'user/currencies';
+  static const String deliveryRequestsOrders = 'user/delivery-requests-orders';
+  static const String deliveryRequestsDetails = 'user/delivery-requests-details';
 }

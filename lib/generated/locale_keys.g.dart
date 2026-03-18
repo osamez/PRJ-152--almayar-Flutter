@@ -273,6 +273,7 @@ abstract class  LocaleKeys {
   static const delivery_requests_personal_pickup = 'delivery_requests_personal_pickup';
   static const delivery_requests_delivery_service = 'delivery_requests_delivery_service';
   static const delivery_requests_results_found = 'delivery_requests_results_found';
+  static const delivery_requests_empty_state = 'delivery_requests_empty_state';
   static const delivery_requests_delivering = 'delivery_requests_delivering';
   static const delivery_requests_completed = 'delivery_requests_completed';
   static const delivery_requests_unpaid = 'delivery_requests_unpaid';
