@@ -1,7 +1,10 @@
 import 'package:almeyar/core/models/base_response.dart';
 import 'package:almeyar/core/models/message_model.dart';
+
+import 'package:almeyar/core/models/message_response.dart';
 import 'package:almeyar/features/profile/data/models/gift_card_model.dart';
 import 'package:almeyar/features/profile/data/models/profile_model.dart';
+import 'package:almeyar/features/profile/data/models/update_password_request.dart';
 import 'dart:io';
 
 abstract class ProfileDataSource {
@@ -30,4 +33,6 @@ abstract class ProfileDataSource {
   Future<MessageModel> deleteAccount();
 
   Future<MessageModel> logout();
+
+  Future<MessageResponse> updatePassword(UpdatePasswordRequest request);
 }

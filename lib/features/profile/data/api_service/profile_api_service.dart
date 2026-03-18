@@ -1,8 +1,11 @@
 import 'package:almeyar/core/models/base_response.dart';
 import 'package:almeyar/core/models/message_model.dart';
+
+import 'package:almeyar/core/models/message_response.dart';
 import 'package:almeyar/core/network/api_constants.dart';
 import 'package:almeyar/features/profile/data/models/gift_card_model.dart';
 import 'package:almeyar/features/profile/data/models/profile_model.dart';
+import 'package:almeyar/features/profile/data/models/update_password_request.dart';
 import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
@@ -44,4 +47,7 @@ abstract class ProfileApiService {
 
   @POST(ApiConstants.logout)
   Future<MessageModel> logout();
+
+  @POST(ApiConstants.updatePassword)
+  Future<MessageResponse> updatePassword(@Body() UpdatePasswordRequest request);
 }

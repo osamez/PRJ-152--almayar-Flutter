@@ -1,4 +1,5 @@
 import 'package:almeyar/core/di/dependency_injection.dart';
+import 'package:almeyar/features/profile/presentation/cubits/profile/profile_cubit.dart';
 import 'package:almeyar/features/profile/presentation/feature_imports.dart';
 import 'package:almeyar/features/profile/data/api_service/profile_api_service.dart';
 import 'package:almeyar/features/profile/data/datasource/profile_datasource.dart';
@@ -18,10 +19,12 @@ void setupProfileDI() {
   );
 
   // Repository
-  getIt.registerLazySingleton<ProfileRepo>(
-    () => ProfileRepoImpl(getIt()),
-  );
+  getIt.registerLazySingleton<ProfileRepo>(() => ProfileRepoImpl(getIt()));
 
   // Cubits
   getIt.registerFactory<GiftCardsCubit>(() => GiftCardsCubit(getIt(), getIt()));
+
+  getIt.registerFactory<ProfileCubit>(
+    () => ProfileCubit(internetService: getIt(), profileRepo: getIt()),
+  );
 }

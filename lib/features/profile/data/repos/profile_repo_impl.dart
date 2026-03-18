@@ -1,10 +1,12 @@
 import 'package:almeyar/core/models/base_response.dart';
 import 'package:almeyar/core/models/message_model.dart';
+import 'package:almeyar/core/models/message_response.dart';
 import 'package:almeyar/core/network/result.dart';
 import 'package:almeyar/core/utils/app_logger.dart';
 import 'package:almeyar/features/profile/data/datasource/profile_datasource.dart';
 import 'package:almeyar/features/profile/data/models/gift_card_model.dart';
 import 'package:almeyar/features/profile/data/models/profile_model.dart';
+import 'package:almeyar/features/profile/data/models/update_password_request.dart';
 import 'package:almeyar/features/profile/data/repos/profile_repo.dart';
 import 'dart:io';
 
@@ -101,6 +103,20 @@ class ProfileRepoImpl implements ProfileRepo {
       return Result.success(response);
     } catch (e, st) {
       AppLogger.error('ProfileRepoImpl - logout: Error', e, st);
+      return Result.failure(e, st);
+    }
+  }
+
+  @override
+  Future<Result<MessageResponse>> updatePassword(
+    UpdatePasswordRequest request,
+  ) async {
+    try {
+      final response = await _dataSource.updatePassword(request);
+      AppLogger.info('ProfileRepoImpl - updatePassword: Success');
+      return Result.success(response);
+    } catch (e, st) {
+      AppLogger.error('ProfileRepoImpl - updatePassword: Error', e, st);
       return Result.failure(e, st);
     }
   }

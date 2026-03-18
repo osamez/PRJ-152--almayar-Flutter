@@ -30,6 +30,7 @@ class ApiConstants {
   static const String updateProfile = 'user/auth/update-profile';
   static const String deleteAccount = 'user/auth/delete-account';
   static const String logout = 'user/auth/auth/logout';
+  static const String updatePassword = 'user/auth/update-password';
 
   // Purchase Orders
   static const String purchaseRequests = 'user/my-purchase-requests';
