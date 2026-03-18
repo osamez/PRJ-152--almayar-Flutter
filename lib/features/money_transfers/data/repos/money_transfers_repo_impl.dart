@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:almeyar/core/models/base_response.dart';
+import 'package:almeyar/core/models/message_model.dart';
 import 'package:almeyar/core/network/result.dart';
 import 'package:almeyar/core/utils/app_logger.dart';
 
@@ -26,6 +29,42 @@ class MoneyTransfersRepoImpl implements MoneyTransfersRepo {
     } catch (e, stackTrace) {
       AppLogger.error(
         'MoneyTransfersRepoImpl - getMoneyTransfers: Error',
+        e,
+        stackTrace,
+      );
+      return Result.failure(e, stackTrace);
+    }
+  }
+
+  @override
+  Future<Result<MessageModel>> addMoneyTransfer({
+    File? invoiceImages,
+    String? invoiceValue,
+    String? paymentCurrencyId,
+    String? currencyId,
+    String? supplierName,
+    String? supplierAddress,
+    String? supplierPhoneCode,
+    String? supplierPhone,
+    String? notes,
+  }) async {
+    try {
+      final response = await _dataSource.addMoneyTransfer(
+        invoiceImages: invoiceImages,
+        invoiceValue: invoiceValue,
+        paymentCurrencyId: paymentCurrencyId,
+        currencyId: currencyId,
+        supplierName: supplierName,
+        supplierAddress: supplierAddress,
+        supplierPhoneCode: supplierPhoneCode,
+        supplierPhone: supplierPhone,
+        notes: notes,
+      );
+      AppLogger.info('MoneyTransfersRepoImpl - addMoneyTransfer: Success');
+      return Result.success(response);
+    } catch (e, stackTrace) {
+      AppLogger.error(
+        'MoneyTransfersRepoImpl - addMoneyTransfer: Error',
         e,
         stackTrace,
       );
