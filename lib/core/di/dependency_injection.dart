@@ -3,6 +3,7 @@ import 'package:almeyar/core/services/image_picker_service.dart';
 import 'package:almeyar/core/services/internet_service.dart';
 import 'package:almeyar/features/auth/di/auth_di.dart';
 import 'package:almeyar/features/home/di/home_di.dart';
+import 'package:almeyar/features/money_transfers/di/money_transfers_di.dart';
 import 'package:almeyar/features/pickup_request/di/pickup_request_di.dart';
 import 'package:almeyar/features/price_calculator/di/price_calculator_di.dart';
 import 'package:almeyar/features/profile/di/profile_di.dart';
@@ -19,6 +20,7 @@ Future<void> setupDependencyInjection() async {
   setupAuthDI();
   setupHomeDI();
   setupPickupRequestDI();
+  setupMoneyTransfersDI();
   setupPriceCalculatorDI();
   setupShipmentTrackingDI();
   setupProfileDI();

@@ -528,6 +528,8 @@ class CodegenLoader extends AssetLoader{
   "registration_success_title": "تم التسجيل بنجاح",
   "go_to_login": "الذهاب لتسجيل الدخول",
   "shipments_no_branches_found": "لم يتم العثور على أي عناوين شحن",
+  "shipment_pickup_requests_no_requests": "لم يتم العثور على أي طلبات إستلام شحنات",
+  "no_data": "لا يوجد بيانات لعرضها"
   "shipment_pickup_requests_no_requests": "لم يتم العثور على أي طلبات إستلام شحنات"
 };
 static const Map<String,dynamic> _en = {
@@ -1044,6 +1046,8 @@ static const Map<String,dynamic> _en = {
   "no_internet_error": "No internet connection",
   "generic_error": "Something went wrong, please try again",
   "gift_cards_empty_state": "No gift cards found",
+  "added_successfully": "Added successfully",
+  "no_data": "No data found"
   "added_successfully": "Added successfully"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};

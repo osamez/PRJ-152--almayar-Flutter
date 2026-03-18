@@ -3,6 +3,7 @@ import 'package:almeyar/features/auth/presentation/feature_imports.dart';
 import 'package:almeyar/features/delivery_requests/data/models/delivery_order_model.dart';
 import 'package:almeyar/features/home/presentation/feature_imports.dart';
 import 'package:almeyar/features/main/presentation/features_imports.dart';
+import 'package:almeyar/features/money_transfers/data/models/money_transfer_model.dart';
 import 'package:almeyar/features/onboarding/presentation/feature_imports.dart';
 import 'package:almeyar/features/pickup_request/data/models/shipment_request_model.dart';
 import 'package:almeyar/features/pickup_request/presentation/feature_imports.dart';
@@ -171,7 +172,8 @@ final router = GoRouter(
     GoRoute(
       path: Routes.moneyTransferDetails,
       name: Routes.moneyTransferDetails,
-      builder: (context, state) => const MoneyTransferDetailsView(),
+      builder: (context, state) =>
+          MoneyTransferDetailsView(model: state.extra as MoneyTransferModel),
     ),
     GoRoute(
       path: Routes.profile,

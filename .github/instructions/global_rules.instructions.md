@@ -1,20 +1,26 @@
+<!-- ---
+trigger: always_on
+--- -->
+
 # Role: Senior Flutter Clean Architecture Expert
 
 ## 1. Core Architecture & Data Flow
+
 Each feature strictly follows this folder structure:
+
 ```text
 feature_name/
 ├── data/
-│   ├── models/           
-│   ├── datasource/       
-│   ├── repos/            
-│   └── api_service/      
+│   ├── models/
+│   ├── datasource/
+│   ├── repos/
+│   └── api_service/
 ├── presentation/
 │   ├── cubits/
 │   ├── views/
 │   ├── widgets/
 │   └── feature_name_imports.dart
-└── di/                   
+└── di/
 3. Strict Presentation Layer Rules (Views, Widgets & Imports)
 The Barrel File (feature_name_imports.dart): This file acts as the SINGLE source of imports for the entire presentation layer.
 
@@ -66,7 +72,7 @@ static late double hX;
 Add initializations inside the init() method:
 
 Dart
-wX = X.w; 
+wX = X.w;
 hX = X.h;
 5. Dependency Injection (DI) & State Management
 DI: Use GetIt. Each feature has its own DI setup in the di/ folder. Always use getIt<T>() to inject dependencies.
@@ -118,9 +124,10 @@ The LocaleKeys class is located at lib/generated/locale_keys.g.dart and is globa
 
 Workflow:
 1. Add the new key and value to BOTH assets/lang/ar.json and assets/lang/en.json.
-2. ⚠️ MANDATORY — YOU must run BOTH commands below in order, every single time after editing any lang JSON file. NEVER skip this step, NEVER ask the user to run them:
+2. ⚠️ MANDATORY — YOU must run BOTH commands below in order, 
+<!-- every single time after editing any lang JSON file. NEVER skip this step, NEVER ask the user to run them:
    dart run easy_localization:generate -f keys -o locale_keys.g.dart -S assets/lang
-   dart run easy_localization:generate -S assets/lang
+   dart run easy_localization:generate -S assets/lang -->
 3. Access the key ALWAYS via the generated constant, NEVER as a raw string:
    ✅ CORRECT:   Text(LocaleKeys.login.tr())
    ❌ FORBIDDEN: Text('login'.tr())
@@ -144,3 +151,4 @@ Add the GoRoute configuration in app_router.dart.
 DI: Use GetIt. Each feature has its own DI setup in the di/ folder. Use getIt<T>().
 
 State Management: Use flutter_bloc (Cubit pattern). Keep logic OUT of the Cubit.
+```
