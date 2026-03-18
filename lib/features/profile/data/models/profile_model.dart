@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:json_annotation/json_annotation.dart';
 
 part 'profile_model.g.dart';
@@ -11,13 +13,27 @@ class ProfileModel {
   final String? companyName;
   @JsonKey(name: 'we_chat')
   final String? weChat;
+  @JsonKey(fromJson: _profilePhoneFromJson, toJson: _profilePhoneToJson)
   final ProfilePhoneModel? phone;
+  @JsonKey(fromJson: _profilePhoneFromJson, toJson: _profilePhoneToJson)
   final ProfilePhoneModel? whatsapp;
-  @JsonKey(name: 'whatsapp_2')
+  @JsonKey(
+    name: 'whatsapp_2',
+    fromJson: _profilePhoneFromJson,
+    toJson: _profilePhoneToJson,
+  )
   final ProfilePhoneModel? whatsapp2;
-  @JsonKey(name: 'whatsapp_3')
+  @JsonKey(
+    name: 'whatsapp_3',
+    fromJson: _profilePhoneFromJson,
+    toJson: _profilePhoneToJson,
+  )
   final ProfilePhoneModel? whatsapp3;
-  @JsonKey(name: 'whatsapp_4')
+  @JsonKey(
+    name: 'whatsapp_4',
+    fromJson: _profilePhoneFromJson,
+    toJson: _profilePhoneToJson,
+  )
   final ProfilePhoneModel? whatsapp4;
   final String? notes;
   final String? image;
@@ -60,11 +76,49 @@ class ProfileModel {
       _$ProfileModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$ProfileModelToJson(this);
+
+  static ProfilePhoneModel? _profilePhoneFromJson(Object? value) {
+    if (value == null) {
+      return null;
+    }
+
+    if (value is Map<String, dynamic>) {
+      return ProfilePhoneModel.fromJson(value);
+    }
+
+    if (value is String) {
+      if (value.trim().isEmpty) {
+        return null;
+      }
+
+      try {
+        final decoded = jsonDecode(value);
+        if (decoded is Map<String, dynamic>) {
+          return ProfilePhoneModel.fromJson(decoded);
+        }
+        if (decoded is Map) {
+          return ProfilePhoneModel.fromJson(Map<String, dynamic>.from(decoded));
+        }
+      } catch (_) {
+        return null;
+      }
+    }
+
+    if (value is Map) {
+      return ProfilePhoneModel.fromJson(Map<String, dynamic>.from(value));
+    }
+
+    return null;
+  }
+
+  static Object? _profilePhoneToJson(ProfilePhoneModel? value) =>
+      value?.toJson();
 }
 
 @JsonSerializable()
 class ProfilePhoneModel {
   final String? key;
+  @JsonKey(fromJson: _numberFromJson, toJson: _numberToJson)
   final int? number;
 
   const ProfilePhoneModel({this.key, this.number});
@@ -73,6 +127,27 @@ class ProfilePhoneModel {
       _$ProfilePhoneModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$ProfilePhoneModelToJson(this);
+
+  static int? _numberFromJson(Object? value) {
+    if (value == null) {
+      return null;
+    }
+
+    if (value is int) {
+      return value;
+    }
+
+    if (value is String) {
+      if (value.trim().isEmpty) {
+        return null;
+      }
+      return int.tryParse(value);
+    }
+
+    return null;
+  }
+
+  static Object? _numberToJson(int? value) => value;
 }
 
 @JsonSerializable()

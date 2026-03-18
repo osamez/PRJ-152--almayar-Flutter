@@ -12,21 +12,11 @@ ProfileModel _$ProfileModelFromJson(Map<String, dynamic> json) => ProfileModel(
   code: json['code'] as String?,
   companyName: json['company_name'] as String?,
   weChat: json['we_chat'] as String?,
-  phone: json['phone'] == null
-      ? null
-      : ProfilePhoneModel.fromJson(json['phone'] as Map<String, dynamic>),
-  whatsapp: json['whatsapp'] == null
-      ? null
-      : ProfilePhoneModel.fromJson(json['whatsapp'] as Map<String, dynamic>),
-  whatsapp2: json['whatsapp_2'] == null
-      ? null
-      : ProfilePhoneModel.fromJson(json['whatsapp_2'] as Map<String, dynamic>),
-  whatsapp3: json['whatsapp_3'] == null
-      ? null
-      : ProfilePhoneModel.fromJson(json['whatsapp_3'] as Map<String, dynamic>),
-  whatsapp4: json['whatsapp_4'] == null
-      ? null
-      : ProfilePhoneModel.fromJson(json['whatsapp_4'] as Map<String, dynamic>),
+  phone: ProfileModel._profilePhoneFromJson(json['phone']),
+  whatsapp: ProfileModel._profilePhoneFromJson(json['whatsapp']),
+  whatsapp2: ProfileModel._profilePhoneFromJson(json['whatsapp_2']),
+  whatsapp3: ProfileModel._profilePhoneFromJson(json['whatsapp_3']),
+  whatsapp4: ProfileModel._profilePhoneFromJson(json['whatsapp_4']),
   notes: json['notes'] as String?,
   image: json['image'] as String?,
   nationalIdentityPhoto: json['national_identity_photo'] as String?,
@@ -54,11 +44,11 @@ Map<String, dynamic> _$ProfileModelToJson(ProfileModel instance) =>
       'code': instance.code,
       'company_name': instance.companyName,
       'we_chat': instance.weChat,
-      'phone': instance.phone,
-      'whatsapp': instance.whatsapp,
-      'whatsapp_2': instance.whatsapp2,
-      'whatsapp_3': instance.whatsapp3,
-      'whatsapp_4': instance.whatsapp4,
+      'phone': ProfileModel._profilePhoneToJson(instance.phone),
+      'whatsapp': ProfileModel._profilePhoneToJson(instance.whatsapp),
+      'whatsapp_2': ProfileModel._profilePhoneToJson(instance.whatsapp2),
+      'whatsapp_3': ProfileModel._profilePhoneToJson(instance.whatsapp3),
+      'whatsapp_4': ProfileModel._profilePhoneToJson(instance.whatsapp4),
       'notes': instance.notes,
       'image': instance.image,
       'national_identity_photo': instance.nationalIdentityPhoto,
@@ -74,11 +64,14 @@ Map<String, dynamic> _$ProfileModelToJson(ProfileModel instance) =>
 ProfilePhoneModel _$ProfilePhoneModelFromJson(Map<String, dynamic> json) =>
     ProfilePhoneModel(
       key: json['key'] as String?,
-      number: (json['number'] as num?)?.toInt(),
+      number: ProfilePhoneModel._numberFromJson(json['number']),
     );
 
 Map<String, dynamic> _$ProfilePhoneModelToJson(ProfilePhoneModel instance) =>
-    <String, dynamic>{'key': instance.key, 'number': instance.number};
+    <String, dynamic>{
+      'key': instance.key,
+      'number': ProfilePhoneModel._numberToJson(instance.number),
+    };
 
 ProfileBranchModel _$ProfileBranchModelFromJson(Map<String, dynamic> json) =>
     ProfileBranchModel(
