@@ -5,12 +5,16 @@ class AddNewMoneyTransferView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.offWhite,
-      appBar: CustomAppBar(title: LocaleKeys.add_money_transfer_heading.tr()),
-      body: const AddNewMoneyTransferViewBody().withPadding(
-        horizontal: AppSizes.w20,
-        vertical: AppSizes.h24,
+    return BlocProvider(
+      create: (context) =>
+          getIt<AddNewMoneyTransferCubit>()..getMoneyTransferCurrencies(),
+      child: Scaffold(
+        backgroundColor: AppColors.offWhite,
+        appBar: CustomAppBar(title: LocaleKeys.add_money_transfer_heading.tr()),
+        body: const AddNewMoneyTransferViewBody().withPadding(
+          horizontal: AppSizes.w20,
+          vertical: AppSizes.h24,
+        ),
       ),
     );
   }

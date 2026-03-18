@@ -269,6 +269,7 @@
   "delivery_requests_personal_pickup": "Personal Pickup",
   "delivery_requests_delivery_service": "Delivery Service",
   "delivery_requests_results_found": "Found {count} results",
+  "delivery_requests_empty_state": "No delivery requests found",
   "delivery_requests_delivering": "Delivering",
   "delivery_requests_completed": "Completed",
   "delivery_requests_unpaid": "Unpaid",

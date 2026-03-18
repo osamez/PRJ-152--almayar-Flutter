@@ -285,6 +285,7 @@ class CodegenLoader extends AssetLoader{
   "delivery_requests_personal_pickup": "إستلام شخصي",
   "delivery_requests_delivery_service": "خدمة توصيل",
   "delivery_requests_results_found": "تم العثور على {count} نتائج",
+  "delivery_requests_empty_state": "لم يتم العثور على أي طلبات تسليم",
   "delivery_requests_delivering": "قيد التوصيل",
   "delivery_requests_completed": "مكتمل",
   "delivery_requests_unpaid": "غير مدفوع",
@@ -399,7 +400,7 @@ class CodegenLoader extends AssetLoader{
   "profile_support_tickets": "تذاكر الدعم",
   "profile_gift_cards": "بطاقات الهدايا",
   "profile_terms_and_conditions": "الشروط و الأحكام",
-  "profile_terms_and_conditions_content": "ما هو لوريم ايبسوم Lorem ipsum\nلوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل ليتصور طريقه وضع النصوص بالتصاميم سواء كانت تصاميم مطبوعه ... بروشور او فلاير على سبيل المثال ...\nاو نماذج مواقع انترنت ...\nوعند موافقه العميل المبدئيه على التصميم يتم ازالة هذا النص من التصميم ويتم وضع النصوص النهائية المطلوبة للتصميم ويقول البعض ان وضع النصوص التجريبية بالتصميم قد تشغل المشاهد عن وضع الكثير من الملاحظات او الانتقادات للتصميم الاساسي.\nوخلافاً للاعتقاد السائد فإن لوريم إيبسوم ليس نصاً عشوائياً، بل إن له جذور في الأدب اللاتيني الكلاسيكي منذ العام 45 قبل الميلاد. من كتاب \"حول أقاصي الخير والشر\"",
+  "profile_terms_and_conditions_content": "لوريم إيبسوم ليس نصاً عشوائياً، بل إن له جذور في الأدب اللاتيني الكلاسيكي منذ العام 45 قبل الميلاد. من كتاب \"حول أقاصي الخير والشر\"",
   "profile_privacy_policy": "سياسة الخصوصية",
   "profile_about_app": "عن التطبيق",
   "edit_profile_title": "الملف الشخصي",
@@ -413,6 +414,12 @@ class CodegenLoader extends AssetLoader{
   "edit_profile_update_account_data": "تحديث بيانات الحساب",
   "edit_profile_whatsapp_number": "رقم واتساب ({number})",
   "edit_profile_save_data": "حفظ البيانات",
+  "added_successfully": "تمت الإضافة بنجاح",
+  "shipment_pickup_requests_retry": "إعادة المحاولة",
+  "shipment_tracking_no_shipments": "لم يتم العثور على أي شحنات",
+  "no_internet_error": "لا يوجد اتصال بالإنترنت",
+  "generic_error": "حدث خطأ ما، يرجى المحاولة مرة أخرى",
+  "gift_cards_empty_state": "لا توجد بطاقات هدايا",
   "change_password_current": "كلمة المرور الحالية",
   "change_password_new": "كلمة المرور الجديدة",
   "change_password_confirm": "تأكيد كلمة المرور الجديدة",
@@ -502,6 +509,8 @@ class CodegenLoader extends AssetLoader{
   "confirm_transfer_resend_after": "إعادة الإرسال بعد ({time})",
   "confirm_transfer_resend": "إعادة الإرسال",
   "confirm_transfer_submit": "تأكيد التحويل",
+  "link_required": "رابط الدفع مطلوب",
+  "amount_required": "المبلغ مطلوب",
   "phone_required": "رقم الهاتف مطلوب",
   "password_required": "كلمة المرور مطلوبة",
   "password_too_short": "كلمة المرور يجب أن تكون 6 أحرف على الأقل",
@@ -520,8 +529,8 @@ class CodegenLoader extends AssetLoader{
   "go_to_login": "الذهاب لتسجيل الدخول",
   "shipments_no_branches_found": "لم يتم العثور على أي عناوين شحن",
   "shipment_pickup_requests_no_requests": "لم يتم العثور على أي طلبات إستلام شحنات",
-  "shipment_pickup_requests_retry": "إعادة المحاولة",
-  "shipment_tracking_no_shipments": "لم يتم العثور على أي شحنات"
+  "no_data": "لا يوجد بيانات لعرضها"
+  "shipment_pickup_requests_no_requests": "لم يتم العثور على أي طلبات إستلام شحنات"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -794,6 +803,7 @@ static const Map<String,dynamic> _en = {
   "delivery_requests_personal_pickup": "Personal Pickup",
   "delivery_requests_delivery_service": "Delivery Service",
   "delivery_requests_results_found": "Found {count} results",
+  "delivery_requests_empty_state": "No delivery requests found",
   "delivery_requests_delivering": "Delivering",
   "delivery_requests_completed": "Completed",
   "delivery_requests_unpaid": "Unpaid",
@@ -1011,6 +1021,8 @@ static const Map<String,dynamic> _en = {
   "confirm_transfer_resend_after": "Resend after ({time})",
   "confirm_transfer_resend": "Resend",
   "confirm_transfer_submit": "Confirm Transfer",
+  "link_required": "Payment link is required",
+  "amount_required": "Amount is required",
   "phone_required": "Phone number is required",
   "password_required": "Password is required",
   "password_too_short": "Password must be at least 6 characters",
@@ -1030,7 +1042,13 @@ static const Map<String,dynamic> _en = {
   "shipments_no_branches_found": "No shipping addresses found",
   "shipment_pickup_requests_no_requests": "No shipment pickup requests found",
   "shipment_pickup_requests_retry": "Retry",
-  "shipment_tracking_no_shipments": "No shipments found"
+  "shipment_tracking_no_shipments": "No shipments found",
+  "no_internet_error": "No internet connection",
+  "generic_error": "Something went wrong, please try again",
+  "gift_cards_empty_state": "No gift cards found",
+  "added_successfully": "Added successfully",
+  "no_data": "No data found"
+  "added_successfully": "Added successfully"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

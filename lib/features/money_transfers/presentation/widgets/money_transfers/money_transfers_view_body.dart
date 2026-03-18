@@ -1,47 +1,72 @@
 part of '../../feature_imports.dart';
 
-class MoneyTransfersViewBody extends StatefulWidget {
+class MoneyTransfersViewBody extends StatelessWidget {
   const MoneyTransfersViewBody({super.key});
 
   @override
-  State<MoneyTransfersViewBody> createState() => _MoneyTransfersViewBodyState();
-}
-
-class _MoneyTransfersViewBodyState extends State<MoneyTransfersViewBody> {
-  int _selectedTabIndex = 0;
-
-  @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        MoneyTransfersTabBar(
-          selectedIndex: _selectedTabIndex,
-          onTabChanged: (int index) {
-            setState(() => _selectedTabIndex = index);
-          },
-        ),
-        verticalSpace(AppSizes.h20),
-        const MoneyTransfersAddButton(),
-        verticalSpace(AppSizes.h20),
-        Expanded(
-          child: ListView.separated(
-            itemCount: 4,
-            separatorBuilder: (_, _) => verticalSpace(AppSizes.h16),
-            itemBuilder: (BuildContext context, int index) {
-              return MoneyTransferCard(
-                phoneNumber: '31493548089',
-                date: '2026-01-01',
-                statusLabel: LocaleKeys.money_transfers_deducted.tr(),
-                statusColor: AppColors.orange,
-                invoiceValue: '\$2000',
-                paymentCurrency: 'اليوان الصيني',
-                dueAmount: '\$2050',
-                onTap: () {},
-              );
-            },
-          ),
-        ),
-      ],
+    return BlocBuilder<MoneyTransfersCubit, MoneyTransfersState>(
+      builder: (context, state) {
+        return Column(
+          children: [
+            const MoneyTransfersTabBar(),
+            verticalSpace(AppSizes.h20),
+            const MoneyTransfersAddButton(),
+            verticalSpace(AppSizes.h20),
+            Expanded(
+              child: BlocBuilder<MoneyTransfersCubit, MoneyTransfersState>(
+                buildWhen: (previous, current) {
+                  return previous.moneyTransfersState !=
+                      current.moneyTransfersState;
+                },
+                builder: (context, state) {
+                  return state.moneyTransfersState.when(
+                    initial: () => const SizedBox.shrink(),
+                    loading: () {
+                      final list = List.generate(
+                        5,
+                        (index) => const MoneyTransferModel(),
+                      );
+                      return Skeletonizer(
+                        enabled: true,
+                        child: MoneyTransferListView(
+                          data: list,
+                          isLoading: true,
+                        ),
+                      );
+                    },
+                    error: (failure) {
+                      if (failure.status == LocalStatusCodes.connectionError) {
+                        return InternetConnectionWidget(
+                          onPressed: () => context
+                              .read<MoneyTransfersCubit>()
+                              .getMoneyTransfers(),
+                        );
+                      }
+                      return CustomErrorWidget(
+                        message: failure.error,
+                        onPressed: () => context
+                            .read<MoneyTransfersCubit>()
+                            .getMoneyTransfers(),
+                      );
+                    },
+                    data: (data) {
+                      if (data.isEmpty) {
+                        return EmptyWidget(
+                          message: LocaleKeys.no_data.tr(),
+                          imagePath: AppAssets.animationsEmpty,
+                        );
+                      }
+
+                      return MoneyTransferListView(data: data, isLoading: true);
+                    },
+                  );
+                },
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }
