@@ -401,6 +401,12 @@ abstract class  LocaleKeys {
   static const edit_profile_update_account_data = 'edit_profile_update_account_data';
   static const edit_profile_whatsapp_number = 'edit_profile_whatsapp_number';
   static const edit_profile_save_data = 'edit_profile_save_data';
+  static const added_successfully = 'added_successfully';
+  static const shipment_pickup_requests_retry = 'shipment_pickup_requests_retry';
+  static const shipment_tracking_no_shipments = 'shipment_tracking_no_shipments';
+  static const no_internet_error = 'no_internet_error';
+  static const generic_error = 'generic_error';
+  static const gift_cards_empty_state = 'gift_cards_empty_state';
   static const change_password_current = 'change_password_current';
   static const change_password_new = 'change_password_new';
   static const change_password_confirm = 'change_password_confirm';
@@ -490,6 +496,8 @@ abstract class  LocaleKeys {
   static const confirm_transfer_resend_after = 'confirm_transfer_resend_after';
   static const confirm_transfer_resend = 'confirm_transfer_resend';
   static const confirm_transfer_submit = 'confirm_transfer_submit';
+  static const link_required = 'link_required';
+  static const amount_required = 'amount_required';
   static const phone_required = 'phone_required';
   static const password_required = 'password_required';
   static const password_too_short = 'password_too_short';
@@ -508,10 +516,6 @@ abstract class  LocaleKeys {
   static const go_to_login = 'go_to_login';
   static const shipments_no_branches_found = 'shipments_no_branches_found';
   static const shipment_pickup_requests_no_requests = 'shipment_pickup_requests_no_requests';
-  static const shipment_pickup_requests_retry = 'shipment_pickup_requests_retry';
-  static const shipment_tracking_no_shipments = 'shipment_tracking_no_shipments';
-  static const no_internet_error = 'no_internet_error';
-  static const generic_error = 'generic_error';
-  static const gift_cards_empty_state = 'gift_cards_empty_state';
+  static const no_data = 'no_data';
 
 }

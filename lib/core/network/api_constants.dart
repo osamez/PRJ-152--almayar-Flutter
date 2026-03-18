@@ -32,4 +32,7 @@ class ApiConstants {
   static const String addPurchaseRequest = 'user/add-purchase-request';
   static const String myWallets = 'user/my-wallets';
   static const String shoppingSites = 'user/shopping-sites';
+
+  // Money Transfers
+  static const String moneyTransfers = 'user/money-transfers';
 }
