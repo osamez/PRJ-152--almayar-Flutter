@@ -55,8 +55,16 @@ class _MoneyTransferListViewState extends State<MoneyTransferListView> {
         final item = widget.data[index];
         return MoneyTransferCard(
           model: item,
-          onTap: () {
-            context.pushNamed(Routes.moneyTransferDetails, extra: item);
+          onTap: () async {
+            final result = await context.pushNamed(
+              Routes.moneyTransferDetails,
+              extra: item,
+            );
+
+            if (result == true) {
+              if (!mounted) return;
+              context.read<MoneyTransfersCubit>().getMoneyTransfers();
+            }
           },
         );
       },

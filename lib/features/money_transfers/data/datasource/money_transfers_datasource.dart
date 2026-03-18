@@ -16,7 +16,7 @@ abstract class MoneyTransfersDataSource {
   getMoneyTransferCurrencies();
 
   Future<MessageModel> addMoneyTransfer({
-    File? invoiceImages,
+    List<File>? invoiceImages,
     String? invoiceValue,
     String? paymentCurrencyId,
     String? currencyId,

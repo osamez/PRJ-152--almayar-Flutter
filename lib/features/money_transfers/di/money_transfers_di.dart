@@ -22,4 +22,8 @@ void setupMoneyTransfersDI() {
   getIt.registerFactory<MoneyTransfersCubit>(
     () => MoneyTransfersCubit(getIt(), getIt()),
   );
+
+  getIt.registerFactory<AddNewMoneyTransferCubit>(
+    () => AddNewMoneyTransferCubit(getIt(), getIt()),
+  );
 }

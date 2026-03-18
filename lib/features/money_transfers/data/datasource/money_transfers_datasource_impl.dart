@@ -29,7 +29,7 @@ class MoneyTransfersDataSourceImpl implements MoneyTransfersDataSource {
 
   @override
   Future<MessageModel> addMoneyTransfer({
-    File? invoiceImages,
+    List<File>? invoiceImages,
     String? invoiceValue,
     String? paymentCurrencyId,
     String? currencyId,

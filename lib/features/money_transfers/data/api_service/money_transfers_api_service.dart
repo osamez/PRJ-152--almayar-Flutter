@@ -28,7 +28,7 @@ abstract class MoneyTransfersApiService {
   @POST(ApiConstants.addMoneyTransfer)
   @MultiPart()
   Future<MessageModel> addMoneyTransfer({
-    @Part(name: 'invoice_images') File? invoiceImages,
+    @Part(name: 'invoice_images[]') List<File>? invoiceImages,
     @Part(name: 'invoice_value') String? invoiceValue,
     @Part(name: 'payment_currency_id') String? paymentCurrencyId,
     @Part(name: 'currency_id') String? currencyId,

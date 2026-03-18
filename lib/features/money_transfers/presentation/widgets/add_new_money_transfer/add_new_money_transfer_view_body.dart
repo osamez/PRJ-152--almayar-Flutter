@@ -1,96 +1,191 @@
 part of '../../feature_imports.dart';
 
-class AddNewMoneyTransferViewBody extends StatelessWidget {
+class AddNewMoneyTransferViewBody extends StatefulWidget {
   const AddNewMoneyTransferViewBody({super.key});
 
   @override
+  State<AddNewMoneyTransferViewBody> createState() =>
+      _AddNewMoneyTransferViewBodyState();
+}
+
+class _AddNewMoneyTransferViewBodyState
+    extends State<AddNewMoneyTransferViewBody> {
+  final _formKey = GlobalKey<FormState>();
+
+  final _supplierNameController = TextEditingController();
+  final _supplierAddressController = TextEditingController();
+  final _supplierPhoneController = TextEditingController();
+  final _invoiceValueController = TextEditingController();
+  final _notesController = TextEditingController();
+
+  String _phoneCode = '+218';
+
+  @override
+  void dispose() {
+    _supplierNameController.dispose();
+    _supplierAddressController.dispose();
+    _supplierPhoneController.dispose();
+    _invoiceValueController.dispose();
+    _notesController.dispose();
+    super.dispose();
+  }
+
+  void _submit() {
+    if (!_formKey.currentState!.validate()) {
+      return;
+    }
+
+    final cubit = context.read<AddNewMoneyTransferCubit>();
+    final state = cubit.state;
+
+    cubit.addMoneyTransfer(
+      invoiceImages: state.invoiceFile == null ? null : [state.invoiceFile!],
+      invoiceValue: _invoiceValueController.text.trim(),
+      paymentCurrencyId: state.selectedPaymentCurrency?.id?.toString(),
+      currencyId: state.selectedInvoiceCurrency?.id?.toString(),
+      supplierName: _supplierNameController.text.trim(),
+      supplierAddress: _supplierAddressController.text.trim(),
+      supplierPhoneCode: _phoneCode,
+      supplierPhone: _supplierPhoneController.text.trim().substring(1),
+      notes: _notesController.text.trim().isEmpty
+          ? null
+          : _notesController.text.trim(),
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Expanded(
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                AppTextFormField(
-                  isRequired: false,
-                  hintText: LocaleKeys.add_money_transfer_supplier_name_hint
-                      .tr(),
-                  title: LocaleKeys.add_money_transfer_supplier_name.tr(),
-                  titleColor: AppColors.darkText,
-                  validator: (value) {},
-                  keyboardType: TextInputType.name,
+    return BlocBuilder<AddNewMoneyTransferCubit, AddNewMoneyTransferState>(
+      buildWhen: (previous, current) =>
+          previous.getMoneyTransferCurrenciesState !=
+          current.getMoneyTransferCurrenciesState,
+      builder: (context, state) {
+        return state.getMoneyTransferCurrenciesState.when(
+          initial: () => _buildContent(isLoading: true),
+          loading: () => _buildContent(isLoading: true),
+          data: (_) => _buildContent(isLoading: false),
+          error: (failure) {
+            if (failure.status == LocalStatusCodes.connectionError) {
+              return InternetConnectionWidget(
+                onPressed: () => context
+                    .read<AddNewMoneyTransferCubit>()
+                    .getMoneyTransferCurrencies(),
+              );
+            }
+
+            return CustomErrorWidget(
+              message: failure.error,
+              onPressed: () => context
+                  .read<AddNewMoneyTransferCubit>()
+                  .getMoneyTransferCurrencies(),
+            );
+          },
+        );
+      },
+    );
+  }
+
+  Widget _buildContent({required bool isLoading}) {
+    return Skeletonizer(
+      enabled: isLoading,
+      child: Form(
+        key: _formKey,
+        child: Column(
+          children: [
+            const AddNewMoneyTransferBlocListener(),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    AppTextFormField(
+                      controller: _supplierNameController,
+                      hintText: LocaleKeys.add_money_transfer_supplier_name_hint
+                          .tr(),
+                      title: LocaleKeys.add_money_transfer_supplier_name.tr(),
+                      titleColor: AppColors.darkText,
+                      validator: (value) {
+                        if (value == null || value.trim().isEmpty) {
+                          return LocaleKeys
+                              .add_money_transfer_supplier_name_hint
+                              .tr();
+                        }
+                        return null;
+                      },
+                      keyboardType: TextInputType.name,
+                    ),
+                    verticalSpace(AppSizes.h16),
+                    AppTextFormField(
+                      controller: _supplierAddressController,
+                      hintText: LocaleKeys
+                          .add_money_transfer_supplier_address_hint
+                          .tr(),
+                      title: LocaleKeys.add_money_transfer_supplier_address
+                          .tr(),
+                      titleColor: AppColors.darkText,
+                      validator: (value) {
+                        if (value == null || value.trim().isEmpty) {
+                          return LocaleKeys
+                              .add_money_transfer_supplier_address_hint
+                              .tr();
+                        }
+                        return null;
+                      },
+                      keyboardType: TextInputType.streetAddress,
+                    ),
+                    verticalSpace(AppSizes.h16),
+                    PhoneFormField(
+                      controller: _supplierPhoneController,
+                      title: LocaleKeys.add_money_transfer_supplier_phone.tr(),
+                      hintText: LocaleKeys
+                          .add_money_transfer_supplier_phone_hint
+                          .tr(),
+                      onCountryChanged: (code) => _phoneCode = code,
+                    ),
+                    verticalSpace(AppSizes.h16),
+                    const AddNewMoneyTransferInvoiceImageField(),
+                    verticalSpace(AppSizes.h16),
+                    AppTextFormField(
+                      controller: _invoiceValueController,
+                      hintText: LocaleKeys.add_money_transfer_invoice_value_hint
+                          .tr(),
+                      title: LocaleKeys.add_money_transfer_invoice_value.tr(),
+                      titleColor: AppColors.darkText,
+                      validator: (value) {
+                        if (value == null || value.trim().isEmpty) {
+                          return LocaleKeys.amount_required.tr();
+                        }
+                        return null;
+                      },
+                      keyboardType: TextInputType.number,
+                    ),
+                    verticalSpace(AppSizes.h16),
+                    const AddNewMoneyTransferInvoiceCurrencyField(),
+                    verticalSpace(AppSizes.h16),
+                    const AddNewMoneyTransferPaymentCurrencyField(),
+                    verticalSpace(AppSizes.h16),
+                    const AddNewMoneyTransferExchangeRateWarning(),
+                    verticalSpace(AppSizes.h16),
+                    AppTextFormField(
+                      isRequired: false,
+                      controller: _notesController,
+                      hintText: LocaleKeys.add_money_transfer_notes_hint.tr(),
+                      title: LocaleKeys.add_money_transfer_notes.tr(),
+                      titleColor: AppColors.darkText,
+                      validator: (value) => null,
+                      maxLines: 4,
+                      keyboardType: TextInputType.multiline,
+                    ),
+                  ],
                 ),
-                verticalSpace(AppSizes.h16),
-                AppTextFormField(
-                  isRequired: false,
-                  hintText: LocaleKeys.add_money_transfer_supplier_address_hint
-                      .tr(),
-                  title: LocaleKeys.add_money_transfer_supplier_address.tr(),
-                  titleColor: AppColors.darkText,
-                  validator: (value) {},
-                  keyboardType: TextInputType.streetAddress,
-                ),
-                verticalSpace(AppSizes.h16),
-                PhoneFormField(
-                  title: LocaleKeys.add_money_transfer_supplier_phone.tr(),
-                  hintText: LocaleKeys.add_money_transfer_supplier_phone_hint
-                      .tr(),
-                ),
-                verticalSpace(AppSizes.h16),
-                AppTextFormField(
-                  hintText: LocaleKeys.add_money_transfer_invoice_upload_hint
-                      .tr(),
-                  validator: (value) {},
-                  title: LocaleKeys.add_money_transfer_invoice.tr(),
-                  suffixIcon:
-                      SvgPicture.asset(
-                        AppAssets.svgPaperclip,
-                        width: AppSizes.w20,
-                        height: AppSizes.h20,
-                        colorFilter: const ColorFilter.mode(
-                          AppColors.hintColor,
-                          BlendMode.srcIn,
-                        ),
-                      ).withPadding(
-                        vertical: AppSizes.h12,
-                        horizontal: AppSizes.w12,
-                      ),
-                ),
-                verticalSpace(AppSizes.h16),
-                AppTextFormField(
-                  isRequired: false,
-                  hintText: LocaleKeys.add_money_transfer_invoice_value_hint
-                      .tr(),
-                  title: LocaleKeys.add_money_transfer_invoice_value.tr(),
-                  titleColor: AppColors.darkText,
-                  validator: (value) {},
-                  keyboardType: TextInputType.number,
-                ),
-                verticalSpace(AppSizes.h16),
-                const AddNewMoneyTransferInvoiceCurrencyField(),
-                verticalSpace(AppSizes.h16),
-                const AddNewMoneyTransferPaymentCurrencyField(),
-                verticalSpace(AppSizes.h16),
-                const AddNewMoneyTransferExchangeRateWarning(),
-                verticalSpace(AppSizes.h16),
-                AppTextFormField(
-                  isRequired: false,
-                  hintText: LocaleKeys.add_money_transfer_notes_hint.tr(),
-                  title: LocaleKeys.add_money_transfer_notes.tr(),
-                  titleColor: AppColors.darkText,
-                  validator: (value) {},
-                  maxLines: 4,
-                  keyboardType: TextInputType.multiline,
-                ),
-              ],
+              ),
             ),
-          ),
+            verticalSpace(AppSizes.h16),
+            AddNewMoneyTransferSubmitButton(onPressed: _submit),
+            verticalSpace(AppSizes.h8),
+          ],
         ),
-        verticalSpace(AppSizes.h16),
-        const AddNewMoneyTransferSubmitButton(),
-        verticalSpace(AppSizes.h8),
-      ],
+      ),
     );
   }
 }

@@ -17,7 +17,7 @@ abstract class MoneyTransfersRepo {
   getMoneyTransferCurrencies();
 
   Future<Result<MessageModel>> addMoneyTransfer({
-    File? invoiceImages,
+    List<File>? invoiceImages,
     String? invoiceValue,
     String? paymentCurrencyId,
     String? currencyId,
