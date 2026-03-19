@@ -48,4 +48,7 @@ class ApiConstants {
   static const String deliveryRequestsOrders = 'user/delivery-requests-orders';
   static const String deliveryRequestsDetails =
       'user/delivery-requests-details';
+
+  // Tickets
+  static const String allTickets = 'user/tickets/all-tickets';
 }

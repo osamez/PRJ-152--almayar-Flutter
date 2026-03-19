@@ -10,6 +10,7 @@ import 'package:almeyar/features/profile/di/profile_di.dart';
 import 'package:almeyar/features/purchase_orders/di/purchase_orders_di.dart';
 import 'package:almeyar/features/shipment_tracking/di/shipment_tracking_di.dart';
 import 'package:almeyar/features/delivery_requests/di/delivery_requests_di.dart';
+import 'package:almeyar/features/tickets/di/tickets_di.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
@@ -26,6 +27,7 @@ Future<void> setupDependencyInjection() async {
   setupProfileDI();
   setupPurchaseOrdersDI();
   setupDeliveryRequestsDI();
+  setupTicketsDI();
 }
 
 Future<void> _initCoreDependencies() async {
