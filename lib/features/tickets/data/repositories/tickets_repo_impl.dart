@@ -5,6 +5,7 @@ import 'package:almeyar/features/tickets/data/datasources/tickets_datasource.dar
 import 'package:almeyar/features/tickets/data/models/create_ticket_request.dart';
 import 'package:almeyar/features/tickets/data/models/ticket_model.dart';
 import 'package:almeyar/features/tickets/data/models/ticket_replies_response_data_model.dart';
+import 'package:almeyar/features/tickets/data/models/ticket_system_model.dart';
 import 'package:almeyar/features/tickets/data/models/tickets_response_data_model.dart';
 import 'dart:io';
 import 'tickets_repo.dart';
@@ -85,6 +86,18 @@ class TicketsRepoImpl implements TicketsRepo {
       return Result.success(response);
     } catch (e, stackTrace) {
       AppLogger.error('TicketsRepoImpl - replyTicket: Error', e, stackTrace);
+      return Result.failure(e, stackTrace);
+    }
+  }
+
+  @override
+  Future<Result<BaseResponse<List<TicketSystemModel>>>> getTicketSystems() async {
+    try {
+      final response = await _dataSource.getTicketSystems();
+      AppLogger.info('TicketsRepoImpl - getTicketSystems: Success');
+      return Result.success(response);
+    } catch (e, stackTrace) {
+      AppLogger.error('TicketsRepoImpl - getTicketSystems: Error', e, stackTrace);
       return Result.failure(e, stackTrace);
     }
   }

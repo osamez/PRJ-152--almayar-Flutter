@@ -2,6 +2,7 @@ import 'package:almeyar/core/models/base_response.dart';
 import 'package:almeyar/core/network/api_constants.dart';
 import 'package:almeyar/features/tickets/data/models/ticket_model.dart';
 import 'package:almeyar/features/tickets/data/models/ticket_replies_response_data_model.dart';
+import 'package:almeyar/features/tickets/data/models/ticket_system_model.dart';
 import 'package:almeyar/features/tickets/data/models/tickets_response_data_model.dart';
 
 import 'package:dio/dio.dart';
@@ -47,4 +48,7 @@ abstract class TicketsApiService {
   );
   @GET(ApiConstants.ticketPriorities)
   Future<BaseResponse<List<TicketPriorityModel>>> getTicketPriorities();
+
+  @GET(ApiConstants.ticketSystems)
+  Future<BaseResponse<List<TicketSystemModel>>> getTicketSystems();
 }

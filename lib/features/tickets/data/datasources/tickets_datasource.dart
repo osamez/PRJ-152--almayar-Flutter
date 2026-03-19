@@ -3,6 +3,7 @@ import 'package:almeyar/core/models/base_response.dart';
 import 'package:almeyar/features/tickets/data/models/create_ticket_request.dart';
 import 'package:almeyar/features/tickets/data/models/ticket_model.dart';
 import 'package:almeyar/features/tickets/data/models/ticket_replies_response_data_model.dart';
+import 'package:almeyar/features/tickets/data/models/ticket_system_model.dart';
 import 'package:almeyar/features/tickets/data/models/tickets_response_data_model.dart';
 
 abstract class TicketsDataSource {
@@ -19,4 +20,5 @@ abstract class TicketsDataSource {
     String? description,
     List<File>? files,
   });
+  Future<BaseResponse<List<TicketSystemModel>>> getTicketSystems();
 }

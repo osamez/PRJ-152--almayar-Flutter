@@ -4,6 +4,7 @@ import 'package:almeyar/features/tickets/data/datasources/tickets_datasource.dar
 import 'package:almeyar/features/tickets/data/models/create_ticket_request.dart';
 import 'package:almeyar/features/tickets/data/models/ticket_model.dart';
 import 'package:almeyar/features/tickets/data/models/ticket_replies_response_data_model.dart';
+import 'package:almeyar/features/tickets/data/models/ticket_system_model.dart';
 import 'package:almeyar/features/tickets/data/models/tickets_response_data_model.dart';
 import 'package:dio/dio.dart';
 import 'dart:io';
@@ -72,5 +73,10 @@ class TicketsDataSourceImpl implements TicketsDataSource {
       description: description,
       files: multipartFiles,
     );
+  }
+
+  @override
+  Future<BaseResponse<List<TicketSystemModel>>> getTicketSystems() async {
+    return await _apiService.getTicketSystems();
   }
 }
