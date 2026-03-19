@@ -31,4 +31,12 @@ abstract class TicketsApiService {
   Future<BaseResponse<TicketModel>> getTicketDetails(
     @Query('ticket_id') int ticketId,
   );
+
+  @POST(ApiConstants.replyTicket)
+  @MultiPart()
+  Future<BaseResponse<TicketReplyModel>> replyTicket({
+    @Part(name: 'description') String? description,
+    @Part(name: 'ticket_id') String? ticketId,
+    @Part(name: 'file[]') List<MultipartFile>? files,
+  });
 }

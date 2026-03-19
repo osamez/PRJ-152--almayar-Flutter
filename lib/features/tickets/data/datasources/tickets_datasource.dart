@@ -11,4 +11,9 @@ abstract class TicketsDataSource {
     List<File>? files,
   });
   Future<BaseResponse<TicketModel>> getTicketDetails(int ticketId);
+  Future<BaseResponse<TicketReplyModel>> replyTicket({
+    required String ticketId,
+    String? description,
+    List<File>? files,
+  });
 }

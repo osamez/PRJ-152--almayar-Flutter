@@ -45,5 +45,26 @@ class TicketsDataSourceImpl implements TicketsDataSource {
   Future<BaseResponse<TicketModel>> getTicketDetails(int ticketId) async {
     return await _apiService.getTicketDetails(ticketId);
   }
+
+  @override
+  Future<BaseResponse<TicketReplyModel>> replyTicket({
+    required String ticketId,
+    String? description,
+    List<File>? files,
+  }) async {
+    List<MultipartFile>? multipartFiles;
+    if (files != null) {
+      multipartFiles = [];
+      for (var file in files) {
+        multipartFiles.add(await MultipartFile.fromFile(file.path));
+      }
+    }
+
+    return await _apiService.replyTicket(
+      ticketId: ticketId,
+      description: description,
+      files: multipartFiles,
+    );
+  }
 }
 

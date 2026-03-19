@@ -54,5 +54,25 @@ class TicketsRepoImpl implements TicketsRepo {
       return Result.failure(e, stackTrace);
     }
   }
+
+  @override
+  Future<Result<BaseResponse<TicketReplyModel>>> replyTicket({
+    required String ticketId,
+    String? description,
+    List<File>? files,
+  }) async {
+    try {
+      final response = await _dataSource.replyTicket(
+        ticketId: ticketId,
+        description: description,
+        files: files,
+      );
+      AppLogger.info('TicketsRepoImpl - replyTicket: Success');
+      return Result.success(response);
+    } catch (e, stackTrace) {
+      AppLogger.error('TicketsRepoImpl - replyTicket: Error', e, stackTrace);
+      return Result.failure(e, stackTrace);
+    }
+  }
 }
 

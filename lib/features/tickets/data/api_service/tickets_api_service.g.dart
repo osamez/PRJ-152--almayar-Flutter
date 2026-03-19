@@ -145,6 +145,55 @@ class _TicketsApiService implements TicketsApiService {
     return _value;
   }
 
+  @override
+  Future<BaseResponse<TicketReplyModel>> replyTicket({
+    String? description,
+    String? ticketId,
+    List<MultipartFile>? files,
+  }) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
+    final _data = FormData();
+    if (description != null) {
+      _data.fields.add(MapEntry('description', description));
+    }
+    if (ticketId != null) {
+      _data.fields.add(MapEntry('ticket_id', ticketId));
+    }
+    if (files != null) {
+      _data.files.addAll(files.map((i) => MapEntry('file[]', i)));
+    }
+    final _options = _setStreamType<BaseResponse<TicketReplyModel>>(
+      Options(
+            method: 'POST',
+            headers: _headers,
+            extra: _extra,
+            contentType: 'multipart/form-data',
+          )
+          .compose(
+            _dio.options,
+            'user/tickets/reply',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late BaseResponse<TicketReplyModel> _value;
+    try {
+      _value = BaseResponse<TicketReplyModel>.fromJson(
+        _result.data!,
+        (json) => TicketReplyModel.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options, response: _result);
+      rethrow;
+    }
+    return _value;
+  }
+
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
         !(requestOptions.responseType == ResponseType.bytes ||

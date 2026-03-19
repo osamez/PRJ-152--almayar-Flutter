@@ -12,5 +12,10 @@ abstract class TicketsRepo {
     List<File>? files,
   });
   Future<Result<BaseResponse<TicketModel>>> getTicketDetails(int ticketId);
+  Future<Result<BaseResponse<TicketReplyModel>>> replyTicket({
+    required String ticketId,
+    String? description,
+    List<File>? files,
+  });
 }
 
