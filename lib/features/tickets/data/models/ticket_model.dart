@@ -24,6 +24,7 @@ class TicketModel {
   final String? createdAt;
   @JsonKey(name: 'updated_at')
   final String? updatedAt;
+  final List<TicketReplyModel>? replies;
 
   const TicketModel({
     this.id,
@@ -39,12 +40,42 @@ class TicketModel {
     this.file,
     this.createdAt,
     this.updatedAt,
+    this.replies,
   });
 
   factory TicketModel.fromJson(Map<String, dynamic> json) =>
       _$TicketModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$TicketModelToJson(this);
+}
+
+@JsonSerializable()
+class TicketReplyModel {
+  final int? id;
+  @JsonKey(name: 'ticket_id')
+  final int? ticketId;
+  final String? from;
+  @JsonKey(name: 'send_name')
+  final String? sendName;
+  final String? description;
+  final String? file;
+  @JsonKey(name: 'created_at')
+  final String? createdAt;
+
+  const TicketReplyModel({
+    this.id,
+    this.ticketId,
+    this.from,
+    this.sendName,
+    this.description,
+    this.file,
+    this.createdAt,
+  });
+
+  factory TicketReplyModel.fromJson(Map<String, dynamic> json) =>
+      _$TicketReplyModelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$TicketReplyModelToJson(this);
 }
 
 @JsonSerializable()

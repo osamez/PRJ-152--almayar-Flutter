@@ -24,6 +24,9 @@ TicketModel _$TicketModelFromJson(Map<String, dynamic> json) => TicketModel(
   file: json['file'] as String?,
   createdAt: json['created_at'] as String?,
   updatedAt: json['updated_at'] as String?,
+  replies: (json['replies'] as List<dynamic>?)
+      ?.map((e) => TicketReplyModel.fromJson(e as Map<String, dynamic>))
+      .toList(),
 );
 
 Map<String, dynamic> _$TicketModelToJson(TicketModel instance) =>
@@ -41,6 +44,29 @@ Map<String, dynamic> _$TicketModelToJson(TicketModel instance) =>
       'file': instance.file,
       'created_at': instance.createdAt,
       'updated_at': instance.updatedAt,
+      'replies': instance.replies,
+    };
+
+TicketReplyModel _$TicketReplyModelFromJson(Map<String, dynamic> json) =>
+    TicketReplyModel(
+      id: (json['id'] as num?)?.toInt(),
+      ticketId: (json['ticket_id'] as num?)?.toInt(),
+      from: json['from'] as String?,
+      sendName: json['send_name'] as String?,
+      description: json['description'] as String?,
+      file: json['file'] as String?,
+      createdAt: json['created_at'] as String?,
+    );
+
+Map<String, dynamic> _$TicketReplyModelToJson(TicketReplyModel instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'ticket_id': instance.ticketId,
+      'from': instance.from,
+      'send_name': instance.sendName,
+      'description': instance.description,
+      'file': instance.file,
+      'created_at': instance.createdAt,
     };
 
 TicketStatusModel _$TicketStatusModelFromJson(Map<String, dynamic> json) =>

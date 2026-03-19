@@ -10,4 +10,5 @@ abstract class TicketsDataSource {
     required CreateTicketRequest request,
     List<File>? files,
   });
+  Future<BaseResponse<TicketModel>> getTicketDetails(int ticketId);
 }

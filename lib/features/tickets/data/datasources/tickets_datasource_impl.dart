@@ -40,5 +40,10 @@ class TicketsDataSourceImpl implements TicketsDataSource {
       files: multipartFiles,
     );
   }
+
+  @override
+  Future<BaseResponse<TicketModel>> getTicketDetails(int ticketId) async {
+    return await _apiService.getTicketDetails(ticketId);
+  }
 }
 

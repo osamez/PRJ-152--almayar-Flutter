@@ -42,5 +42,17 @@ class TicketsRepoImpl implements TicketsRepo {
       return Result.failure(e, stackTrace);
     }
   }
+
+  @override
+  Future<Result<BaseResponse<TicketModel>>> getTicketDetails(int ticketId) async {
+    try {
+      final response = await _dataSource.getTicketDetails(ticketId);
+      AppLogger.info('TicketsRepoImpl - getTicketDetails: Success');
+      return Result.success(response);
+    } catch (e, stackTrace) {
+      AppLogger.error('TicketsRepoImpl - getTicketDetails: Error', e, stackTrace);
+      return Result.failure(e, stackTrace);
+    }
+  }
 }
 

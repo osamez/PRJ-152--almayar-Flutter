@@ -26,4 +26,9 @@ abstract class TicketsApiService {
     @Part(name: 'shipment_code') String? shipmentCode,
     @Part(name: 'file[]') List<MultipartFile>? files,
   });
+
+  @GET(ApiConstants.showTicket)
+  Future<BaseResponse<TicketModel>> getTicketDetails(
+    @Query('ticket_id') int ticketId,
+  );
 }

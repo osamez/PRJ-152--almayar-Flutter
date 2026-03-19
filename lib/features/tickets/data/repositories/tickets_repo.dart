@@ -11,5 +11,6 @@ abstract class TicketsRepo {
     required CreateTicketRequest request,
     List<File>? files,
   });
+  Future<Result<BaseResponse<TicketModel>>> getTicketDetails(int ticketId);
 }
 
