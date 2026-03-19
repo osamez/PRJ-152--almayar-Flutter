@@ -11,7 +11,7 @@ class DepositRequestStatusChip extends StatelessWidget {
         vertical: AppSizes.h6,
       ),
       decoration: BoxDecoration(
-        color: const Color(0xff4B7DDC).withValues(alpha: 0.32),
+        color: AppColors.lightViolet.withValues(alpha: 0.32),
         borderRadius: BorderRadius.circular(AppSizes.radiusXl),
       ),
       child: Row(

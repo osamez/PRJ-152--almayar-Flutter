@@ -2,7 +2,6 @@ import 'package:almeyar/core/utils/exports.dart';
 import 'package:almeyar/core/widgets/custom_icon_rounded_box.dart';
 import 'package:almeyar/core/widgets/details_info_row.dart';
 import 'package:almeyar/core/widgets/details_info_section.dart';
-import 'package:almeyar/core/widgets/status_badge.dart';
 import 'package:almeyar/features/shipment_tracking/presentation/feature_imports.dart';
 import 'package:almeyar/features/wallets/presentation/cubit/confirm_transfer_cubit.dart';
 import 'package:pinput/pinput.dart';
@@ -42,6 +41,7 @@ part 'widgets/deposit_requests/deposit_request_card.dart';
 part 'widgets/deposit_requests/deposit_request_status_chip.dart';
 part 'widgets/deposit_requests/deposit_request_info_grid.dart';
 part 'widgets/deposit_requests/deposit_request_info_box.dart';
+part 'widgets/deposit_requests/create_deposit_request_bottom_sheet.dart';
 
 // Widgets - confirm transfer bottom sheet
 part 'widgets/wallet_money_transfer/confirm_transfer_bottom_sheet.dart';

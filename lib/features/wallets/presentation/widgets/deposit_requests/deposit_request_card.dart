@@ -19,7 +19,7 @@ class DepositRequestCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(AppSizes.radiusMd),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xffC0C0C0).withValues(alpha: 0.15),
+            color: AppColors.shadow1.withValues(alpha: 0.8),
             blurRadius: 10,
             offset: const Offset(0, 2.77),
           ),
@@ -27,7 +27,7 @@ class DepositRequestCard extends StatelessWidget {
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Row(
             textDirection: TextDirection.ltr,
@@ -41,10 +41,7 @@ class DepositRequestCard extends StatelessWidget {
                 ),
               ),
               const Spacer(),
-              StatusBadge(
-                label: LocaleKeys.deposit_requests_status_new.tr(),
-                color: const Color(0xff4B7DDC),
-              ),
+              const DepositRequestStatusChip(),
             ],
           ),
           verticalSpace(AppSizes.h12),

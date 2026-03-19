@@ -7,7 +7,7 @@ class CreateDepositRequestButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppElevatedButton(
       text: LocaleKeys.deposit_requests_create_request.tr(),
-      onPressed: () {},
+      onPressed: () => CreateDepositRequestBottomSheet.show(context),
       radius: AppSizes.radiusMd,
       height: AppSizes.h56,
       backgroundColor: AppColors.orange,

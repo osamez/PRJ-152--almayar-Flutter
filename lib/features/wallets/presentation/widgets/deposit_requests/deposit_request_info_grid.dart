@@ -11,6 +11,7 @@ class DepositRequestInfoGrid extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Row(
+          textDirection: TextDirection.ltr,
           children: [
             Expanded(
               child: DepositRequestInfoBox(
@@ -49,7 +50,25 @@ class DepositRequestInfoGrid extends StatelessWidget {
         ),
         verticalSpace(AppSizes.h12),
         Row(
+          textDirection: TextDirection.ltr,
           children: [
+            Expanded(
+              child: DepositRequestInfoBox(
+                title: LocaleKeys.deposit_requests_processed_by.tr(),
+                content: Text(
+                  LocaleKeys.deposit_requests_sample_processed_by.tr(),
+                  textAlign: TextAlign.center,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: AppTextStyleFactory.create(
+                    size: 12,
+                    weight: FontWeight.w600,
+                    color: AppColors.lightHeadingText,
+                  ),
+                ),
+              ),
+            ),
+            horizontalSpace(AppSizes.w12),
             Expanded(
               child: DepositRequestInfoBox(
                 title: LocaleKeys.deposit_requests_transfer_proof.tr(),
@@ -64,24 +83,6 @@ class DepositRequestInfoGrid extends StatelessWidget {
                       weight: FontWeight.w700,
                       color: AppColors.lightViolet,
                     ).copyWith(decoration: TextDecoration.underline),
-                  ),
-                ),
-              ),
-            ),
-            horizontalSpace(AppSizes.w12),
-
-            Expanded(
-              child: DepositRequestInfoBox(
-                title: LocaleKeys.deposit_requests_processed_by.tr(),
-                content: Text(
-                  LocaleKeys.deposit_requests_sample_processed_by.tr(),
-                  textAlign: TextAlign.center,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: AppTextStyleFactory.create(
-                    size: 12,
-                    weight: FontWeight.w600,
-                    color: AppColors.lightHeadingText,
                   ),
                 ),
               ),
