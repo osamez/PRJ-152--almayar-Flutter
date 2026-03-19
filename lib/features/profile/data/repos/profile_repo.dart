@@ -35,4 +35,10 @@ abstract class ProfileRepo {
   Future<Result<MessageModel>> logout();
 
   Future<Result<MessageResponse>> updatePassword(UpdatePasswordRequest request);
+
+  Future<Result<BaseResponse<String>>> getPrivacyPolicy();
+
+  Future<Result<BaseResponse<String>>> getAboutApp();
+
+  Future<Result<BaseResponse<String>>> getTermsAndConditions();
 }

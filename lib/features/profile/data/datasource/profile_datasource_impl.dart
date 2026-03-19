@@ -75,4 +75,19 @@ class ProfileDataSourceImpl implements ProfileDataSource {
   Future<MessageResponse> updatePassword(UpdatePasswordRequest request) async {
     return await _apiService.updatePassword(request);
   }
+
+  @override
+  Future<BaseResponse<String>> getPrivacyPolicy() async {
+    return await _apiService.getPrivacyPolicy();
+  }
+
+  @override
+  Future<BaseResponse<String>> getAboutApp() async {
+    return await _apiService.getAboutApp();
+  }
+
+  @override
+  Future<BaseResponse<String>> getTermsAndConditions() async {
+    return await _apiService.getTermsAndConditions();
+  }
 }

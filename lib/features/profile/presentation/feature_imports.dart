@@ -51,7 +51,7 @@ import 'package:almeyar/features/profile/presentation/cubits/profile/profile_cub
 part 'views/profile_view.dart';
 part 'views/edit_profile_view.dart';
 part 'views/change_password_view.dart';
-part 'views/terms_and_conditions_view.dart';
+part 'views/app_info_view.dart';
 part 'views/gift_cards_view.dart';
 part 'cubits/gift_cards/gift_cards_cubit.dart';
 part 'cubits/gift_cards/gift_cards_state.dart';
@@ -77,7 +77,7 @@ part 'widgets/edit_profile/edit_profile_delete_account_bloc_listener.dart';
 part 'widgets/change_password/change_password_view_body.dart';
 part 'widgets/change_password/change_password_save_button.dart';
 part 'widgets/change_password/change_password_bloc_listener.dart';
-part 'widgets/terms_and_conditions/terms_and_conditions_view_body.dart';
+part 'widgets/app_info/app_info_view_body.dart';
 part 'widgets/gift_cards/gift_cards_view_body.dart';
 part 'widgets/gift_cards/gift_cards_list_view.dart';
 part 'widgets/gift_cards/gift_card_item.dart';

@@ -1,7 +1,7 @@
 part of '../../feature_imports.dart';
 
-class TermsAndConditionsViewBody extends StatelessWidget {
-  const TermsAndConditionsViewBody({super.key});
+class AppInfoViewBody extends StatelessWidget {
+  const AppInfoViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {

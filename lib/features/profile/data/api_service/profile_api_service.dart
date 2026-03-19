@@ -50,4 +50,13 @@ abstract class ProfileApiService {
 
   @POST(ApiConstants.updatePassword)
   Future<MessageResponse> updatePassword(@Body() UpdatePasswordRequest request);
+
+  @GET(ApiConstants.privacyPolicy)
+  Future<BaseResponse<String>> getPrivacyPolicy();
+
+  @GET(ApiConstants.aboutApp)
+  Future<BaseResponse<String>> getAboutApp();
+
+  @GET(ApiConstants.termsAndConditions)
+  Future<BaseResponse<String>> getTermsAndConditions();
 }

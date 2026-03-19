@@ -193,7 +193,7 @@ final router = GoRouter(
     GoRoute(
       path: Routes.termsAndConditions,
       name: Routes.termsAndConditions,
-      builder: (context, state) => const TermsAndConditionsView(),
+      builder: (context, state) => const AppInfoView(),
     ),
     GoRoute(
       path: Routes.giftCards,

@@ -120,4 +120,40 @@ class ProfileRepoImpl implements ProfileRepo {
       return Result.failure(e, st);
     }
   }
+
+  @override
+  Future<Result<BaseResponse<String>>> getPrivacyPolicy() async {
+    try {
+      final response = await _dataSource.getPrivacyPolicy();
+      AppLogger.info('ProfileRepoImpl - getPrivacyPolicy: Success');
+      return Result.success(response);
+    } catch (e, st) {
+      AppLogger.error('ProfileRepoImpl - getPrivacyPolicy: Error', e, st);
+      return Result.failure(e, st);
+    }
+  }
+
+  @override
+  Future<Result<BaseResponse<String>>> getAboutApp() async {
+    try {
+      final response = await _dataSource.getAboutApp();
+      AppLogger.info('ProfileRepoImpl - getAboutApp: Success');
+      return Result.success(response);
+    } catch (e, st) {
+      AppLogger.error('ProfileRepoImpl - getAboutApp: Error', e, st);
+      return Result.failure(e, st);
+    }
+  }
+
+  @override
+  Future<Result<BaseResponse<String>>> getTermsAndConditions() async {
+    try {
+      final response = await _dataSource.getTermsAndConditions();
+      AppLogger.info('ProfileRepoImpl - getTermsAndConditions: Success');
+      return Result.success(response);
+    } catch (e, st) {
+      AppLogger.error('ProfileRepoImpl - getTermsAndConditions: Error', e, st);
+      return Result.failure(e, st);
+    }
+  }
 }

@@ -35,4 +35,10 @@ abstract class ProfileDataSource {
   Future<MessageModel> logout();
 
   Future<MessageResponse> updatePassword(UpdatePasswordRequest request);
+
+  Future<BaseResponse<String>> getPrivacyPolicy();
+
+  Future<BaseResponse<String>> getAboutApp();
+
+  Future<BaseResponse<String>> getTermsAndConditions();
 }
