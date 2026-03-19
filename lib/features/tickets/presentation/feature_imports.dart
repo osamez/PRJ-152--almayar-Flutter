@@ -1,13 +1,29 @@
 import 'package:almeyar/core/utils/exports.dart';
+import 'package:almeyar/core/helpers/app_snack_bar.dart';
+import 'package:almeyar/core/network/api_error_model.dart';
+import 'package:almeyar/core/network/local_status_codes.dart';
+import 'package:almeyar/core/utils/async.dart';
+import 'package:almeyar/core/widgets/custom_error_widget.dart';
+import 'package:almeyar/core/widgets/internet_connection_widget.dart';
 import 'package:almeyar/core/widgets/status_badge.dart';
+import 'package:almeyar/core/services/internet_service.dart';
 import 'package:almeyar/features/shipment_tracking/presentation/feature_imports.dart';
-import 'package:almeyar/features/tickets/presentation/cubit/tickets_cubit.dart';
+
+import 'package:almeyar/features/tickets/data/models/ticket_model.dart';
+import 'package:almeyar/features/tickets/data/models/tickets_response_data_model.dart';
+import 'package:almeyar/features/tickets/data/repositories/tickets_repo.dart';
+
+// Cubits
+part 'cubits/tickets/tickets_cubit.dart';
+part 'cubits/tickets/tickets_state.dart';
 
 part 'views/support_tickets_view.dart';
 part 'widgets/support_tickets/support_tickets_view_body.dart';
 part 'widgets/support_tickets/support_tickets_tab_bar.dart';
 part 'widgets/support_tickets/support_tickets_tab_item.dart';
 part 'widgets/support_tickets/support_tickets_add_button.dart';
+part 'widgets/support_tickets/support_tickets_bloc_listener.dart';
+part 'widgets/support_tickets/support_tickets_list_bloc_builder.dart';
 part 'widgets/support_tickets/support_tickets_list.dart';
 part 'widgets/support_tickets/support_ticket_card.dart';
 part 'widgets/support_tickets/support_ticket_card_info.dart';
