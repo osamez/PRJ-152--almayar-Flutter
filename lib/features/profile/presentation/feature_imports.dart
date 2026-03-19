@@ -9,10 +9,12 @@ import 'package:almeyar/core/utils/async.dart';
 import 'package:almeyar/core/network/api_error_model.dart';
 import 'package:almeyar/core/network/local_status_codes.dart';
 import 'package:almeyar/core/services/internet_service.dart';
+import 'package:almeyar/features/profile/data/models/profile_model.dart';
 import 'package:almeyar/features/profile/data/repos/profile_repo.dart';
 import 'package:almeyar/features/profile/data/models/gift_card_model.dart';
 import 'package:almeyar/core/widgets/internet_connection_widget.dart';
 import 'package:almeyar/core/widgets/custom_error_widget.dart';
+import 'package:almeyar/features/profile/presentation/cubits/profile/profile_cubit.dart';
 
 part 'views/profile_view.dart';
 part 'views/edit_profile_view.dart';
@@ -24,6 +26,8 @@ part 'cubits/gift_cards/gift_cards_state.dart';
 part 'widgets/profile/profile_view_body.dart';
 part 'widgets/profile/profile_avatar_section.dart';
 part 'widgets/profile/profile_menu_item.dart';
+part 'widgets/profile/profile_error_widget.dart';
+
 part 'widgets/edit_profile/edit_profile_view_body.dart';
 part 'widgets/edit_profile/edit_profile_avatar_section.dart';
 part 'widgets/edit_profile/edit_profile_info_card.dart';

@@ -78,11 +78,16 @@ Map<String, dynamic> _$UserModelToJson(UserModel instance) => <String, dynamic>{
   'created_at': instance.createdAt,
 };
 
-PhoneModel _$PhoneModelFromJson(Map<String, dynamic> json) =>
-    PhoneModel(key: json['key'] as String?, number: json['number'] as num?);
+PhoneModel _$PhoneModelFromJson(Map<String, dynamic> json) => PhoneModel(
+  key: json['key'] as String?,
+  number: const NullableStringConverter().fromJson(json['number']),
+);
 
 Map<String, dynamic> _$PhoneModelToJson(PhoneModel instance) =>
-    <String, dynamic>{'key': instance.key, 'number': instance.number};
+    <String, dynamic>{
+      'key': instance.key,
+      'number': const NullableStringConverter().toJson(instance.number),
+    };
 
 BranchModel _$BranchModelFromJson(Map<String, dynamic> json) => BranchModel(
   id: (json['id'] as num?)?.toInt(),
