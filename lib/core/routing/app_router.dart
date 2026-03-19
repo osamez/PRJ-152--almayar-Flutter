@@ -193,17 +193,20 @@ final router = GoRouter(
     GoRoute(
       path: Routes.termsAndConditions,
       name: Routes.termsAndConditions,
-      builder: (context, state) => const AppInfoView(type: AppInfoType.termsAndConditions),
+      builder: (context, state) =>
+          const AppInfoView(type: AppInfoType.termsAndConditions),
     ),
     GoRoute(
       path: Routes.privacyPolicy,
       name: Routes.privacyPolicy,
-      builder: (context, state) => const AppInfoView(type: AppInfoType.privacyPolicy),
+      builder: (context, state) =>
+          const AppInfoView(type: AppInfoType.privacyPolicy),
     ),
     GoRoute(
       path: Routes.aboutApp,
       name: Routes.aboutApp,
-      builder: (context, state) => const AppInfoView(type: AppInfoType.aboutApp),
+      builder: (context, state) =>
+          const AppInfoView(type: AppInfoType.aboutApp),
     ),
     GoRoute(
       path: Routes.giftCards,
@@ -239,6 +242,11 @@ final router = GoRouter(
       path: Routes.accountStatement,
       name: Routes.accountStatement,
       builder: (context, state) => const AccountStatementView(),
+    ),
+    GoRoute(
+      path: Routes.depositRequests,
+      name: Routes.depositRequests,
+      builder: (context, state) => const DepositRequestsView(),
     ),
     GoRoute(
       path: Routes.prohibited,

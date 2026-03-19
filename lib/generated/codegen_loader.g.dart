@@ -535,6 +535,18 @@ class CodegenLoader extends AssetLoader{
   "delete_account_confirm_title": "حذف الحساب",
   "delete_account_confirm_desc": "هل أنت متأكد أنك تريد حذف الحساب؟ سيتم مسح كافة بياناتك نهائياً.",
   "delete_account": "حذف الحساب",
+  "deposit_requests_title": "طلبات الإيداع",
+  "deposit_requests_create_request": "إنشاء طلب إيداع",
+  "deposit_requests_status_new": "جديد",
+  "deposit_requests_transfer_type": "نوع التحويل",
+  "deposit_requests_transfer_type_lypay": "LY Pay",
+  "deposit_requests_created_at": "تاريخ الإنشاء",
+  "deposit_requests_processed_by": "معالجة بواسطة",
+  "deposit_requests_transfer_proof": "إثبات التحويل",
+  "deposit_requests_view": "عرض",
+  "deposit_requests_sample_amount": "1000 دينار ليبي",
+  "deposit_requests_sample_created_at": "12-12-2026 11:30",
+  "deposit_requests_sample_processed_by": "أسامة المرعي",
   "cancel": "إلغاء"
 };
 static const Map<String,dynamic> _en = {
@@ -1057,6 +1069,18 @@ static const Map<String,dynamic> _en = {
   "delete_account_confirm_title": "Delete Account",
   "delete_account_confirm_desc": "Are you sure you want to delete your account? All your data will be permanently removed.",
   "delete_account": "Delete Account",
+  "deposit_requests_title": "Deposit Requests",
+  "deposit_requests_create_request": "Create Deposit Request",
+  "deposit_requests_status_new": "New",
+  "deposit_requests_transfer_type": "Transfer Type",
+  "deposit_requests_transfer_type_lypay": "LY Pay",
+  "deposit_requests_created_at": "Created At",
+  "deposit_requests_processed_by": "Processed By",
+  "deposit_requests_transfer_proof": "Transfer Proof",
+  "deposit_requests_view": "View",
+  "deposit_requests_sample_amount": "1000 LYD",
+  "deposit_requests_sample_created_at": "12-12-2026 11:30",
+  "deposit_requests_sample_processed_by": "Osama Al-Merai",
   "cancel": "Cancel"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};

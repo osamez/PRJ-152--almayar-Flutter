@@ -523,6 +523,18 @@ abstract class  LocaleKeys {
   static const delete_account_confirm_title = 'delete_account_confirm_title';
   static const delete_account_confirm_desc = 'delete_account_confirm_desc';
   static const delete_account = 'delete_account';
+  static const deposit_requests_title = 'deposit_requests_title';
+  static const deposit_requests_create_request = 'deposit_requests_create_request';
+  static const deposit_requests_status_new = 'deposit_requests_status_new';
+  static const deposit_requests_transfer_type = 'deposit_requests_transfer_type';
+  static const deposit_requests_transfer_type_lypay = 'deposit_requests_transfer_type_lypay';
+  static const deposit_requests_created_at = 'deposit_requests_created_at';
+  static const deposit_requests_processed_by = 'deposit_requests_processed_by';
+  static const deposit_requests_transfer_proof = 'deposit_requests_transfer_proof';
+  static const deposit_requests_view = 'deposit_requests_view';
+  static const deposit_requests_sample_amount = 'deposit_requests_sample_amount';
+  static const deposit_requests_sample_created_at = 'deposit_requests_sample_created_at';
+  static const deposit_requests_sample_processed_by = 'deposit_requests_sample_processed_by';
   static const cancel = 'cancel';
 
 }
