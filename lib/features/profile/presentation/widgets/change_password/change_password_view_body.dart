@@ -38,6 +38,7 @@ class _ChangePasswordViewBodyState extends State<ChangePasswordViewBody> {
             key: _formKey,
             child: Column(
               children: [
+                const ChangePasswordBlocListener(),
                 verticalSpace(AppSizes.h20),
                 PasswordTextFormField(
                   title: LocaleKeys.change_password_current.tr(),
@@ -83,11 +84,21 @@ class _ChangePasswordViewBodyState extends State<ChangePasswordViewBody> {
                   isRequired: true,
                 ),
                 verticalSpace(AppSizes.h30),
-                ChangePasswordSaveButton(
-                  onPressed: () {
-                    if (_formKey.currentState?.validate() ?? false) {
-                      // TODO: implement change password logic
-                    }
+                BlocBuilder<ChangePasswordCubit, ChangePasswordState>(
+                  builder: (context, state) {
+                    return ChangePasswordSaveButton(
+                      isLoading: state.changePasswordState.isLoading,
+                      onPressed: () {
+                        if (_formKey.currentState?.validate() ?? false) {
+                          context.read<ChangePasswordCubit>().updatePassword(
+                            currentPassword: _currentPasswordController.text,
+                            password: _newPasswordController.text,
+                            passwordConfirmation:
+                                _confirmPasswordController.text,
+                          );
+                        }
+                      },
+                    );
                   },
                 ),
               ],

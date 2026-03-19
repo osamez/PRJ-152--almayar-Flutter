@@ -39,4 +39,7 @@ void setupProfileDI() {
       profileRepo: getIt<ProfileRepo>(),
     ),
   );
+  getIt.registerFactory<ChangePasswordCubit>(
+    () => ChangePasswordCubit(getIt<ProfileRepo>(), getIt<InternetService>()),
+  );
 }

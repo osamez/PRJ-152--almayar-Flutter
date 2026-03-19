@@ -26,6 +26,10 @@ import 'package:almeyar/features/profile/data/models/gift_card_model.dart';
 export 'package:almeyar/features/profile/data/models/gift_card_model.dart';
 import 'package:almeyar/core/models/message_model.dart';
 export 'package:almeyar/core/models/message_model.dart';
+import 'package:almeyar/core/models/message_response.dart';
+export 'package:almeyar/core/models/message_response.dart';
+import 'package:almeyar/features/profile/data/models/update_password_request.dart';
+export 'package:almeyar/features/profile/data/models/update_password_request.dart';
 
 // Repositories
 import 'package:almeyar/features/profile/data/repos/profile_repo.dart';
@@ -53,6 +57,8 @@ part 'cubits/gift_cards/gift_cards_cubit.dart';
 part 'cubits/gift_cards/gift_cards_state.dart';
 part 'cubits/update_profile/update_profile_cubit.dart';
 part 'cubits/update_profile/update_profile_state.dart';
+part 'cubits/change_password/change_password_cubit.dart';
+part 'cubits/change_password/change_password_state.dart';
 part 'widgets/profile/profile_view_body.dart';
 part 'widgets/profile/profile_avatar_section.dart';
 part 'widgets/profile/profile_menu_item.dart';
@@ -70,6 +76,7 @@ part 'widgets/edit_profile/edit_profile_update_bloc_listener.dart';
 part 'widgets/edit_profile/edit_profile_delete_account_bloc_listener.dart';
 part 'widgets/change_password/change_password_view_body.dart';
 part 'widgets/change_password/change_password_save_button.dart';
+part 'widgets/change_password/change_password_bloc_listener.dart';
 part 'widgets/terms_and_conditions/terms_and_conditions_view_body.dart';
 part 'widgets/gift_cards/gift_cards_view_body.dart';
 part 'widgets/gift_cards/gift_cards_list_view.dart';
