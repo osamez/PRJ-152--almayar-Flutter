@@ -60,13 +60,17 @@ class ProfileViewBody extends StatelessWidget {
               ProfileMenuItem(
                 iconPath: AppAssets.svgKeyhole,
                 label: LocaleKeys.profile_privacy_policy.tr(),
-                onTap: () {},
+                onTap: () {
+                  context.push(Routes.privacyPolicy);
+                },
               ),
               verticalSpace(AppSizes.h12),
               ProfileMenuItem(
                 iconPath: AppAssets.svgInfo,
                 label: LocaleKeys.profile_about_app.tr(),
-                onTap: () {},
+                onTap: () {
+                  context.push(Routes.aboutApp);
+                },
               ),
               verticalSpace(AppSizes.h12),
               ProfileMenuItem(

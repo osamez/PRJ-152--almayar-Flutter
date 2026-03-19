@@ -11,6 +11,8 @@ import 'package:almeyar/core/widgets/status_badge.dart';
 import 'package:almeyar/core/utils/async.dart';
 import 'package:almeyar/core/network/api_error_model.dart';
 import 'package:almeyar/core/network/local_status_codes.dart';
+import 'package:almeyar/core/models/base_response.dart';
+import 'package:almeyar/core/network/result.dart';
 import 'dart:io';
 
 // Core Services
@@ -59,6 +61,8 @@ part 'cubits/update_profile/update_profile_cubit.dart';
 part 'cubits/update_profile/update_profile_state.dart';
 part 'cubits/change_password/change_password_cubit.dart';
 part 'cubits/change_password/change_password_state.dart';
+part 'cubits/app_info/app_info_cubit.dart';
+part 'cubits/app_info/app_info_state.dart';
 part 'widgets/profile/profile_view_body.dart';
 part 'widgets/profile/profile_avatar_section.dart';
 part 'widgets/profile/profile_menu_item.dart';
