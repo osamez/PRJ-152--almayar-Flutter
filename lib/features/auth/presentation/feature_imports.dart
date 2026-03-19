@@ -1,5 +1,7 @@
+export 'package:almeyar/core/widgets/phone_form_field.dart';
 import 'dart:io';
 
+import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
 import 'package:almeyar/core/di/dependency_injection.dart';
@@ -10,7 +12,10 @@ import 'package:almeyar/core/utils/prefs_keys.dart';
 import 'package:almeyar/core/utils/loading_dialog.dart';
 import 'package:almeyar/core/widgets/password_text_form_field.dart';
 import 'package:almeyar/core/services/image_picker_service.dart';
+// Removed unused results import
+import 'package:almeyar/core/widgets/phone_form_field.dart';
 import 'package:almeyar/features/auth/data/models/login_request.dart';
+// Removed unused repo import
 import 'package:almeyar/features/auth/presentation/cubit/auth/auth_cubit.dart';
 import 'package:almeyar/features/auth/presentation/cubit/register/register_cubit.dart';
 import 'package:almeyar/features/auth/presentation/cubit/otp/otp_cubit.dart';
@@ -19,8 +24,7 @@ import 'package:almeyar/features/auth/data/models/reset_password_request.dart';
 import 'package:almeyar/features/onboarding/presentation/feature_imports.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:almeyar/features/auth/data/models/send_otp_request.dart';
-import 'package:almeyar/core/helpers/helper_func.dart';
-import 'package:country_code_picker/country_code_picker.dart';
+// Removed unused picker import
 import 'package:pinput/pinput.dart';
 import 'package:almeyar/features/auth/data/models/country_locations_response.dart';
 import 'package:almeyar/core/widgets/custom_dropdowon_search_list.dart';
@@ -37,7 +41,6 @@ part 'widgets/register/register_step_indicator.dart';
 part 'widgets/register/register_form.dart';
 part 'widgets/register/register_step_content.dart';
 part 'widgets/register/register_next_button.dart';
-part '../../../core/widgets/phone_form_field.dart';
 part 'widgets/register/register_first_step.dart';
 part 'widgets/register/register_second_step.dart';
 part 'widgets/register/register_third_step.dart';

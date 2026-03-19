@@ -22,9 +22,21 @@ void setupProfileDI() {
   getIt.registerLazySingleton<ProfileRepo>(() => ProfileRepoImpl(getIt()));
 
   // Cubits
-  getIt.registerFactory<GiftCardsCubit>(() => GiftCardsCubit(getIt(), getIt()));
+  getIt.registerFactory<GiftCardsCubit>(
+    () => GiftCardsCubit(getIt<ProfileRepo>(), getIt<InternetService>()),
+  );
 
   getIt.registerFactory<ProfileCubit>(
-    () => ProfileCubit(internetService: getIt(), profileRepo: getIt()),
+    () => ProfileCubit(
+      internetService: getIt<InternetService>(),
+      profileRepo: getIt<ProfileRepo>(),
+    ),
+  );
+
+  getIt.registerFactory<UpdateProfileCubit>(
+    () => UpdateProfileCubit(
+      internetService: getIt<InternetService>(),
+      profileRepo: getIt<ProfileRepo>(),
+    ),
   );
 }

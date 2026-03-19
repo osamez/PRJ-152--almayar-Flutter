@@ -529,8 +529,13 @@ class CodegenLoader extends AssetLoader{
   "go_to_login": "الذهاب لتسجيل الدخول",
   "shipments_no_branches_found": "لم يتم العثور على أي عناوين شحن",
   "shipment_pickup_requests_no_requests": "لم يتم العثور على أي طلبات إستلام شحنات",
-  "no_data": "لا يوجد بيانات لعرضها"
-  "shipment_pickup_requests_no_requests": "لم يتم العثور على أي طلبات إستلام شحنات"
+  "no_data": "لا يوجد بيانات لعرضها",
+  "logout_confirm_title": "تسجيل الخروج",
+  "logout_confirm_desc": "هل أنت متأكد أنك تريد تسجيل الخروج من التطبيق؟",
+  "delete_account_confirm_title": "حذف الحساب",
+  "delete_account_confirm_desc": "هل أنت متأكد أنك تريد حذف الحساب؟ سيتم مسح كافة بياناتك نهائياً.",
+  "delete_account": "حذف الحساب",
+  "cancel": "إلغاء"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -1047,8 +1052,12 @@ static const Map<String,dynamic> _en = {
   "generic_error": "Something went wrong, please try again",
   "gift_cards_empty_state": "No gift cards found",
   "added_successfully": "Added successfully",
-  "no_data": "No data found"
-  "added_successfully": "Added successfully"
+  "logout_confirm_title": "Logout",
+  "logout_confirm_desc": "Are you sure you want to logout from the app?",
+  "delete_account_confirm_title": "Delete Account",
+  "delete_account_confirm_desc": "Are you sure you want to delete your account? All your data will be permanently removed.",
+  "delete_account": "Delete Account",
+  "cancel": "Cancel"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

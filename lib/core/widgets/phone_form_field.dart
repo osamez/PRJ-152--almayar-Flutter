@@ -1,4 +1,13 @@
-part of '../../features/auth/presentation/feature_imports.dart';
+import 'package:country_code_picker/country_code_picker.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/material.dart';
+import 'package:almeyar/core/theme/app_colors.dart';
+import 'package:almeyar/core/theme/app_text_style_factory.dart';
+import 'package:almeyar/core/utils/app_sizes.dart';
+import 'package:almeyar/core/helpers/spacing.dart';
+import 'package:almeyar/core/widgets/app_text_form_field.dart';
+import 'package:almeyar/core/helpers/helper_func.dart';
+import 'package:almeyar/generated/locale_keys.g.dart';
 
 class PhoneFormField extends StatefulWidget {
   const PhoneFormField({
@@ -9,6 +18,7 @@ class PhoneFormField extends StatefulWidget {
     this.validator,
     this.onCountryChanged,
     this.onChanged,
+    this.initialCountryCode,
   });
 
   final String title;
@@ -17,14 +27,29 @@ class PhoneFormField extends StatefulWidget {
   final String? Function(String?, String)? validator;
   final void Function(String)? onCountryChanged;
   final void Function(String)? onChanged;
+  final String? initialCountryCode;
 
   @override
   State<PhoneFormField> createState() => _PhoneFormFieldState();
 }
 
 class _PhoneFormFieldState extends State<PhoneFormField> {
-  String _countryCode = '+218'; // Default SA code
+  late String _countryCode;
   bool _hasError = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _countryCode = widget.initialCountryCode ?? '+218';
+  }
+
+  @override
+  void didUpdateWidget(covariant PhoneFormField oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.initialCountryCode != oldWidget.initialCountryCode) {
+      _countryCode = widget.initialCountryCode ?? '+218';
+    }
+  }
 
   void _updateErrorState(bool hasError) {
     if (_hasError != hasError) {
@@ -110,15 +135,16 @@ class _PhoneFormFieldState extends State<PhoneFormField> {
                 ),
               ),
               child: CountryCodePicker(
+                key: ValueKey(widget.initialCountryCode),
                 onChanged: (country) {
                   setState(() {
-                    _countryCode = country.dialCode ?? '+966';
+                    _countryCode = country.dialCode ?? '+218';
                   });
                   if (widget.onCountryChanged != null) {
                     widget.onCountryChanged!(_countryCode);
                   }
                 },
-                initialSelection: 'LY',
+                initialSelection: widget.initialCountryCode ?? 'LY',
                 // favorite: ['+39', 'FR'],
                 showCountryOnly: false,
                 padding: EdgeInsets.zero,
@@ -142,7 +168,7 @@ class _PhoneFormFieldState extends State<PhoneFormField> {
                       // ),
                       // horizontalSpace(AppSizes.w12),
                       Text(
-                        countryCode!.dialCode ?? '',
+                        '\u200E${countryCode!.dialCode ?? ''}',
                         style: AppTextStyleFactory.create(
                           size: 14,
                           weight: FontWeight.w400,

@@ -108,6 +108,8 @@ class AppAssets {
 
   static const String svgNotification = "assets/svg/notification.svg";
 
+  static const String svgNotify = "assets/svg/notify.svg";
+
   static const String svgOnboardingLogo = "assets/svg/onboarding_logo.svg";
 
   static const String svgPaperclip = "assets/svg/paperclip.svg";

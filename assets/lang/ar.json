@@ -516,6 +516,9 @@
   "no_data": "لا يوجد بيانات لعرضها",
   "logout_confirm_title": "تسجيل الخروج",
   "logout_confirm_desc": "هل أنت متأكد أنك تريد تسجيل الخروج من التطبيق؟",
+  "delete_account_confirm_title": "حذف الحساب",
+  "delete_account_confirm_desc": "هل أنت متأكد أنك تريد حذف الحساب؟ سيتم مسح كافة بياناتك نهائياً.",
+  "delete_account": "حذف الحساب",
   "cancel": "إلغاء"
 }
 

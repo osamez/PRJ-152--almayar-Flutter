@@ -18,14 +18,14 @@ import 'package:almeyar/core/helpers/app_snack_bar.dart';
 import 'package:almeyar/core/widgets/custom_dropdowon_search_list.dart';
 import 'package:almeyar/core/services/image_picker_service.dart';
 import 'package:file_picker/file_picker.dart';
-import 'package:almeyar/features/auth/presentation/feature_imports.dart';
 import 'package:almeyar/core/network/result.dart';
-import 'package:almeyar/core/models/app_branch_model.dart';
+import 'package:almeyar/core/widgets/phone_form_field.dart';
+import 'package:almeyar/features/pickup_request/data/repositories/pickup_request_repo.dart';
 import 'package:almeyar/core/models/shipment_category_model.dart';
 import 'package:almeyar/core/models/shipment_content_model.dart';
+import 'package:almeyar/core/models/app_branch_model.dart';
 import 'package:almeyar/features/pickup_request/data/models/shipment_request_model.dart';
 import 'package:almeyar/features/pickup_request/data/models/add_shipment_request_response_model.dart';
-import 'package:almeyar/features/pickup_request/data/repositories/pickup_request_repo.dart';
 import 'package:dio/dio.dart';
 
 import '../../../core/widgets/pickup_card.dart';

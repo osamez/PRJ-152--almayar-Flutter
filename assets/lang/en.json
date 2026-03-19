@@ -531,6 +531,9 @@
   "added_successfully": "Added successfully",
   "logout_confirm_title": "Logout",
   "logout_confirm_desc": "Are you sure you want to logout from the app?",
+  "delete_account_confirm_title": "Delete Account",
+  "delete_account_confirm_desc": "Are you sure you want to delete your account? All your data will be permanently removed.",
+  "delete_account": "Delete Account",
   "cancel": "Cancel"
 }
 

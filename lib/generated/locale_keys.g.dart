@@ -520,6 +520,9 @@ abstract class  LocaleKeys {
   static const no_data = 'no_data';
   static const logout_confirm_title = 'logout_confirm_title';
   static const logout_confirm_desc = 'logout_confirm_desc';
+  static const delete_account_confirm_title = 'delete_account_confirm_title';
+  static const delete_account_confirm_desc = 'delete_account_confirm_desc';
+  static const delete_account = 'delete_account';
   static const cancel = 'cancel';
-}
 
+}
