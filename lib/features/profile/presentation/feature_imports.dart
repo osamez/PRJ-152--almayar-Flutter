@@ -1,4 +1,7 @@
+import 'package:almeyar/core/helpers/app_snack_bar.dart';
+import 'package:almeyar/core/utils/app_logger.dart';
 import 'package:almeyar/core/utils/exports.dart';
+import 'package:almeyar/core/utils/loading_dialog.dart';
 import 'package:almeyar/core/widgets/custom_icon_rounded_box.dart';
 import 'package:almeyar/core/widgets/custom_rounder_arrow.dart';
 import 'package:almeyar/core/widgets/details_info_row.dart';
@@ -27,6 +30,8 @@ part 'widgets/profile/profile_view_body.dart';
 part 'widgets/profile/profile_avatar_section.dart';
 part 'widgets/profile/profile_menu_item.dart';
 part 'widgets/profile/profile_error_widget.dart';
+part 'widgets/profile/profile_logout_bloc_listener.dart';
+part 'widgets/profile/logout_dialog_content.dart';
 
 part 'widgets/edit_profile/edit_profile_view_body.dart';
 part 'widgets/edit_profile/edit_profile_avatar_section.dart';

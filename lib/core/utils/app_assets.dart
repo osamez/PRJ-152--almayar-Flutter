@@ -98,6 +98,8 @@ class AppAssets {
 
   static const String svgKeyhole = "assets/svg/keyhole.svg";
 
+  static const String svgLogout = "assets/svg/logout.svg";
+
   static const String svgMapPinArea = "assets/svg/map-pin-area.svg";
 
   static const String svgMoney = "assets/svg/money.svg";

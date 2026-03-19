@@ -513,5 +513,9 @@
   "go_to_login": "الذهاب لتسجيل الدخول",
   "shipments_no_branches_found": "لم يتم العثور على أي عناوين شحن",
   "shipment_pickup_requests_no_requests": "لم يتم العثور على أي طلبات إستلام شحنات",
-  "no_data": "لا يوجد بيانات لعرضها"
+  "no_data": "لا يوجد بيانات لعرضها",
+  "logout_confirm_title": "تسجيل الخروج",
+  "logout_confirm_desc": "هل أنت متأكد أنك تريد تسجيل الخروج من التطبيق؟",
+  "cancel": "إلغاء"
 }
+

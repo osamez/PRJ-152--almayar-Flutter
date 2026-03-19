@@ -518,5 +518,8 @@ abstract class  LocaleKeys {
   static const shipments_no_branches_found = 'shipments_no_branches_found';
   static const shipment_pickup_requests_no_requests = 'shipment_pickup_requests_no_requests';
   static const no_data = 'no_data';
-
+  static const logout_confirm_title = 'logout_confirm_title';
+  static const logout_confirm_desc = 'logout_confirm_desc';
+  static const cancel = 'cancel';
 }
+

@@ -224,7 +224,7 @@ class _ProfileApiService implements ProfileApiService {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'user/auth/auth/logout',
+            'user/auth/logout',
             queryParameters: queryParameters,
             data: _data,
           )
