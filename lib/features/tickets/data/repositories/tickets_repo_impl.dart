@@ -2,7 +2,10 @@ import 'package:almeyar/core/models/base_response.dart';
 import 'package:almeyar/core/network/result.dart';
 import 'package:almeyar/core/utils/app_logger.dart';
 import 'package:almeyar/features/tickets/data/datasources/tickets_datasource.dart';
+import 'package:almeyar/features/tickets/data/models/create_ticket_request.dart';
+import 'package:almeyar/features/tickets/data/models/ticket_model.dart';
 import 'package:almeyar/features/tickets/data/models/tickets_response_data_model.dart';
+import 'dart:io';
 import 'tickets_repo.dart';
 
 class TicketsRepoImpl implements TicketsRepo {
@@ -21,4 +24,23 @@ class TicketsRepoImpl implements TicketsRepo {
       return Result.failure(e, stackTrace);
     }
   }
+
+  @override
+  Future<Result<BaseResponse<TicketModel>>> createTicket({
+    required CreateTicketRequest request,
+    List<File>? files,
+  }) async {
+    try {
+      final response = await _dataSource.createTicket(
+        request: request,
+        files: files,
+      );
+      AppLogger.info('TicketsRepoImpl - createTicket: Success');
+      return Result.success(response);
+    } catch (e, stackTrace) {
+      AppLogger.error('TicketsRepoImpl - createTicket: Error', e, stackTrace);
+      return Result.failure(e, stackTrace);
+    }
+  }
 }
+

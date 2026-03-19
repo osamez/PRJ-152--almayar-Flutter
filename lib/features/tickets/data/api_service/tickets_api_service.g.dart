@@ -50,6 +50,71 @@ class _TicketsApiService implements TicketsApiService {
     return _value;
   }
 
+  @override
+  Future<BaseResponse<TicketModel>> createTicket({
+    String? title,
+    String? description,
+    String? fromSystem,
+    String? toSystem,
+    String? priority,
+    String? shipmentCode,
+    List<MultipartFile>? files,
+  }) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
+    final _data = FormData();
+    if (title != null) {
+      _data.fields.add(MapEntry('title', title));
+    }
+    if (description != null) {
+      _data.fields.add(MapEntry('description', description));
+    }
+    if (fromSystem != null) {
+      _data.fields.add(MapEntry('from_system', fromSystem));
+    }
+    if (toSystem != null) {
+      _data.fields.add(MapEntry('to_system', toSystem));
+    }
+    if (priority != null) {
+      _data.fields.add(MapEntry('priority', priority));
+    }
+    if (shipmentCode != null) {
+      _data.fields.add(MapEntry('shipment_code', shipmentCode));
+    }
+    if (files != null) {
+      _data.files.addAll(files.map((i) => MapEntry('file[]', i)));
+    }
+    final _options = _setStreamType<BaseResponse<TicketModel>>(
+      Options(
+            method: 'POST',
+            headers: _headers,
+            extra: _extra,
+            contentType: 'multipart/form-data',
+          )
+          .compose(
+            _dio.options,
+            'user/tickets/create',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late BaseResponse<TicketModel> _value;
+    try {
+      _value = BaseResponse<TicketModel>.fromJson(
+        _result.data!,
+        (json) => TicketModel.fromJson(json as Map<String, dynamic>),
+      );
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options, response: _result);
+      rethrow;
+    }
+    return _value;
+  }
+
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
         !(requestOptions.responseType == ResponseType.bytes ||
