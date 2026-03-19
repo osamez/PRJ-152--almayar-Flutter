@@ -20,9 +20,13 @@ class _TicketsApiService implements TicketsApiService {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<BaseResponse<TicketsResponseDataModel>> getAllTickets() async {
+  Future<BaseResponse<TicketsResponseDataModel>> getAllTickets({
+    int? status,
+    int? page,
+  }) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'status': status, r'page': page};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<BaseResponse<TicketsResponseDataModel>>(

@@ -15,7 +15,10 @@ abstract class TicketsApiService {
   factory TicketsApiService(Dio dio, {String baseUrl}) = _TicketsApiService;
 
   @GET(ApiConstants.allTickets)
-  Future<BaseResponse<TicketsResponseDataModel>> getAllTickets();
+  Future<BaseResponse<TicketsResponseDataModel>> getAllTickets({
+    @Query('status') int? status,
+    @Query('page') int? page,
+  });
 
   @POST(ApiConstants.createTicket)
   @MultiPart()

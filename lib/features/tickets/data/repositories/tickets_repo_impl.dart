@@ -16,9 +16,15 @@ class TicketsRepoImpl implements TicketsRepo {
   const TicketsRepoImpl(this._dataSource);
 
   @override
-  Future<Result<BaseResponse<TicketsResponseDataModel>>> getAllTickets() async {
+  Future<Result<BaseResponse<TicketsResponseDataModel>>> getAllTickets({
+    int? status,
+    int? page,
+  }) async {
     try {
-      final response = await _dataSource.getAllTickets();
+      final response = await _dataSource.getAllTickets(
+        status: status,
+        page: page,
+      );
       AppLogger.info('TicketsRepoImpl - getAllTickets: Success');
       return Result.success(response);
     } catch (e, stackTrace) {

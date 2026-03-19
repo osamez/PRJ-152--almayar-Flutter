@@ -8,7 +8,10 @@ import 'package:almeyar/features/tickets/data/models/tickets_response_data_model
 import 'dart:io';
 
 abstract class TicketsRepo {
-  Future<Result<BaseResponse<TicketsResponseDataModel>>> getAllTickets();
+  Future<Result<BaseResponse<TicketsResponseDataModel>>> getAllTickets({
+    int? status,
+    int? page,
+  });
   Future<Result<BaseResponse<TicketModel>>> createTicket({
     required CreateTicketRequest request,
     List<File>? files,

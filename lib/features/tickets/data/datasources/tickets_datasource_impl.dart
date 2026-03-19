@@ -15,8 +15,14 @@ class TicketsDataSourceImpl implements TicketsDataSource {
   const TicketsDataSourceImpl(this._apiService);
 
   @override
-  Future<BaseResponse<TicketsResponseDataModel>> getAllTickets() async {
-    return await _apiService.getAllTickets();
+  Future<BaseResponse<TicketsResponseDataModel>> getAllTickets({
+    int? status,
+    int? page,
+  }) async {
+    return await _apiService.getAllTickets(
+      status: status,
+      page: page,
+    );
   }
 
   @override

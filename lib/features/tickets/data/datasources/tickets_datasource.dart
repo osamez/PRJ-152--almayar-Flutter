@@ -7,7 +7,10 @@ import 'package:almeyar/features/tickets/data/models/ticket_system_model.dart';
 import 'package:almeyar/features/tickets/data/models/tickets_response_data_model.dart';
 
 abstract class TicketsDataSource {
-  Future<BaseResponse<TicketsResponseDataModel>> getAllTickets();
+  Future<BaseResponse<TicketsResponseDataModel>> getAllTickets({
+    int? status,
+    int? page,
+  });
   Future<BaseResponse<TicketModel>> createTicket({
     required CreateTicketRequest request,
     List<File>? files,
