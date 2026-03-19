@@ -45,4 +45,6 @@ abstract class TicketsApiService {
   Future<BaseResponse<TicketRepliesResponseDataModel>> getTicketReplies(
     @Query('ticket_id') int ticketId,
   );
+  @GET(ApiConstants.ticketPriorities)
+  Future<BaseResponse<List<TicketPriorityModel>>> getTicketPriorities();
 }
