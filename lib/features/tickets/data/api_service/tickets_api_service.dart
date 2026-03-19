@@ -1,6 +1,7 @@
 import 'package:almeyar/core/models/base_response.dart';
 import 'package:almeyar/core/network/api_constants.dart';
 import 'package:almeyar/features/tickets/data/models/ticket_model.dart';
+import 'package:almeyar/features/tickets/data/models/ticket_replies_response_data_model.dart';
 import 'package:almeyar/features/tickets/data/models/tickets_response_data_model.dart';
 
 import 'package:dio/dio.dart';
@@ -39,4 +40,9 @@ abstract class TicketsApiService {
     @Part(name: 'ticket_id') String? ticketId,
     @Part(name: 'file[]') List<MultipartFile>? files,
   });
+
+  @GET(ApiConstants.ticketReplies)
+  Future<BaseResponse<TicketRepliesResponseDataModel>> getTicketReplies(
+    @Query('ticket_id') int ticketId,
+  );
 }

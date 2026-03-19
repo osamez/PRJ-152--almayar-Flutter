@@ -4,6 +4,7 @@ import 'package:almeyar/core/utils/app_logger.dart';
 import 'package:almeyar/features/tickets/data/datasources/tickets_datasource.dart';
 import 'package:almeyar/features/tickets/data/models/create_ticket_request.dart';
 import 'package:almeyar/features/tickets/data/models/ticket_model.dart';
+import 'package:almeyar/features/tickets/data/models/ticket_replies_response_data_model.dart';
 import 'package:almeyar/features/tickets/data/models/tickets_response_data_model.dart';
 import 'dart:io';
 import 'tickets_repo.dart';
@@ -56,6 +57,19 @@ class TicketsRepoImpl implements TicketsRepo {
   }
 
   @override
+  Future<Result<BaseResponse<TicketRepliesResponseDataModel>>>
+      getTicketReplies(int ticketId) async {
+    try {
+      final response = await _dataSource.getTicketReplies(ticketId);
+      AppLogger.info('TicketsRepoImpl - getTicketReplies: Success');
+      return Result.success(response);
+    } catch (e, stackTrace) {
+      AppLogger.error('TicketsRepoImpl - getTicketReplies: Error', e, stackTrace);
+      return Result.failure(e, stackTrace);
+    }
+  }
+
+  @override
   Future<Result<BaseResponse<TicketReplyModel>>> replyTicket({
     required String ticketId,
     String? description,
@@ -75,4 +89,3 @@ class TicketsRepoImpl implements TicketsRepo {
     }
   }
 }
-
