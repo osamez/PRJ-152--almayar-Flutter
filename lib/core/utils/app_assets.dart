@@ -98,6 +98,8 @@ class AppAssets {
 
   static const String svgKeyhole = "assets/svg/keyhole.svg";
 
+  static const String svgLogout = "assets/svg/logout.svg";
+
   static const String svgMapPinArea = "assets/svg/map-pin-area.svg";
 
   static const String svgMoney = "assets/svg/money.svg";
@@ -105,6 +107,8 @@ class AppAssets {
   static const String svgMoneyWavy = "assets/svg/money-wavy.svg";
 
   static const String svgNotification = "assets/svg/notification.svg";
+
+  static const String svgNotify = "assets/svg/notify.svg";
 
   static const String svgOnboardingLogo = "assets/svg/onboarding_logo.svg";
 

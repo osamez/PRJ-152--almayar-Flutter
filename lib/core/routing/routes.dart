@@ -31,6 +31,8 @@ class Routes {
   static const String editProfile = '/edit-profile';
   static const String changePassword = '/change-password';
   static const String termsAndConditions = '/terms-and-conditions';
+  static const String privacyPolicy = '/privacy-policy';
+  static const String aboutApp = '/about-app';
   static const String giftCards = '/gift-cards';
   static const String supportTickets = '/support-tickets';
   static const String addNewTicket = '/add-new-ticket';

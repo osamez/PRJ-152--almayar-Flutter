@@ -112,18 +112,19 @@ class _MoneyTransfersApiService implements MoneyTransfersApiService {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = FormData();
-    if (invoiceImages != null)
-      invoiceImages.forEach((i) {
-        _data.files.add(
-          MapEntry(
+    if (invoiceImages != null) {
+      _data.files.addAll(
+        invoiceImages.map(
+          (i) => MapEntry(
             'invoice_images[]',
             MultipartFile.fromFileSync(
               i.path,
               filename: i.path.split(Platform.pathSeparator).last,
             ),
           ),
-        );
-      });
+        ),
+      );
+    }
     if (invoiceValue != null) {
       _data.fields.add(MapEntry('invoice_value', invoiceValue));
     }

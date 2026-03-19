@@ -1,7 +1,8 @@
 part of '../../feature_imports.dart';
 
 class EditProfileSaveButton extends StatelessWidget {
-  const EditProfileSaveButton({super.key});
+  final VoidCallback? onPressed;
+  const EditProfileSaveButton({super.key, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -9,9 +10,7 @@ class EditProfileSaveButton extends StatelessWidget {
       text: LocaleKeys.edit_profile_save_data.tr(),
       backgroundColor: AppColors.orange,
       radius: AppSizes.radiusSm,
-      onPressed: () {
-        // TODO: implement save logic
-      },
+      onPressed: onPressed,
     );
   }
 }

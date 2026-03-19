@@ -1,3 +1,4 @@
+import 'package:almeyar/core/helpers/helper_func.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'login_response.g.dart';
@@ -81,7 +82,8 @@ class UserModel {
 @JsonSerializable()
 class PhoneModel {
   final String? key;
-  final num? number;
+  @NullableStringConverter()
+  final String? number;
 
   const PhoneModel({this.key, this.number});
 

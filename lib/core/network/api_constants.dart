@@ -26,6 +26,14 @@ class ApiConstants {
 
   // Profile
   static const String giftCards = 'user/gift-cards';
+  static const String profile = 'user/profile';
+  static const String updateProfile = 'user/auth/update-profile';
+  static const String deleteAccount = 'user/auth/delete-account';
+  static const String logout = 'user/auth/logout';
+  static const String updatePassword = 'user/auth/update-password';
+  static const String privacyPolicy = 'user/privacy-policy';
+  static const String aboutApp = 'user/about-app';
+  static const String termsAndConditions = 'user/terms-and-conditions';
 
   // Purchase Orders
   static const String purchaseRequests = 'user/my-purchase-requests';
@@ -38,5 +46,6 @@ class ApiConstants {
   static const String addMoneyTransfer = 'user/add-money-transfer';
   static const String moneyTransferCurrencies = 'user/currencies';
   static const String deliveryRequestsOrders = 'user/delivery-requests-orders';
-  static const String deliveryRequestsDetails = 'user/delivery-requests-details';
+  static const String deliveryRequestsDetails =
+      'user/delivery-requests-details';
 }
