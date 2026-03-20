@@ -1,6 +1,7 @@
 import 'package:almeyar/core/utils/exports.dart';
 import 'package:almeyar/core/widgets/custom_dropdowon_search_list.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:almeyar/core/helpers/app_snack_bar.dart';
 import 'package:almeyar/core/network/api_error_model.dart';
 import 'package:almeyar/core/network/local_status_codes.dart';
@@ -26,6 +27,8 @@ import 'dart:io';
 // Cubits
 part 'cubits/tickets/tickets_cubit.dart';
 part 'cubits/tickets/tickets_state.dart';
+part 'cubits/tickets/ticket_details_cubit.dart';
+part 'cubits/tickets/ticket_details_state.dart';
 part 'cubits/add_new_ticket/add_new_ticket_cubit.dart';
 part 'cubits/add_new_ticket/add_new_ticket_state.dart';
 
@@ -57,6 +60,8 @@ part 'views/ticket_details_view.dart';
 
 // Widgets - ticket_details
 part 'widgets/ticket_details/ticket_details_view_body.dart';
+part 'widgets/ticket_details/ticket_details_bloc_listener.dart';
+part 'widgets/ticket_details/ticket_details_header.dart';
 part 'widgets/ticket_details/ticket_details_info_section.dart';
 part 'widgets/ticket_details/ticket_details_info_row.dart';
 part 'widgets/ticket_details/ticket_details_description_card.dart';

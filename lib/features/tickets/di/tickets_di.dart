@@ -25,4 +25,8 @@ void setupTicketsDI() {
   getIt.registerFactory<AddNewTicketCubit>(
     () => AddNewTicketCubit(getIt<TicketsRepo>(), getIt<InternetService>()),
   );
+
+  getIt.registerFactory<TicketDetailsCubit>(
+    () => TicketDetailsCubit(getIt<TicketsRepo>(), getIt<InternetService>()),
+  );
 }

@@ -58,6 +58,7 @@ class _SupportTicketsListState extends State<SupportTicketsList> {
               LocaleKeys.support_tickets_priority_high.tr();
 
           return SupportTicketCard(
+            ticketId: ticket.id ?? 0,
             title:
                 ticket.title ??
                 LocaleKeys.support_tickets_very_late_shipment.tr(),

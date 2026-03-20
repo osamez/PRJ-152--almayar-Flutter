@@ -3,6 +3,7 @@ part of '../../feature_imports.dart';
 class SupportTicketCard extends StatelessWidget {
   const SupportTicketCard({
     super.key,
+    required this.ticketId,
     required this.title,
     required this.date,
     required this.referenceCode,
@@ -12,6 +13,7 @@ class SupportTicketCard extends StatelessWidget {
     required this.priorityColor,
   });
 
+  final int ticketId;
   final String title;
   final String date;
   final String referenceCode;
@@ -37,7 +39,7 @@ class SupportTicketCard extends StatelessWidget {
         ),
         child: CustomInkWellWidget(
           onTap: () {
-            context.pushNamed(Routes.ticketDetails);
+            context.pushNamed(Routes.ticketDetails, extra: ticketId);
           },
           radius: AppSizes.radiusMd,
           padding: EdgeInsets.symmetric(
