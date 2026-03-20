@@ -1,7 +1,9 @@
 part of '../feature_imports.dart';
 
 class AccountStatementView extends StatelessWidget {
-  const AccountStatementView({super.key});
+  const AccountStatementView({super.key, required this.wallet});
+
+  final WalletModel wallet;
 
   @override
   Widget build(BuildContext context) {

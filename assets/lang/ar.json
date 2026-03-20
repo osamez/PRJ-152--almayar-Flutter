@@ -520,8 +520,7 @@
   "delete_account_confirm_title": "حذف الحساب",
   "delete_account_confirm_desc": "هل أنت متأكد أنك تريد حذف الحساب؟ سيتم مسح كافة بياناتك نهائياً.",
   "delete_account": "حذف الحساب",
-  "cancel": "إلغاء",
-  "fieldRequired": "هذا الحقل مطلوب"
+  "fieldRequired": "هذا الحقل مطلوب",
   "deposit_requests_title": "طلبات الإيداع",
   "deposit_requests_create_request": "إنشاء طلب إيداع",
   "deposit_requests_status_new": "جديد",

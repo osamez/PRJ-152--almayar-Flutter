@@ -39,12 +39,18 @@ class ApiConstants {
   static const String purchaseRequests = 'user/my-purchase-requests';
   static const String addPurchaseRequest = 'user/add-purchase-request';
   static const String myWallets = 'user/my-wallets';
+  static const String walletTransactions = 'user/my-wallets/{id}/transactions';
+  static const String deposits = 'user/wallet/deposits';
+  static const String addDeposit = 'user/wallet/deposits/add-deposit';
+  static const String depositMetadata = 'user/wallet/deposits/create-metadata';
   static const String shoppingSites = 'user/shopping-sites';
 
   // Money Transfers
   static const String moneyTransfers = 'user/money-transfers';
   static const String addMoneyTransfer = 'user/add-money-transfer';
   static const String moneyTransferCurrencies = 'user/currencies';
+  static const String walletTransfer = 'user/wallet-transfers/transfer';
+  static const String walletSendOtp = 'user/wallet-transfers/send-otp';
   static const String deliveryRequestsOrders = 'user/delivery-requests-orders';
   static const String deliveryRequestsDetails =
       'user/delivery-requests-details';

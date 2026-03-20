@@ -535,8 +535,7 @@
   "delete_account_confirm_title": "Delete Account",
   "delete_account_confirm_desc": "Are you sure you want to delete your account? All your data will be permanently removed.",
   "delete_account": "Delete Account",
-  "cancel": "Cancel",
-  "fieldRequired": "This field is required"
+  "fieldRequired": "This field is required",
   "deposit_requests_title": "Deposit Requests",
   "deposit_requests_create_request": "Create Deposit Request",
   "deposit_requests_status_new": "New",

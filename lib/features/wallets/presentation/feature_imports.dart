@@ -3,7 +3,12 @@ import 'package:almeyar/core/widgets/custom_icon_rounded_box.dart';
 import 'package:almeyar/core/widgets/details_info_row.dart';
 import 'package:almeyar/core/widgets/details_info_section.dart';
 import 'package:almeyar/features/shipment_tracking/presentation/feature_imports.dart';
-import 'package:almeyar/features/wallets/presentation/cubit/confirm_transfer_cubit.dart';
+import 'package:almeyar/core/network/local_status_codes.dart';
+import 'package:almeyar/core/widgets/custom_error_widget.dart';
+import 'package:almeyar/core/widgets/internet_connection_widget.dart';
+import 'package:almeyar/features/wallets/data/models/wallet_model.dart';
+import 'package:almeyar/features/wallets/presentation/cubits/confirm_transfer_cubit.dart';
+import 'package:almeyar/features/wallets/presentation/cubits/wallets/wallets_cubit.dart';
 import 'package:pinput/pinput.dart';
 
 // Views
