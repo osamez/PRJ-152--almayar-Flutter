@@ -244,6 +244,11 @@ final router = GoRouter(
       builder: (context, state) => const AccountStatementView(),
     ),
     GoRoute(
+      path: Routes.depositRequests,
+      name: Routes.depositRequests,
+      builder: (context, state) => const DepositRequestsView(),
+    ),
+    GoRoute(
       path: Routes.prohibited,
       name: Routes.prohibited,
       builder: (context, state) {

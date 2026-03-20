@@ -538,6 +538,26 @@ class CodegenLoader extends AssetLoader{
   "delete_account": "حذف الحساب",
   "cancel": "إلغاء",
   "fieldRequired": "هذا الحقل مطلوب"
+  "deposit_requests_title": "طلبات الإيداع",
+  "deposit_requests_create_request": "إنشاء طلب إيداع",
+  "deposit_requests_status_new": "جديد",
+  "deposit_requests_transfer_type": "نوع التحويل",
+  "deposit_requests_transfer_type_lypay": "LY Pay",
+  "deposit_requests_transfer_type_hint": "اختر نوع التحويل",
+  "deposit_requests_created_at": "تاريخ الإنشاء",
+  "deposit_requests_processed_by": "معالجة بواسطة",
+  "deposit_requests_transfer_proof": "إثبات التحويل",
+  "deposit_requests_view": "عرض",
+  "deposit_requests_amount": "المبلغ",
+  "deposit_requests_amount_hint": "يرجى إدخال المبلغ المراد إيداعه",
+  "deposit_requests_currency": "العملة",
+  "deposit_requests_currency_hint": "اختر العملة",
+  "deposit_requests_transfer_proof_attach": "مرفق إثبات التحويل",
+  "deposit_requests_transfer_proof_attach_hint": "ارفق إثبات التحويل هنا",
+  "deposit_requests_sample_amount": "1000 دينار ليبي",
+  "deposit_requests_sample_created_at": "12-12-2026 11:30",
+  "deposit_requests_sample_processed_by": "أسامة المرعي",
+  "cancel": "إلغاء"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -1062,6 +1082,26 @@ static const Map<String,dynamic> _en = {
   "delete_account": "Delete Account",
   "cancel": "Cancel",
   "fieldRequired": "This field is required"
+  "deposit_requests_title": "Deposit Requests",
+  "deposit_requests_create_request": "Create Deposit Request",
+  "deposit_requests_status_new": "New",
+  "deposit_requests_transfer_type": "Transfer Type",
+  "deposit_requests_transfer_type_lypay": "LY Pay",
+  "deposit_requests_transfer_type_hint": "Choose transfer type",
+  "deposit_requests_created_at": "Created At",
+  "deposit_requests_processed_by": "Processed By",
+  "deposit_requests_transfer_proof": "Transfer Proof",
+  "deposit_requests_view": "View",
+  "deposit_requests_amount": "Amount",
+  "deposit_requests_amount_hint": "Please enter the amount to deposit",
+  "deposit_requests_currency": "Currency",
+  "deposit_requests_currency_hint": "Choose currency",
+  "deposit_requests_transfer_proof_attach": "Attach transfer proof",
+  "deposit_requests_transfer_proof_attach_hint": "Attach transfer proof here",
+  "deposit_requests_sample_amount": "1000 LYD",
+  "deposit_requests_sample_created_at": "12-12-2026 11:30",
+  "deposit_requests_sample_processed_by": "Osama Al-Merai",
+  "cancel": "Cancel"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

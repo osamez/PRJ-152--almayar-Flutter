@@ -10,6 +10,7 @@ import 'package:pinput/pinput.dart';
 part 'views/wallets_view.dart';
 part 'views/account_statement_view.dart';
 part 'views/wallet_money_transfer_view.dart';
+part 'views/deposit_requests_view.dart';
 
 // Widgets - wallets
 part 'widgets/wallets/wallets_view_body.dart';
@@ -31,6 +32,16 @@ part 'widgets/account_statement/filter_account_drag_handle.dart';
 part 'widgets/wallet_money_transfer/wallet_money_transfer_view_body.dart';
 part 'widgets/wallet_money_transfer/wallet_money_transfer_summary_card.dart';
 part 'widgets/wallet_money_transfer/wallet_money_transfer_submit_button.dart';
+
+// Widgets - deposit requests
+part 'widgets/deposit_requests/deposit_requests_view_body.dart';
+part 'widgets/deposit_requests/deposit_requests_header.dart';
+part 'widgets/deposit_requests/create_deposit_request_button.dart';
+part 'widgets/deposit_requests/deposit_request_card.dart';
+part 'widgets/deposit_requests/deposit_request_status_chip.dart';
+part 'widgets/deposit_requests/deposit_request_info_grid.dart';
+part 'widgets/deposit_requests/deposit_request_info_box.dart';
+part 'widgets/deposit_requests/create_deposit_request_bottom_sheet.dart';
 
 // Widgets - confirm transfer bottom sheet
 part 'widgets/wallet_money_transfer/confirm_transfer_bottom_sheet.dart';
