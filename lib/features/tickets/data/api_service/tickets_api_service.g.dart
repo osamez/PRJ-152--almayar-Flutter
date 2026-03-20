@@ -62,7 +62,7 @@ class _TicketsApiService implements TicketsApiService {
     String? toSystem,
     String? priority,
     String? shipmentCode,
-    List<MultipartFile>? files,
+    MultipartFile? file,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -87,8 +87,8 @@ class _TicketsApiService implements TicketsApiService {
     if (shipmentCode != null) {
       _data.fields.add(MapEntry('shipment_code', shipmentCode));
     }
-    if (files != null) {
-      _data.files.addAll(files.map((i) => MapEntry('file[]', i)));
+    if (file != null) {
+      _data.files.add(MapEntry('file', file));
     }
     final _options = _setStreamType<BaseResponse<TicketModel>>(
       Options(
@@ -153,7 +153,7 @@ class _TicketsApiService implements TicketsApiService {
   Future<BaseResponse<TicketReplyModel>> replyTicket({
     String? description,
     String? ticketId,
-    List<MultipartFile>? files,
+    MultipartFile? file,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -166,8 +166,8 @@ class _TicketsApiService implements TicketsApiService {
     if (ticketId != null) {
       _data.fields.add(MapEntry('ticket_id', ticketId));
     }
-    if (files != null) {
-      _data.files.addAll(files.map((i) => MapEntry('file[]', i)));
+    if (file != null) {
+      _data.files.add(MapEntry('file', file));
     }
     final _options = _setStreamType<BaseResponse<TicketReplyModel>>(
       Options(

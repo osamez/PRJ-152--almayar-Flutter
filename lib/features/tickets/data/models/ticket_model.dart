@@ -1,8 +1,10 @@
+import 'package:almeyar/core/helpers/helper_func.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'ticket_priority_model.dart';
 
 part 'ticket_model.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(checked: true)
 class TicketModel {
   final int? id;
   @JsonKey(name: 'ticket_number')
@@ -12,7 +14,8 @@ class TicketModel {
   final TicketStatusModel? status;
   final TicketPriorityModel? priority;
   @JsonKey(name: 'to_system_id')
-  final int? toSystemId;
+  @NullableStringConverter()
+  final String? toSystemId;
   @JsonKey(name: 'to_system_name')
   final String? toSystemName;
   @JsonKey(name: 'shipment_id')
@@ -84,34 +87,12 @@ class TicketStatusModel {
   final String? name;
   final String? color;
 
-  const TicketStatusModel({
-    this.id,
-    this.name,
-    this.color,
-  });
+  const TicketStatusModel({this.id, this.name, this.color});
 
   factory TicketStatusModel.fromJson(Map<String, dynamic> json) =>
       _$TicketStatusModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$TicketStatusModelToJson(this);
-}
-
-@JsonSerializable()
-class TicketPriorityModel {
-  final int? id;
-  final String? name;
-  final String? color;
-
-  const TicketPriorityModel({
-    this.id,
-    this.name,
-    this.color,
-  });
-
-  factory TicketPriorityModel.fromJson(Map<String, dynamic> json) =>
-      _$TicketPriorityModelFromJson(json);
-
-  Map<String, dynamic> toJson() => _$TicketPriorityModelToJson(this);
 }
 
 @JsonSerializable()

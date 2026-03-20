@@ -6,10 +6,12 @@ part 'ticket_priority_model.g.dart';
 class TicketPriorityModel {
   final int? id;
   final String? name;
+  final String? color;
 
   const TicketPriorityModel({
     this.id,
     this.name,
+    this.color,
   });
 
   factory TicketPriorityModel.fromJson(Map<String, dynamic> json) =>

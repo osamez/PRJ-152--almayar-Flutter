@@ -3,6 +3,7 @@ import 'package:almeyar/features/tickets/data/api_service/tickets_api_service.da
 import 'package:almeyar/features/tickets/data/datasources/tickets_datasource.dart';
 import 'package:almeyar/features/tickets/data/models/create_ticket_request.dart';
 import 'package:almeyar/features/tickets/data/models/ticket_model.dart';
+import 'package:almeyar/features/tickets/data/models/ticket_priority_model.dart';
 import 'package:almeyar/features/tickets/data/models/ticket_replies_response_data_model.dart';
 import 'package:almeyar/features/tickets/data/models/ticket_system_model.dart';
 import 'package:almeyar/features/tickets/data/models/tickets_response_data_model.dart';
@@ -19,23 +20,17 @@ class TicketsDataSourceImpl implements TicketsDataSource {
     int? status,
     int? page,
   }) async {
-    return await _apiService.getAllTickets(
-      status: status,
-      page: page,
-    );
+    return await _apiService.getAllTickets(status: status, page: page);
   }
 
   @override
   Future<BaseResponse<TicketModel>> createTicket({
     required CreateTicketRequest request,
-    List<File>? files,
+    File? file,
   }) async {
-    List<MultipartFile>? multipartFiles;
-    if (files != null) {
-      multipartFiles = [];
-      for (var file in files) {
-        multipartFiles.add(await MultipartFile.fromFile(file.path));
-      }
+    MultipartFile? multipartFile;
+    if (file != null) {
+      multipartFile = await MultipartFile.fromFile(file.path);
     }
 
     return await _apiService.createTicket(
@@ -45,7 +40,7 @@ class TicketsDataSourceImpl implements TicketsDataSource {
       toSystem: request.toSystem,
       priority: request.priority,
       shipmentCode: request.shipmentCode,
-      files: multipartFiles,
+      file: multipartFile,
     );
   }
 
@@ -56,7 +51,8 @@ class TicketsDataSourceImpl implements TicketsDataSource {
 
   @override
   Future<BaseResponse<TicketRepliesResponseDataModel>> getTicketReplies(
-      int ticketId) async {
+    int ticketId,
+  ) async {
     return await _apiService.getTicketReplies(ticketId);
   }
 
@@ -64,25 +60,27 @@ class TicketsDataSourceImpl implements TicketsDataSource {
   Future<BaseResponse<TicketReplyModel>> replyTicket({
     required String ticketId,
     String? description,
-    List<File>? files,
+    File? file,
   }) async {
-    List<MultipartFile>? multipartFiles;
-    if (files != null) {
-      multipartFiles = [];
-      for (var file in files) {
-        multipartFiles.add(await MultipartFile.fromFile(file.path));
-      }
+    MultipartFile? multipartFile;
+    if (file != null) {
+      multipartFile = await MultipartFile.fromFile(file.path);
     }
 
     return await _apiService.replyTicket(
       ticketId: ticketId,
       description: description,
-      files: multipartFiles,
+      file: multipartFile,
     );
   }
 
   @override
   Future<BaseResponse<List<TicketSystemModel>>> getTicketSystems() async {
     return await _apiService.getTicketSystems();
+  }
+
+  @override
+  Future<BaseResponse<List<TicketPriorityModel>>> getTicketPriorities() async {
+    return await _apiService.getTicketPriorities();
   }
 }

@@ -19,6 +19,7 @@ class CodegenLoader extends AssetLoader{
   "home": "الرئيسية",
   "settings": "الإعدادات",
   "profile": "الملف الشخصي",
+  "files_selected_label": "ملفات مختارة",
   "logout": "تسجيل الخروج",
   "skip": "تخطي",
   "next": "التالي",
@@ -535,13 +536,15 @@ class CodegenLoader extends AssetLoader{
   "delete_account_confirm_title": "حذف الحساب",
   "delete_account_confirm_desc": "هل أنت متأكد أنك تريد حذف الحساب؟ سيتم مسح كافة بياناتك نهائياً.",
   "delete_account": "حذف الحساب",
-  "cancel": "إلغاء"
+  "cancel": "إلغاء",
+  "fieldRequired": "هذا الحقل مطلوب"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
   "home": "Home",
   "settings": "Settings",
   "profile": "Profile",
+  "files_selected_label": "files selected",
   "logout": "Logout",
   "skip": "Skip",
   "next": "Next",
@@ -1057,7 +1060,8 @@ static const Map<String,dynamic> _en = {
   "delete_account_confirm_title": "Delete Account",
   "delete_account_confirm_desc": "Are you sure you want to delete your account? All your data will be permanently removed.",
   "delete_account": "Delete Account",
-  "cancel": "Cancel"
+  "cancel": "Cancel",
+  "fieldRequired": "This field is required"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

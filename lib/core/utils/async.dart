@@ -15,6 +15,13 @@ sealed class Async<T> extends Equatable {
     return null;
   }
 
+  ApiErrorModel? get errorOrNull {
+    if (this is AsyncError<T>) {
+      return (this as AsyncError<T>).failure;
+    }
+    return null;
+  }
+
   R when<R>({
     required R Function(T data) data,
     required R Function() loading,

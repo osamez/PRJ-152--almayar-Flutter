@@ -1,6 +1,7 @@
 import 'package:almeyar/core/models/base_response.dart';
 import 'package:almeyar/core/network/api_constants.dart';
 import 'package:almeyar/features/tickets/data/models/ticket_model.dart';
+import 'package:almeyar/features/tickets/data/models/ticket_priority_model.dart';
 import 'package:almeyar/features/tickets/data/models/ticket_replies_response_data_model.dart';
 import 'package:almeyar/features/tickets/data/models/ticket_system_model.dart';
 import 'package:almeyar/features/tickets/data/models/tickets_response_data_model.dart';
@@ -29,7 +30,7 @@ abstract class TicketsApiService {
     @Part(name: 'to_system') String? toSystem,
     @Part(name: 'priority') String? priority,
     @Part(name: 'shipment_code') String? shipmentCode,
-    @Part(name: 'file[]') List<MultipartFile>? files,
+    @Part(name: 'file') MultipartFile? file,
   });
 
   @GET(ApiConstants.showTicket)
@@ -42,7 +43,7 @@ abstract class TicketsApiService {
   Future<BaseResponse<TicketReplyModel>> replyTicket({
     @Part(name: 'description') String? description,
     @Part(name: 'ticket_id') String? ticketId,
-    @Part(name: 'file[]') List<MultipartFile>? files,
+    @Part(name: 'file') MultipartFile? file,
   });
 
   @GET(ApiConstants.ticketReplies)
