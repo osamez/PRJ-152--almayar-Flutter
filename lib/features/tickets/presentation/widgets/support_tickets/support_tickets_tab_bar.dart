@@ -9,12 +9,13 @@ class SupportTicketsTabBar extends StatelessWidget {
       buildWhen: (previous, current) =>
           previous.selectedTab != current.selectedTab,
       builder: (context, state) {
+        final selectedTab = state.selectedTab;
         return Row(
           children: [
             Expanded(
               child: SupportTicketsTabItem(
                 label: LocaleKeys.support_tickets_open.tr(),
-                isSelected: state.selectedTab == TicketTabType.open,
+                isSelected: selectedTab == TicketTabType.open,
                 onTap: () =>
                     context.read<TicketsCubit>().changeTab(TicketTabType.open),
               ),
@@ -23,7 +24,7 @@ class SupportTicketsTabBar extends StatelessWidget {
             Expanded(
               child: SupportTicketsTabItem(
                 label: LocaleKeys.support_tickets_pending.tr(),
-                isSelected: state.selectedTab == TicketTabType.pending,
+                isSelected: selectedTab == TicketTabType.pending,
                 onTap: () => context.read<TicketsCubit>().changeTab(
                   TicketTabType.pending,
                 ),
@@ -33,7 +34,7 @@ class SupportTicketsTabBar extends StatelessWidget {
             Expanded(
               child: SupportTicketsTabItem(
                 label: LocaleKeys.support_tickets_closed.tr(),
-                isSelected: state.selectedTab == TicketTabType.closed,
+                isSelected: selectedTab == TicketTabType.closed,
                 onTap: () => context.read<TicketsCubit>().changeTab(
                   TicketTabType.closed,
                 ),

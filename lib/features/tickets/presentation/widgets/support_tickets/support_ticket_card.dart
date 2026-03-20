@@ -3,6 +3,7 @@ part of '../../feature_imports.dart';
 class SupportTicketCard extends StatelessWidget {
   const SupportTicketCard({
     super.key,
+    required this.ticketId,
     required this.title,
     required this.date,
     required this.referenceCode,
@@ -12,6 +13,7 @@ class SupportTicketCard extends StatelessWidget {
     required this.priorityColor,
   });
 
+  final int ticketId;
   final String title;
   final String date;
   final String referenceCode;
@@ -22,46 +24,48 @@ class SupportTicketCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: AppColors.white,
-        borderRadius: BorderRadius.circular(AppSizes.radiusMd),
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.shadow1.withValues(alpha: 0.8),
-            blurRadius: 8,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
-      child: CustomInkWellWidget(
-        onTap: () {
-          context.pushNamed(Routes.ticketDetails);
-        },
-        radius: AppSizes.radiusMd,
-        padding: EdgeInsets.symmetric(
-          horizontal: AppSizes.w14,
-          vertical: AppSizes.h14,
-        ),
-        child: Row(
-          children: [
-            const SupportTicketCardIcon(),
-            horizontalSpace(AppSizes.w12),
-            Expanded(
-              child: SupportTicketCardInfo(
-                title: title,
-                date: date,
-                referenceCode: referenceCode,
-              ),
-            ),
-            horizontalSpace(AppSizes.w12),
-            SupportTicketCardBadges(
-              statusLabel: statusLabel,
-              statusColor: statusColor,
-              priorityLabel: priorityLabel,
-              priorityColor: priorityColor,
+    return Skeleton.leaf(
+      child: Container(
+        decoration: BoxDecoration(
+          color: AppColors.white,
+          borderRadius: BorderRadius.circular(AppSizes.radiusMd),
+          boxShadow: [
+            BoxShadow(
+              color: AppColors.shadow1.withValues(alpha: 0.8),
+              blurRadius: 8,
+              offset: const Offset(0, 2),
             ),
           ],
+        ),
+        child: CustomInkWellWidget(
+          onTap: () {
+            context.pushNamed(Routes.ticketDetails, extra: ticketId);
+          },
+          radius: AppSizes.radiusMd,
+          padding: EdgeInsets.symmetric(
+            horizontal: AppSizes.w14,
+            vertical: AppSizes.h14,
+          ),
+          child: Row(
+            children: [
+              const SupportTicketCardIcon(),
+              horizontalSpace(AppSizes.w12),
+              Expanded(
+                child: SupportTicketCardInfo(
+                  title: title,
+                  date: date,
+                  referenceCode: referenceCode,
+                ),
+              ),
+              horizontalSpace(AppSizes.w12),
+              SupportTicketCardBadges(
+                statusLabel: statusLabel,
+                statusColor: statusColor,
+                priorityLabel: priorityLabel,
+                priorityColor: priorityColor,
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -3,6 +3,7 @@
   "home": "Home",
   "settings": "Settings",
   "profile": "Profile",
+  "files_selected_label": "files selected",
   "logout": "Logout",
   "skip": "Skip",
   "next": "Next",
@@ -534,6 +535,8 @@
   "delete_account_confirm_title": "Delete Account",
   "delete_account_confirm_desc": "Are you sure you want to delete your account? All your data will be permanently removed.",
   "delete_account": "Delete Account",
+  "cancel": "Cancel",
+  "fieldRequired": "This field is required"
   "deposit_requests_title": "Deposit Requests",
   "deposit_requests_create_request": "Create Deposit Request",
   "deposit_requests_status_new": "New",
@@ -555,4 +558,3 @@
   "deposit_requests_sample_processed_by": "Osama Al-Merai",
   "cancel": "Cancel"
 }
-

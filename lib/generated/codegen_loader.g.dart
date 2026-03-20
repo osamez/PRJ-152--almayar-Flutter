@@ -19,6 +19,7 @@ class CodegenLoader extends AssetLoader{
   "home": "الرئيسية",
   "settings": "الإعدادات",
   "profile": "الملف الشخصي",
+  "files_selected_label": "ملفات مختارة",
   "logout": "تسجيل الخروج",
   "skip": "تخطي",
   "next": "التالي",
@@ -535,6 +536,8 @@ class CodegenLoader extends AssetLoader{
   "delete_account_confirm_title": "حذف الحساب",
   "delete_account_confirm_desc": "هل أنت متأكد أنك تريد حذف الحساب؟ سيتم مسح كافة بياناتك نهائياً.",
   "delete_account": "حذف الحساب",
+  "cancel": "إلغاء",
+  "fieldRequired": "هذا الحقل مطلوب"
   "deposit_requests_title": "طلبات الإيداع",
   "deposit_requests_create_request": "إنشاء طلب إيداع",
   "deposit_requests_status_new": "جديد",
@@ -561,6 +564,7 @@ static const Map<String,dynamic> _en = {
   "home": "Home",
   "settings": "Settings",
   "profile": "Profile",
+  "files_selected_label": "files selected",
   "logout": "Logout",
   "skip": "Skip",
   "next": "Next",
@@ -1076,6 +1080,8 @@ static const Map<String,dynamic> _en = {
   "delete_account_confirm_title": "Delete Account",
   "delete_account_confirm_desc": "Are you sure you want to delete your account? All your data will be permanently removed.",
   "delete_account": "Delete Account",
+  "cancel": "Cancel",
+  "fieldRequired": "This field is required"
   "deposit_requests_title": "Deposit Requests",
   "deposit_requests_create_request": "Create Deposit Request",
   "deposit_requests_status_new": "New",

@@ -43,6 +43,7 @@ class AppSizes {
   static late double w52;
   static late double w54;
   static late double w56;
+  static late double w55;
   static late double w60;
   static late double w66;
   static late double w70;
@@ -107,6 +108,7 @@ class AppSizes {
   static late double h52;
   static late double h54;
   static late double h56;
+  static late double h55;
   static late double h60;
   static late double h66;
   static late double h70;
@@ -181,6 +183,7 @@ class AppSizes {
     w52 = 52.w;
     w54 = 54.w;
     w56 = 56.w;
+    w55 = 55.w;
     w60 = 60.w;
     w66 = 66.w;
     w70 = 70.w;
@@ -245,6 +248,7 @@ class AppSizes {
     h52 = 52.h;
     h54 = 54.h;
     h56 = 56.h;
+    h55 = 55.h;
     h60 = 60.h;
     h66 = 66.h;
     h70 = 70.h;

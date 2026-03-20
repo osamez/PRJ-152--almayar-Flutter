@@ -5,18 +5,41 @@ class AddNewTicketDirectedToField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppTextFormField(
-      isRequired: false,
-      hintText: LocaleKeys.add_ticket_directed_to_hint.tr(),
-      title: LocaleKeys.add_ticket_directed_to.tr(),
-      titleColor: AppColors.darkText,
-      readOnly: true,
-      validator: (value) {},
-      suffixIcon: Icon(
-        Icons.keyboard_arrow_down_rounded,
-        size: AppSizes.w24,
-        color: AppColors.hintColor,
-      ),
+    return BlocBuilder<AddNewTicketCubit, AddNewTicketState>(
+      buildWhen: (previous, current) =>
+          previous.getTicketSystemsState != current.getTicketSystemsState ||
+          previous.selectedSystem != current.selectedSystem,
+      builder: (context, state) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              LocaleKeys.add_ticket_directed_to.tr(),
+              style: AppTextStyleFactory.create(
+                size: AppSizes.h14,
+                weight: FontWeight.w600,
+                color: AppColors.black,
+              ),
+            ),
+            verticalSpace(AppSizes.h10),
+            CustomDropdownSearchList<TicketSystemModel>(
+              items: state.getTicketSystemsState.valueOrNull ?? [],
+              hintText: LocaleKeys.add_ticket_directed_to_hint.tr(),
+              itemAsString: (item) => item.name ?? '',
+              initialValue: state.selectedSystem,
+              onChanged: (system) {
+                context.read<AddNewTicketCubit>().selectSystem(system);
+              },
+              validator: (value) {
+                if (value == null) {
+                  return LocaleKeys.fieldRequired.tr();
+                }
+                return null;
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }

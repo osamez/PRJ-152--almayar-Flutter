@@ -5,12 +5,20 @@ class AddNewTicketView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.offWhite,
-      appBar: CustomAppBar(title: LocaleKeys.support_tickets_title.tr()),
-      body: const AddNewTicketViewBody().withPadding(
-        horizontal: AppSizes.w20,
-        vertical: AppSizes.h24,
+    return BlocProvider(
+      create: (context) => getIt<AddNewTicketCubit>()..loadInitialData(),
+      child: Scaffold(
+        backgroundColor: AppColors.offWhite,
+        appBar: CustomAppBar(title: LocaleKeys.support_tickets_title.tr()),
+        body: const Stack(
+          children: [
+            AddNewTicketBlocListener(),
+            AddNewTicketViewBody(),
+          ],
+        ).withPadding(
+          horizontal: AppSizes.w20,
+          vertical: AppSizes.h24,
+        ),
       ),
     );
   }

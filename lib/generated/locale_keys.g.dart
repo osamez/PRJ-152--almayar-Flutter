@@ -7,6 +7,7 @@ abstract class  LocaleKeys {
   static const home = 'home';
   static const settings = 'settings';
   static const profile = 'profile';
+  static const files_selected_label = 'files_selected_label';
   static const logout = 'logout';
   static const skip = 'skip';
   static const next = 'next';
@@ -543,5 +544,6 @@ abstract class  LocaleKeys {
   static const deposit_requests_sample_created_at = 'deposit_requests_sample_created_at';
   static const deposit_requests_sample_processed_by = 'deposit_requests_sample_processed_by';
   static const cancel = 'cancel';
+  static const fieldRequired = 'fieldRequired';
 
 }

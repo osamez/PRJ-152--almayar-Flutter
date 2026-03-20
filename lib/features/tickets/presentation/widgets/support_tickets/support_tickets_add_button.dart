@@ -6,8 +6,11 @@ class SupportTicketsAddButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppElevatedButton(
-      onPressed: () {
-        context.push(Routes.addNewTicket);
+      onPressed: () async {
+        final result = await context.push(Routes.addNewTicket);
+        if (result == true && context.mounted) {
+          context.read<TicketsCubit>().getAllTickets();
+        }
       },
       text: LocaleKeys.support_tickets_add_new.tr(),
       backgroundColor: AppColors.orange,

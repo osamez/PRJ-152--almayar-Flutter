@@ -225,7 +225,8 @@ final router = GoRouter(
     GoRoute(
       path: Routes.ticketDetails,
       name: Routes.ticketDetails,
-      builder: (context, state) => const TicketDetailsView(),
+      builder: (context, state) =>
+          TicketDetailsView(ticketId: state.extra as int),
     ),
     GoRoute(
       path: Routes.wallets,

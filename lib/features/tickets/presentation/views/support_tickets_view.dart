@@ -6,7 +6,7 @@ class SupportTicketsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => TicketsCubit(),
+      create: (context) => getIt<TicketsCubit>()..getAllTickets(),
       child: Scaffold(
         backgroundColor: AppColors.offWhite,
         appBar: CustomAppBar(title: LocaleKeys.support_tickets_title.tr()),
