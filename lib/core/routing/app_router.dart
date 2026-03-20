@@ -82,7 +82,8 @@ final router = GoRouter(
     GoRoute(
       path: Routes.requestReceiveShipmentView,
       name: Routes.requestReceiveShipmentView,
-      builder: (context, state) => const RequestReceiveShipmentView(),
+      builder: (context, state) =>
+          RequestReceiveShipmentView(fromMain: state.extra as bool? ?? false),
     ),
     GoRoute(
       path: Routes.receiveShipment,

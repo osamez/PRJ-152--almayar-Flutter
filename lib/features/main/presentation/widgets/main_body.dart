@@ -11,9 +11,9 @@ class MainBody extends StatelessWidget {
           case 0:
             return const HomeView();
           case 1:
-            return const ShipmentsTrackingView();
+            return const ShipmentsTrackingView(fromMain: true);
           case 2:
-            return const WalletsView();
+            return const WalletsView(fromMain: true);
           case 3:
             return const ProfileView();
           default:
