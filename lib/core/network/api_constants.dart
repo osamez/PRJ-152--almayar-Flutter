@@ -48,4 +48,14 @@ class ApiConstants {
   static const String deliveryRequestsOrders = 'user/delivery-requests-orders';
   static const String deliveryRequestsDetails =
       'user/delivery-requests-details';
+
+  // Tickets
+  static const String allTickets = 'user/tickets/all-tickets';
+  static const String createTicket = 'user/tickets/create';
+  static const String showTicket = 'user/tickets/show';
+  static const String replyTicket = 'user/tickets/reply';
+  static const String ticketReplies = 'user/tickets/replies';
+  static const String ticketPriorities = 'user/tickets/priorities';
+  static const String ticketSystems = 'user/tickets/systems';
 }
+

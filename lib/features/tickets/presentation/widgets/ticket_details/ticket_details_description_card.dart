@@ -1,7 +1,8 @@
 part of '../../feature_imports.dart';
 
 class TicketDetailsDescriptionCard extends StatelessWidget {
-  const TicketDetailsDescriptionCard({super.key});
+  final String? description;
+  const TicketDetailsDescriptionCard({super.key, this.description});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +36,7 @@ class TicketDetailsDescriptionCard extends StatelessWidget {
           ),
           verticalSpace(AppSizes.h10),
           Text(
-            'شحنة متأخرة جدا من تاريخ قديم شحنة متأخرة جدا من تاريخ قديم شحنة متأخرة جدا من تاريخ قديم شحنة متأخرة جدا من تاريخ قديم شحنة.',
+            description ?? '',
             style: AppTextStyleFactory.create(
               size: 14,
               weight: FontWeight.w300,
