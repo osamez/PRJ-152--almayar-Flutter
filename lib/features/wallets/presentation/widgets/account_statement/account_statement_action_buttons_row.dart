@@ -1,8 +1,8 @@
 part of '../../feature_imports.dart';
 
 class AccountStatementActionButtonsRow extends StatelessWidget {
-  const AccountStatementActionButtonsRow({super.key});
-
+  const AccountStatementActionButtonsRow({super.key, required this.wallet});
+  final WalletModel wallet;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -11,8 +11,14 @@ class AccountStatementActionButtonsRow extends StatelessWidget {
           child: AccountStatementActionButton(
             iconPath: AppAssets.svgHandDeposit,
             label: LocaleKeys.account_statement_transfer_funds.tr(),
-            onTap: () {
-              context.pushNamed(Routes.walletMoneyTransfer);
+            onTap: () async {
+              final result = await context.pushNamed(
+                Routes.walletMoneyTransfer,
+                extra: wallet,
+              );
+              if (result == true && context.mounted) {
+                context.read<WalletsCubit>().getWalletTransactions(wallet.id!);
+              }
             },
           ),
         ),

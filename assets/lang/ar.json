@@ -546,5 +546,6 @@
   "transaction_type_deposit": "إيداع",
   "transaction_type_withdraw": "سحب",
   "transaction_type_benefit_deposit": "إيداع إستحقاق",
-  "transaction_type_withdrawal_entitlement": "سحب إستحقاق"
+  "transaction_type_withdrawal_entitlement": "سحب إستحقاق",
+  "invalid_format": "صيغة غير صحيحة"
 }

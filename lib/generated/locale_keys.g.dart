@@ -551,5 +551,6 @@ abstract class  LocaleKeys {
   static const transaction_type_withdraw = 'transaction_type_withdraw';
   static const transaction_type_benefit_deposit = 'transaction_type_benefit_deposit';
   static const transaction_type_withdrawal_entitlement = 'transaction_type_withdrawal_entitlement';
+  static const invalid_format = 'invalid_format';
 
 }

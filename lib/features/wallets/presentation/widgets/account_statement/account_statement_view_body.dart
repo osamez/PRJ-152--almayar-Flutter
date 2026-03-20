@@ -15,7 +15,7 @@ class AccountStatementViewBody extends StatelessWidget {
           currencyKey: wallet.currencyName ?? '',
         ),
         verticalSpace(AppSizes.h20),
-        const AccountStatementActionButtonsRow(),
+        AccountStatementActionButtonsRow(wallet: wallet),
         verticalSpace(AppSizes.h24),
         AccountStatementFilterHeader(walletId: wallet.id ?? 0),
         verticalSpace(AppSizes.h16),

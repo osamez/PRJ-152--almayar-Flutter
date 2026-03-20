@@ -5,16 +5,19 @@ class ConfirmTransferTimerText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ConfirmTransferCubit, ConfirmTransferState>(
+    return BlocBuilder<WalletMoneyTransferCubit, WalletMoneyTransferState>(
       buildWhen: (previous, current) =>
           previous.remainingSeconds != current.remainingSeconds ||
           previous.canResend != current.canResend,
       builder: (context, state) {
-        final cubit = context.read<ConfirmTransferCubit>();
+        final cubit = context.read<WalletMoneyTransferCubit>();
 
         if (state.canResend) {
           return GestureDetector(
-            onTap: cubit.resendOtp,
+            onTap: () => cubit.sendOtp(
+              customerCode: state.customerCode,
+              amount: state.amount,
+            ),
             child: Text(
               LocaleKeys.confirm_transfer_resend.tr(),
               style: AppTextStyleFactory.create(

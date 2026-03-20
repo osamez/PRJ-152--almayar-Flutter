@@ -26,19 +26,32 @@ class ConfirmTransferPinInput extends StatelessWidget {
       ),
     );
 
+    final errorPinTheme = defaultPinTheme.copyWith(
+      decoration: defaultPinTheme.decoration?.copyWith(
+        border: Border.all(color: AppColors.error500, width: 2),
+      ),
+    );
+
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Pinput(
         length: 6,
         defaultPinTheme: defaultPinTheme,
         focusedPinTheme: focusedPinTheme,
+        errorPinTheme: errorPinTheme,
         separatorBuilder: (index) => horizontalSpace(AppSizes.w8),
         hapticFeedbackType: HapticFeedbackType.lightImpact,
         onChanged: (value) {
-          context.read<ConfirmTransferCubit>().onOtpChanged(value);
+          context.read<WalletMoneyTransferCubit>().onOtpChanged(value);
+        },
+        validator: (value) {
+          if (value == null || value.length < 6) {
+            return LocaleKeys.otp_validation_error.tr();
+          }
+          return null;
         },
         onCompleted: (value) {
-          context.read<ConfirmTransferCubit>().onOtpChanged(value);
+          context.read<WalletMoneyTransferCubit>().onOtpChanged(value);
         },
       ),
     );

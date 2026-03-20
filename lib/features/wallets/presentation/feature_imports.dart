@@ -9,9 +9,11 @@ import 'package:almeyar/core/widgets/internet_connection_widget.dart';
 import 'package:almeyar/features/wallets/data/models/wallet_model.dart';
 import 'package:almeyar/features/wallets/data/models/wallet_transaction_model.dart';
 import 'package:almeyar/features/wallets/data/models/transaction_type_model.dart';
-import 'package:almeyar/features/wallets/presentation/cubits/confirm_transfer_cubit.dart';
+import 'package:almeyar/features/wallets/presentation/cubits/wallet_money_transfer/wallet_money_transfer_cubit.dart';
 import 'package:almeyar/features/wallets/presentation/cubits/wallets/wallets_cubit.dart';
 import 'package:pinput/pinput.dart';
+import 'package:almeyar/core/utils/loading_dialog.dart';
+import 'package:almeyar/core/helpers/app_snack_bar.dart';
 
 // Views
 part 'views/wallets_view.dart';
@@ -39,6 +41,7 @@ part 'widgets/account_statement/filter_account_drag_handle.dart';
 part 'widgets/wallet_money_transfer/wallet_money_transfer_view_body.dart';
 part 'widgets/wallet_money_transfer/wallet_money_transfer_summary_card.dart';
 part 'widgets/wallet_money_transfer/wallet_money_transfer_submit_button.dart';
+part 'widgets/wallet_money_transfer/wallet_money_transfer_bloc_listener.dart';
 
 // Widgets - deposit requests
 part 'widgets/deposit_requests/deposit_requests_view_body.dart';

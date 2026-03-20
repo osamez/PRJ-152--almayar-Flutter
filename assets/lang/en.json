@@ -561,5 +561,6 @@
   "transaction_type_deposit": "Deposit",
   "transaction_type_withdraw": "Withdraw",
   "transaction_type_benefit_deposit": "Benefit Deposit",
-  "transaction_type_withdrawal_entitlement": "Withdrawal Entitlement"
+  "transaction_type_withdrawal_entitlement": "Withdrawal Entitlement",
+  "invalid_format": "Invalid format"
 }
