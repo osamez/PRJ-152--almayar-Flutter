@@ -5,12 +5,15 @@ class DepositRequestsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.offWhite,
-      appBar: CustomAppBar(title: LocaleKeys.deposit_requests_title.tr()),
-      body: const DepositRequestsViewBody().withPadding(
-        vertical: AppSizes.h24,
-        horizontal: AppSizes.w20,
+    return BlocProvider(
+      create: (context) => getIt<DepositRequestsCubit>()..loadInitialData(),
+      child: Scaffold(
+        backgroundColor: AppColors.offWhite,
+        appBar: CustomAppBar(title: LocaleKeys.deposit_requests_title.tr()),
+        body: const DepositRequestsViewBody().withPadding(
+          vertical: AppSizes.h24,
+          horizontal: AppSizes.w20,
+        ),
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:almeyar/core/models/base_response.dart';
 import 'package:almeyar/core/models/message_model.dart';
+import 'package:almeyar/features/money_transfers/data/models/money_transfer_currency_model.dart';
 import 'package:almeyar/features/wallets/data/models/deposits_response_model.dart';
 import 'package:almeyar/features/wallets/data/models/deposit_metadata_model.dart';
 import 'package:almeyar/features/wallets/data/models/transfer_request_model.dart';
@@ -31,4 +32,7 @@ abstract class WalletsDataSource {
   });
 
   Future<BaseResponse<DepositMetadataModel>> getDepositMetadata();
+
+  Future<BaseResponse<List<MoneyTransferCurrencyModel>>>
+  getMoneyTransferCurrencies();
 }

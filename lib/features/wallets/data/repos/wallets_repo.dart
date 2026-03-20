@@ -2,6 +2,7 @@ import 'package:almeyar/core/network/result.dart';
 import 'package:almeyar/core/models/base_response.dart';
 import 'dart:io';
 import 'package:almeyar/core/models/message_model.dart';
+import 'package:almeyar/features/money_transfers/data/models/money_transfer_currency_model.dart';
 import 'package:almeyar/features/wallets/data/models/deposits_response_model.dart';
 import 'package:almeyar/features/wallets/data/models/deposit_metadata_model.dart';
 import 'package:almeyar/features/wallets/data/models/transfer_request_model.dart';
@@ -11,12 +12,8 @@ import 'package:almeyar/features/wallets/data/models/wallet_transaction_model.da
 abstract class WalletsRepo {
   Future<Result<BaseResponse<List<WalletModel>>>> getMyWallets();
 
-  Future<Result<BaseResponse<List<WalletTransactionModel>>>> getWalletTransactions({
-    required int id,
-    int? type,
-    String? from,
-    String? to,
-  });
+  Future<Result<BaseResponse<List<WalletTransactionModel>>>>
+  getWalletTransactions({required int id, int? type, String? from, String? to});
 
   Future<Result<BaseResponse<DepositsResponseModel>>> getDeposits({int? page});
 
@@ -34,4 +31,7 @@ abstract class WalletsRepo {
   });
 
   Future<Result<BaseResponse<DepositMetadataModel>>> getDepositMetadata();
+
+  Future<Result<BaseResponse<List<MoneyTransferCurrencyModel>>>>
+  getMoneyTransferCurrencies();
 }

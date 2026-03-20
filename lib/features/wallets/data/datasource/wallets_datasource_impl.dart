@@ -1,5 +1,6 @@
 import 'package:almeyar/core/models/base_response.dart';
 import 'package:almeyar/core/models/message_model.dart';
+import 'package:almeyar/features/money_transfers/data/models/money_transfer_currency_model.dart';
 import 'package:almeyar/features/wallets/data/api_service/wallets_api_service.dart';
 import 'package:almeyar/features/wallets/data/models/deposits_response_model.dart';
 import 'package:almeyar/features/wallets/data/models/deposit_metadata_model.dart';
@@ -64,5 +65,11 @@ class WalletsDataSourceImpl implements WalletsDataSource {
   @override
   Future<BaseResponse<DepositMetadataModel>> getDepositMetadata() async {
     return await _apiService.getDepositMetadata();
+  }
+
+  @override
+  Future<BaseResponse<List<MoneyTransferCurrencyModel>>>
+  getMoneyTransferCurrencies() async {
+    return await _apiService.getMoneyTransferCurrencies();
   }
 }

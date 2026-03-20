@@ -2,6 +2,7 @@ import 'package:almeyar/core/models/base_response.dart';
 import 'package:almeyar/core/models/message_model.dart';
 import 'package:almeyar/core/utils/app_logger.dart';
 import 'package:almeyar/core/network/result.dart';
+import 'package:almeyar/features/money_transfers/data/models/money_transfer_currency_model.dart';
 import 'package:almeyar/features/wallets/data/datasource/wallets_datasource.dart';
 import 'package:almeyar/features/wallets/data/models/deposits_response_model.dart';
 import 'package:almeyar/features/wallets/data/models/deposit_metadata_model.dart';
@@ -30,7 +31,7 @@ class WalletsRepoImpl implements WalletsRepo {
 
   @override
   Future<Result<BaseResponse<List<WalletTransactionModel>>>>
-      getWalletTransactions({
+  getWalletTransactions({
     required int id,
     int? type,
     String? from,
@@ -52,8 +53,9 @@ class WalletsRepoImpl implements WalletsRepo {
   }
 
   @override
-  Future<Result<BaseResponse<DepositsResponseModel>>> getDeposits(
-      {int? page}) async {
+  Future<Result<BaseResponse<DepositsResponseModel>>> getDeposits({
+    int? page,
+  }) async {
     try {
       final response = await _dataSource.getDeposits(page: page);
       AppLogger.info('WalletsRepoImpl - getDeposits: Success');
@@ -113,13 +115,31 @@ class WalletsRepoImpl implements WalletsRepo {
   }
 
   @override
-  Future<Result<BaseResponse<DepositMetadataModel>>> getDepositMetadata() async {
+  Future<Result<BaseResponse<DepositMetadataModel>>>
+  getDepositMetadata() async {
     try {
       final response = await _dataSource.getDepositMetadata();
       AppLogger.info('WalletsRepoImpl - getDepositMetadata: Success');
       return Result.success(response);
     } catch (e, st) {
       AppLogger.error('WalletsRepoImpl - getDepositMetadata: Error', e, st);
+      return Result.failure(e, st);
+    }
+  }
+
+  @override
+  Future<Result<BaseResponse<List<MoneyTransferCurrencyModel>>>>
+  getMoneyTransferCurrencies() async {
+    try {
+      final response = await _dataSource.getMoneyTransferCurrencies();
+      AppLogger.info('WalletsRepoImpl - getMoneyTransferCurrencies: Success');
+      return Result.success(response);
+    } catch (e, st) {
+      AppLogger.error(
+        'WalletsRepoImpl - getMoneyTransferCurrencies: Error',
+        e,
+        st,
+      );
       return Result.failure(e, st);
     }
   }
