@@ -7,6 +7,8 @@ import 'package:almeyar/core/network/local_status_codes.dart';
 import 'package:almeyar/core/widgets/custom_error_widget.dart';
 import 'package:almeyar/core/widgets/internet_connection_widget.dart';
 import 'package:almeyar/features/wallets/data/models/wallet_model.dart';
+import 'package:almeyar/features/wallets/data/models/wallet_transaction_model.dart';
+import 'package:almeyar/features/wallets/data/models/transaction_type_model.dart';
 import 'package:almeyar/features/wallets/presentation/cubits/confirm_transfer_cubit.dart';
 import 'package:almeyar/features/wallets/presentation/cubits/wallets/wallets_cubit.dart';
 import 'package:pinput/pinput.dart';

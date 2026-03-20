@@ -540,5 +540,11 @@
   "deposit_requests_sample_amount": "1000 دينار ليبي",
   "deposit_requests_sample_created_at": "12-12-2026 11:30",
   "deposit_requests_sample_processed_by": "أسامة المرعي",
-  "cancel": "إلغاء"
+  "cancel": "إلغاء",
+  "transaction_type_receipt": "قبض",
+  "transaction_type_disbursement": "صرف",
+  "transaction_type_deposit": "إيداع",
+  "transaction_type_withdraw": "سحب",
+  "transaction_type_benefit_deposit": "إيداع إستحقاق",
+  "transaction_type_withdrawal_entitlement": "سحب إستحقاق"
 }

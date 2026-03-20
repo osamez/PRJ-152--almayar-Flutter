@@ -556,7 +556,13 @@ class CodegenLoader extends AssetLoader{
   "deposit_requests_sample_amount": "1000 دينار ليبي",
   "deposit_requests_sample_created_at": "12-12-2026 11:30",
   "deposit_requests_sample_processed_by": "أسامة المرعي",
-  "cancel": "إلغاء"
+  "cancel": "إلغاء",
+  "transaction_type_receipt": "قبض",
+  "transaction_type_disbursement": "صرف",
+  "transaction_type_deposit": "إيداع",
+  "transaction_type_withdraw": "سحب",
+  "transaction_type_benefit_deposit": "إيداع إستحقاق",
+  "transaction_type_withdrawal_entitlement": "سحب إستحقاق"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -1099,7 +1105,13 @@ static const Map<String,dynamic> _en = {
   "deposit_requests_sample_amount": "1000 LYD",
   "deposit_requests_sample_created_at": "12-12-2026 11:30",
   "deposit_requests_sample_processed_by": "Osama Al-Merai",
-  "cancel": "Cancel"
+  "cancel": "Cancel",
+  "transaction_type_receipt": "Receipt",
+  "transaction_type_disbursement": "Disbursement",
+  "transaction_type_deposit": "Deposit",
+  "transaction_type_withdraw": "Withdraw",
+  "transaction_type_benefit_deposit": "Benefit Deposit",
+  "transaction_type_withdrawal_entitlement": "Withdrawal Entitlement"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

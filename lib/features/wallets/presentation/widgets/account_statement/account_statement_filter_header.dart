@@ -1,9 +1,12 @@
 part of '../../feature_imports.dart';
 
 class AccountStatementFilterHeader extends StatelessWidget {
-  const AccountStatementFilterHeader({super.key, required this.resultsCount});
+  const AccountStatementFilterHeader({
+    super.key,
+    required this.walletId,
+  });
 
-  final int resultsCount;
+  final int walletId;
 
   @override
   Widget build(BuildContext context) {
@@ -22,22 +25,30 @@ class AccountStatementFilterHeader extends StatelessWidget {
               ),
             ),
             verticalSpace(AppSizes.h4),
-            Text(
-              LocaleKeys.account_statement_results_found.tr(
-                namedArgs: {'count': resultsCount.toString()},
-              ),
-              style: AppTextStyleFactory.create(
-                size: 12,
-                weight: FontWeight.w400,
-                color: AppColors.hintColor,
-              ),
+            BlocSelector<WalletsCubit, WalletsState, int>(
+              selector: (state) =>
+                  state.getWalletTransactionsState.maybeWhen(
+                    data: (transactions) => transactions.length,
+                    orElse: () => 0,
+                  ),
+              builder: (context, resultsCount) {
+                return Text(
+                  LocaleKeys.account_statement_results_found.tr(
+                    namedArgs: {'count': resultsCount.toString()},
+                  ),
+                  style: AppTextStyleFactory.create(
+                    size: 12,
+                    weight: FontWeight.w400,
+                    color: AppColors.hintColor,
+                  ),
+                );
+              },
             ),
           ],
         ),
         const Spacer(),
-
         CustomInkWellWidget(
-          onTap: () => FilterAccountBottomSheet.show(context),
+          onTap: () => FilterAccountBottomSheet.show(context, walletId),
           radius: AppSizes.radiusMd,
           padding: const EdgeInsets.all(2),
           child: SvgPicture.asset(
