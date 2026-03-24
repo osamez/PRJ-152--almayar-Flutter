@@ -25,16 +25,38 @@ class _MainBodyState extends State<MainBody> {
         // Mark this tab as visited so it stays alive from now on.
         _visitedIndexes.add(selectedIndex);
 
-        return Stack(
-          children: List.generate(_pages.length, (index) {
-            return Offstage(
-              offstage: index != selectedIndex,
-              // Show an empty box if this page has NOT been visited yet.
-              child: _visitedIndexes.contains(index)
-                  ? _pages[index]
-                  : const SizedBox.shrink(),
-            );
-          }),
+        return PopScope(
+          canPop: false,
+          onPopInvokedWithResult: (didPop, _) {
+            if (didPop) return;
+            final cubit = context.read<MainCubit>();
+
+            // If not on Home tab → navigate to Home.
+            if (cubit.state != 0) {
+              cubit.changeIndex(0);
+              return;
+            }
+
+            // On Home tab: if scrolled → scroll to top.
+            if (cubit.isHomeScrolled) {
+              cubit.scrollHomeToTop();
+              return;
+            }
+
+            // Already at top of Home → exit the app.
+            SystemNavigator.pop();
+          },
+          child: Stack(
+            children: List.generate(_pages.length, (index) {
+              return Offstage(
+                offstage: index != selectedIndex,
+                // Show an empty box if this page has NOT been visited yet.
+                child: _visitedIndexes.contains(index)
+                    ? _pages[index]
+                    : const SizedBox.shrink(),
+              );
+            }),
+          ),
         );
       },
     );

@@ -24,6 +24,7 @@ class AuthInterceptor extends Interceptor {
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) {
     if (err.response?.statusCode == 401) {
+      CacheHelper.clearAllSecuredData();
       router.go(Routes.login);
     }
     return super.onError(err, handler);

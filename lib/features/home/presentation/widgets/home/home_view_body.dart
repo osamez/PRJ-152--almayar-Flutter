@@ -1,11 +1,42 @@
 import 'package:almeyar/features/home/presentation/feature_imports.dart';
+import 'package:almeyar/features/main/presentation/cubits/main_cubit.dart';
 
-class HomeViewBody extends StatelessWidget {
+class HomeViewBody extends StatefulWidget {
   const HomeViewBody({super.key});
+
+  @override
+  State<HomeViewBody> createState() => _HomeViewBodyState();
+}
+
+class _HomeViewBodyState extends State<HomeViewBody> {
+  late final ScrollController _scrollController;
+  MainCubit? _mainCubit;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController = ScrollController();
+    // Register with MainCubit so back-press logic can use it.
+    // Use addPostFrameCallback to ensure the cubit is available in the tree.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        _mainCubit = context.read<MainCubit>();
+        _mainCubit!.homeScrollController = _scrollController;
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _mainCubit?.homeScrollController = null;
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      controller: _scrollController,
       child: Stack(
         children: [
           const HomeBanner(),
