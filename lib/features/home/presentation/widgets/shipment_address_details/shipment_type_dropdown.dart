@@ -21,36 +21,23 @@ class ShipmentTypeDropdown extends StatelessWidget {
         verticalSpace(AppSizes.h8),
         BlocBuilder<ShipmentsAddressesCubit, ShipmentsAddressesState>(
           buildWhen: (previous, current) =>
-              previous.availableDropdownOptions != current.availableDropdownOptions ||
-              previous.selectedDropdownShipmentType != current.selectedDropdownShipmentType,
+              previous.selectedDropdownShipmentType !=
+              current.selectedDropdownShipmentType,
           builder: (context, state) {
-            return CustomDropdownSearchList<String>(
-              items: state.availableDropdownOptions,
+            return CustomDropdownSearchList<ShippingWay>(
+              items: branchDetails?.availableShippingWays ?? [],
               initialValue: state.selectedDropdownShipmentType,
-              customDropdownBuilder: (context, selectedItem) {
-                if (selectedItem == null) return const SizedBox.shrink();
-                final text = context.read<ShipmentsAddressesCubit>().getCustomerNameStr(branchDetails);
-                return Text(
-                  text,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: AppTextStyleFactory.create(
-                    size: 13,
-                    weight: FontWeight.w400,
-                    color: AppColors.black,
-                  ),
-                );
-              },
+
               onChanged: (val) {
-                if (val != null) {
-                  context.read<ShipmentsAddressesCubit>().selectDropdownShipmentType(val);
-                }
+                context
+                    .read<ShipmentsAddressesCubit>()
+                    .selectDropdownShipmentType(val);
               },
-              itemAsString: (item) => item,
+              itemAsString: (item) => item.customerDisplayName ?? '',
               hintText: LocaleKeys.shipment_details_select_shipping_type.tr(),
               showSearch: false,
               validator: (value) {
-                if (value == null || value.isEmpty) {
+                if (value == null) {
                   return LocaleKeys.fieldRequired.tr();
                 }
                 return null;

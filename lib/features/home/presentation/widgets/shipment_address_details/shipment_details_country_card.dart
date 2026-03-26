@@ -42,11 +42,12 @@ class ShipmentDetailsCountryCard extends StatelessWidget {
                 color: AppColors.offWhite,
                 shape: BoxShape.circle,
               ),
-              child: SvgPicture.asset(
-                flagAsset,
+              child: CustomCachedImage(
+                imageUrl: flagAsset,
                 width: AppSizes.w32,
                 height: AppSizes.h32,
-              ),
+                fit: BoxFit.cover,
+              ).clipRRect(all: AppSizes.radiusMd),
             ),
             verticalSpace(AppSizes.h8),
             Text(

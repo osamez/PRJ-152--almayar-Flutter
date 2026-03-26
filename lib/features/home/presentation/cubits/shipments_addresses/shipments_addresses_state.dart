@@ -5,8 +5,7 @@ class ShipmentsAddressesState extends Equatable {
   final Async<BranchDetailsModel> showBranchDetailsState;
   final String selectedFilter;
   final String searchQuery;
-  final String? selectedDropdownShipmentType;
-  final List<String> availableDropdownOptions;
+  final ShippingWay? selectedDropdownShipmentType;
 
   const ShipmentsAddressesState({
     this.getAllBranchesState = const AsyncInitial(),
@@ -14,7 +13,6 @@ class ShipmentsAddressesState extends Equatable {
     this.selectedFilter = 'air',
     this.searchQuery = '',
     this.selectedDropdownShipmentType,
-    this.availableDropdownOptions = const [],
   });
 
   ShipmentsAddressesState copyWith({
@@ -22,8 +20,7 @@ class ShipmentsAddressesState extends Equatable {
     Async<BranchDetailsModel>? showBranchDetailsState,
     String? selectedFilter,
     String? searchQuery,
-    String? selectedDropdownShipmentType,
-    List<String>? availableDropdownOptions,
+    ShippingWay? selectedDropdownShipmentType,
   }) {
     return ShipmentsAddressesState(
       getAllBranchesState: getAllBranchesState ?? this.getAllBranchesState,
@@ -33,8 +30,6 @@ class ShipmentsAddressesState extends Equatable {
       searchQuery: searchQuery ?? this.searchQuery,
       selectedDropdownShipmentType:
           selectedDropdownShipmentType ?? this.selectedDropdownShipmentType,
-      availableDropdownOptions:
-          availableDropdownOptions ?? this.availableDropdownOptions,
     );
   }
 
@@ -45,6 +40,5 @@ class ShipmentsAddressesState extends Equatable {
     selectedFilter,
     searchQuery,
     selectedDropdownShipmentType,
-    availableDropdownOptions,
   ];
 }

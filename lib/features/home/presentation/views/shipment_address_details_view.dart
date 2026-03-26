@@ -3,10 +3,12 @@ part of '../feature_imports.dart';
 class ShipmentAddressDetailsParams {
   final int branchId;
   final String shipmentType;
+  final String? flag;
 
   const ShipmentAddressDetailsParams({
     required this.branchId,
     required this.shipmentType,
+    this.flag,
   });
 }
 

@@ -102,39 +102,8 @@ class ShipmentsAddressesCubit extends Cubit<ShipmentsAddressesState> {
     });
   }
 
-  void initializeDropdownForShipmentType(String shipmentType) {
-    List<String> options = [];
-    if (shipmentType == 'air') {
-      options = [
-        LocaleKeys.shipment_type_air_eco.tr(),
-        LocaleKeys.shipment_type_air_fast.tr(),
-      ];
-    } else {
-      options = [
-        LocaleKeys.shipment_type_sea_fcl.tr(),
-        LocaleKeys.shipment_type_sea_lcl.tr(),
-      ];
-    }
-    emit(state.copyWith(availableDropdownOptions: options));
-  }
-
-  void selectDropdownShipmentType(String type) {
+  void selectDropdownShipmentType(ShippingWay? type) {
     emit(state.copyWith(selectedDropdownShipmentType: type));
-  }
-
-  String getCustomerNameStr(BranchDetailsModel? data) {
-    if (data == null) return '';
-    final selectedType = state.selectedDropdownShipmentType;
-    String name = data.name ?? '';
-    String code = data.userCode ?? '';
-    String type = selectedType ?? '';
-
-    List<String> parts = [];
-    if (name.isNotEmpty) parts.add(name);
-    if (code.isNotEmpty) parts.add(code);
-    if (type.isNotEmpty) parts.add(type);
-
-    return parts.join(' ');
   }
 
   @override

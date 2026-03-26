@@ -8,6 +8,7 @@ part of 'branch_model.dart';
 
 BranchModel _$BranchModelFromJson(Map<String, dynamic> json) => BranchModel(
   id: (json['id'] as num?)?.toInt(),
+  countryFlag: json['country_flag'] as String?,
   name: json['name'] as String?,
   countryName: json['country_name'] as String?,
   branchName: json['branch_name'] as String?,
@@ -38,6 +39,7 @@ Map<String, dynamic> _$BranchModelToJson(BranchModel instance) =>
       'city_id': instance.cityId,
       'type': instance.type,
       'status': instance.status,
+      'country_flag': instance.countryFlag,
       'available_shipping_ways': instance.availableShippingWays,
     };
 
@@ -54,8 +56,15 @@ Map<String, dynamic> _$BranchStatusToJson(BranchStatus instance) =>
       'color': instance.color,
     };
 
-ShippingWay _$ShippingWayFromJson(Map<String, dynamic> json) =>
-    ShippingWay(id: json['id'] as String?, name: json['name'] as String?);
+ShippingWay _$ShippingWayFromJson(Map<String, dynamic> json) => ShippingWay(
+  id: json['id'] as String?,
+  name: json['name'] as String?,
+  customerDisplayName: json['customer_display_name'] as String?,
+);
 
 Map<String, dynamic> _$ShippingWayToJson(ShippingWay instance) =>
-    <String, dynamic>{'id': instance.id, 'name': instance.name};
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'customer_display_name': instance.customerDisplayName,
+    };

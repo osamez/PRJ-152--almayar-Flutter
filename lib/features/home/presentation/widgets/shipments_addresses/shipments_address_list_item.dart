@@ -24,13 +24,16 @@ class ShipmentsAddressListItem extends StatelessWidget {
         padding: EdgeInsets.all(AppSizes.w12),
         radius: AppSizes.radiusLg,
         onTap: () {
-          final shipmentType =
-              context.read<ShipmentsAddressesCubit>().state.selectedFilter;
+          final shipmentType = context
+              .read<ShipmentsAddressesCubit>()
+              .state
+              .selectedFilter;
           context.pushNamed(
             Routes.shipmentAddressDetails,
             extra: ShipmentAddressDetailsParams(
               branchId: branch.id!,
               shipmentType: shipmentType,
+              flag: branch.countryFlag,
             ),
           );
         },
@@ -49,11 +52,12 @@ class ShipmentsAddressListItem extends StatelessWidget {
                     color: AppColors.offWhite,
                     borderRadius: BorderRadius.circular(AppSizes.radiusMd),
                   ),
-                  child: SvgPicture.asset(
-                    AppAssets.svgFlagTest,
+                  child: CustomCachedImage(
+                    imageUrl: branch.countryFlag,
                     width: AppSizes.w32,
                     height: AppSizes.h32,
-                  ),
+                    fit: BoxFit.cover,
+                  ).clipRRect(all: AppSizes.radiusMd),
                 ),
               ),
             ),

@@ -17,7 +17,6 @@ class _ShipmentAddressDetailsViewBodyState
     super.initState();
     final cubit = context.read<ShipmentsAddressesCubit>();
     cubit.showBranchDetails(widget.params.branchId);
-    cubit.initializeDropdownForShipmentType(widget.params.shipmentType);
   }
 
   @override
@@ -67,7 +66,7 @@ class _ShipmentAddressDetailsViewBodyState
             ShipmentDetailsCountryCard(
               arabicName: data?.name ?? 'Loading...',
               englishName: data?.countryName ?? 'Loading...',
-              flagAsset: AppAssets.svgFlagTest,
+              flagAsset: widget.params.flag ?? '',
             ),
             verticalSpace(AppSizes.h16),
             ShipmentImportantNoteCard(note: data?.notes),
@@ -124,7 +123,8 @@ class _ShipmentAddressDetailsViewBodyState
 
   void _copyAllToClipboard(BuildContext context, BranchDetailsModel data) {
     final cubit = context.read<ShipmentsAddressesCubit>();
-    final customerName = cubit.getCustomerNameStr(data);
+    final customerName =
+        cubit.state.selectedDropdownShipmentType?.customerDisplayName;
     // final selectedType = cubit.state.selectedDropdownShipmentType;
 
     final allText =

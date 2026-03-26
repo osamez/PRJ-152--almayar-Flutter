@@ -20,11 +20,14 @@ class BranchModel {
   final int? cityId;
   final String? type;
   final BranchStatus? status;
+  @JsonKey(name: 'country_flag')
+  final String? countryFlag;
   @JsonKey(name: 'available_shipping_ways')
   final List<ShippingWay>? availableShippingWays;
 
   const BranchModel({
     this.id,
+    this.countryFlag,
     this.name,
     this.countryName,
     this.branchName,
@@ -50,11 +53,7 @@ class BranchStatus {
   final String? name;
   final String? color;
 
-  const BranchStatus({
-    this.id,
-    this.name,
-    this.color,
-  });
+  const BranchStatus({this.id, this.name, this.color});
 
   factory BranchStatus.fromJson(Map<String, dynamic> json) =>
       _$BranchStatusFromJson(json);
@@ -66,11 +65,10 @@ class BranchStatus {
 class ShippingWay {
   final String? id;
   final String? name;
+  @JsonKey(name: 'customer_display_name')
+  final String? customerDisplayName;
 
-  const ShippingWay({
-    this.id,
-    this.name,
-  });
+  const ShippingWay({this.id, this.name, this.customerDisplayName});
 
   factory ShippingWay.fromJson(Map<String, dynamic> json) =>
       _$ShippingWayFromJson(json);
