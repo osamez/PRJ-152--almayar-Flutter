@@ -24,33 +24,35 @@ class AccountStatementTransactionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: AppSizes.w16,
-        vertical: AppSizes.h12,
-      ),
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: AppColors.white,
-        borderRadius: BorderRadius.circular(AppSizes.radiusMd),
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.shadow1,
-            blurRadius: AppSizes.h8,
-            offset: Offset(0, AppSizes.h2),
-          ),
-        ],
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _buildHeader(),
-          verticalSpace(AppSizes.h12),
-          Divider(color: AppColors.grey97, height: AppSizes.h2),
-          verticalSpace(AppSizes.h12),
-          _buildDetails(),
-        ],
+    return Skeleton.leaf(
+      child: Container(
+        padding: EdgeInsets.symmetric(
+          horizontal: AppSizes.w16,
+          vertical: AppSizes.h12,
+        ),
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: AppColors.white,
+          borderRadius: BorderRadius.circular(AppSizes.radiusMd),
+          boxShadow: [
+            BoxShadow(
+              color: AppColors.shadow1,
+              blurRadius: AppSizes.h8,
+              offset: Offset(0, AppSizes.h2),
+            ),
+          ],
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _buildHeader(),
+            verticalSpace(AppSizes.h12),
+            Divider(color: AppColors.grey97, height: AppSizes.h2),
+            verticalSpace(AppSizes.h12),
+            _buildDetails(),
+          ],
+        ),
       ),
     );
   }

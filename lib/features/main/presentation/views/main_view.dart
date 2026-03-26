@@ -23,7 +23,9 @@ class MainViewBodyContent extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         shape: const CircleBorder(),
         backgroundColor: AppColors.orange,
-        onPressed: () {},
+        onPressed: () {
+          context.pushNamed(Routes.requestReceiveShipmentView, extra: false);
+        },
         child: const Icon(Icons.add, color: Colors.white),
       ),
       bottomNavigationBar: const CustomBottomNavBar(),

@@ -536,8 +536,7 @@ class CodegenLoader extends AssetLoader{
   "delete_account_confirm_title": "حذف الحساب",
   "delete_account_confirm_desc": "هل أنت متأكد أنك تريد حذف الحساب؟ سيتم مسح كافة بياناتك نهائياً.",
   "delete_account": "حذف الحساب",
-  "cancel": "إلغاء",
-  "fieldRequired": "هذا الحقل مطلوب"
+  "fieldRequired": "هذا الحقل مطلوب",
   "deposit_requests_title": "طلبات الإيداع",
   "deposit_requests_create_request": "إنشاء طلب إيداع",
   "deposit_requests_status_new": "جديد",
@@ -557,7 +556,14 @@ class CodegenLoader extends AssetLoader{
   "deposit_requests_sample_amount": "1000 دينار ليبي",
   "deposit_requests_sample_created_at": "12-12-2026 11:30",
   "deposit_requests_sample_processed_by": "أسامة المرعي",
-  "cancel": "إلغاء"
+  "cancel": "إلغاء",
+  "transaction_type_receipt": "قبض",
+  "transaction_type_disbursement": "صرف",
+  "transaction_type_deposit": "إيداع",
+  "transaction_type_withdraw": "سحب",
+  "transaction_type_benefit_deposit": "إيداع إستحقاق",
+  "transaction_type_withdrawal_entitlement": "سحب إستحقاق",
+  "invalid_format": "صيغة غير صحيحة"
 };
 static const Map<String,dynamic> _en = {
   "app_name": "Al Meyar",
@@ -1080,8 +1086,7 @@ static const Map<String,dynamic> _en = {
   "delete_account_confirm_title": "Delete Account",
   "delete_account_confirm_desc": "Are you sure you want to delete your account? All your data will be permanently removed.",
   "delete_account": "Delete Account",
-  "cancel": "Cancel",
-  "fieldRequired": "This field is required"
+  "fieldRequired": "This field is required",
   "deposit_requests_title": "Deposit Requests",
   "deposit_requests_create_request": "Create Deposit Request",
   "deposit_requests_status_new": "New",
@@ -1101,7 +1106,14 @@ static const Map<String,dynamic> _en = {
   "deposit_requests_sample_amount": "1000 LYD",
   "deposit_requests_sample_created_at": "12-12-2026 11:30",
   "deposit_requests_sample_processed_by": "Osama Al-Merai",
-  "cancel": "Cancel"
+  "cancel": "Cancel",
+  "transaction_type_receipt": "Receipt",
+  "transaction_type_disbursement": "Disbursement",
+  "transaction_type_deposit": "Deposit",
+  "transaction_type_withdraw": "Withdraw",
+  "transaction_type_benefit_deposit": "Benefit Deposit",
+  "transaction_type_withdrawal_entitlement": "Withdrawal Entitlement",
+  "invalid_format": "Invalid format"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

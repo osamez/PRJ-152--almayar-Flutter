@@ -1,9 +1,12 @@
 part of '../../feature_imports.dart';
 
 class FilterAccountBottomSheet extends StatefulWidget {
-  const FilterAccountBottomSheet({super.key});
+  const FilterAccountBottomSheet({super.key, required this.walletId});
 
-  static void show(BuildContext context) {
+  final int walletId;
+
+  static void show(BuildContext context, int walletId) {
+    final cubit = context.read<WalletsCubit>();
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -13,7 +16,10 @@ class FilterAccountBottomSheet extends StatefulWidget {
           top: Radius.circular(AppSizes.radiusLg),
         ),
       ),
-      builder: (_) => const FilterAccountBottomSheet(),
+      builder: (_) => BlocProvider.value(
+        value: cubit,
+        child: FilterAccountBottomSheet(walletId: walletId),
+      ),
     );
   }
 
@@ -23,8 +29,18 @@ class FilterAccountBottomSheet extends StatefulWidget {
 }
 
 class _FilterAccountBottomSheetState extends State<FilterAccountBottomSheet> {
-  final TextEditingController _fromDateController = TextEditingController();
-  final TextEditingController _toDateController = TextEditingController();
+  late final TextEditingController _fromDateController;
+  late final TextEditingController _toDateController;
+  TransactionTypeModel? _selectedType;
+
+  @override
+  void initState() {
+    super.initState();
+    final state = context.read<WalletsCubit>().state;
+    _fromDateController = TextEditingController(text: state.fromDate);
+    _toDateController = TextEditingController(text: state.toDate);
+    _selectedType = state.selectedTransactionType;
+  }
 
   @override
   void dispose() {
@@ -33,7 +49,7 @@ class _FilterAccountBottomSheetState extends State<FilterAccountBottomSheet> {
     super.dispose();
   }
 
-  Future<void> _pickDate(TextEditingController controller) async {
+  Future<void> _pickDate(TextEditingController controller, bool isFrom) async {
     final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: DateTime.now(),
@@ -41,8 +57,14 @@ class _FilterAccountBottomSheetState extends State<FilterAccountBottomSheet> {
       lastDate: DateTime(2030),
     );
     if (picked != null) {
-      controller.text =
+      final dateStr =
           '${picked.year}-${picked.month.toString().padLeft(2, '0')}-${picked.day.toString().padLeft(2, '0')}';
+      controller.text = dateStr;
+      if (isFrom) {
+        context.read<WalletsCubit>().updateFromDate(dateStr);
+      } else {
+        context.read<WalletsCubit>().updateToDate(dateStr);
+      }
     }
   }
 
@@ -53,7 +75,7 @@ class _FilterAccountBottomSheetState extends State<FilterAccountBottomSheet> {
         AppSizes.w20,
         AppSizes.h16,
         AppSizes.w20,
-        AppSizes.h32,
+        MediaQuery.of(context).viewInsets.bottom + AppSizes.h32,
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -63,23 +85,37 @@ class _FilterAccountBottomSheetState extends State<FilterAccountBottomSheet> {
           Text(
             LocaleKeys.account_statement_filter_sheet_title.tr(),
             style: AppTextStyleFactory.create(
-              size: AppSizes.h24,
+              size: 24,
               weight: FontWeight.w700,
               color: AppColors.deepViolet,
             ),
           ),
           verticalSpace(AppSizes.h24),
-          AppTextFormField(
-            title: LocaleKeys.account_statement_filter_type.tr(),
-            hintText: LocaleKeys.account_statement_filter_type_hint.tr(),
-            readOnly: true,
-            isRequired: false,
-            validator: (_) => null,
-            suffixIcon: Icon(
-              Icons.keyboard_arrow_down_rounded,
-              size: AppSizes.w24,
-              color: AppColors.darkText,
-            ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                LocaleKeys.account_statement_filter_type.tr(),
+                style: AppTextStyleFactory.create(
+                  size: 14,
+                  weight: FontWeight.w500,
+                  color: AppColors.black,
+                ),
+              ),
+              verticalSpace(AppSizes.h8),
+              CustomDropdownSearchList<TransactionTypeModel>(
+                items: TransactionTypeModel.all,
+                initialValue: _selectedType,
+                itemAsString: (item) => item.name,
+                hintText: LocaleKeys.account_statement_filter_type_hint.tr(),
+                onChanged: (type) {
+                  setState(() {
+                    _selectedType = type;
+                  });
+                  context.read<WalletsCubit>().updateTransactionType(type);
+                },
+              ),
+            ],
           ),
           verticalSpace(AppSizes.h16),
           AppTextFormField(
@@ -88,7 +124,7 @@ class _FilterAccountBottomSheetState extends State<FilterAccountBottomSheet> {
             readOnly: true,
             isRequired: false,
             controller: _fromDateController,
-            onTap: () => _pickDate(_fromDateController),
+            onTap: () => _pickDate(_fromDateController, true),
             validator: (_) => null,
             suffixIcon: Padding(
               padding: EdgeInsets.all(AppSizes.w12),
@@ -110,7 +146,7 @@ class _FilterAccountBottomSheetState extends State<FilterAccountBottomSheet> {
             readOnly: true,
             isRequired: false,
             controller: _toDateController,
-            onTap: () => _pickDate(_toDateController),
+            onTap: () => _pickDate(_toDateController, false),
             validator: (_) => null,
             suffixIcon: Padding(
               padding: EdgeInsets.all(AppSizes.w12),
@@ -126,9 +162,35 @@ class _FilterAccountBottomSheetState extends State<FilterAccountBottomSheet> {
             ),
           ),
           verticalSpace(AppSizes.h24),
-          AppElevatedButton(
-            text: LocaleKeys.account_statement_filter_apply.tr(),
-            onPressed: () => Navigator.pop(context),
+          Row(
+            children: [
+              Expanded(
+                child: AppElevatedButton(
+                  text: LocaleKeys.cancel.tr(),
+                  onPressed: () {
+                    context.read<WalletsCubit>().clearFilters();
+                    Navigator.pop(context);
+                    context
+                        .read<WalletsCubit>()
+                        .getWalletTransactions(widget.walletId);
+                  },
+                  backgroundColor: AppColors.offWhite,
+                  textColor: AppColors.orange,
+                ),
+              ),
+              horizontalSpace(AppSizes.w16),
+              Expanded(
+                child: AppElevatedButton(
+                  text: LocaleKeys.account_statement_filter_apply.tr(),
+                  onPressed: () {
+                    Navigator.pop(context);
+                    context
+                        .read<WalletsCubit>()
+                        .getWalletTransactions(widget.walletId);
+                  },
+                ),
+              ),
+            ],
           ),
         ],
       ),

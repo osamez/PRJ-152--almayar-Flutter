@@ -1,9 +1,9 @@
 part of '../../feature_imports.dart';
 
 class DepositRequestCard extends StatelessWidget {
-  const DepositRequestCard({super.key, required this.requestId});
+  const DepositRequestCard({super.key, required this.deposit});
 
-  final int requestId;
+  final DepositModel deposit;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class DepositRequestCard extends StatelessWidget {
             textDirection: TextDirection.ltr,
             children: [
               Text(
-                '#$requestId',
+                '#${deposit.id ?? ''}',
                 style: AppTextStyleFactory.create(
                   size: 14,
                   weight: FontWeight.w700,
@@ -41,12 +41,12 @@ class DepositRequestCard extends StatelessWidget {
                 ),
               ),
               const Spacer(),
-              const DepositRequestStatusChip(),
+              DepositRequestStatusChip(statusName: deposit.status?.name),
             ],
           ),
           verticalSpace(AppSizes.h12),
           Text(
-            LocaleKeys.deposit_requests_sample_amount.tr(),
+            '${deposit.amount ?? ''} ${deposit.currency?.code ?? ''}',
             textAlign: TextAlign.center,
             style: AppTextStyleFactory.create(
               size: 22,
@@ -55,7 +55,7 @@ class DepositRequestCard extends StatelessWidget {
             ),
           ),
           verticalSpace(AppSizes.h16),
-          DepositRequestInfoGrid(onTapTransferProof: () {}),
+          DepositRequestInfoGrid(deposit: deposit, onTapTransferProof: () {}),
         ],
       ),
     );

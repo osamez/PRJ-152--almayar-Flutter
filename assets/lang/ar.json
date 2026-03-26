@@ -520,8 +520,7 @@
   "delete_account_confirm_title": "حذف الحساب",
   "delete_account_confirm_desc": "هل أنت متأكد أنك تريد حذف الحساب؟ سيتم مسح كافة بياناتك نهائياً.",
   "delete_account": "حذف الحساب",
-  "cancel": "إلغاء",
-  "fieldRequired": "هذا الحقل مطلوب"
+  "fieldRequired": "هذا الحقل مطلوب",
   "deposit_requests_title": "طلبات الإيداع",
   "deposit_requests_create_request": "إنشاء طلب إيداع",
   "deposit_requests_status_new": "جديد",
@@ -541,5 +540,12 @@
   "deposit_requests_sample_amount": "1000 دينار ليبي",
   "deposit_requests_sample_created_at": "12-12-2026 11:30",
   "deposit_requests_sample_processed_by": "أسامة المرعي",
-  "cancel": "إلغاء"
+  "cancel": "إلغاء",
+  "transaction_type_receipt": "قبض",
+  "transaction_type_disbursement": "صرف",
+  "transaction_type_deposit": "إيداع",
+  "transaction_type_withdraw": "سحب",
+  "transaction_type_benefit_deposit": "إيداع إستحقاق",
+  "transaction_type_withdrawal_entitlement": "سحب إستحقاق",
+  "invalid_format": "صيغة غير صحيحة"
 }

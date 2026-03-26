@@ -1,7 +1,9 @@
 part of '../../feature_imports.dart';
 
 class DepositRequestStatusChip extends StatelessWidget {
-  const DepositRequestStatusChip({super.key});
+  const DepositRequestStatusChip({super.key, this.statusName});
+
+  final String? statusName;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class DepositRequestStatusChip extends StatelessWidget {
         textDirection: TextDirection.ltr,
         children: [
           Text(
-            LocaleKeys.deposit_requests_status_new.tr(),
+            statusName ?? LocaleKeys.deposit_requests_status_new.tr(),
             style: AppTextStyleFactory.create(
               size: 12,
               weight: FontWeight.w700,

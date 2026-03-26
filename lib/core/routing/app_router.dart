@@ -16,6 +16,7 @@ import 'package:almeyar/features/money_transfers/presentation/feature_imports.da
 import 'package:almeyar/features/profile/presentation/feature_imports.dart';
 import 'package:almeyar/features/tickets/presentation/feature_imports.dart';
 import 'package:almeyar/features/shipment_tracking/data/models/shipments_type_params.dart';
+import 'package:almeyar/features/wallets/data/models/wallet_model.dart';
 import 'package:almeyar/features/wallets/presentation/feature_imports.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
@@ -81,7 +82,8 @@ final router = GoRouter(
     GoRoute(
       path: Routes.requestReceiveShipmentView,
       name: Routes.requestReceiveShipmentView,
-      builder: (context, state) => const RequestReceiveShipmentView(),
+      builder: (context, state) =>
+          RequestReceiveShipmentView(fromMain: state.extra as bool? ?? false),
     ),
     GoRoute(
       path: Routes.receiveShipment,
@@ -236,12 +238,14 @@ final router = GoRouter(
     GoRoute(
       path: Routes.walletMoneyTransfer,
       name: Routes.walletMoneyTransfer,
-      builder: (context, state) => const WalletMoneyTransferView(),
+      builder: (context, state) =>
+          WalletMoneyTransferView(wallet: state.extra as WalletModel),
     ),
     GoRoute(
       path: Routes.accountStatement,
       name: Routes.accountStatement,
-      builder: (context, state) => const AccountStatementView(),
+      builder: (context, state) =>
+          AccountStatementView(wallet: state.extra as WalletModel),
     ),
     GoRoute(
       path: Routes.depositRequests,

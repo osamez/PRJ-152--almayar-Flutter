@@ -1,10 +1,24 @@
+import 'dart:io';
+
 import 'package:almeyar/core/utils/exports.dart';
 import 'package:almeyar/core/widgets/custom_icon_rounded_box.dart';
 import 'package:almeyar/core/widgets/details_info_row.dart';
 import 'package:almeyar/core/widgets/details_info_section.dart';
 import 'package:almeyar/features/shipment_tracking/presentation/feature_imports.dart';
-import 'package:almeyar/features/wallets/presentation/cubit/confirm_transfer_cubit.dart';
+import 'package:almeyar/core/network/local_status_codes.dart';
+import 'package:almeyar/core/widgets/custom_error_widget.dart';
+import 'package:almeyar/core/widgets/internet_connection_widget.dart';
+import 'package:almeyar/features/wallets/data/models/wallet_model.dart';
+import 'package:almeyar/features/wallets/data/models/wallet_transaction_model.dart';
+import 'package:almeyar/features/wallets/data/models/transaction_type_model.dart';
+import 'package:almeyar/features/wallets/data/models/deposit_model.dart';
+import 'package:almeyar/features/wallets/data/models/deposit_metadata_model.dart';
+import 'package:almeyar/features/wallets/presentation/cubits/wallet_money_transfer/wallet_money_transfer_cubit.dart';
+import 'package:almeyar/features/wallets/presentation/cubits/wallets/wallets_cubit.dart';
+import 'package:almeyar/features/wallets/presentation/cubits/deposit_requests/deposit_requests_cubit.dart';
 import 'package:pinput/pinput.dart';
+import 'package:almeyar/core/utils/loading_dialog.dart';
+import 'package:almeyar/core/helpers/app_snack_bar.dart';
 
 // Views
 part 'views/wallets_view.dart';
@@ -32,6 +46,7 @@ part 'widgets/account_statement/filter_account_drag_handle.dart';
 part 'widgets/wallet_money_transfer/wallet_money_transfer_view_body.dart';
 part 'widgets/wallet_money_transfer/wallet_money_transfer_summary_card.dart';
 part 'widgets/wallet_money_transfer/wallet_money_transfer_submit_button.dart';
+part 'widgets/wallet_money_transfer/wallet_money_transfer_bloc_listener.dart';
 
 // Widgets - deposit requests
 part 'widgets/deposit_requests/deposit_requests_view_body.dart';
@@ -42,6 +57,10 @@ part 'widgets/deposit_requests/deposit_request_status_chip.dart';
 part 'widgets/deposit_requests/deposit_request_info_grid.dart';
 part 'widgets/deposit_requests/deposit_request_info_box.dart';
 part 'widgets/deposit_requests/create_deposit_request_bottom_sheet.dart';
+part 'widgets/deposit_requests/deposit_requests_bloc_listener.dart';
+part 'widgets/deposit_requests/deposit_request_currency_field.dart';
+part 'widgets/deposit_requests/deposit_request_transfer_type_field.dart';
+part 'widgets/deposit_requests/deposit_request_attachment_section.dart';
 
 // Widgets - confirm transfer bottom sheet
 part 'widgets/wallet_money_transfer/confirm_transfer_bottom_sheet.dart';

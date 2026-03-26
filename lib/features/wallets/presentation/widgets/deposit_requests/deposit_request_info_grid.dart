@@ -1,7 +1,13 @@
 part of '../../feature_imports.dart';
 
 class DepositRequestInfoGrid extends StatelessWidget {
-  const DepositRequestInfoGrid({super.key, required this.onTapTransferProof});
+  const DepositRequestInfoGrid({
+    super.key,
+    required this.deposit,
+    required this.onTapTransferProof,
+  });
+
+  final DepositModel deposit;
 
   final VoidCallback onTapTransferProof;
 
@@ -17,7 +23,7 @@ class DepositRequestInfoGrid extends StatelessWidget {
               child: DepositRequestInfoBox(
                 title: LocaleKeys.deposit_requests_transfer_type.tr(),
                 content: Text(
-                  LocaleKeys.deposit_requests_transfer_type_lypay.tr(),
+                  deposit.transferType?.name ?? '',
                   textAlign: TextAlign.center,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
@@ -34,7 +40,7 @@ class DepositRequestInfoGrid extends StatelessWidget {
               child: DepositRequestInfoBox(
                 title: LocaleKeys.deposit_requests_created_at.tr(),
                 content: Text(
-                  LocaleKeys.deposit_requests_sample_created_at.tr(),
+                  deposit.createdAt ?? '',
                   textAlign: TextAlign.center,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
@@ -56,7 +62,7 @@ class DepositRequestInfoGrid extends StatelessWidget {
               child: DepositRequestInfoBox(
                 title: LocaleKeys.deposit_requests_processed_by.tr(),
                 content: Text(
-                  LocaleKeys.deposit_requests_sample_processed_by.tr(),
+                  deposit.processedByName ?? '',
                   textAlign: TextAlign.center,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
@@ -74,7 +80,7 @@ class DepositRequestInfoGrid extends StatelessWidget {
                 title: LocaleKeys.deposit_requests_transfer_proof.tr(),
                 content: CustomInkWellWidget(
                   radius: AppSizes.radiusSm,
-                  onTap: onTapTransferProof,
+                  onTap: () => _handleFileTap(context),
                   child: Text(
                     LocaleKeys.deposit_requests_view.tr(),
                     textAlign: TextAlign.center,
@@ -90,6 +96,44 @@ class DepositRequestInfoGrid extends StatelessWidget {
           ],
         ),
       ],
+    );
+  }
+
+  void _handleFileTap(BuildContext context) {
+    if (deposit.attachment == null || deposit.attachment!.isEmpty) {
+      return;
+    }
+    showDialog(
+      context: context,
+      builder: (context) => Dialog(
+        backgroundColor: Colors.transparent,
+        insetPadding: EdgeInsets.zero,
+        child: Stack(
+          children: [
+            Center(
+              child: InteractiveViewer(
+                child: deposit.attachment!.startsWith('http')
+                    ? CustomCachedImage(
+                        imageUrl: deposit.attachment!,
+                        fit: BoxFit.contain,
+                      )
+                    : Image.file(
+                        File(deposit.attachment!),
+                        fit: BoxFit.contain,
+                      ),
+              ),
+            ),
+            Positioned(
+              top: AppSizes.h40,
+              right: AppSizes.w16,
+              child: IconButton(
+                icon: const Icon(Icons.close, color: AppColors.white, size: 30),
+                onPressed: () => Navigator.pop(context),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

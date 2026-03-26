@@ -524,6 +524,7 @@ abstract class  LocaleKeys {
   static const delete_account_confirm_title = 'delete_account_confirm_title';
   static const delete_account_confirm_desc = 'delete_account_confirm_desc';
   static const delete_account = 'delete_account';
+  static const fieldRequired = 'fieldRequired';
   static const deposit_requests_title = 'deposit_requests_title';
   static const deposit_requests_create_request = 'deposit_requests_create_request';
   static const deposit_requests_status_new = 'deposit_requests_status_new';
@@ -544,6 +545,12 @@ abstract class  LocaleKeys {
   static const deposit_requests_sample_created_at = 'deposit_requests_sample_created_at';
   static const deposit_requests_sample_processed_by = 'deposit_requests_sample_processed_by';
   static const cancel = 'cancel';
-  static const fieldRequired = 'fieldRequired';
+  static const transaction_type_receipt = 'transaction_type_receipt';
+  static const transaction_type_disbursement = 'transaction_type_disbursement';
+  static const transaction_type_deposit = 'transaction_type_deposit';
+  static const transaction_type_withdraw = 'transaction_type_withdraw';
+  static const transaction_type_benefit_deposit = 'transaction_type_benefit_deposit';
+  static const transaction_type_withdrawal_entitlement = 'transaction_type_withdrawal_entitlement';
+  static const invalid_format = 'invalid_format';
 
 }
