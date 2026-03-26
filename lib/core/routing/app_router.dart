@@ -75,8 +75,8 @@ final router = GoRouter(
       path: Routes.shipmentAddressDetails,
       name: Routes.shipmentAddressDetails,
       builder: (context, state) {
-        final branchId = state.extra as int;
-        return ShipmentAddressDetailsView(branchId: branchId);
+        final params = state.extra as ShipmentAddressDetailsParams;
+        return ShipmentAddressDetailsView(params: params);
       },
     ),
     GoRoute(

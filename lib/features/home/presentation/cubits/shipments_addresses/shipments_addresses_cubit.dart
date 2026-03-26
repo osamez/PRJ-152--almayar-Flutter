@@ -6,7 +6,7 @@ class ShipmentsAddressesCubit extends Cubit<ShipmentsAddressesState> {
   Timer? _debounce;
 
   ShipmentsAddressesCubit(this._homeRepo, this._internetService)
-      : super(const ShipmentsAddressesState());
+    : super(const ShipmentsAddressesState());
 
   Future<void> getAllBranches() async {
     emit(state.copyWith(getAllBranchesState: const AsyncLoading()));
@@ -33,7 +33,10 @@ class ShipmentsAddressesCubit extends Cubit<ShipmentsAddressesState> {
     result.when(
       onSuccess: (response) {
         emit(
-            state.copyWith(getAllBranchesState: AsyncData(response.data?.branches ?? [])));
+          state.copyWith(
+            getAllBranchesState: AsyncData(response.data?.branches ?? []),
+          ),
+        );
       },
       onFailure: (failure) {
         emit(state.copyWith(getAllBranchesState: AsyncError(failure)));
@@ -63,8 +66,9 @@ class ShipmentsAddressesCubit extends Cubit<ShipmentsAddressesState> {
     result.when(
       onSuccess: (response) {
         if (response.data != null) {
-          emit(state.copyWith(
-              showBranchDetailsState: AsyncData(response.data!)));
+          emit(
+            state.copyWith(showBranchDetailsState: AsyncData(response.data!)),
+          );
         } else {
           emit(
             state.copyWith(
@@ -96,6 +100,41 @@ class ShipmentsAddressesCubit extends Cubit<ShipmentsAddressesState> {
     _debounce = Timer(const Duration(milliseconds: 500), () {
       getAllBranches();
     });
+  }
+
+  void initializeDropdownForShipmentType(String shipmentType) {
+    List<String> options = [];
+    if (shipmentType == 'air') {
+      options = [
+        LocaleKeys.shipment_type_air_eco.tr(),
+        LocaleKeys.shipment_type_air_fast.tr(),
+      ];
+    } else {
+      options = [
+        LocaleKeys.shipment_type_sea_fcl.tr(),
+        LocaleKeys.shipment_type_sea_lcl.tr(),
+      ];
+    }
+    emit(state.copyWith(availableDropdownOptions: options));
+  }
+
+  void selectDropdownShipmentType(String type) {
+    emit(state.copyWith(selectedDropdownShipmentType: type));
+  }
+
+  String getCustomerNameStr(BranchDetailsModel? data) {
+    if (data == null) return '';
+    final selectedType = state.selectedDropdownShipmentType;
+    String name = data.name ?? '';
+    String code = data.userCode ?? '';
+    String type = selectedType ?? '';
+
+    List<String> parts = [];
+    if (name.isNotEmpty) parts.add(name);
+    if (code.isNotEmpty) parts.add(code);
+    if (type.isNotEmpty) parts.add(type);
+
+    return parts.join(' ');
   }
 
   @override

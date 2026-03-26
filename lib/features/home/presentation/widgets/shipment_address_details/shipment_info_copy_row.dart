@@ -67,12 +67,11 @@ class ShipmentInfoCopyRow extends StatelessWidget {
   }
 
   void _copyToClipboard(BuildContext context) {
-    Clipboard.setData(ClipboardData(text: value));
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text('$label copied'),
-        duration: const Duration(seconds: 1),
-      ),
+    Clipboard.setData(ClipboardData(text: '$label: $value'));
+    showAppSnackbar(
+      context: context,
+      type: SnackbarType.success,
+      description: 'تم نسخ $label',
     );
   }
 }

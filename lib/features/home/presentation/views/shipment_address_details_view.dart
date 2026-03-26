@@ -1,9 +1,19 @@
 part of '../feature_imports.dart';
 
-class ShipmentAddressDetailsView extends StatelessWidget {
-  const ShipmentAddressDetailsView({super.key, required this.branchId});
-
+class ShipmentAddressDetailsParams {
   final int branchId;
+  final String shipmentType;
+
+  const ShipmentAddressDetailsParams({
+    required this.branchId,
+    required this.shipmentType,
+  });
+}
+
+class ShipmentAddressDetailsView extends StatelessWidget {
+  const ShipmentAddressDetailsView({super.key, required this.params});
+
+  final ShipmentAddressDetailsParams params;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +24,7 @@ class ShipmentAddressDetailsView extends StatelessWidget {
         appBar: CustomAppBar(
           title: LocaleKeys.shipments_international_title.tr(),
         ),
-        body: ShipmentAddressDetailsViewBody(branchId: branchId),
+        body: ShipmentAddressDetailsViewBody(params: params),
       ),
     );
   }

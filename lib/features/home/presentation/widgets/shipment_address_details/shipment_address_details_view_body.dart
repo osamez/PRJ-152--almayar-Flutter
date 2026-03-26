@@ -1,9 +1,9 @@
 part of '../../feature_imports.dart';
 
 class ShipmentAddressDetailsViewBody extends StatefulWidget {
-  const ShipmentAddressDetailsViewBody({super.key, required this.branchId});
+  const ShipmentAddressDetailsViewBody({super.key, required this.params});
 
-  final int branchId;
+  final ShipmentAddressDetailsParams params;
 
   @override
   State<ShipmentAddressDetailsViewBody> createState() =>
@@ -15,7 +15,9 @@ class _ShipmentAddressDetailsViewBodyState
   @override
   void initState() {
     super.initState();
-    context.read<ShipmentsAddressesCubit>().showBranchDetails(widget.branchId);
+    final cubit = context.read<ShipmentsAddressesCubit>();
+    cubit.showBranchDetails(widget.params.branchId);
+    cubit.initializeDropdownForShipmentType(widget.params.shipmentType);
   }
 
   @override
@@ -33,14 +35,14 @@ class _ShipmentAddressDetailsViewBodyState
               return InternetConnectionWidget(
                 onPressed: () => context
                     .read<ShipmentsAddressesCubit>()
-                    .showBranchDetails(widget.branchId),
+                    .showBranchDetails(widget.params.branchId),
               );
             }
             return CustomErrorWidget(
               message: failure.error,
               onPressed: () => context
                   .read<ShipmentsAddressesCubit>()
-                  .showBranchDetails(widget.branchId),
+                  .showBranchDetails(widget.params.branchId),
             );
           },
         );
@@ -68,21 +70,13 @@ class _ShipmentAddressDetailsViewBodyState
               flagAsset: AppAssets.svgFlagTest,
             ),
             verticalSpace(AppSizes.h16),
-            const ShipmentImportantNoteCard(),
+            ShipmentImportantNoteCard(note: data?.notes),
             verticalSpace(AppSizes.h16),
-            ShipmentInfoCopyRow(
-              label: LocaleKeys.shipment_details_shipping_type.tr(),
-              value:
-                  data?.availableShippingWays
-                      ?.map((way) => way.name ?? '')
-                      .where((name) => name.isNotEmpty)
-                      .join(', ') ??
-                  '',
-            ),
+            ShipmentTypeDropdown(branchDetails: data),
             verticalSpace(AppSizes.h16),
             ShipmentInfoCopyRow(
               label: LocaleKeys.shipment_details_customer_name.tr(),
-              value: data?.name ?? 'Mock Name',
+              value: data?.name ?? '',
             ),
             verticalSpace(AppSizes.h16),
             ShipmentInfoCopyRow(
@@ -129,15 +123,19 @@ class _ShipmentAddressDetailsViewBodyState
   }
 
   void _copyAllToClipboard(BuildContext context, BranchDetailsModel data) {
+    final cubit = context.read<ShipmentsAddressesCubit>();
+    final customerName = cubit.getCustomerNameStr(data);
+    // final selectedType = cubit.state.selectedDropdownShipmentType;
+
     final allText =
-        '${data.availableShippingWays?.map((way) => way.name ?? '').join(', ')}\n'
-        '${data.name}\n'
-        '${data.address1}\n'
-        '${data.address2}\n'
-        '${data.cityName}\n'
-        '${data.state}\n'
-        '${data.postalCode}\n'
-        '${data.phone}';
+        '${LocaleKeys.shipment_details_shipping_type.tr()}: $customerName\n'
+        '${LocaleKeys.shipment_details_customer_name.tr()}: ${data.name}\n'
+        '${LocaleKeys.shipment_details_main_address.tr()}: ${data.address1}\n'
+        '${LocaleKeys.shipment_details_sub_address.tr()}: ${data.address2}\n'
+        '${LocaleKeys.shipment_details_city.tr()}: ${data.cityName}\n'
+        '${LocaleKeys.shipment_details_region.tr()}: ${data.state}\n'
+        '${LocaleKeys.shipment_details_postal_code.tr()}: ${data.postalCode}\n'
+        '${LocaleKeys.shipment_details_phone_number.tr()}: ${data.phone}';
     Clipboard.setData(ClipboardData(text: allText));
     showAppSnackbar(
       context: context,

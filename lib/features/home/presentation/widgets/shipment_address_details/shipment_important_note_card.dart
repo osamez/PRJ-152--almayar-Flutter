@@ -1,7 +1,8 @@
 part of '../../feature_imports.dart';
 
 class ShipmentImportantNoteCard extends StatelessWidget {
-  const ShipmentImportantNoteCard({super.key});
+  const ShipmentImportantNoteCard({super.key, this.note});
+  final String? note;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +35,7 @@ class ShipmentImportantNoteCard extends StatelessWidget {
             ),
             verticalSpace(AppSizes.h8),
             Text(
-              LocaleKeys.shipment_details_important_note_desc.tr(),
+              note ?? '',
               textAlign: TextAlign.center,
               style: AppTextStyleFactory.create(
                 size: 12,

@@ -23,8 +23,17 @@ class ShipmentsAddressListItem extends StatelessWidget {
       child: CustomInkWellWidget(
         padding: EdgeInsets.all(AppSizes.w12),
         radius: AppSizes.radiusLg,
-        onTap: () =>
-            context.pushNamed(Routes.shipmentAddressDetails, extra: branch.id),
+        onTap: () {
+          final shipmentType =
+              context.read<ShipmentsAddressesCubit>().state.selectedFilter;
+          context.pushNamed(
+            Routes.shipmentAddressDetails,
+            extra: ShipmentAddressDetailsParams(
+              branchId: branch.id!,
+              shipmentType: shipmentType,
+            ),
+          );
+        },
         child: Row(
           children: [
             Flexible(

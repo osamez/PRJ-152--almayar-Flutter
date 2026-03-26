@@ -25,6 +25,7 @@ class CustomDropdownSearchList<T> extends StatefulWidget {
     this.onLoadMore,
     this.isLoadingMore = false,
     this.hasMore = false,
+    this.customDropdownBuilder,
   });
 
   final List<T> items;
@@ -44,6 +45,7 @@ class CustomDropdownSearchList<T> extends StatefulWidget {
   final bool showRemove;
   final bool isMulti;
   final String? Function(T?)? validator;
+  final Widget Function(BuildContext, T?)? customDropdownBuilder;
 
   /// Called once when the dropdown popup opens (load page 1).
   final VoidCallback? onPopupOpen;
@@ -152,7 +154,7 @@ class _CustomDropdownSearchListState<T>
           },
           validator: widget.validator,
           autoValidateMode: AutovalidateMode.onUserInteraction,
-          dropdownBuilder: (context, selectedItem) {
+          dropdownBuilder: widget.customDropdownBuilder ?? (context, selectedItem) {
             if (selectedItem == null) {
               return const SizedBox.shrink();
             }
