@@ -19,6 +19,21 @@ class ShipmentRequestsDataModel {
 }
 
 @JsonSerializable()
+class ShipmentWayModel {
+  final String? name;
+  final String? type;
+  final String? speed;
+  final int? value;
+
+  const ShipmentWayModel({this.name, this.type, this.speed, this.value});
+
+  factory ShipmentWayModel.fromJson(Map<String, dynamic> json) =>
+      _$ShipmentWayModelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ShipmentWayModelToJson(this);
+}
+
+@JsonSerializable()
 class ShipmentRequestModel {
   final int? id;
   @JsonKey(name: 'shipment_type')
@@ -26,7 +41,7 @@ class ShipmentRequestModel {
   @JsonKey(name: 'flight_type')
   final String? flightType;
   @JsonKey(name: 'shipment_way')
-  final String? shipmentWay;
+  final ShipmentWayModel? shipmentWay;
   @JsonKey(name: 'receiving_branch')
   final String? receivingBranch;
   @JsonKey(name: 'receiving_country')

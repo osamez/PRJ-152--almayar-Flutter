@@ -26,7 +26,7 @@ class _PickupSearchBarState extends State<PickupSearchBar> {
       validator: (value) => null,
       onChanged: (value) {
         if (_debounce?.isActive ?? false) _debounce?.cancel();
-        _debounce = Timer(const Duration(milliseconds: 500), () {
+        _debounce = Timer(const Duration(milliseconds: 800), () {
           context.read<ShipmentPickupRequestsCubit>().searchByTrackingNumber(
             value,
           );

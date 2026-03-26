@@ -10,7 +10,7 @@ class PickupRequestStatusBadge extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(
         horizontal: AppSizes.w10,
-        vertical: AppSizes.h8,
+        vertical: AppSizes.h5,
       ),
       decoration: BoxDecoration(
         color: status.backgroundColor,
@@ -36,7 +36,7 @@ class PickupRequestStatusBadge extends StatelessWidget {
           Text(
             status.label,
             style: AppTextStyleFactory.create(
-              size: 14,
+              size: 10,
               weight: FontWeight.w600,
               color: status.color,
             ),

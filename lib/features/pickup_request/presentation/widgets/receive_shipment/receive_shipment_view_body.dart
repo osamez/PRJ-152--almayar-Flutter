@@ -95,7 +95,7 @@ class _ReceiveShipmentViewBodyState extends State<ReceiveShipmentViewBody> {
                 child: SingleChildScrollView(
                   padding: EdgeInsets.symmetric(
                     horizontal: AppSizes.w20,
-                    vertical: AppSizes.h24,
+                    vertical: AppSizes.h32,
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

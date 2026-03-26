@@ -20,8 +20,8 @@ class _PickupRequestsListViewState extends State<PickupRequestsListView> {
     if (_scrollController.position.pixels >=
         _scrollController.position.maxScrollExtent - 200) {
       context.read<ShipmentPickupRequestsCubit>().getShipmentRequests(
-            isPagination: true,
-          );
+        isPagination: true,
+      );
     }
   }
 
@@ -33,9 +33,13 @@ class _PickupRequestsListViewState extends State<PickupRequestsListView> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ShipmentPickupRequestsCubit, ShipmentPickupRequestsState>(
+    return BlocBuilder<
+      ShipmentPickupRequestsCubit,
+      ShipmentPickupRequestsState
+    >(
       buildWhen: (previous, current) =>
-          previous.getShipmentRequestsState != current.getShipmentRequestsState ||
+          previous.getShipmentRequestsState !=
+              current.getShipmentRequestsState ||
           previous.isSearchLoading != current.isSearchLoading ||
           previous.isPaginationLoading != current.isPaginationLoading,
       builder: (context, state) {
@@ -43,7 +47,8 @@ class _PickupRequestsListViewState extends State<PickupRequestsListView> {
           initial: () => const SizedBox.shrink(),
           loading: () => _buildList(context, state, isLoading: true),
           data: (data) {
-            if (data.requests == null || data.requests!.isEmpty) {
+            if ((data.requests == null || data.requests!.isEmpty) &&
+                !state.isSearchLoading) {
               return EmptyWidget(
                 message: LocaleKeys.shipment_pickup_requests_no_requests.tr(),
                 imagePath: AppAssets.svgSearchResult,
@@ -102,10 +107,13 @@ class _PickupRequestsListViewState extends State<PickupRequestsListView> {
               return PickupCard(
                 status: mapStatus(item.status?.name),
                 shipmentCode: item.code ?? '---',
-                date: item.createdAt ?? '---',
-                isAir: item.shipmentType == "جوي" ||
+                date: item.createdAt != null
+                    ? formatDateFromApi(item.createdAt!)
+                    : '---',
+                isAir:
+                    item.shipmentType == "جوي" ||
                     item.shipmentType?.toLowerCase() == "air",
-                shippingType: item.shipmentType ?? '---',
+                shippingType: item.shipmentWay?.name ?? '---',
                 originWarehouse: item.receivingBranch ?? '---',
                 originCountry: item.receivingCountry ?? '---',
                 destinationWarehouse: item.deliveryBranch ?? '---',
@@ -118,7 +126,7 @@ class _PickupRequestsListViewState extends State<PickupRequestsListView> {
               );
             } else {
               return const Center(
-                child: CircularProgressIndicator(),
+                child: CupertinoActivityIndicator(),
               ).withPadding(vertical: AppSizes.h16);
             }
           },

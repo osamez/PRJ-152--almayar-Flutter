@@ -27,7 +27,7 @@ class ShipmentRequestPickupDetailsViewBody extends StatelessWidget {
             date: shipmentModel.createdAt == null
                 ? ''
                 : formatDateFromApi(shipmentModel.createdAt!),
-            shippingType: shipmentModel.shipmentType ?? '',
+            shippingType: shipmentModel.shipmentWay?.name ?? '',
             isAir: shipmentModel.shipmentType == "جوي",
           ),
           verticalSpace(AppSizes.h24),
@@ -57,48 +57,64 @@ class ShipmentRequestPickupDetailsViewBody extends StatelessWidget {
           DetailsInspectionCard(
             isEnabled: shipmentModel.inspectionRequest ?? false,
           ),
-          verticalSpace(AppSizes.h12),
+          verticalSpace(AppSizes.h16),
           shipmentModel.inspectionNote != null
               ? DetailsNoteCard(note: shipmentModel.inspectionNote ?? "")
               : const SizedBox(),
-          if (shipmentModel.shipmentImages != null &&
-              shipmentModel.shipmentImages!.isNotEmpty) ...[
-            SectionTitle(
-              title: LocaleKeys.shipment_details_shipment_photos.tr(),
-            ),
-            verticalSpace(AppSizes.h12),
-            DetailsMediaGrid(
-              items: shipmentModel.shipmentImages!
-                  .map(
-                    (e) => DetailsMediaItem(
-                      url: e,
-                      fileName: e.split('/').last,
-                      isImage: true,
+          SectionTitle(title: LocaleKeys.shipment_details_shipment_photos.tr()),
+          verticalSpace(AppSizes.h12),
+          shipmentModel.shipmentImages != null &&
+                  shipmentModel.shipmentImages!.isNotEmpty
+              ? DetailsMediaGrid(
+                  items: shipmentModel.shipmentImages!
+                      .map(
+                        (e) => DetailsMediaItem(
+                          url: e,
+                          fileName: e.split('/').last,
+                          isImage: true,
+                        ),
+                      )
+                      .toList(),
+                )
+              : Center(
+                  child: Text(
+                    "لا توجد صور",
+                    style: AppTextStyleFactory.create(
+                      size: 14,
+                      weight: FontWeight.w700,
+                      color: AppColors.darkText,
                     ),
-                  )
-                  .toList(),
-            ),
-            verticalSpace(AppSizes.h24),
-          ],
-          if (shipmentModel.documentImages != null &&
-              shipmentModel.documentImages!.isNotEmpty) ...[
-            SectionTitle(
-              title: LocaleKeys.shipment_details_shipment_documents.tr(),
-            ),
-            verticalSpace(AppSizes.h12),
-            DetailsMediaGrid(
-              items: shipmentModel.documentImages!
-                  .map(
-                    (e) => DetailsMediaItem(
-                      url: e,
-                      fileName: e.split('/').last,
-                      isImage: false,
+                  ),
+                ),
+          verticalSpace(AppSizes.h24),
+          SectionTitle(
+            title: LocaleKeys.shipment_details_shipment_documents.tr(),
+          ),
+          verticalSpace(AppSizes.h12),
+          shipmentModel.documentImages != null &&
+                  shipmentModel.documentImages!.isNotEmpty
+              ? DetailsMediaGrid(
+                  items: shipmentModel.documentImages!
+                      .map(
+                        (e) => DetailsMediaItem(
+                          url: e,
+                          fileName: e.split('/').last,
+                          isImage: false,
+                        ),
+                      )
+                      .toList(),
+                )
+              : Center(
+                  child: Text(
+                    "لا توجد مستندات",
+                    style: AppTextStyleFactory.create(
+                      size: 14,
+                      weight: FontWeight.w700,
+                      color: AppColors.darkText,
                     ),
-                  )
-                  .toList(),
-            ),
-            verticalSpace(AppSizes.h24),
-          ],
+                  ),
+                ),
+          verticalSpace(AppSizes.h24),
           verticalSpace(AppSizes.h30),
         ],
       ),

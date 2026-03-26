@@ -17,14 +17,13 @@ class ShipmentPickupRequestsCubit extends Cubit<ShipmentPickupRequestsState> {
   }) async {
     // 1. Update search query ONLY if explicitly provided
     if (trackingNumber != null) {
-      _currentSearchQuery = trackingNumber.isEmpty ? null : trackingNumber;
-      _currentPage = 1;
-
       // 2. Cache data when starting a new search from scratch
       if (trackingNumber.isNotEmpty &&
           (_currentSearchQuery == null || _currentSearchQuery!.isEmpty)) {
         _cachedData = state.getShipmentRequestsState.valueOrNull;
       }
+      _currentSearchQuery = trackingNumber.isEmpty ? null : trackingNumber;
+      _currentPage = 1;
     }
 
     // 3. Handle data restoration from cache when clearing search

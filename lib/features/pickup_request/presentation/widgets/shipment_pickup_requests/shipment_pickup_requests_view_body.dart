@@ -7,7 +7,7 @@ class ShipmentPickupRequestsViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        verticalSpace(AppSizes.h16),
+        verticalSpace(AppSizes.h32),
         const PickupSearchBar().withPadding(horizontal: AppSizes.w20),
         verticalSpace(AppSizes.h16),
         const PickupShippingTypeTabs().withPadding(horizontal: AppSizes.w20),

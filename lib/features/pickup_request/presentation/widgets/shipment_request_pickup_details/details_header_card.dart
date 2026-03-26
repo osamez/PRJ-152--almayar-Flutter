@@ -54,7 +54,7 @@ class DetailsHeaderCard extends StatelessWidget {
                     Text(
                       shipmentCode,
                       style: AppTextStyleFactory.create(
-                        size: 24,
+                        size: 20,
                         weight: FontWeight.w700,
                         color: AppColors.deepViolet,
                       ),
@@ -86,21 +86,27 @@ class DetailsHeaderCard extends StatelessWidget {
               horizontal: AppSizes.w16,
               vertical: AppSizes.h12,
             ),
-            child: Row(
-              children: [
-                _DateShippingChip(
-                  iconPath: AppAssets.svgCalendar,
-                  label: 'تاريخ الطلب',
-                  value: date,
-                ),
-                const Spacer(),
-
-                _DateShippingChip(
-                  iconPath: AppAssets.svgBoat,
-                  label: LocaleKeys.shipment_details_shipping_type.tr(),
-                  value: shippingType,
-                ),
-              ],
+            child: IntrinsicHeight(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: _DateShippingChip(
+                      iconPath: AppAssets.svgCalendar,
+                      label: 'تاريخ الطلب',
+                      value: date,
+                    ),
+                  ),
+                  horizontalSpace(AppSizes.w16),
+                  Expanded(
+                    child: _DateShippingChip(
+                      iconPath: AppAssets.svgBoat,
+                      label: LocaleKeys.shipment_details_shipping_type.tr(),
+                      value: shippingType,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],
@@ -148,26 +154,29 @@ class _DateShippingChip extends StatelessWidget {
             backgroundColor: AppColors.grey97,
           ),
 
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                label,
-                style: AppTextStyleFactory.create(
-                  size: 10,
-                  weight: FontWeight.w600,
-                  color: AppColors.hintColor,
+          Flexible(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  label,
+                  style: AppTextStyleFactory.create(
+                    size: 10,
+                    weight: FontWeight.w600,
+                    color: AppColors.hintColor,
+                  ),
                 ),
-              ),
-              Text(
-                value,
-                style: AppTextStyleFactory.create(
-                  size: 12,
-                  weight: FontWeight.w700,
-                  color: AppColors.deepViolet,
+                Text(
+                  value,
+                  style: AppTextStyleFactory.create(
+                    size: 12,
+                    weight: FontWeight.w700,
+                    color: AppColors.deepViolet,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),

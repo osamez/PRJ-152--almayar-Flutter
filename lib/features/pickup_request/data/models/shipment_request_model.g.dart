@@ -21,13 +21,31 @@ Map<String, dynamic> _$ShipmentRequestsDataModelToJson(
   ShipmentRequestsDataModel instance,
 ) => <String, dynamic>{'requests': instance.requests, 'meta': instance.meta};
 
+ShipmentWayModel _$ShipmentWayModelFromJson(Map<String, dynamic> json) =>
+    ShipmentWayModel(
+      name: json['name'] as String?,
+      type: json['type'] as String?,
+      speed: json['speed'] as String?,
+      value: (json['value'] as num?)?.toInt(),
+    );
+
+Map<String, dynamic> _$ShipmentWayModelToJson(ShipmentWayModel instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      'type': instance.type,
+      'speed': instance.speed,
+      'value': instance.value,
+    };
+
 ShipmentRequestModel _$ShipmentRequestModelFromJson(
   Map<String, dynamic> json,
 ) => ShipmentRequestModel(
   id: (json['id'] as num?)?.toInt(),
   shipmentType: json['shipment_type'] as String?,
   flightType: json['flight_type'] as String?,
-  shipmentWay: json['shipment_way'] as String?,
+  shipmentWay: json['shipment_way'] == null
+      ? null
+      : ShipmentWayModel.fromJson(json['shipment_way'] as Map<String, dynamic>),
   receivingBranch: json['receiving_branch'] as String?,
   deliveryBranch: json['delivery_branch'] as String?,
   shipmentContent: json['shipment_content'] as String?,

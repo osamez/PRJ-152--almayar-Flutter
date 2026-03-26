@@ -13,7 +13,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: AppColors.offWhite,
       surfaceTintColor: Colors.transparent,
-      scrolledUnderElevation: 0,
+      scrolledUnderElevation: 1,
+      shadowColor: Colors.black, // لون الضل
       elevation: 0,
       title: Text(
         title,
@@ -23,7 +24,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           color: AppColors.deepViolet,
         ),
       ),
-      centerTitle: true,
+      centerTitle: false,
       leading: hideBackButton
           ? const SizedBox.shrink()
           : Container(
@@ -32,7 +33,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               margin: EdgeInsets.only(
                 right: AppSizes.w12,
                 top: AppSizes.h10,
-                // bottom: AppSizes.h12,
+                bottom: AppSizes.h10,
               ),
 
               decoration: BoxDecoration(
@@ -57,5 +58,5 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(50.h);
+  Size get preferredSize => Size.fromHeight(60.h);
 }
