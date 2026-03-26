@@ -8,23 +8,37 @@ part of 'receiving_branch_model.dart';
 
 ReceivingBranchModel _$ReceivingBranchModelFromJson(
   Map<String, dynamic> json,
-) => ReceivingBranchModel(
-  id: (json['id'] as num?)?.toInt(),
-  name: json['name'] as String?,
-  countryName: json['country_name'] as String?,
-  branchName: json['branch_name'] as String?,
-  cityName: json['city_name'] as String?,
-  code: json['code'] as String?,
-  notes: json['notes'] as String?,
-  countryId: (json['country_id'] as num?)?.toInt(),
-  cityId: (json['city_id'] as num?)?.toInt(),
-  type: json['type'] as String?,
-  status: json['status'] == null
-      ? null
-      : BranchStatusModel.fromJson(json['status'] as Map<String, dynamic>),
-  availableShippingWays: (json['available_shipping_ways'] as List<dynamic>?)
-      ?.map((e) => ShippingWayModel.fromJson(e as Map<String, dynamic>))
-      .toList(),
+) => $checkedCreate(
+  'ReceivingBranchModel',
+  json,
+  ($checkedConvert) {
+    final val = ReceivingBranchModel(
+      id: $checkedConvert('id', (v) => (v as num?)?.toInt()),
+      name: $checkedConvert('name', (v) => v as String?),
+      countryName: $checkedConvert('country_name', (v) => v as String?),
+      branchName: $checkedConvert('branch_name', (v) => v as String?),
+      cityName: $checkedConvert('city_name', (v) => v as String?),
+      code: $checkedConvert('code', (v) => v as String?),
+      notes: $checkedConvert('notes', (v) => v as String?),
+      countryId: $checkedConvert('country_id', (v) => (v as num?)?.toInt()),
+      cityId: $checkedConvert('city_id', (v) => (v as num?)?.toInt()),
+      type: $checkedConvert('type', (v) => v as String?),
+      status: $checkedConvert(
+        'status',
+        (v) => v == null
+            ? null
+            : BranchStatusModel.fromJson(v as Map<String, dynamic>),
+      ),
+    );
+    return val;
+  },
+  fieldKeyMap: const {
+    'countryName': 'country_name',
+    'branchName': 'branch_name',
+    'cityName': 'city_name',
+    'countryId': 'country_id',
+    'cityId': 'city_id',
+  },
 );
 
 Map<String, dynamic> _$ReceivingBranchModelToJson(
@@ -41,15 +55,17 @@ Map<String, dynamic> _$ReceivingBranchModelToJson(
   'city_id': instance.cityId,
   'type': instance.type,
   'status': instance.status,
-  'available_shipping_ways': instance.availableShippingWays,
 };
 
 BranchStatusModel _$BranchStatusModelFromJson(Map<String, dynamic> json) =>
-    BranchStatusModel(
-      id: (json['id'] as num?)?.toInt(),
-      name: json['name'] as String?,
-      color: json['color'] as String?,
-    );
+    $checkedCreate('BranchStatusModel', json, ($checkedConvert) {
+      final val = BranchStatusModel(
+        id: $checkedConvert('id', (v) => (v as num?)?.toInt()),
+        name: $checkedConvert('name', (v) => v as String?),
+        color: $checkedConvert('color', (v) => v as String?),
+      );
+      return val;
+    });
 
 Map<String, dynamic> _$BranchStatusModelToJson(BranchStatusModel instance) =>
     <String, dynamic>{
@@ -59,10 +75,13 @@ Map<String, dynamic> _$BranchStatusModelToJson(BranchStatusModel instance) =>
     };
 
 ShippingWayModel _$ShippingWayModelFromJson(Map<String, dynamic> json) =>
-    ShippingWayModel(
-      id: (json['id'] as num?)?.toInt(),
-      name: json['name'] as String?,
-    );
+    $checkedCreate('ShippingWayModel', json, ($checkedConvert) {
+      final val = ShippingWayModel(
+        id: $checkedConvert('id', (v) => (v as num?)?.toInt()),
+        name: $checkedConvert('name', (v) => v as String?),
+      );
+      return val;
+    });
 
 Map<String, dynamic> _$ShippingWayModelToJson(ShippingWayModel instance) =>
     <String, dynamic>{'id': instance.id, 'name': instance.name};

@@ -151,6 +151,7 @@ class _CustomDropdownSearchListState<T>
             widget.onChanged(value);
           },
           validator: widget.validator,
+          autoValidateMode: AutovalidateMode.onUserInteraction,
           dropdownBuilder: (context, selectedItem) {
             if (selectedItem == null) {
               return const SizedBox.shrink();

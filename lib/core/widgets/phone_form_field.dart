@@ -111,8 +111,8 @@ class _PhoneFormFieldState extends State<PhoneFormField> {
                     value: value,
                     countryCode: _countryCode,
                   )) {
-                    errorMsg = LocaleKeys.phone_not_found_error
-                        .tr(); // Fallback for invalid phone
+                    errorMsg =
+                        'رقم الهاتف غير صحيح، تأكد من الصيغة'; // Fallback for invalid phone
                   }
 
                   _updateErrorState(errorMsg != null);

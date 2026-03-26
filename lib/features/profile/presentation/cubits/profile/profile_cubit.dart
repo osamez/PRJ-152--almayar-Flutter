@@ -1,3 +1,4 @@
+import 'package:almeyar/core/helpers/cache_helper.dart';
 import 'package:almeyar/core/models/message_model.dart';
 import 'package:almeyar/features/home/presentation/feature_imports.dart';
 import 'package:almeyar/features/profile/data/models/profile_model.dart';
@@ -46,7 +47,8 @@ class ProfileCubit extends Cubit<ProfileState> {
     if (await _internetService.isConnected()) {
       final result = await _profileRepo.logout();
       result.when(
-        onSuccess: (message) {
+        onSuccess: (message) async {
+          await CacheHelper.clearAllSecuredData();
           emit(state.copyWith(logoutState: AsyncData(message)));
         },
         onFailure: (failure) {

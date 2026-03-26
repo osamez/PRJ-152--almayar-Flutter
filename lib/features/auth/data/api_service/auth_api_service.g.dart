@@ -242,7 +242,7 @@ class _AuthApiService implements AuthApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'user/receiving-branches',
+            'user/delivery-branches',
             queryParameters: queryParameters,
             data: _data,
           )

@@ -103,7 +103,9 @@ class AppTextFormField extends StatelessWidget {
               width: double.infinity,
               decoration: BoxDecoration(
                 color: AppColors.white,
-                borderRadius: BorderRadius.circular(radius ?? AppSizes.radiusSm),
+                borderRadius: BorderRadius.circular(
+                  radius ?? AppSizes.radiusSm,
+                ),
               ),
             ),
           ),
@@ -216,6 +218,11 @@ class AppTextFormField extends StatelessWidget {
                       vertical: AppSizes.h12,
                     ),
                 border: _buildBorder(),
+                errorStyle: AppTextStyleFactory.create(
+                  size: 10,
+                  weight: FontWeight.w600,
+                  color: Colors.red,
+                ),
                 enabledBorder: enabledBorder ?? _buildBorder(),
                 focusedBorder:
                     focusedBorder ??

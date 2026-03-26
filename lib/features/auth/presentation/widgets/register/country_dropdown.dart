@@ -13,14 +13,7 @@ class CountryDropdown extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              LocaleKeys.country.tr(),
-              style: AppTextStyleFactory.create(
-                size: 14,
-                weight: FontWeight.w500,
-                color: AppColors.black,
-              ),
-            ),
+            RequiredTitle(title: LocaleKeys.country.tr()),
             verticalSpace(AppSizes.h8),
             CustomDropdownSearchList<CountryLocationModel>(
               items: state.getLocationsState.valueOrNull ?? [],

@@ -36,6 +36,7 @@
   "region": "المنطقة",
   "select_from_regions": "اختر من قائمة المناطق",
   "next_step": "الخطوة التالية",
+  "previous_step": "الخطوة السابقة",
   "preferred_branch": "الفرع المفضل للإستلام",
   "preferred_branch_hint": "اختر من فروع الإستلام الخاصة بنا",
   "email": "البريد الإلكتروني",

@@ -13,13 +13,7 @@ class BranchDropdown extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              LocaleKeys.preferred_branch.tr(),
-              style: AppTextStyleFactory.create(
-                size: 14,
-                weight: FontWeight.w500,
-              ),
-            ),
+            RequiredTitle(title: LocaleKeys.preferred_branch.tr()),
             verticalSpace(AppSizes.h8),
             CustomDropdownSearchList<ReceivingBranchModel>(
               items: state.getBranchesState.valueOrNull ?? [],

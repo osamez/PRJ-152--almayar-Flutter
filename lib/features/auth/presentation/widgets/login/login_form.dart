@@ -65,12 +65,6 @@ class _LoginFormState extends State<LoginForm> {
                       controller: _phoneController,
                       hintText: LocaleKeys.enter_phone_number.tr(),
                       title: LocaleKeys.phone_number.tr(),
-                      validator: (value, countryCode) {
-                        if (value == null || value.trim().isEmpty) {
-                          return LocaleKeys.phone_required.tr();
-                        }
-                        return null;
-                      },
                     ),
                   ),
                 ],

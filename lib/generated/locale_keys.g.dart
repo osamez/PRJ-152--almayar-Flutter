@@ -40,6 +40,7 @@ abstract class  LocaleKeys {
   static const region = 'region';
   static const select_from_regions = 'select_from_regions';
   static const next_step = 'next_step';
+  static const previous_step = 'previous_step';
   static const preferred_branch = 'preferred_branch';
   static const preferred_branch_hint = 'preferred_branch_hint';
   static const email = 'email';

@@ -1,7 +1,38 @@
 part of '../../feature_imports.dart';
 
-class RegisterSecondStep extends StatelessWidget {
+class RegisterSecondStep extends StatefulWidget {
   const RegisterSecondStep({super.key});
+
+  @override
+  State<RegisterSecondStep> createState() => _RegisterSecondStepState();
+}
+
+class _RegisterSecondStepState extends State<RegisterSecondStep> {
+  late final TextEditingController _emailController;
+  late final TextEditingController _whatsappController;
+  late final TextEditingController _passwordController;
+  late final TextEditingController _confirmPasswordController;
+
+  @override
+  void initState() {
+    super.initState();
+    final cubit = context.read<RegisterCubit>();
+    _emailController = TextEditingController(text: cubit.state.email);
+    _whatsappController =
+        TextEditingController(text: cubit.state.whatsappNumber);
+    _passwordController = TextEditingController(text: cubit.state.password);
+    _confirmPasswordController =
+        TextEditingController(text: cubit.state.confirmPassword);
+  }
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _whatsappController.dispose();
+    _passwordController.dispose();
+    _confirmPasswordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -11,6 +42,7 @@ class RegisterSecondStep extends StatelessWidget {
         const BranchDropdown(),
         verticalSpace(AppSizes.h16),
         AppTextFormField(
+          controller: _emailController,
           hintText: LocaleKeys.enter_email.tr(),
           onChanged: cubit.updateEmail,
           validator: (value) {
@@ -27,13 +59,16 @@ class RegisterSecondStep extends StatelessWidget {
         ),
         verticalSpace(AppSizes.h16),
         PhoneFormField(
+          controller: _whatsappController,
           title: LocaleKeys.whatsapp_number.tr(),
           hintText: LocaleKeys.phone_hint.tr(),
+          initialCountryCode: cubit.state.whatsappKey,
           onChanged: (phone) => cubit.updateWhatsappNumber(phone),
           onCountryChanged: (code) => cubit.updateWhatsappKey(code),
         ),
         verticalSpace(AppSizes.h16),
         PasswordTextFormField(
+          controller: _passwordController,
           hintText: LocaleKeys.enter_password.tr(),
           isRequired: true,
           onChanged: cubit.updatePassword,
@@ -50,6 +85,7 @@ class RegisterSecondStep extends StatelessWidget {
         ),
         verticalSpace(AppSizes.h16),
         PasswordTextFormField(
+          controller: _confirmPasswordController,
           hintText: LocaleKeys.re_enter_password.tr(),
           isRequired: true,
           onChanged: cubit.updateConfirmPassword,

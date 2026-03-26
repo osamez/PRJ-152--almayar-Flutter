@@ -5,13 +5,38 @@ class RegisterBlocListener extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return const _RegisterBlocListenerStateful();
+  }
+}
+
+class _RegisterBlocListenerStateful extends StatefulWidget {
+  const _RegisterBlocListenerStateful();
+
+  @override
+  State<_RegisterBlocListenerStateful> createState() =>
+      _RegisterBlocListenerStatefulState();
+}
+
+class _RegisterBlocListenerStatefulState
+    extends State<_RegisterBlocListenerStateful> {
+  bool isDialogShowing = false;
+
+  @override
+  Widget build(BuildContext context) {
     return BlocListener<RegisterCubit, RegisterState>(
-      listenWhen: (previous, current) => previous.registerState != current.registerState,
+      listenWhen: (previous, current) =>
+          previous.registerState != current.registerState,
       listener: (context, state) {
         state.registerState.whenOrNull(
-          loading: () => LoadingDialog.show(context),
+          loading: () {
+            isDialogShowing = true;
+            LoadingDialog.show(context);
+          },
           data: (message) {
-            LoadingDialog.hide(context);
+            if (isDialogShowing) {
+              LoadingDialog.hide(context);
+              isDialogShowing = false;
+            }
             showDialog(
               context: context,
               barrierDismissible: false,
@@ -21,7 +46,10 @@ class RegisterBlocListener extends StatelessWidget {
             );
           },
           error: (failure) {
-            LoadingDialog.hide(context);
+            if (isDialogShowing) {
+              LoadingDialog.hide(context);
+              isDialogShowing = false;
+            }
             showAppSnackbar(
               context: context,
               type: SnackbarType.error,

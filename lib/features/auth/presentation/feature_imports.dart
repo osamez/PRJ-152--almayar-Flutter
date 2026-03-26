@@ -1,10 +1,8 @@
 export 'package:almeyar/core/widgets/phone_form_field.dart';
 import 'dart:io';
 
-import 'package:flutter/material.dart';
+import 'package:almeyar/core/widgets/required_title.dart';
 import 'package:lottie/lottie.dart';
-
-import 'package:almeyar/core/di/dependency_injection.dart';
 import 'package:almeyar/core/helpers/app_snack_bar.dart';
 import 'package:almeyar/core/helpers/cache_helper.dart';
 import 'package:almeyar/core/utils/exports.dart';

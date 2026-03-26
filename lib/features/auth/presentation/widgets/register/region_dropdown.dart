@@ -16,14 +16,7 @@ class RegionDropdown extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             verticalSpace(AppSizes.h16),
-            Text(
-              LocaleKeys.region.tr(),
-              style: AppTextStyleFactory.create(
-                size: 14,
-                weight: FontWeight.w500,
-                color: AppColors.black,
-              ),
-            ),
+            RequiredTitle(title: LocaleKeys.region.tr(), isRequired: false),
             verticalSpace(AppSizes.h8),
             CustomDropdownSearchList<RegionModel>(
               items: state.selectedCity?.regions ?? [],
@@ -34,9 +27,9 @@ class RegionDropdown extends StatelessWidget {
                 context.read<RegisterCubit>().selectRegion(region);
               },
               validator: (value) {
-                if (value == null) {
-                  return LocaleKeys.please_select_region.tr();
-                }
+                // if (value == null) {
+                //   return LocaleKeys.please_select_region.tr();
+                // }
                 return null;
               },
             ),

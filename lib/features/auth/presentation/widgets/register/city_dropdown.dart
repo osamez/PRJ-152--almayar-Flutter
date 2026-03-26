@@ -16,14 +16,8 @@ class CityDropdown extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             verticalSpace(AppSizes.h16),
-            Text(
-              LocaleKeys.city.tr(),
-              style: AppTextStyleFactory.create(
-                size: 14,
-                weight: FontWeight.w500,
-                color: AppColors.black,
-              ),
-            ),
+            RequiredTitle(title: LocaleKeys.city.tr()),
+
             verticalSpace(AppSizes.h8),
             CustomDropdownSearchList<CityModel>(
               items: state.selectedCountry?.cities ?? [],

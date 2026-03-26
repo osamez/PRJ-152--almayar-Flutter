@@ -7,7 +7,6 @@ import 'package:almeyar/features/auth/data/models/login_response.dart';
 import 'package:almeyar/features/auth/data/models/send_otp_request.dart';
 import 'package:almeyar/features/auth/data/models/verify_otp_request.dart';
 import 'package:almeyar/features/auth/data/models/reset_password_request.dart';
-import 'package:almeyar/features/auth/data/models/register_request.dart';
 import 'package:almeyar/features/auth/data/models/country_locations_response.dart';
 import 'dart:io';
 import 'package:dio/dio.dart';
@@ -50,7 +49,7 @@ abstract class AuthApiService {
   @POST(ApiConstants.forgotPassword)
   Future<MessageModel> resetPassword(@Body() ResetPasswordRequest request);
 
-  @GET(ApiConstants.receivingBranches)
+  @GET(ApiConstants.deliveryBranches)
   Future<BaseResponse<List<ReceivingBranchModel>>> getReceivingBranches();
 
   @GET(ApiConstants.countryLocations)

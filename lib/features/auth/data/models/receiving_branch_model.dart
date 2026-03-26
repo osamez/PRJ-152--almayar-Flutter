@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'receiving_branch_model.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(checked: true)
 class ReceivingBranchModel {
   final int? id;
   final String? name;
@@ -20,8 +20,6 @@ class ReceivingBranchModel {
   final int? cityId;
   final String? type;
   final BranchStatusModel? status;
-  @JsonKey(name: 'available_shipping_ways')
-  final List<ShippingWayModel>? availableShippingWays;
 
   const ReceivingBranchModel({
     this.id,
@@ -35,7 +33,6 @@ class ReceivingBranchModel {
     this.cityId,
     this.type,
     this.status,
-    this.availableShippingWays,
   });
 
   factory ReceivingBranchModel.fromJson(Map<String, dynamic> json) =>
@@ -44,17 +41,13 @@ class ReceivingBranchModel {
   Map<String, dynamic> toJson() => _$ReceivingBranchModelToJson(this);
 }
 
-@JsonSerializable()
+@JsonSerializable(checked: true)
 class BranchStatusModel {
   final int? id;
   final String? name;
   final String? color;
 
-  const BranchStatusModel({
-    this.id,
-    this.name,
-    this.color,
-  });
+  const BranchStatusModel({this.id, this.name, this.color});
 
   factory BranchStatusModel.fromJson(Map<String, dynamic> json) =>
       _$BranchStatusModelFromJson(json);
@@ -62,15 +55,12 @@ class BranchStatusModel {
   Map<String, dynamic> toJson() => _$BranchStatusModelToJson(this);
 }
 
-@JsonSerializable()
+@JsonSerializable(checked: true)
 class ShippingWayModel {
   final int? id;
   final String? name;
 
-  const ShippingWayModel({
-    this.id,
-    this.name,
-  });
+  const ShippingWayModel({this.id, this.name});
 
   factory ShippingWayModel.fromJson(Map<String, dynamic> json) =>
       _$ShippingWayModelFromJson(json);

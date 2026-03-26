@@ -9,17 +9,20 @@ class RegisterFirstStep extends StatefulWidget {
 
 class _RegisterFirstStepState extends State<RegisterFirstStep> {
   late final TextEditingController _nameController;
+  late final TextEditingController _phoneController;
 
   @override
   void initState() {
     super.initState();
     final cubit = context.read<RegisterCubit>();
     _nameController = TextEditingController(text: cubit.state.fullName);
+    _phoneController = TextEditingController(text: cubit.state.phoneNumber);
   }
 
   @override
   void dispose() {
     _nameController.dispose();
+    _phoneController.dispose();
     super.dispose();
   }
 
@@ -44,6 +47,8 @@ class _RegisterFirstStepState extends State<RegisterFirstStep> {
         PhoneFormField(
           title: LocaleKeys.legal_representative_phone.tr(),
           hintText: LocaleKeys.phone_hint.tr(),
+          controller: _phoneController,
+          initialCountryCode: cubit.state.phoneKey,
           onChanged: (phone) => cubit.updatePhoneNumber(phone),
           onCountryChanged: (code) => cubit.updatePhoneKey(code),
         ),
