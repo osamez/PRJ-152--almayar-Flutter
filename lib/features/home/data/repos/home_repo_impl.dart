@@ -3,7 +3,7 @@ import 'package:almeyar/core/network/result.dart';
 import 'package:almeyar/core/utils/app_logger.dart';
 import 'package:almeyar/features/home/data/datasource/home_datasource.dart';
 import 'package:almeyar/features/home/data/models/branch_details_model.dart';
-import 'package:almeyar/features/home/data/models/branch_model.dart';
+import 'package:almeyar/features/home/data/models/branches_response_model.dart';
 import 'package:almeyar/features/home/data/models/prohibited_model.dart';
 import 'package:almeyar/features/home/data/repos/home_repo.dart';
 
@@ -37,12 +37,12 @@ class HomeRepoImpl implements HomeRepo {
   }
 
   @override
-  Future<Result<BaseResponse<List<BranchModel>>>> getAllBranches({
+  Future<Result<BaseResponse<BranchesResponseModel>>> getAllBranches({
     String? search,
-    int? shippingWay,
+    String? shipmentType,
   }) async {
     try {
-      final response = await _dataSource.getAllBranches(search, shippingWay);
+      final response = await _dataSource.getAllBranches(search, shipmentType);
       AppLogger.info('HomeRepoImpl - getAllBranches: Success');
       return Result.success(response);
     } catch (e, stackTrace) {

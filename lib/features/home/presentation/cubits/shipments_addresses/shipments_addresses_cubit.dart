@@ -3,10 +3,10 @@ part of '../../feature_imports.dart';
 class ShipmentsAddressesCubit extends Cubit<ShipmentsAddressesState> {
   final HomeRepo _homeRepo;
   final InternetService _internetService;
-  List<BranchModel> _allBranches = [];
+  Timer? _debounce;
 
   ShipmentsAddressesCubit(this._homeRepo, this._internetService)
-    : super(const ShipmentsAddressesState());
+      : super(const ShipmentsAddressesState());
 
   Future<void> getAllBranches() async {
     emit(state.copyWith(getAllBranchesState: const AsyncLoading()));
@@ -25,12 +25,15 @@ class ShipmentsAddressesCubit extends Cubit<ShipmentsAddressesState> {
       return;
     }
 
-    final result = await _homeRepo.getAllBranches();
+    final result = await _homeRepo.getAllBranches(
+      search: state.searchQuery.isEmpty ? null : state.searchQuery,
+      shipmentType: state.selectedFilter.isEmpty ? null : state.selectedFilter,
+    );
 
     result.when(
       onSuccess: (response) {
-        _allBranches = response.data ?? [];
-        _applyFilters();
+        emit(
+            state.copyWith(getAllBranchesState: AsyncData(response.data?.branches ?? [])));
       },
       onFailure: (failure) {
         emit(state.copyWith(getAllBranchesState: AsyncError(failure)));
@@ -60,7 +63,8 @@ class ShipmentsAddressesCubit extends Cubit<ShipmentsAddressesState> {
     result.when(
       onSuccess: (response) {
         if (response.data != null) {
-          emit(state.copyWith(showBranchDetailsState: AsyncData(response.data!)));
+          emit(state.copyWith(
+              showBranchDetailsState: AsyncData(response.data!)));
         } else {
           emit(
             state.copyWith(
@@ -81,31 +85,22 @@ class ShipmentsAddressesCubit extends Cubit<ShipmentsAddressesState> {
   }
 
   void selectFilter(String filter) {
+    if (state.selectedFilter == filter) return;
     emit(state.copyWith(selectedFilter: filter));
-    _applyFilters();
+    getAllBranches();
   }
 
   void updateSearchQuery(String query) {
     emit(state.copyWith(searchQuery: query));
-    _applyFilters();
+    if (_debounce?.isActive ?? false) _debounce!.cancel();
+    _debounce = Timer(const Duration(milliseconds: 500), () {
+      getAllBranches();
+    });
   }
 
-  void _applyFilters() {
-    final filtered = _allBranches.where((branch) {
-      final matchesFilter =
-          branch.availableShippingWays?.any(
-            (way) =>
-                way.id?.toLowerCase() == state.selectedFilter.toLowerCase(),
-          ) ??
-          false;
-      final matchesSearch =
-          branch.branchName?.toLowerCase().contains(
-            state.searchQuery.toLowerCase(),
-          ) ??
-          true;
-      return matchesFilter && matchesSearch;
-    }).toList();
-
-    emit(state.copyWith(getAllBranchesState: AsyncData(filtered)));
+  @override
+  Future<void> close() {
+    _debounce?.cancel();
+    return super.close();
   }
 }

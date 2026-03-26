@@ -74,19 +74,19 @@ class _HomeApiService implements HomeApiService {
   }
 
   @override
-  Future<BaseResponse<List<BranchModel>>> getAllBranches(
+  Future<BaseResponse<BranchesResponseModel>> getAllBranches(
     String? search,
-    int? shippingWay,
+    String? shipmentType,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'search': search,
-      r'shipping_way': shippingWay,
+      r'shipment_type': shipmentType,
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<BaseResponse<List<BranchModel>>>(
+    final _options = _setStreamType<BaseResponse<BranchesResponseModel>>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
@@ -97,17 +97,11 @@ class _HomeApiService implements HomeApiService {
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late BaseResponse<List<BranchModel>> _value;
+    late BaseResponse<BranchesResponseModel> _value;
     try {
-      _value = BaseResponse<List<BranchModel>>.fromJson(
+      _value = BaseResponse<BranchesResponseModel>.fromJson(
         _result.data!,
-        (json) => json is List<dynamic>
-            ? json
-                  .map<BranchModel>(
-                    (i) => BranchModel.fromJson(i as Map<String, dynamic>),
-                  )
-                  .toList()
-            : List.empty(),
+        (json) => BranchesResponseModel.fromJson(json as Map<String, dynamic>),
       );
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options, response: _result);

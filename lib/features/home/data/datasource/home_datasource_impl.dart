@@ -2,7 +2,7 @@ import 'package:almeyar/core/models/base_response.dart';
 import 'package:almeyar/features/home/data/api_service/home_api_service.dart';
 import 'package:almeyar/features/home/data/datasource/home_datasource.dart';
 import 'package:almeyar/features/home/data/models/branch_details_model.dart';
-import 'package:almeyar/features/home/data/models/branch_model.dart';
+import 'package:almeyar/features/home/data/models/branches_response_model.dart';
 import 'package:almeyar/features/home/data/models/prohibited_model.dart';
 
 class HomeDataSourceImpl implements HomeDataSource {
@@ -21,11 +21,11 @@ class HomeDataSourceImpl implements HomeDataSource {
   }
 
   @override
-  Future<BaseResponse<List<BranchModel>>> getAllBranches(
+  Future<BaseResponse<BranchesResponseModel>> getAllBranches(
     String? search,
-    int? shippingWay,
+    String? shipmentType,
   ) {
-    return _apiService.getAllBranches(search, shippingWay);
+    return _apiService.getAllBranches(search, shipmentType);
   }
 
   @override

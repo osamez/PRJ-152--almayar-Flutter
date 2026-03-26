@@ -1,3 +1,4 @@
+import 'dart:async' hide AsyncError;
 import 'package:almeyar/core/helpers/app_snack_bar.dart';
 import 'package:almeyar/core/utils/exports.dart';
 import 'package:almeyar/core/network/local_status_codes.dart';
