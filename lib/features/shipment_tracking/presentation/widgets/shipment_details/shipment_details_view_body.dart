@@ -26,14 +26,18 @@ class _ShipmentDetailsViewBodyState extends State<ShipmentDetailsViewBody> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           ShipmentDetailsHeaderCard(
-            shipmentCode: widget.shipmentModel.code ?? '',
+            shipmentCode: widget.shipmentModel.code ?? '-',
             status: widget.shipmentModel.status!,
-            date: formatDateFromApi(widget.shipmentModel.createdAt ?? ''),
-            shippingType: widget.shipmentModel.shipmentType ?? '',
-            originWarehouse: widget.shipmentModel.deliveryBranch ?? '',
-            originCountry: widget.shipmentModel.deliveryBranch ?? '',
-            destinationWarehouse: widget.shipmentModel.receivingBranch ?? '',
-            destinationCountry: widget.shipmentModel.receivingBranch ?? '',
+            date:
+                widget.shipmentModel.createdAt != null &&
+                    widget.shipmentModel.createdAt!.isNotEmpty
+                ? formatDateFromApi(widget.shipmentModel.createdAt!)
+                : '-',
+            shippingType: widget.shipmentModel.shipmentWay?.name ?? '-',
+            originWarehouse: widget.shipmentModel.deliveryBranch ?? '-',
+            originCountry: widget.shipmentModel.deliveryBranch ?? '-',
+            destinationWarehouse: widget.shipmentModel.receivingBranch ?? '-',
+            destinationCountry: widget.shipmentModel.receivingBranch ?? '-',
           ),
           verticalSpace(AppSizes.h30),
           ShipmentDetailsTabBar(

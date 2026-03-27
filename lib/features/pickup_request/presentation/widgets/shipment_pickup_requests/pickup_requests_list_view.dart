@@ -105,7 +105,7 @@ class _PickupRequestsListViewState extends State<PickupRequestsListView> {
             if (index < list.length) {
               final item = list[index];
               return PickupCard(
-                status: mapStatus(item.status?.name),
+                status: mapStatus(item.status),
                 shipmentCode: item.code ?? '---',
                 date: item.createdAt != null
                     ? formatDateFromApi(item.createdAt!)

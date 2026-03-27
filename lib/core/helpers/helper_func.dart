@@ -1,3 +1,4 @@
+import 'package:almeyar/core/models/status_model.dart';
 import 'package:almeyar/core/utils/exports.dart';
 import 'package:almeyar/features/pickup_request/presentation/feature_imports.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -44,15 +45,60 @@ String formatDateFromApi(String apiDateString) {
   return formattedDate;
 }
 
-PickupRequestStatus mapStatus(String? name) {
-  switch (name?.toLowerCase()) {
+PickupRequestStatus mapStatus(StatusModel? status) {
+  final id = status?.id;
+  final name = status?.name?.toLowerCase();
+
+  switch (id) {
+    case 3:
+      return PickupRequestStatus.pickupPoint;
+    case 14:
+      return PickupRequestStatus.processing;
+    case 15:
+      return PickupRequestStatus.prepared;
+    case 17:
+      return PickupRequestStatus.shipping;
+    case 19:
+      return PickupRequestStatus.deliveryPoint;
+    case 20:
+      return PickupRequestStatus.readyToDeliver;
+    case 11:
+      return PickupRequestStatus.cancelled;
+  }
+
+  switch (name) {
     case 'received':
     case 'approved':
+    case 'مستلمة':
       return PickupRequestStatus.received;
     case 'rejected':
-    case 'cancelled':
       return PickupRequestStatus.rejected;
+    case 'cancelled':
+    case 'ملغية':
+      return PickupRequestStatus.cancelled;
+    case 'في نقطة الإلتقاط':
+    case 'at_pickup_point':
+      return PickupRequestStatus.pickupPoint;
+    case 'قيد التجهيز':
+    case 'processing':
+    case 'being_prepared':
+      return PickupRequestStatus.processing;
+    case 'مجهزة':
+    case 'prepared':
+      return PickupRequestStatus.prepared;
+    case 'قيد الشحن':
+    case 'shipping':
+    case 'being_shipped':
+      return PickupRequestStatus.shipping;
+    case 'في نقطة التسليم':
+    case 'at_delivery_point':
+      return PickupRequestStatus.deliveryPoint;
+    case 'جاهزة التسليم':
+    case 'جاهزة للتسليم':
+    case 'ready_for_delivery':
+      return PickupRequestStatus.readyToDeliver;
     case 'pending':
+    case 'في الإنتظار':
     default:
       return PickupRequestStatus.pending;
   }

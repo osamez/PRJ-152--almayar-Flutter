@@ -12,21 +12,24 @@ class ShipmentDetailsBoxStatusBadges extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      spacing: AppSizes.h8,
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: [
-        _buildBoxDetails(
-          label: statusLabel,
-          titleColor: AppColors.darkText,
-          svgPath: AppAssets.svgDot,
-          backgroundColor: const Color(0xff3A2A85).withValues(alpha: 0.16),
-          iconWidth: AppSizes.w8,
-          iconHeight: AppSizes.h8,
-        ),
-        if (boxImage != null)
+    return IntrinsicWidth(
+      child: Column(
+        spacing: AppSizes.h8,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          _buildBoxDetails(
+            label: statusLabel,
+            titleColor: AppColors.darkText,
+            svgPath: AppAssets.svgDot,
+            backgroundColor: const Color(0xff3A2A85).withValues(alpha: 0.16),
+            iconWidth: AppSizes.w8,
+            iconHeight: AppSizes.h8,
+          ),
           GestureDetector(
             onTap: () {
+              if (boxImage == null) {
+                return;
+              }
               showDialog(
                 context: context,
                 builder: (context) => Dialog(
@@ -68,7 +71,8 @@ class ShipmentDetailsBoxStatusBadges extends StatelessWidget {
               iconHeight: AppSizes.h12,
             ),
           ),
-      ],
+        ],
+      ),
     );
   }
 
@@ -81,11 +85,9 @@ class ShipmentDetailsBoxStatusBadges extends StatelessWidget {
     required double iconHeight,
   }) {
     return Container(
-      width: AppSizes.w100,
-
       padding: EdgeInsets.symmetric(
         horizontal: AppSizes.w10,
-        vertical: AppSizes.h4,
+        vertical: AppSizes.h5,
       ),
       decoration: BoxDecoration(
         color: backgroundColor,

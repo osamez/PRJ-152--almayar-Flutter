@@ -39,7 +39,10 @@ class _ShipmentsTypeShipmentListState extends State<ShipmentsTypeShipmentList> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ShipmentTrackingCubit, ShipmentTrackingState>(
-      buildWhen: (previous, current) => previous.shipments != current.shipments,
+      buildWhen: (previous, current) =>
+          previous.shipments != current.shipments ||
+          previous.isPaginationLoading != current.isPaginationLoading ||
+          previous.hasReachedMax != current.hasReachedMax,
       builder: (context, state) {
         return state.shipments.when(
           initial: () => const SizedBox.shrink(),
@@ -89,21 +92,21 @@ class _ShipmentsTypeShipmentListState extends State<ShipmentsTypeShipmentList> {
             horizontal: AppSizes.w20,
             vertical: AppSizes.h8,
           ),
-          itemCount: state.hasReachedMax ? list.length : list.length + 1,
+          itemCount: state.isPaginationLoading ? list.length + 1 : list.length,
           separatorBuilder: (_, _) => verticalSpace(AppSizes.h16),
           itemBuilder: (BuildContext context, int index) {
             if (index < list.length) {
               final shipment = list[index];
               return PickupCard(
-                status: mapStatus(shipment.status?.name),
+                status: mapStatus(shipment.status),
                 isAir:
                     shipment.shipmentType == 'جوي' ||
                     shipment.shipmentType == null,
                 shipmentCode: shipment.code ?? '---',
-                date: shipment.createdAt ?? '---',
-                shippingType: shipment.shipmentType == 'sea'
-                    ? LocaleKeys.shipment_tracking_sea_shipping.tr()
-                    : LocaleKeys.shipment_tracking_air_express.tr(),
+                date: shipment.createdAt != null
+                    ? formatDateFromApi(shipment.createdAt!)
+                    : '---',
+                shippingType: shipment.shipmentWay?.name ?? '',
                 originWarehouse: shipment.receivingBranch ?? '---',
                 originCountry: shipment.receivingCountry ?? '---',
                 destinationWarehouse: shipment.deliveryBranch ?? '---',
@@ -119,7 +122,7 @@ class _ShipmentsTypeShipmentListState extends State<ShipmentsTypeShipmentList> {
               );
             } else {
               return const Center(
-                child: CircularProgressIndicator(),
+                child: CupertinoActivityIndicator(),
               ).withPadding(vertical: AppSizes.h16);
             }
           },

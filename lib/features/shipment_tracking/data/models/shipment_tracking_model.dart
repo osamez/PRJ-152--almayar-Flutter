@@ -3,6 +3,8 @@ import 'package:almeyar/core/models/status_model.dart';
 import 'package:almeyar/core/models/shipment_box_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+import '../../../pickup_request/data/models/shipment_request_model.dart';
+
 part 'shipment_tracking_model.g.dart';
 
 @JsonSerializable()
@@ -10,10 +12,7 @@ class ShipmentTrackingDataModel {
   final List<ShipmentModel>? shipments;
   final MetaModel? meta;
 
-  const ShipmentTrackingDataModel({
-    this.shipments,
-    this.meta,
-  });
+  const ShipmentTrackingDataModel({this.shipments, this.meta});
 
   factory ShipmentTrackingDataModel.fromJson(Map<String, dynamic> json) =>
       _$ShipmentTrackingDataModelFromJson(json);
@@ -83,6 +82,8 @@ class ShipmentModel {
   @JsonKey(name: 'customs_files')
   final List<String>? customsFiles;
   final List<ShipmentBoxModel>? boxes;
+  @JsonKey(name: 'shipment_way')
+  final ShipmentWayModel? shipmentWay;
 
   const ShipmentModel({
     this.id,
@@ -117,6 +118,7 @@ class ShipmentModel {
     this.shipmentImages,
     this.customsFiles,
     this.boxes,
+    this.shipmentWay,
   });
 
   factory ShipmentModel.fromJson(Map<String, dynamic> json) =>

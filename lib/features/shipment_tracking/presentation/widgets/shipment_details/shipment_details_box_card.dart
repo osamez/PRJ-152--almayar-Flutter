@@ -33,8 +33,12 @@ class ShipmentDetailsBoxCard extends StatelessWidget {
               children: [
                 Expanded(
                   child: ShipmentDetailsBoxHeaderRow(
-                    date: formatDateFromApi(shipment.createdAt ?? ''),
-                    shippingType: shipment.shipmentType ?? '',
+                    date:
+                        shipment.createdAt != null &&
+                            shipment.createdAt!.isNotEmpty
+                        ? formatDateFromApi(shipment.createdAt!)
+                        : '-',
+                    shippingType: shipment.shipmentWay?.name ?? '-',
                   ),
                 ),
                 ShipmentDetailsBoxStatusBadges(

@@ -66,6 +66,9 @@ ShipmentModel _$ShipmentModelFromJson(
   boxes: (json['boxes'] as List<dynamic>?)
       ?.map((e) => ShipmentBoxModel.fromJson(e as Map<String, dynamic>))
       .toList(),
+  shipmentWay: json['shipment_way'] == null
+      ? null
+      : ShipmentWayModel.fromJson(json['shipment_way'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$ShipmentModelToJson(ShipmentModel instance) =>
@@ -102,4 +105,5 @@ Map<String, dynamic> _$ShipmentModelToJson(ShipmentModel instance) =>
       'shipment_images': instance.shipmentImages,
       'customs_files': instance.customsFiles,
       'boxes': instance.boxes,
+      'shipment_way': instance.shipmentWay,
     };

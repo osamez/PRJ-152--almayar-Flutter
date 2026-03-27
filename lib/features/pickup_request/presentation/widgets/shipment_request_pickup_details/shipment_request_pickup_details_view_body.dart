@@ -19,7 +19,7 @@ class ShipmentRequestPickupDetailsViewBody extends StatelessWidget {
         children: [
           DetailsHeaderCard(
             shipmentCode: shipmentModel.code ?? '---',
-            status: mapStatus(shipmentModel.status?.name),
+            status: mapStatus(shipmentModel.status),
             originWarehouse: shipmentModel.deliveryBranch ?? '',
             originCountry: 'الصين',
             destinationWarehouse: shipmentModel.receivingBranch ?? '',

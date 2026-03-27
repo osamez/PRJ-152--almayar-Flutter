@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:almeyar/core/network/api_error_model.dart';
 import 'package:almeyar/core/network/local_status_codes.dart';
 import 'package:almeyar/core/services/internet_service.dart';
@@ -14,6 +16,8 @@ part 'shipment_tracking_state.dart';
 class ShipmentTrackingCubit extends Cubit<ShipmentTrackingState> {
   final ShipmentTrackingRepository _repository;
   final InternetService _internetService;
+
+  Timer? _timer;
 
   ShipmentTrackingCubit(
     this._repository,
@@ -63,7 +67,12 @@ class ShipmentTrackingCubit extends Cubit<ShipmentTrackingState> {
 
   Future<void> getAllShipments({bool isPagination = false}) async {
     if (isPagination) {
-      if (state.hasReachedMax || state.shipments is AsyncLoading) return;
+      if (state.hasReachedMax ||
+          state.isPaginationLoading ||
+          state.shipments is AsyncLoading) {
+        return;
+      }
+      emit(state.copyWith(isPaginationLoading: true));
     } else {
       emit(
         state.copyWith(
@@ -75,16 +84,20 @@ class ShipmentTrackingCubit extends Cubit<ShipmentTrackingState> {
     }
 
     if (!await _internetService.isConnected()) {
-      emit(
-        state.copyWith(
-          shipments: AsyncError(
-            ApiErrorModel(
-              error: 'no_internet',
-              status: LocalStatusCodes.connectionError,
+      if (isPagination) {
+        emit(state.copyWith(isPaginationLoading: false));
+      } else {
+        emit(
+          state.copyWith(
+            shipments: AsyncError(
+              ApiErrorModel(
+                error: 'no_internet',
+                status: LocalStatusCodes.connectionError,
+              ),
             ),
           ),
-        ),
-      );
+        );
+      }
       return;
     }
 
@@ -117,10 +130,18 @@ class ShipmentTrackingCubit extends Cubit<ShipmentTrackingState> {
                 : state.cachedShipments,
             currentPage: (data.meta?.currentPage ?? state.currentPage) + 1,
             hasReachedMax: hasReachedMax,
+            totalShipmentsCount: data.meta?.total ?? state.totalShipmentsCount,
+            isPaginationLoading: false,
           ),
         );
       },
-      onFailure: (error) => emit(state.copyWith(shipments: AsyncError(error))),
+      onFailure: (error) {
+        if (isPagination) {
+          emit(state.copyWith(isPaginationLoading: false));
+        } else {
+          emit(state.copyWith(shipments: AsyncError(error)));
+        }
+      },
     );
   }
 
@@ -136,7 +157,10 @@ class ShipmentTrackingCubit extends Cubit<ShipmentTrackingState> {
     if (query.isEmpty) {
       emit(state.copyWith(shipments: AsyncData(state.cachedShipments)));
     } else {
-      getAllShipments();
+      _timer?.cancel();
+      _timer = Timer(const Duration(milliseconds: 800), () {
+        getAllShipments();
+      });
     }
   }
 
@@ -158,5 +182,11 @@ class ShipmentTrackingCubit extends Cubit<ShipmentTrackingState> {
     if (state.flightType == flightType) return;
     emit(state.copyWith(flightType: flightType));
     getAllShipments();
+  }
+
+  @override
+  Future<void> close() {
+    _timer?.cancel();
+    return super.close();
   }
 }

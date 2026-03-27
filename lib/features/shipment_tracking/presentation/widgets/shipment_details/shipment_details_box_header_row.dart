@@ -15,11 +15,12 @@ class ShipmentDetailsBoxHeaderRow extends StatelessWidget {
     return Row(
       children: [
         CustomIconRoundedBox(
-          iconPath: shippingType == "جوي"
+          iconPath: shippingType.contains("جوي")
               ? AppAssets.svgAirplane
               : AppAssets.svgBoat,
           iconColor: AppColors.darkText,
           width: AppSizes.w48,
+
           height: AppSizes.h48,
           backgroundColor: AppColors.grey97,
         ),
@@ -34,16 +35,22 @@ class ShipmentDetailsBoxHeaderRow extends StatelessWidget {
               iconColor: AppColors.darkText,
               textColor: AppColors.darkText,
               textWeight: FontWeight.w700,
+              iconHeight: AppSizes.h18,
+              iconWidth: AppSizes.w18,
+              textSize: 12,
             ),
             verticalSpace(AppSizes.h4),
             IconTextRow(
-              iconPath: shippingType == "جوي"
+              iconPath: shippingType.contains("جوي")
                   ? AppAssets.svgAirplane
                   : AppAssets.svgBoat,
               text: shippingType,
               iconColor: AppColors.orange,
               textColor: AppColors.orange,
               textWeight: FontWeight.w700,
+              iconHeight: AppSizes.h18,
+              iconWidth: AppSizes.w18,
+              textSize: 12,
             ),
           ],
         ),

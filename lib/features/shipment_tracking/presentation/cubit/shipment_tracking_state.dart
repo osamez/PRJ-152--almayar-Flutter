@@ -9,6 +9,8 @@ class ShipmentTrackingState extends Equatable {
   final String searchKeyword;
   final int currentPage;
   final bool hasReachedMax;
+  final bool isPaginationLoading;
+  final int totalShipmentsCount;
   final String? flightType;
 
   const ShipmentTrackingState({
@@ -20,6 +22,8 @@ class ShipmentTrackingState extends Equatable {
     this.searchKeyword = '',
     this.currentPage = 1,
     this.hasReachedMax = false,
+    this.isPaginationLoading = false,
+    this.totalShipmentsCount = 0,
     this.flightType,
   });
 
@@ -32,6 +36,8 @@ class ShipmentTrackingState extends Equatable {
     String? searchKeyword,
     int? currentPage,
     bool? hasReachedMax,
+    bool? isPaginationLoading,
+    int? totalShipmentsCount,
     String? flightType,
     bool clearSelectedStatus = false,
     bool clearFlightType = false,
@@ -45,6 +51,8 @@ class ShipmentTrackingState extends Equatable {
       searchKeyword: searchKeyword ?? this.searchKeyword,
       currentPage: currentPage ?? this.currentPage,
       hasReachedMax: hasReachedMax ?? this.hasReachedMax,
+      isPaginationLoading: isPaginationLoading ?? this.isPaginationLoading,
+      totalShipmentsCount: totalShipmentsCount ?? this.totalShipmentsCount,
       flightType: clearFlightType ? null : (flightType ?? this.flightType),
     );
   }
@@ -59,6 +67,8 @@ class ShipmentTrackingState extends Equatable {
     searchKeyword,
     currentPage,
     hasReachedMax,
+    isPaginationLoading,
+    totalShipmentsCount,
     flightType,
   ];
 }

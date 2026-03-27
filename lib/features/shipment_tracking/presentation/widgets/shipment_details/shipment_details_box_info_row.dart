@@ -23,8 +23,8 @@ class ShipmentDetailsBoxInfoRow extends StatelessWidget {
         children: [
           SvgPicture.asset(
             icon,
-            width: AppSizes.w16,
-            height: AppSizes.h16,
+            width: AppSizes.w18,
+            height: AppSizes.h18,
             colorFilter: const ColorFilter.mode(
               AppColors.darkText,
               BlendMode.srcIn,
@@ -38,7 +38,7 @@ class ShipmentDetailsBoxInfoRow extends StatelessWidget {
               Text(
                 '$label: ',
                 style: AppTextStyleFactory.create(
-                  size: 10,
+                  size: 12,
                   weight: FontWeight.w700,
                   color: AppColors.darkText,
                 ),
@@ -47,7 +47,7 @@ class ShipmentDetailsBoxInfoRow extends StatelessWidget {
                 Text(
                   "(طول، عرض، ارتفاع)",
                   style: AppTextStyleFactory.create(
-                    size: 5,
+                    size: 7,
                     weight: FontWeight.w700,
                     color: AppColors.orange,
                   ),
@@ -58,7 +58,7 @@ class ShipmentDetailsBoxInfoRow extends StatelessWidget {
             child: Text(
               value,
               style: AppTextStyleFactory.create(
-                size: 10,
+                size: 12,
                 weight: FontWeight.w700,
                 color: AppColors.darkText,
               ),

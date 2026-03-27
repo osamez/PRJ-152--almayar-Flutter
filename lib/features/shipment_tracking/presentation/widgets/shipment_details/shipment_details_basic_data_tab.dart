@@ -38,44 +38,62 @@ class ShipmentDetailsBasicDataTab extends StatelessWidget {
             ),
           ],
         ),
-        if (shipment.shipmentImages != null &&
-            shipment.shipmentImages!.isNotEmpty) ...[
-          verticalSpace(AppSizes.h24),
-          ShipmentDetailsSectionTitle(
-            title: LocaleKeys.shipment_details_photos_title.tr(),
-          ),
-          verticalSpace(AppSizes.h16),
-          DetailsMediaGrid(
-            items: shipment.shipmentImages!
-                .map(
-                  (url) => DetailsMediaItem(
-                    url: url,
-                    fileName: url.split('/').last,
-                    isImage: true,
+
+        verticalSpace(AppSizes.h24),
+        ShipmentDetailsSectionTitle(
+          title: LocaleKeys.shipment_details_photos_title.tr(),
+        ),
+        verticalSpace(AppSizes.h16),
+        shipment.shipmentImages != null && shipment.shipmentImages!.isNotEmpty
+            ? DetailsMediaGrid(
+                items: shipment.shipmentImages!
+                    .map(
+                      (url) => DetailsMediaItem(
+                        url: url,
+                        fileName: url.split('/').last,
+                        isImage: true,
+                      ),
+                    )
+                    .toList(),
+              )
+            : Center(
+                child: Text(
+                  "لا توجد صور",
+                  style: AppTextStyleFactory.create(
+                    size: 12,
+                    weight: FontWeight.w700,
+                    color: AppColors.darkText,
                   ),
-                )
-                .toList(),
-          ),
-        ],
-        if (shipment.customsFiles != null &&
-            shipment.customsFiles!.isNotEmpty) ...[
-          verticalSpace(AppSizes.h24),
-          ShipmentDetailsSectionTitle(
-            title: LocaleKeys.shipment_details_documents_title.tr(),
-          ),
-          verticalSpace(AppSizes.h12),
-          DetailsMediaGrid(
-            items: shipment.customsFiles!
-                .map(
-                  (url) => DetailsMediaItem(
-                    url: url,
-                    fileName: url.split('/').last,
-                    isImage: false,
+                ),
+              ),
+
+        verticalSpace(AppSizes.h24),
+        ShipmentDetailsSectionTitle(
+          title: LocaleKeys.shipment_details_documents_title.tr(),
+        ),
+        verticalSpace(AppSizes.h12),
+        shipment.customsFiles != null && shipment.customsFiles!.isNotEmpty
+            ? DetailsMediaGrid(
+                items: shipment.customsFiles!
+                    .map(
+                      (url) => DetailsMediaItem(
+                        url: url,
+                        fileName: url.split('/').last,
+                        isImage: false,
+                      ),
+                    )
+                    .toList(),
+              )
+            : Center(
+                child: Text(
+                  "لا توجد مستندات",
+                  style: AppTextStyleFactory.create(
+                    size: 12,
+                    weight: FontWeight.w700,
+                    color: AppColors.darkText,
                   ),
-                )
-                .toList(),
-          ),
-        ],
+                ),
+              ),
       ],
     );
   }

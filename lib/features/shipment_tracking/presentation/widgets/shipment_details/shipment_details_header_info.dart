@@ -46,7 +46,7 @@ class ShipmentDetailsHeaderInfo extends StatelessWidget {
                     ),
                   ),
                   horizontalSpace(AppSizes.w8),
-                  PickupRequestStatusBadge(status: mapStatus(status.name)),
+                  PickupRequestStatusBadge(status: mapStatus(status)),
                 ],
               ),
               verticalSpace(AppSizes.h6),

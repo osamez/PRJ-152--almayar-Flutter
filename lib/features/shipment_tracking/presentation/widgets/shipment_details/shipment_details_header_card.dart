@@ -47,7 +47,7 @@ class ShipmentDetailsHeaderCard extends StatelessWidget {
             originCountry: originCountry,
             destinationWarehouse: destinationWarehouse,
             destinationCountry: destinationCountry,
-            isAir: shippingType == "جوي",
+            isAir: shippingType.contains("جوي"),
           ),
           verticalSpace(AppSizes.h12),
         ],

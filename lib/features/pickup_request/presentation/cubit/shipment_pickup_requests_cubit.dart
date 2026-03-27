@@ -163,4 +163,10 @@ class ShipmentPickupRequestsCubit extends Cubit<ShipmentPickupRequestsState> {
   Future<void> refresh() async {
     await getShipmentRequests(trackingNumber: _currentSearchQuery);
   }
+
+  @override
+  void emit(ShipmentPickupRequestsState state) {
+    if (isClosed) return;
+    super.emit(state);
+  }
 }

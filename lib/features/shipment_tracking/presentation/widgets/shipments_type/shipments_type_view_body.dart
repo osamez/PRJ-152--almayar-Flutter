@@ -17,7 +17,7 @@ class ShipmentsTypeViewBody extends StatelessWidget {
             ),
             verticalSpace(AppSizes.h20),
             ShipmentsTypeFilterHeader(
-              resultCount: state.shipments.valueOrNull?.length ?? 0,
+              resultCount: state.totalShipmentsCount,
             ).withPadding(horizontal: AppSizes.w20),
             verticalSpace(AppSizes.h16),
             const Expanded(child: ShipmentsTypeShipmentList()),
