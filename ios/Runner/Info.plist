@@ -75,5 +75,11 @@
 		<string>We need access to your photo library to upload your National ID card for identity verification and to select your profile picture.</string>
 		<key>UIStatusBarHidden</key>
 		<false/>
+
+		<key>LSApplicationQueriesSchemes</key>
+   		<array>
+         <string>https</string>
+         <string>http</string>
+        </array>
 	</dict>
 </plist>

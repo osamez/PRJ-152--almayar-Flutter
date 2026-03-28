@@ -76,17 +76,8 @@ class _ShoppingSitesGridState extends State<ShoppingSitesGrid> {
               ),
               itemCount: listLength,
               itemBuilder: (context, index) {
-                if (sitesList.isEmpty) {
-                  return const ShoppingSiteCard(
-                    name: 'Mock',
-                    logoPath: AppAssets.imagesLogo,
-                  );
-                }
                 final site = sitesList[index];
-                return ShoppingSiteCard(
-                  name: site.name ?? '',
-                  logoPath: site.image ?? AppAssets.imagesLogo,
-                );
+                return ShoppingSiteCard(shoppingSite: site);
               },
             ),
           ),
