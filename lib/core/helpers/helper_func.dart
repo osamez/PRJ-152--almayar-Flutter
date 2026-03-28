@@ -62,6 +62,8 @@ PickupRequestStatus mapStatus(StatusModel? status) {
       return PickupRequestStatus.deliveryPoint;
     case 20:
       return PickupRequestStatus.readyToDeliver;
+    case 23:
+      return PickupRequestStatus.delivered;
     case 11:
       return PickupRequestStatus.cancelled;
   }
@@ -97,10 +99,28 @@ PickupRequestStatus mapStatus(StatusModel? status) {
     case 'جاهزة للتسليم':
     case 'ready_for_delivery':
       return PickupRequestStatus.readyToDeliver;
+    case 'delivered':
+    case 'تم التوصيل':
+      return PickupRequestStatus.delivered;
     case 'pending':
     case 'في الإنتظار':
     default:
       return PickupRequestStatus.pending;
+  }
+}
+
+Color getStatusColor(String? color) {
+  switch (color?.toLowerCase()) {
+    case 'success':
+      return AppColors.green;
+    case 'danger':
+      return AppColors.orange;
+    case 'warning':
+      return AppColors.yellow;
+    case 'info':
+      return AppColors.lightViolet;
+    default:
+      return AppColors.deepViolet;
   }
 }
 

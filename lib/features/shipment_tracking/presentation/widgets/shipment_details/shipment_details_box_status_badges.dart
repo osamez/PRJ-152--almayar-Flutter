@@ -3,11 +3,11 @@ part of '../../feature_imports.dart';
 class ShipmentDetailsBoxStatusBadges extends StatelessWidget {
   const ShipmentDetailsBoxStatusBadges({
     super.key,
-    required this.statusLabel,
+    required this.status,
     this.boxImage,
   });
 
-  final String statusLabel;
+  final PickupRequestStatus status;
   final String? boxImage;
 
   @override
@@ -18,10 +18,10 @@ class ShipmentDetailsBoxStatusBadges extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           _buildBoxDetails(
-            label: statusLabel,
+            label: status.label,
             titleColor: AppColors.darkText,
             svgPath: AppAssets.svgDot,
-            backgroundColor: const Color(0xff3A2A85).withValues(alpha: 0.16),
+            backgroundColor: status.color.withValues(alpha: 0.16),
             iconWidth: AppSizes.w8,
             iconHeight: AppSizes.h8,
           ),
@@ -86,7 +86,7 @@ class ShipmentDetailsBoxStatusBadges extends StatelessWidget {
   }) {
     return Container(
       padding: EdgeInsets.symmetric(
-        horizontal: AppSizes.w10,
+        horizontal: AppSizes.w8,
         vertical: AppSizes.h5,
       ),
       decoration: BoxDecoration(
@@ -104,7 +104,7 @@ class ShipmentDetailsBoxStatusBadges extends StatelessWidget {
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: AppTextStyleFactory.create(
-                size: 10,
+                size: 12,
                 weight: FontWeight.w600,
                 color: titleColor,
               ),

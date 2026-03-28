@@ -34,7 +34,7 @@ class RequestItemDetailsInfoCard extends StatelessWidget {
                   Text(
                     order.code ?? "",
                     style: AppTextStyleFactory.create(
-                      size: 12,
+                      size: 13,
                       weight: FontWeight.w700,
                       color: AppColors.darkSlate,
                     ),
@@ -48,8 +48,9 @@ class RequestItemDetailsInfoCard extends StatelessWidget {
                     textColor: AppColors.deepViolet,
                     iconColor: AppColors.deepViolet,
                     textWeight: FontWeight.w700,
-                    iconHeight: AppSizes.h16,
-                    iconWidth: AppSizes.w16,
+                    iconHeight: AppSizes.h18,
+                    iconWidth: AppSizes.w18,
+                    textSize: 12,
                   ),
                   verticalSpace(AppSizes.h4),
                   IconTextRow(
@@ -62,51 +63,35 @@ class RequestItemDetailsInfoCard extends StatelessWidget {
                               .tr(),
                     textColor: AppColors.orange,
                     iconColor: AppColors.orange,
-                    textWeight: FontWeight.w700,
-                    iconHeight: AppSizes.h16,
-                    iconWidth: AppSizes.w16,
+                    iconHeight: AppSizes.h18,
+                    iconWidth: AppSizes.w18,
+                    textSize: 12,
                   ),
                 ],
               ),
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                DeliveryRequestStatusBadge(
-                  label: order.status?.name ?? "",
-                  color: AppColors.deepViolet,
-                  iconPath: AppAssets.svgDot,
-                  iconHeight: AppSizes.h8,
-                  iconWidth: AppSizes.w8,
-                ),
-                verticalSpace(AppSizes.h6),
-                DeliveryRequestStatusBadge(
-                  label: order.financialStatus?.name ?? "",
-                  color: _getStatusColor(order.financialStatus?.color),
-                  iconPath: AppAssets.svgHand,
-                  iconHeight: AppSizes.h16,
-                  iconWidth: AppSizes.w16,
-                ),
-              ],
+            IntrinsicWidth(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  StatusBadge(
+                    label: mapStatus(order.status).label,
+                    color: mapStatus(order.status).color,
+                  ),
+                  verticalSpace(AppSizes.h6),
+                  StatusBadge(
+                    label: order.financialStatus?.name ?? "-",
+                    color: getStatusColor(order.financialStatus?.color),
+                    iconPath: AppAssets.svgHand,
+                    height: AppSizes.h16,
+                    width: AppSizes.w16,
+                  ),
+                ],
+              ),
             ),
           ],
         ),
       ),
     );
-  }
-
-  Color _getStatusColor(String? color) {
-    switch (color?.toLowerCase()) {
-      case 'success':
-        return AppColors.green;
-      case 'danger':
-        return AppColors.orange;
-      case 'warning':
-        return AppColors.yellow;
-      case 'info':
-        return AppColors.lightViolet;
-      default:
-        return AppColors.deepViolet;
-    }
   }
 }

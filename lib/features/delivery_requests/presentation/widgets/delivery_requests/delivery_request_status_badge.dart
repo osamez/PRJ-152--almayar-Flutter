@@ -19,7 +19,6 @@ class DeliveryRequestStatusBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: AppSizes.w100,
       padding: EdgeInsets.symmetric(
         horizontal: AppSizes.w10,
         vertical: AppSizes.h5,

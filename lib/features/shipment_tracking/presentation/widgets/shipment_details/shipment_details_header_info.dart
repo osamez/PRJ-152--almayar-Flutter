@@ -53,10 +53,10 @@ class ShipmentDetailsHeaderInfo extends StatelessWidget {
               IconTextRow(
                 iconPath: AppAssets.svgCalendar,
                 text: date,
-                iconWidth: AppSizes.w16,
-                iconHeight: AppSizes.h16,
+                iconWidth: AppSizes.w18,
+                iconHeight: AppSizes.w18,
                 iconColor: AppColors.darkSlate,
-                textSize: 10,
+                textSize: 12,
                 textWeight: FontWeight.w700,
                 textColor: AppColors.darkSlate,
               ),
@@ -68,10 +68,10 @@ class ShipmentDetailsHeaderInfo extends StatelessWidget {
                 text: shippingType.isEmpty
                     ? LocaleKeys.shipment_details_shared_sea.tr()
                     : shippingType,
-                iconWidth: AppSizes.w16,
-                iconHeight: AppSizes.h16,
+                iconWidth: AppSizes.w18,
+                iconHeight: AppSizes.w18,
                 iconColor: AppColors.orange,
-                textSize: 10,
+                textSize: 12,
                 textWeight: FontWeight.w700,
                 textColor: AppColors.orange,
               ),

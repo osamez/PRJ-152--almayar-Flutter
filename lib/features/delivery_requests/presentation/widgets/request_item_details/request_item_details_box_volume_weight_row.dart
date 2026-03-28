@@ -52,8 +52,8 @@ class _BoxStatItem extends StatelessWidget {
       children: [
         SvgPicture.asset(
           iconPath,
-          width: AppSizes.w16,
-          height: AppSizes.h16,
+          width: AppSizes.w18,
+          height: AppSizes.h18,
           colorFilter: const ColorFilter.mode(
             AppColors.deepViolet,
             BlendMode.srcIn,
@@ -62,9 +62,9 @@ class _BoxStatItem extends StatelessWidget {
         horizontalSpace(AppSizes.w6),
         Flexible(
           child: Text(
-            '$label:$value',
+            '$label: $value',
             style: AppTextStyleFactory.create(
-              size: 10,
+              size: 11,
               weight: FontWeight.w700,
               color: AppColors.deepViolet,
             ),

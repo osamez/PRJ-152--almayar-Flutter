@@ -1,15 +1,16 @@
 part of '../../feature_imports.dart';
 
 enum PickupRequestStatus {
-  pickupPoint,    // 3
-  processing,     // 14
-  prepared,       // 15
-  shipping,       // 17
-  deliveryPoint,  // 19
+  pickupPoint, // 3
+  processing, // 14
+  prepared, // 15
+  shipping, // 17
+  deliveryPoint, // 19
   readyToDeliver, // 20
-  cancelled,      // 11
+  cancelled, // 11
   pending,
   received,
+  delivered,
   rejected;
 
   String get label {
@@ -34,6 +35,8 @@ enum PickupRequestStatus {
         return LocaleKeys.pickup_requests_status_rejected.tr();
       case PickupRequestStatus.pending:
         return LocaleKeys.pickup_requests_status_pending.tr();
+      case PickupRequestStatus.delivered:
+        return 'تم التوصيل';
     }
   }
 
@@ -59,6 +62,8 @@ enum PickupRequestStatus {
         return AppColors.orange;
       case PickupRequestStatus.pending:
         return const Color(0xffF59E0B);
+      case PickupRequestStatus.delivered:
+        return AppColors.green;
     }
   }
 
@@ -84,6 +89,8 @@ enum PickupRequestStatus {
         return AppColors.orange.withValues(alpha: 0.1);
       case PickupRequestStatus.pending:
         return const Color(0xffF59E0B).withValues(alpha: 0.1);
+      case PickupRequestStatus.delivered:
+        return AppColors.green.withValues(alpha: 0.1);
     }
   }
 }

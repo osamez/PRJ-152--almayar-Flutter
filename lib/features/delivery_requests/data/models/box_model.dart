@@ -1,10 +1,11 @@
+import 'package:almeyar/core/helpers/helper_func.dart';
 import 'package:almeyar/core/models/status_model.dart';
 import 'package:almeyar/features/delivery_requests/data/models/dimensions_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'box_model.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(checked: true)
 class BoxModel {
   final int? id;
   final String? code;
@@ -14,17 +15,27 @@ class BoxModel {
   final String? receivingBranch;
   @JsonKey(name: 'trip_code')
   final String? tripCode;
+  @NullableStringConverter()
   final String? weight;
   final DimensionsModel? dimensions;
+  @NullableStringConverter()
   final String? size;
+  @NullableStringConverter()
   final String? price;
   @JsonKey(name: 'price_after_discount')
+  @NullableStringConverter()
   final String? priceAfterDiscount;
   final StatusModel? status;
   @JsonKey(name: 'financial_status')
   final StatusModel? financialStatus;
   @JsonKey(name: 'delivery_date')
   final String? deliveryDate;
+  @JsonKey(name: 'discount_value')
+  @NullableStringConverter()
+  final String? discountValue;
+  @JsonKey(name: 'box_image')
+  @NullableStringConverter()
+  final String? boxImage;
 
   const BoxModel({
     this.id,
@@ -40,6 +51,8 @@ class BoxModel {
     this.status,
     this.financialStatus,
     this.deliveryDate,
+    this.discountValue,
+    this.boxImage,
   });
 
   factory BoxModel.fromJson(Map<String, dynamic> json) =>

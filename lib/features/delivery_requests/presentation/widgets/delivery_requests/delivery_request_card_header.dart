@@ -76,45 +76,29 @@ class DeliveryRequestCardHeader extends StatelessWidget {
 
           const Spacer(),
 
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              DeliveryRequestStatusBadge(
-                label: status.name ?? '',
-                color: AppColors.deepViolet,
-                iconPath: AppAssets.svgDot,
-                iconHeight: AppSizes.h8,
-                iconWidth: AppSizes.w8,
-              ),
-              verticalSpace(AppSizes.h6),
-              DeliveryRequestStatusBadge(
-                label: financialStatus.name ?? '',
-                color: _getStatusColor(financialStatus.color),
-                iconPath: AppAssets.svgHand,
-                iconHeight: AppSizes.h16,
-                iconWidth: AppSizes.w16,
-              ),
-            ],
+          IntrinsicWidth(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                StatusBadge(
+                  label: status.name ?? '',
+                  color: mapStatus(status).color,
+                ),
+                verticalSpace(AppSizes.h6),
+                StatusBadge(
+                  label: financialStatus.name ?? '',
+                  color: getStatusColor(financialStatus.color),
+                  iconPath: AppAssets.svgHand,
+                  height: AppSizes.h16,
+                  width: AppSizes.w16,
+                ),
+              ],
+            ),
           ),
 
           // Order info column
         ],
       ),
     );
-  }
-
-  Color _getStatusColor(String? color) {
-    switch (color?.toLowerCase()) {
-      case 'success':
-        return AppColors.green;
-      case 'danger':
-        return AppColors.orange;
-      case 'warning':
-        return AppColors.yellow;
-      case 'info':
-        return AppColors.lightViolet;
-      default:
-        return AppColors.deepViolet;
-    }
   }
 }

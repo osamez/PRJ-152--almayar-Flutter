@@ -1,8 +1,9 @@
 part of '../../feature_imports.dart';
 
 class RequestItemDetailsViewBody extends StatelessWidget {
-  const RequestItemDetailsViewBody({super.key});
+  const RequestItemDetailsViewBody({super.key, required this.id});
 
+  final int id;
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<DeliveryRequestDetailsCubit,
@@ -13,7 +14,6 @@ class RequestItemDetailsViewBody extends StatelessWidget {
           loading: () => _buildContent(context, isLoading: true),
           data: (data) => _buildContent(context, data: data),
           error: (failure) {
-            final id = context.read<DeliveryRequestItemDetailsView>().id;
             if (failure.status == LocalStatusCodes.connectionError) {
               return InternetConnectionWidget(
                 onPressed: () => context

@@ -14,7 +14,7 @@ class DeliveryRequestItemDetailsView extends StatelessWidget {
           title: LocaleKeys.delivery_request_details_title.tr(),
         ),
         backgroundColor: AppColors.offWhite,
-        body: const SafeArea(child: RequestItemDetailsViewBody()),
+        body: SafeArea(child: RequestItemDetailsViewBody(id: id)),
       ),
     );
   }

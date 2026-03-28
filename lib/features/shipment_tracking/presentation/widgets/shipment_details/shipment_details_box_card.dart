@@ -42,7 +42,7 @@ class ShipmentDetailsBoxCard extends StatelessWidget {
                   ),
                 ),
                 ShipmentDetailsBoxStatusBadges(
-                  statusLabel: box.status?.name ?? '',
+                  status: mapStatus(box.status),
                   boxImage: box.boxImage,
                 ),
               ],

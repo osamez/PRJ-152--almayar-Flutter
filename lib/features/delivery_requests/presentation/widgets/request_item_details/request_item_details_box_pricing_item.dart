@@ -19,7 +19,7 @@ class RequestItemDetailsBoxPricingItem extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SvgPicture.asset(icon, width: AppSizes.w16, height: AppSizes.h16),
+        SvgPicture.asset(icon, width: AppSizes.w18, height: AppSizes.w18),
         horizontalSpace(AppSizes.w6),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -27,7 +27,7 @@ class RequestItemDetailsBoxPricingItem extends StatelessWidget {
             Text(
               label,
               style: AppTextStyleFactory.create(
-                size: 10,
+                size: 11,
                 weight: FontWeight.w700,
                 color: AppColors.deepViolet,
               ),
@@ -36,7 +36,7 @@ class RequestItemDetailsBoxPricingItem extends StatelessWidget {
             Text(
               value,
               style: AppTextStyleFactory.create(
-                size: 10,
+                size: 11,
                 weight: FontWeight.w700,
                 color: valueColor,
               ),
