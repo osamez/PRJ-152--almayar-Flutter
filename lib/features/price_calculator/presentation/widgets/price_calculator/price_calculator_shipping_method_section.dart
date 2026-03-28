@@ -42,6 +42,7 @@ class PriceCalculatorShippingMethodSection extends StatelessWidget {
           isPrimarySelected: isPrimarySelected,
           onPrimarySelected: onPrimarySelected,
           onSecondarySelected: onSecondarySelected,
+          isSeaShipping: isSeaShipping,
         ),
       ],
     );

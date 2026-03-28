@@ -18,7 +18,7 @@ class PriceCalculatorBlocListener extends StatelessWidget {
             showAppSnackbar(
               context: context,
               type: SnackbarType.error,
-              description: failure.message ?? '',
+              description: failure.error,
             );
           },
           data: (result) {
@@ -28,6 +28,7 @@ class PriceCalculatorBlocListener extends StatelessWidget {
               costPerKg: result.pricePerUnit.toString(),
               totalCost: result.estimatedPrice.toString(),
               shipmentType: state.shipmentType,
+              flightType: state.flightType,
             );
           },
         );

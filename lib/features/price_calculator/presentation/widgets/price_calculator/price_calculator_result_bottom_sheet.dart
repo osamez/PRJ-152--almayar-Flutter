@@ -6,17 +6,20 @@ class PriceCalculatorResultBottomSheet extends StatelessWidget {
     required this.costPerKg,
     required this.totalCost,
     required this.shipmentType,
+    required this.flightType,
   });
 
   final String costPerKg;
   final String totalCost;
   final String shipmentType;
+  final String flightType;
 
   static void show(
     BuildContext context, {
     required String costPerKg,
     required String totalCost,
     required String shipmentType,
+    required String flightType,
   }) {
     showModalBottomSheet<void>(
       context: context,
@@ -30,6 +33,7 @@ class PriceCalculatorResultBottomSheet extends StatelessWidget {
       builder: (_) => PriceCalculatorResultBottomSheet(
         costPerKg: costPerKg,
         totalCost: totalCost,
+        flightType: flightType,
         shipmentType: shipmentType,
       ),
     );
@@ -69,8 +73,12 @@ class PriceCalculatorResultBottomSheet extends StatelessWidget {
             PriceCalculatorCostCard(
               title: LocaleKeys.price_calculator_shipping_type.tr(),
               value: shipmentType == 'air'
-                  ? LocaleKeys.price_calculator_air_shipping.tr()
-                  : LocaleKeys.price_calculator_sea_shipping.tr(),
+                  ? flightType == 'fast'
+                        ? LocaleKeys.price_calculator_air_express.tr()
+                        : LocaleKeys.price_calculator_air_economy.tr()
+                  : flightType == 'fast'
+                  ? LocaleKeys.price_calculator_sea_private.tr()
+                  : LocaleKeys.price_calculator_sea_shared.tr(),
               iconPath: shipmentType == 'air'
                   ? AppAssets.svgAirplane
                   : AppAssets.svgBoat,
@@ -80,13 +88,13 @@ class PriceCalculatorResultBottomSheet extends StatelessWidget {
               title: shipmentType == 'air'
                   ? LocaleKeys.price_calculator_cost_per_kg.tr()
                   : LocaleKeys.price_calculator_cost_per_cbm.tr(),
-              value: costPerKg,
+              value: '\$ $costPerKg',
               iconPath: AppAssets.svgMoneyWavy,
             ),
             verticalSpace(AppSizes.h12),
             PriceCalculatorCostCard(
               title: LocaleKeys.price_calculator_total_initial_cost.tr(),
-              value: totalCost,
+              value: '\$ $totalCost',
               iconPath: AppAssets.svgInvoice,
             ),
             verticalSpace(AppSizes.h24),

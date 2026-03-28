@@ -54,7 +54,7 @@ class PriceCalculatorCubit extends Cubit<PriceCalculatorState> {
       state.copyWith(
         shipmentType: type,
         flightType:
-            'fast', // Reset flight type to default when shipment type changes
+            'slow', // Reset flight type to slow when shipment type changes
       ),
     );
   }

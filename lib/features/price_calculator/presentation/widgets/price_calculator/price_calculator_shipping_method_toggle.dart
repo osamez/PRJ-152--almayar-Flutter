@@ -8,6 +8,7 @@ class PriceCalculatorShippingMethodToggle extends StatelessWidget {
     required this.isPrimarySelected,
     required this.onPrimarySelected,
     required this.onSecondarySelected,
+    this.isSeaShipping = false,
   });
 
   final String primaryLabel;
@@ -15,7 +16,7 @@ class PriceCalculatorShippingMethodToggle extends StatelessWidget {
   final bool isPrimarySelected;
   final VoidCallback onPrimarySelected;
   final VoidCallback onSecondarySelected;
-
+  final bool isSeaShipping;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -29,11 +30,13 @@ class PriceCalculatorShippingMethodToggle extends StatelessWidget {
         ),
         horizontalSpace(AppSizes.w10),
         Expanded(
-          child: _MethodOption(
-            label: primaryLabel,
-            isSelected: isPrimarySelected,
-            onTap: onPrimarySelected,
-          ),
+          child: isSeaShipping
+              ? const SizedBox()
+              : _MethodOption(
+                  label: primaryLabel,
+                  isSelected: isPrimarySelected,
+                  onTap: onPrimarySelected,
+                ),
         ),
       ],
     );

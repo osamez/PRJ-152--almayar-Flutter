@@ -20,7 +20,7 @@ class PriceCalculatorState extends Equatable {
     this.shipmentCategories = const AsyncInitial(),
     this.calculationResult = const AsyncInitial(),
     this.shipmentType = 'air',
-    this.flightType = 'fast',
+    this.flightType = 'slow',
     this.selectedReceivingBranch,
     this.selectedDeliveryBranch,
     this.selectedCategory,
