@@ -1,7 +1,8 @@
 part of '../../feature_imports.dart';
 
 class AddNewMoneyTransferInvoiceCurrencyField extends StatelessWidget {
-  const AddNewMoneyTransferInvoiceCurrencyField({super.key});
+  final ValueChanged<MoneyTransferCurrencyModel?>? onChanged;
+  const AddNewMoneyTransferInvoiceCurrencyField({super.key, this.onChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -38,9 +39,12 @@ class AddNewMoneyTransferInvoiceCurrencyField extends StatelessWidget {
             CustomDropdownSearchList<MoneyTransferCurrencyModel>(
               items: state.currencies,
               initialValue: state.selectedInvoiceCurrency,
-              onChanged: context
-                  .read<AddNewMoneyTransferCubit>()
-                  .selectInvoiceCurrency,
+              onChanged: (value) {
+                context
+                    .read<AddNewMoneyTransferCubit>()
+                    .selectInvoiceCurrency(value);
+                onChanged?.call(value);
+              },
               itemAsString: (item) => item.name ?? item.code ?? '',
               hintText: LocaleKeys.add_money_transfer_invoice_currency_hint
                   .tr(),

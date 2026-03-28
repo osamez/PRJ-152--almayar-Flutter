@@ -7,11 +7,22 @@ class AddNewMoneyTransferSubmitButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppElevatedButton(
-      text: LocaleKeys.add_money_transfer_submit.tr(),
-      onPressed: onPressed,
-      backgroundColor: AppColors.orange,
-      textColor: AppColors.white,
+    return BlocBuilder<AddNewMoneyTransferCubit, AddNewMoneyTransferState>(
+      buildWhen: (previous, current) =>
+          previous.noteCalculateMoneyTransferState !=
+          current.noteCalculateMoneyTransferState,
+      builder: (context, state) {
+        final isLoading = state.noteCalculateMoneyTransferState.isLoading;
+
+        return isLoading
+            ? const Center(child: CupertinoActivityIndicator())
+            : AppElevatedButton(
+                text: LocaleKeys.add_money_transfer_submit.tr(),
+                onPressed: onPressed,
+                backgroundColor: AppColors.orange,
+                textColor: AppColors.white,
+              );
+      },
     );
   }
 }

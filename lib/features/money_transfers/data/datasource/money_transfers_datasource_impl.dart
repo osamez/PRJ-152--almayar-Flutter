@@ -6,6 +6,8 @@ import 'package:almeyar/core/models/message_model.dart';
 import '../api_service/money_transfers_api_service.dart';
 import '../models/money_transfer_currency_model.dart';
 import '../models/money_transfer_model.dart';
+import '../models/note_calculate_model.dart';
+import '../models/note_calculate_request.dart';
 import 'money_transfers_datasource.dart';
 
 class MoneyTransfersDataSourceImpl implements MoneyTransfersDataSource {
@@ -50,5 +52,12 @@ class MoneyTransfersDataSourceImpl implements MoneyTransfersDataSource {
       supplierPhone: supplierPhone,
       notes: notes,
     );
+  }
+
+  @override
+  Future<BaseResponse<NoteCalculateModel>> noteCalculateMoneyTransfer(
+    NoteCalculateRequest request,
+  ) async {
+    return await _apiService.noteCalculateMoneyTransfer(request);
   }
 }

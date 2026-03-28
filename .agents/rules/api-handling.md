@@ -13,7 +13,6 @@ Your task is to generate or update the Data Layer for a specific feature based o
 - **Stack:** `dio`, `retrofit`, `json_annotation`.
 - **Error Handling:** Use a custom `Result<T>` sealed class (with `Success` and `Error` factories). Errors are handled implicitly via `AppErrorHandler` inside the `Result.failure` factory.
 - **Logging:** Use the custom `AppLogger` class (`AppLogger.info` for success, `AppLogger.error` for exceptions).
-- \*\*Apply dart run build_runner build --delete-conflicting-outputs to generate the models and update the api_servcie.
 
 ## 2. Folder Structure per Feature
 

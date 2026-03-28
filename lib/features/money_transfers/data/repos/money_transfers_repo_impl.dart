@@ -8,6 +8,8 @@ import 'package:almeyar/core/utils/app_logger.dart';
 import '../datasource/money_transfers_datasource.dart';
 import '../models/money_transfer_currency_model.dart';
 import '../models/money_transfer_model.dart';
+import '../models/note_calculate_model.dart';
+import '../models/note_calculate_request.dart';
 import 'money_transfers_repo.dart';
 
 class MoneyTransfersRepoImpl implements MoneyTransfersRepo {
@@ -85,6 +87,26 @@ class MoneyTransfersRepoImpl implements MoneyTransfersRepo {
     } catch (e, stackTrace) {
       AppLogger.error(
         'MoneyTransfersRepoImpl - addMoneyTransfer: Error',
+        e,
+        stackTrace,
+      );
+      return Result.failure(e, stackTrace);
+    }
+  }
+
+  @override
+  Future<Result<BaseResponse<NoteCalculateModel>>> noteCalculateMoneyTransfer(
+    NoteCalculateRequest request,
+  ) async {
+    try {
+      final response = await _dataSource.noteCalculateMoneyTransfer(request);
+      AppLogger.info(
+        'MoneyTransfersRepoImpl - noteCalculateMoneyTransfer: Success',
+      );
+      return Result.success(response);
+    } catch (e, stackTrace) {
+      AppLogger.error(
+        'MoneyTransfersRepoImpl - noteCalculateMoneyTransfer: Error',
         e,
         stackTrace,
       );

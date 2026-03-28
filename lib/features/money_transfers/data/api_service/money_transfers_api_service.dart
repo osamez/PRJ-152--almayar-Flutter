@@ -7,6 +7,8 @@ import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 import '../models/money_transfer_currency_model.dart';
 import '../models/money_transfer_model.dart';
+import '../models/note_calculate_model.dart';
+import '../models/note_calculate_request.dart';
 
 part 'money_transfers_api_service.g.dart';
 
@@ -38,4 +40,9 @@ abstract class MoneyTransfersApiService {
     @Part(name: 'supplier_phone') String? supplierPhone,
     @Part(name: 'notes') String? notes,
   });
+
+  @POST(ApiConstants.noteCalculateMoneyTransfer)
+  Future<BaseResponse<NoteCalculateModel>> noteCalculateMoneyTransfer(
+    @Body() NoteCalculateRequest request,
+  );
 }

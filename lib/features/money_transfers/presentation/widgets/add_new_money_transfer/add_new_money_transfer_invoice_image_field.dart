@@ -21,7 +21,7 @@ class _AddNewMoneyTransferInvoiceImageFieldState
   Future<void> _pickInvoiceImage() async {
     final result = await FilePicker.platform.pickFiles(
       type: FileType.custom,
-      allowedExtensions: ['jpg', 'jpeg', 'png'],
+      allowedExtensions: ['jpg', 'jpeg', 'png', 'pdf'],
     );
 
     if (!mounted) {
@@ -47,6 +47,8 @@ class _AddNewMoneyTransferInvoiceImageFieldState
           previous.invoiceFile != current.invoiceFile,
       builder: (context, state) {
         final selectedFile = state.invoiceFile;
+        final isPdf =
+            selectedFile?.path.toLowerCase().endsWith('.pdf') ?? false;
 
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,26 +87,50 @@ class _AddNewMoneyTransferInvoiceImageFieldState
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(AppSizes.radiusSm),
-                      child: Image.file(
-                        selectedFile,
-                        width: double.infinity,
-                        height: AppSizes.h120,
-                        fit: BoxFit.cover,
-                        errorBuilder: (context, error, stackTrace) {
-                          return Container(
-                            width: double.infinity,
-                            height: AppSizes.h120,
-                            color: AppColors.offWhite,
-                            alignment: Alignment.center,
-                            child: Icon(
-                              Icons.broken_image_outlined,
-                              color: AppColors.hintColor,
-                              size: AppSizes.w30,
-                            ),
+                    GestureDetector(
+                      onTap: () {
+                        if (isPdf) {
+                          AppDialogs.openFile(selectedFile, context);
+                        } else {
+                          AppDialogs.showImageViewerDialog(
+                            context: context,
+                            imageFile: selectedFile,
                           );
-                        },
+                        }
+                      },
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(AppSizes.radiusSm),
+                        child: isPdf
+                            ? Container(
+                                width: double.infinity,
+                                height: AppSizes.h120,
+                                color: AppColors.offWhite,
+                                alignment: Alignment.center,
+                                child: SvgPicture.asset(
+                                  AppAssets.svgPdfFile,
+                                  width: AppSizes.w40,
+                                  height: AppSizes.h40,
+                                ),
+                              )
+                            : Image.file(
+                                selectedFile,
+                                width: double.infinity,
+                                height: AppSizes.h120,
+                                fit: BoxFit.cover,
+                                errorBuilder: (context, error, stackTrace) {
+                                  return Container(
+                                    width: double.infinity,
+                                    height: AppSizes.h120,
+                                    color: AppColors.offWhite,
+                                    alignment: Alignment.center,
+                                    child: Icon(
+                                      Icons.broken_image_outlined,
+                                      color: AppColors.hintColor,
+                                      size: AppSizes.w30,
+                                    ),
+                                  );
+                                },
+                              ),
                       ),
                     ),
                     verticalSpace(AppSizes.h8),

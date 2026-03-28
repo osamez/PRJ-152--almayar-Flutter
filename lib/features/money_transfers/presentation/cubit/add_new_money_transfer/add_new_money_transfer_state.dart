@@ -3,6 +3,7 @@ part of '../../feature_imports.dart';
 class AddNewMoneyTransferState extends Equatable {
   final Async<List<MoneyTransferCurrencyModel>> getMoneyTransferCurrenciesState;
   final Async<MessageModel> addMoneyTransferState;
+  final Async<NoteCalculateModel> noteCalculateMoneyTransferState;
   final List<MoneyTransferCurrencyModel> currencies;
   final MoneyTransferCurrencyModel? selectedInvoiceCurrency;
   final MoneyTransferCurrencyModel? selectedPaymentCurrency;
@@ -11,6 +12,7 @@ class AddNewMoneyTransferState extends Equatable {
   const AddNewMoneyTransferState({
     this.getMoneyTransferCurrenciesState = const AsyncInitial(),
     this.addMoneyTransferState = const AsyncInitial(),
+    this.noteCalculateMoneyTransferState = const AsyncInitial(),
     this.currencies = const [],
     this.selectedInvoiceCurrency,
     this.selectedPaymentCurrency,
@@ -32,6 +34,7 @@ class AddNewMoneyTransferState extends Equatable {
   AddNewMoneyTransferState copyWith({
     Async<List<MoneyTransferCurrencyModel>>? getMoneyTransferCurrenciesState,
     Async<MessageModel>? addMoneyTransferState,
+    Async<NoteCalculateModel>? noteCalculateMoneyTransferState,
     List<MoneyTransferCurrencyModel>? currencies,
     MoneyTransferCurrencyModel? selectedInvoiceCurrency,
     MoneyTransferCurrencyModel? selectedPaymentCurrency,
@@ -46,6 +49,9 @@ class AddNewMoneyTransferState extends Equatable {
           this.getMoneyTransferCurrenciesState,
       addMoneyTransferState:
           addMoneyTransferState ?? this.addMoneyTransferState,
+      noteCalculateMoneyTransferState:
+          noteCalculateMoneyTransferState ??
+          this.noteCalculateMoneyTransferState,
       currencies: currencies ?? this.currencies,
       selectedInvoiceCurrency: clearSelectedInvoiceCurrency
           ? null
@@ -61,6 +67,7 @@ class AddNewMoneyTransferState extends Equatable {
   List<Object?> get props => [
     getMoneyTransferCurrenciesState,
     addMoneyTransferState,
+    noteCalculateMoneyTransferState,
     currencies,
     selectedInvoiceCurrency,
     selectedPaymentCurrency,

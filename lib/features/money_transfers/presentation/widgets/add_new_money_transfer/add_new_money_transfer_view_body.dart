@@ -19,6 +19,7 @@ class _AddNewMoneyTransferViewBodyState
   final _notesController = TextEditingController();
 
   String _phoneCode = '+218';
+  Timer? _debounce;
 
   @override
   void dispose() {
@@ -27,7 +28,28 @@ class _AddNewMoneyTransferViewBodyState
     _supplierPhoneController.dispose();
     _invoiceValueController.dispose();
     _notesController.dispose();
+    _debounce?.cancel();
     super.dispose();
+  }
+
+  void _onCalculationTriggered() {
+    if (_debounce?.isActive ?? false) _debounce!.cancel();
+    _debounce = Timer(const Duration(milliseconds: 500), () {
+      final cubit = context.read<AddNewMoneyTransferCubit>();
+      final state = cubit.state;
+
+      if (_invoiceValueController.text.isNotEmpty &&
+          state.selectedInvoiceCurrency != null &&
+          state.selectedPaymentCurrency != null) {
+        cubit.noteCalculateMoneyTransfer(
+          NoteCalculateRequest(
+            invoiceValue: _invoiceValueController.text.trim(),
+            currencyId: state.selectedInvoiceCurrency!.id.toString(),
+            paymentCurrencyId: state.selectedPaymentCurrency!.id.toString(),
+          ),
+        );
+      }
+    });
   }
 
   void _submit() {
@@ -147,6 +169,7 @@ class _AddNewMoneyTransferViewBodyState
                     verticalSpace(AppSizes.h16),
                     AppTextFormField(
                       controller: _invoiceValueController,
+                      onChanged: (value) => _onCalculationTriggered(),
                       hintText: LocaleKeys.add_money_transfer_invoice_value_hint
                           .tr(),
                       title: LocaleKeys.add_money_transfer_invoice_value.tr(),
@@ -160,10 +183,13 @@ class _AddNewMoneyTransferViewBodyState
                       keyboardType: TextInputType.number,
                     ),
                     verticalSpace(AppSizes.h16),
-                    const AddNewMoneyTransferInvoiceCurrencyField(),
+                    AddNewMoneyTransferInvoiceCurrencyField(
+                      onChanged: (_) => _onCalculationTriggered(),
+                    ),
                     verticalSpace(AppSizes.h16),
-                    const AddNewMoneyTransferPaymentCurrencyField(),
-                    verticalSpace(AppSizes.h16),
+                    AddNewMoneyTransferPaymentCurrencyField(
+                      onChanged: (_) => _onCalculationTriggered(),
+                    ),
                     const AddNewMoneyTransferExchangeRateWarning(),
                     verticalSpace(AppSizes.h16),
                     AppTextFormField(

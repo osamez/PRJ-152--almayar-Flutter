@@ -108,4 +108,39 @@ class AddNewMoneyTransferCubit extends Cubit<AddNewMoneyTransferState> {
 
     emit(state.copyWith(invoiceFile: file));
   }
+
+  Future<void> noteCalculateMoneyTransfer(NoteCalculateRequest request) async {
+    emit(state.copyWith(noteCalculateMoneyTransferState: const AsyncLoading()));
+
+    if (!await _internetService.isConnected()) {
+      emit(
+        state.copyWith(
+          noteCalculateMoneyTransferState: AsyncError(
+            ApiErrorModel(
+              error: LocaleKeys.no_internet_error.tr(),
+              status: LocalStatusCodes.connectionError,
+            ),
+          ),
+        ),
+      );
+      return;
+    }
+
+    final result = await _repo.noteCalculateMoneyTransfer(request);
+
+    result.when(
+      onSuccess: (data) {
+        emit(
+          state.copyWith(
+            noteCalculateMoneyTransferState: AsyncData(data.data!),
+          ),
+        );
+      },
+      onFailure: (error) {
+        emit(
+          state.copyWith(noteCalculateMoneyTransferState: AsyncError(error)),
+        );
+      },
+    );
+  }
 }

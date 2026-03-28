@@ -6,6 +6,8 @@ import 'package:almeyar/core/network/result.dart';
 
 import '../models/money_transfer_currency_model.dart';
 import '../models/money_transfer_model.dart';
+import '../models/note_calculate_model.dart';
+import '../models/note_calculate_request.dart';
 
 abstract class MoneyTransfersRepo {
   Future<Result<BaseResponse<MoneyTransferResponse>>> getMoneyTransfers({
@@ -27,4 +29,8 @@ abstract class MoneyTransfersRepo {
     String? supplierPhone,
     String? notes,
   });
+
+  Future<Result<BaseResponse<NoteCalculateModel>>> noteCalculateMoneyTransfer(
+    NoteCalculateRequest request,
+  );
 }
