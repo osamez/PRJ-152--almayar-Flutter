@@ -49,7 +49,7 @@ class MoneyTransferDetailsViewBody extends StatelessWidget {
               ),
               DetailsInfoRowData(
                 label: LocaleKeys.add_money_transfer_invoice_value.tr(),
-                value: '\$${model.invoiceValue?.amount ?? '-'}',
+                value: '\$${model.invoiceValue?.amount ?? '0 \$'}',
               ),
               DetailsInfoRowData(
                 label: LocaleKeys.add_money_transfer_invoice_currency.tr(),
@@ -63,29 +63,37 @@ class MoneyTransferDetailsViewBody extends StatelessWidget {
                 label: LocaleKeys.money_transfer_details_amount_in_yuan.tr(),
                 value: model.yuanAmount != null
                     ? '${model.yuanAmount} يوان'
-                    : '-',
+                    : '0 \$',
               ),
               DetailsInfoRowData(
                 label: LocaleKeys.money_transfer_details_due_in_dollars.tr(),
                 value: model.dollarAmount != null
                     ? '\$${model.dollarAmount}'
-                    : '-',
+                    : '0 \$',
               ),
             ],
           ),
-          if (mediaItems.isNotEmpty) ...[
-            verticalSpace(AppSizes.h24),
-            Text(
-              LocaleKeys.money_transfer_details_invoice_and_proof.tr(),
-              style: AppTextStyleFactory.create(
-                size: 16,
-                weight: FontWeight.w700,
-                color: AppColors.deepViolet,
-              ),
+
+          verticalSpace(AppSizes.h24),
+          Text(
+            LocaleKeys.money_transfer_details_invoice_and_proof.tr(),
+            style: AppTextStyleFactory.create(
+              size: 16,
+              weight: FontWeight.w700,
+              color: AppColors.deepViolet,
             ),
-            verticalSpace(AppSizes.h16),
-            DetailsMediaGrid(items: mediaItems),
-          ],
+          ),
+          verticalSpace(AppSizes.h16),
+          mediaItems.isNotEmpty
+              ? DetailsMediaGrid(items: mediaItems)
+              : Text(
+                  "لا توجد مرفقات اثبات لهذه الحوالة بعد",
+                  style: AppTextStyleFactory.create(
+                    size: 14,
+                    weight: FontWeight.w400,
+                    color: AppColors.darkText,
+                  ),
+                ),
         ],
       ),
     );
