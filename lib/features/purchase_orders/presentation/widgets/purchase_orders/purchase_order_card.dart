@@ -45,8 +45,8 @@ class PurchaseOrderCard extends StatelessWidget {
               ),
               const Divider(height: 1, color: Color(0xffF3F4F6)),
               PurchaseOrderStatsSection(
-                orderValue: order.orderValue?.toString() ?? '',
-                amountPaid: order.paidAmount?.toString() ?? '',
+                orderValue: '\$${order.orderValue?.toString() ?? '0'}',
+                amountPaid: '\$${order.paidAmount?.toString() ?? '0'}',
                 website: order.shoppingSite?.name ?? '',
               ),
             ],

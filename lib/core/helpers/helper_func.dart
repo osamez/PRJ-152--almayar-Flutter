@@ -44,28 +44,64 @@ String formatDateFromApi(String apiDateString) {
 
   return formattedDate;
 }
+PurchaseStatus mapPurchaseStatus(StatusModel? status) {
+  final id = status?.id;
+  final name = status?.name?.toLowerCase();
 
+  if (id != null) {
+    switch (id) {
+      case 4:
+        return PurchaseStatus.pending;
+      case 36:
+        return PurchaseStatus.inProgress;
+      case 35:
+        return PurchaseStatus.purchased;
+      case 11:
+        return PurchaseStatus.cancelled;
+    }
+  }
+
+  switch (name) {
+    case 'under_review':
+    case 'قيد الانتظار':
+    case 'pending':
+      return PurchaseStatus.pending;
+    case 'in_progress':
+    case 'قيد التنفيذ':
+      return PurchaseStatus.inProgress;
+    case 'purchased':
+    case 'تم الشراء':
+      return PurchaseStatus.purchased;
+    case 'cancelled':
+    case 'ملغية':
+      return PurchaseStatus.cancelled;
+    default:
+      return PurchaseStatus.pending;
+  }
+}
 PickupRequestStatus mapStatus(StatusModel? status) {
   final id = status?.id;
   final name = status?.name?.toLowerCase();
 
-  switch (id) {
-    case 3:
-      return PickupRequestStatus.pickupPoint;
-    case 14:
-      return PickupRequestStatus.processing;
-    case 15:
-      return PickupRequestStatus.prepared;
-    case 17:
-      return PickupRequestStatus.shipping;
-    case 19:
-      return PickupRequestStatus.deliveryPoint;
-    case 20:
-      return PickupRequestStatus.readyToDeliver;
-    case 23:
-      return PickupRequestStatus.delivered;
-    case 11:
-      return PickupRequestStatus.cancelled;
+  if (id != null) {
+    switch (id) {
+      case 3:
+        return PickupRequestStatus.pickupPoint;
+      case 14:
+        return PickupRequestStatus.processing;
+      case 15:
+        return PickupRequestStatus.prepared;
+      case 17:
+        return PickupRequestStatus.shipping;
+      case 19:
+        return PickupRequestStatus.deliveryPoint;
+      case 20:
+        return PickupRequestStatus.readyToDeliver;
+      case 23:
+        return PickupRequestStatus.delivered;
+      case 11:
+        return PickupRequestStatus.cancelled;
+    }
   }
 
   switch (name) {

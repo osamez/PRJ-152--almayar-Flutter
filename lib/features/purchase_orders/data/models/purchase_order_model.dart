@@ -27,6 +27,7 @@ class PurchaseOrderModel {
   @JsonKey(name: 'created_at')
   final String? createdAt;
   final String? notes;
+  final String? attachment;
 
   const PurchaseOrderModel({
     this.id,
@@ -41,6 +42,7 @@ class PurchaseOrderModel {
     this.status,
     this.createdAt,
     this.notes,
+    this.attachment,
   });
 
   factory PurchaseOrderModel.fromJson(Map<String, dynamic> json) =>

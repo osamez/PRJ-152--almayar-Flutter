@@ -49,7 +49,10 @@ class PurchaseOrderCardHeader extends StatelessWidget {
         ),
 
         const Spacer(),
-        PurchaseOrderStatusBadge(status: status),
+        StatusBadge(
+          label: status?.name ?? '',
+          color: mapPurchaseStatus(status).color,
+        ),
       ],
     );
   }

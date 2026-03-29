@@ -8,7 +8,7 @@ class EditProfileSaveButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppElevatedButton(
       text: LocaleKeys.edit_profile_save_data.tr(),
-      backgroundColor: AppColors.orange,
+      backgroundColor: AppColors.deepViolet,
       radius: AppSizes.radiusSm,
       onPressed: onPressed,
     );

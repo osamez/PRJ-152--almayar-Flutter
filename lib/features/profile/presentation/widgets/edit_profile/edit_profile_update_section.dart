@@ -64,6 +64,7 @@ class _EditProfileUpdateSectionState extends State<EditProfileUpdateSection> {
           verticalSpace(AppSizes.h24),
           AppElevatedButton(
             text: LocaleKeys.delete_account.tr(),
+
             onPressed: () {
               final cubit = context.read<UpdateProfileCubit>();
               showDialog(
@@ -75,7 +76,7 @@ class _EditProfileUpdateSectionState extends State<EditProfileUpdateSection> {
                 ),
               );
             },
-            backgroundColor: AppColors.deepViolet,
+            backgroundColor: AppColors.orange,
           ),
           verticalSpace(AppSizes.h24),
 

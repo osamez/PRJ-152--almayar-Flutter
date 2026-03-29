@@ -87,6 +87,7 @@ class ShipmentRequestPickupDetailsViewBody extends StatelessWidget {
                   ),
                 ),
           verticalSpace(AppSizes.h24),
+          if (shipmentModel.id == 35) ...[],
           SectionTitle(
             title: LocaleKeys.shipment_details_shipment_documents.tr(),
           ),

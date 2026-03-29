@@ -33,7 +33,7 @@ class PurchaseOrderInfoRow extends StatelessWidget {
               Text(
                 label,
                 style: AppTextStyleFactory.create(
-                  size: 10,
+                  size: 12,
                   weight: FontWeight.w700,
                   color: AppColors.deepViolet,
                 ),
@@ -44,8 +44,8 @@ class PurchaseOrderInfoRow extends StatelessWidget {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: AppTextStyleFactory.create(
-                    size: 10,
-                    weight: FontWeight.w400,
+                    size: 11,
+                    weight: FontWeight.w500,
                     color: AppColors.deepViolet,
                   ),
                 ),

@@ -55,7 +55,10 @@ class PurchaseOrderDetailsInfoCard extends StatelessWidget {
             ),
           ),
           horizontalSpace(AppSizes.w8),
-          PurchaseOrderStatusBadge(status: status),
+          StatusBadge(
+            label: status?.name ?? '',
+            color: mapPurchaseStatus(status).color,
+          ),
         ],
       ),
     );

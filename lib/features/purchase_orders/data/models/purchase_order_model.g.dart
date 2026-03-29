@@ -30,6 +30,7 @@ PurchaseOrderModel _$PurchaseOrderModelFromJson(Map<String, dynamic> json) =>
           : StatusModel.fromJson(json['status'] as Map<String, dynamic>),
       createdAt: json['created_at'] as String?,
       notes: json['notes'] as String?,
+      attachment: json['attachment'] as String?,
     );
 
 Map<String, dynamic> _$PurchaseOrderModelToJson(PurchaseOrderModel instance) =>
@@ -46,4 +47,5 @@ Map<String, dynamic> _$PurchaseOrderModelToJson(PurchaseOrderModel instance) =>
       'status': instance.status,
       'created_at': instance.createdAt,
       'notes': instance.notes,
+      'attachment': instance.attachment,
     };

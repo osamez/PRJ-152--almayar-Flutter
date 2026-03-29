@@ -33,12 +33,14 @@ class PurchaseOrdersState extends Equatable {
     bool? isSearchLoading,
     bool? isPaginationLoading,
     bool? hasMore,
+    bool clearSelectedStatusId = false,
   }) {
     return PurchaseOrdersState(
       getPurchaseRequestsState:
           getPurchaseRequestsState ?? this.getPurchaseRequestsState,
       orders: orders ?? this.orders,
-      selectedStatusId: selectedStatusId ?? this.selectedStatusId,
+      selectedStatusId:
+          clearSelectedStatusId ? null : (selectedStatusId ?? this.selectedStatusId),
       searchCode: searchCode ?? this.searchCode,
       currentPage: currentPage ?? this.currentPage,
       isLoadingMore: isLoadingMore ?? this.isLoadingMore,

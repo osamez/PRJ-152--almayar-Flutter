@@ -12,6 +12,7 @@ class PurchaseOrdersCubit extends Cubit<PurchaseOrdersState> {
   Future<void> getPurchaseRequests({
     int? page,
     int? statusId,
+    bool clearStatus = false,
     String? code,
     bool isRefresh = false,
     bool isPagination = false,
@@ -57,7 +58,8 @@ class PurchaseOrdersCubit extends Cubit<PurchaseOrdersState> {
         emit(
           state.copyWith(
             getPurchaseRequestsState: const AsyncLoading(),
-            selectedStatusId: statusId ?? state.selectedStatusId,
+            selectedStatusId: statusId,
+            clearSelectedStatusId: clearStatus,
             searchCode: code ?? state.searchCode,
             orders: isNewRequest ? [] : state.orders,
             currentPage: isNewRequest ? 1 : state.currentPage,
@@ -89,7 +91,7 @@ class PurchaseOrdersCubit extends Cubit<PurchaseOrdersState> {
 
     final result = await _repo.getPurchaseRequests(
       targetPage,
-      statusId ?? state.selectedStatusId,
+      clearStatus ? null : (statusId ?? state.selectedStatusId),
       code ?? state.searchCode,
     );
 
@@ -133,7 +135,7 @@ class PurchaseOrdersCubit extends Cubit<PurchaseOrdersState> {
 
   void filterByStatus(int? statusId) {
     if (statusId == state.selectedStatusId) return;
-    getPurchaseRequests(statusId: statusId, page: 1);
+    getPurchaseRequests(statusId: statusId, page: 1, clearStatus: statusId == null);
   }
 
   void loadMore() {

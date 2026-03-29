@@ -46,8 +46,8 @@ class _PurchaseOrdersViewBodyState extends State<PurchaseOrdersViewBody> {
               previous.isSearchLoading != current.isSearchLoading ||
               previous.orders != current.orders,
           builder: (context, state) {
-            if (state.isSearchLoading && state.orders.isNotEmpty) {
-              return _buildContent(context, state);
+            if (state.isSearchLoading) {
+              return _buildContent(context, state, isLoading: true);
             }
             return state.getPurchaseRequestsState.when(
               initial: () => const SizedBox.shrink(),
@@ -102,8 +102,7 @@ class _PurchaseOrdersViewBodyState extends State<PurchaseOrdersViewBody> {
                           .getPurchaseRequests(isRefresh: true),
                       child: SingleChildScrollView(
                         physics: const AlwaysScrollableScrollPhysics(),
-                        child: SizedBox(
-                          height: AppSizes.h500,
+                        child: Center(
                           child: EmptyWidget(
                             message: LocaleKeys
                                 .shipment_pickup_requests_no_requests
@@ -140,7 +139,7 @@ class _PurchaseOrdersViewBodyState extends State<PurchaseOrdersViewBody> {
                             );
                           }
                           return const Center(
-                            child: CircularProgressIndicator(),
+                            child: CupertinoActivityIndicator(),
                           );
                         },
                       ),

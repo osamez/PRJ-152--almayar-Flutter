@@ -32,29 +32,49 @@ class PurchaseOrderDetailsViewBody extends StatelessWidget {
               ),
               PurchaseOrderDetailsInfoRowData(
                 label: LocaleKeys.purchase_order_details_order_status.tr(),
-                value: order.status!.name ?? '',
+                value: order.status?.name ?? '-',
               ),
               PurchaseOrderDetailsInfoRowData(
                 label: LocaleKeys.purchase_order_details_creation_date.tr(),
-                value: order.createdAt ?? '-',
+                value: order.createdAt != null
+                    ? formatDateFromApi(order.createdAt!)
+                    : '-',
               ),
               PurchaseOrderDetailsInfoRowData(
                 label: LocaleKeys.purchase_order_details_purchase_date.tr(),
-                value: order.purchaseDate ?? '-',
+                value: order.purchaseDate != null
+                    ? formatDateFromApi(order.purchaseDate!)
+                    : '-',
               ),
             ],
           ),
           verticalSpace(AppSizes.h24),
-          PurchaseOrderDetailsSectionTitle(
-            title: LocaleKeys.purchase_order_details_payment_proof.tr(),
-          ),
-          verticalSpace(AppSizes.h16),
-          const MediaGrid(
-            items: [
-              // MediaItem(fileName: 'Box_Image.jpg', isImage: true),
-              MediaItem(fileName: 'Invoice.pdf', isImage: false),
-            ],
-          ),
+          if (order.status?.id == 35) ...[
+            PurchaseOrderDetailsSectionTitle(
+              title: LocaleKeys.purchase_order_details_payment_proof.tr(),
+            ),
+            verticalSpace(AppSizes.h16),
+            order.attachment != null
+                ? MediaGrid(
+                    items: [
+                      // MediaItem(fileName: 'Box_Image.jpg', isImage: true),
+                      MediaItem(
+                        fileName: order.attachment ?? '',
+                        isImage: order.attachment?.endsWith('.pdf') ?? false,
+                      ),
+                    ],
+                  )
+                : Center(
+                    child: Text(
+                      "لا يوجد مرفق اثبات دفع",
+                      style: AppTextStyleFactory.create(
+                        size: 13,
+                        weight: FontWeight.w700,
+                        color: AppColors.darkText,
+                      ),
+                    ),
+                  ),
+          ],
         ],
       ),
     );
