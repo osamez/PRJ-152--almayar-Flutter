@@ -8,6 +8,7 @@ abstract class  LocaleKeys {
   static const settings = 'settings';
   static const profile = 'profile';
   static const files_selected_label = 'files_selected_label';
+  static const files_selected = 'files_selected';
   static const logout = 'logout';
   static const skip = 'skip';
   static const next = 'next';
@@ -197,7 +198,6 @@ abstract class  LocaleKeys {
   static const price_calculator_air_economy = 'price_calculator_air_economy';
   static const price_calculator_sea_private = 'price_calculator_sea_private';
   static const price_calculator_sea_shared = 'price_calculator_sea_shared';
-  static const price_calculator_sea_shipping_only = 'price_calculator_sea_shipping_only';
   static const price_calculator_pickup_branch = 'price_calculator_pickup_branch';
   static const price_calculator_select_branch = 'price_calculator_select_branch';
   static const price_calculator_delivery_branch = 'price_calculator_delivery_branch';

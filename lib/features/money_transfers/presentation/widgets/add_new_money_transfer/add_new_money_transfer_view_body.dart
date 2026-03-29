@@ -61,7 +61,7 @@ class _AddNewMoneyTransferViewBodyState
     final state = cubit.state;
 
     cubit.addMoneyTransfer(
-      invoiceImages: state.invoiceFile == null ? null : [state.invoiceFile!],
+      invoiceImages: state.invoiceFiles.isEmpty ? null : state.invoiceFiles,
       invoiceValue: _invoiceValueController.text.trim(),
       paymentCurrencyId: state.selectedPaymentCurrency?.id?.toString(),
       currencyId: state.selectedInvoiceCurrency?.id?.toString(),

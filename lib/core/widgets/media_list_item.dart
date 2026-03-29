@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'package:almeyar/core/utils/exports.dart';
 
 class MediaListItem extends StatelessWidget {
@@ -27,10 +28,7 @@ class MediaListItem extends StatelessWidget {
             borderRadius: BorderRadius.circular(AppSizes.radiusSm),
             border: Border.all(color: AppColors.gray),
             image: !isPdf
-                ? DecorationImage(
-                    image: FileImage(file),
-                    fit: BoxFit.cover,
-                  )
+                ? DecorationImage(image: FileImage(file), fit: BoxFit.cover)
                 : null,
           ),
           child: isPdf
@@ -67,11 +65,7 @@ class MediaListItem extends StatelessWidget {
                 color: Colors.red,
                 shape: BoxShape.circle,
               ),
-              child: const Icon(
-                Icons.close,
-                size: 14,
-                color: Colors.white,
-              ),
+              child: const Icon(Icons.close, size: 14, color: Colors.white),
             ),
           ),
         ),

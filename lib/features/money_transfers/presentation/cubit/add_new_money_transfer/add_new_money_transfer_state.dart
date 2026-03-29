@@ -7,7 +7,7 @@ class AddNewMoneyTransferState extends Equatable {
   final List<MoneyTransferCurrencyModel> currencies;
   final MoneyTransferCurrencyModel? selectedInvoiceCurrency;
   final MoneyTransferCurrencyModel? selectedPaymentCurrency;
-  final File? invoiceFile;
+  final List<File> invoiceFiles;
 
   const AddNewMoneyTransferState({
     this.getMoneyTransferCurrenciesState = const AsyncInitial(),
@@ -16,7 +16,7 @@ class AddNewMoneyTransferState extends Equatable {
     this.currencies = const [],
     this.selectedInvoiceCurrency,
     this.selectedPaymentCurrency,
-    this.invoiceFile,
+    this.invoiceFiles = const [],
   });
 
   bool get isLoadingInitial => getMoneyTransferCurrenciesState.isLoading;
@@ -38,8 +38,8 @@ class AddNewMoneyTransferState extends Equatable {
     List<MoneyTransferCurrencyModel>? currencies,
     MoneyTransferCurrencyModel? selectedInvoiceCurrency,
     MoneyTransferCurrencyModel? selectedPaymentCurrency,
-    File? invoiceFile,
-    bool clearInvoiceFile = false,
+    List<File>? invoiceFiles,
+    bool clearInvoiceFiles = false,
     bool clearSelectedInvoiceCurrency = false,
     bool clearSelectedPaymentCurrency = false,
   }) {
@@ -59,7 +59,7 @@ class AddNewMoneyTransferState extends Equatable {
       selectedPaymentCurrency: clearSelectedPaymentCurrency
           ? null
           : selectedPaymentCurrency ?? this.selectedPaymentCurrency,
-      invoiceFile: clearInvoiceFile ? null : invoiceFile ?? this.invoiceFile,
+      invoiceFiles: clearInvoiceFiles ? [] : invoiceFiles ?? this.invoiceFiles,
     );
   }
 
@@ -71,6 +71,6 @@ class AddNewMoneyTransferState extends Equatable {
     currencies,
     selectedInvoiceCurrency,
     selectedPaymentCurrency,
-    invoiceFile,
+    invoiceFiles,
   ];
 }

@@ -100,13 +100,14 @@ class AddNewMoneyTransferCubit extends Cubit<AddNewMoneyTransferState> {
     emit(state.copyWith(selectedPaymentCurrency: value));
   }
 
-  void setInvoiceFile(File? file) {
-    if (file == null) {
-      emit(state.copyWith(clearInvoiceFile: true));
-      return;
-    }
+  void addInvoiceFiles(List<File> files) {
+    emit(state.copyWith(invoiceFiles: [...state.invoiceFiles, ...files]));
+  }
 
-    emit(state.copyWith(invoiceFile: file));
+  void removeInvoiceFile(int index) {
+    final List<File> currentFiles = List.from(state.invoiceFiles);
+    currentFiles.removeAt(index);
+    emit(state.copyWith(invoiceFiles: currentFiles));
   }
 
   Future<void> noteCalculateMoneyTransfer(NoteCalculateRequest request) async {

@@ -5,17 +5,13 @@ import 'package:almeyar/core/utils/exports.dart';
 import 'package:almeyar/core/widgets/custom_icon_rounded_box.dart';
 import 'package:almeyar/core/widgets/internet_connection_widget.dart';
 import 'package:almeyar/features/pickup_request/presentation/widgets/shipment_pickup_requests/pickup_filter_bottom_sheet.dart';
-import 'package:almeyar/core/widgets/custom_cached_image.dart';
 import 'package:almeyar/core/widgets/custom_error_widget.dart';
 
-import 'package:almeyar/core/network/api_error_model.dart';
 import 'package:almeyar/core/network/local_status_codes.dart';
 import 'package:almeyar/core/services/internet_service.dart';
 import 'dart:io';
-import 'package:almeyar/core/utils/async.dart';
 import 'package:almeyar/core/utils/loading_dialog.dart';
 import 'package:almeyar/core/helpers/app_snack_bar.dart';
-import 'package:almeyar/core/widgets/custom_dropdowon_search_list.dart';
 import 'package:almeyar/core/services/image_picker_service.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:almeyar/core/network/result.dart';
@@ -59,7 +55,6 @@ part 'widgets/receive_shipment/supplier_phone_field.dart';
 part 'widgets/receive_shipment/classification_field.dart';
 part 'widgets/receive_shipment/boxes_and_contents_section.dart';
 part 'widgets/receive_shipment/weight_volume_section.dart';
-part 'widgets/receive_shipment/media_list_item.dart';
 part 'widgets/receive_shipment/upload_media_section.dart';
 part 'widgets/receive_shipment/content_shipment_dropdownlist.dart';
 
