@@ -7,7 +7,12 @@ class MoneyTransfersAddButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppElevatedButton(
       text: LocaleKeys.money_transfers_add_new_transfer.tr(),
-      onPressed: () => context.push(Routes.addNewMoneyTransfer),
+      onPressed: () async {
+        final result = await context.push<bool>(Routes.addNewMoneyTransfer);
+        if (result == true && context.mounted) {
+          context.read<MoneyTransfersCubit>().getMoneyTransfers();
+        }
+      },
       backgroundColor: AppColors.orange,
       textColor: AppColors.white,
       iconPath: AppAssets.svgAdd,

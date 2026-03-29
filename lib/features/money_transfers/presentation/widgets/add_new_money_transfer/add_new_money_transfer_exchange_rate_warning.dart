@@ -36,7 +36,13 @@ class AddNewMoneyTransferExchangeRateWarning extends StatelessWidget {
                   },
                 ),
           ),
-          error: (failure) => const SizedBox.shrink(),
+          error: (failure) => _buildCalculationBox(
+            context,
+            amount: '0',
+            due: '0',
+            message: failure.message ?? failure.error,
+            isError: true,
+          ),
         );
       },
     );
@@ -47,6 +53,7 @@ class AddNewMoneyTransferExchangeRateWarning extends StatelessWidget {
     required String amount,
     required String due,
     required String message,
+    bool isError = false,
   }) {
     return Container(
       width: double.infinity,
@@ -56,8 +63,11 @@ class AddNewMoneyTransferExchangeRateWarning extends StatelessWidget {
         vertical: AppSizes.h14,
       ),
       decoration: BoxDecoration(
-        color: AppColors.white,
-        border: Border.all(color: AppColors.gray, width: 1),
+        color: isError ? AppColors.redBg : AppColors.white,
+        border: Border.all(
+          color: isError ? AppColors.error500 : AppColors.gray,
+          width: 1,
+        ),
         borderRadius: BorderRadius.circular(AppSizes.radiusSm),
       ),
       child: Row(
@@ -65,8 +75,8 @@ class AddNewMoneyTransferExchangeRateWarning extends StatelessWidget {
         children: [
           CustomIconRoundedBox(
             iconPath: AppAssets.svgWarning,
-            backgroundColor: AppColors.yellow,
-            iconColor: AppColors.darkSlate,
+            backgroundColor: isError ? AppColors.error500 : AppColors.yellow,
+            iconColor: isError ? AppColors.white : AppColors.darkSlate,
             iconHeight: AppSizes.h22,
             iconWidth: AppSizes.w22,
             width: AppSizes.w32,
@@ -79,7 +89,7 @@ class AddNewMoneyTransferExchangeRateWarning extends StatelessWidget {
             child: Text(
               message,
               style: AppTextStyleFactory.create(
-                size: 14,
+                size: AppSizes.h14,
                 weight: FontWeight.w400,
                 color: AppColors.darkText,
               ),

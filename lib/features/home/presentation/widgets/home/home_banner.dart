@@ -22,30 +22,35 @@ class HomeBanner extends StatelessWidget {
             spacing: AppSizes.w12,
             children: [
               Expanded(
-                child: Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: AppSizes.w8,
-                    vertical: AppSizes.h10,
-                  ),
-                  height: AppSizes.h46,
-                  decoration: BoxDecoration(
-                    color: const Color(0xff000000).withValues(alpha: 0.24),
-                    borderRadius: BorderRadius.circular(AppSizes.radiusSm),
-                  ),
-                  child: Center(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          LocaleKeys.home_search_hint.tr(),
-                          style: AppTextStyleFactory.create(
-                            size: 14,
-                            weight: FontWeight.w300,
-                            color: AppColors.white,
+                child: GestureDetector(
+                  onTap: () {
+                    context.push(Routes.shipmentsType);
+                  },
+                  child: Container(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: AppSizes.w8,
+                      vertical: AppSizes.h10,
+                    ),
+                    height: AppSizes.h46,
+                    decoration: BoxDecoration(
+                      color: const Color(0xff000000).withValues(alpha: 0.24),
+                      borderRadius: BorderRadius.circular(AppSizes.radiusSm),
+                    ),
+                    child: Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            LocaleKeys.home_search_hint.tr(),
+                            style: AppTextStyleFactory.create(
+                              size: 14,
+                              weight: FontWeight.w300,
+                              color: AppColors.white,
+                            ),
                           ),
-                        ),
-                        SvgPicture.asset(AppAssets.svgBarcode),
-                      ],
+                          SvgPicture.asset(AppAssets.svgBarcode),
+                        ],
+                      ),
                     ),
                   ),
                 ),

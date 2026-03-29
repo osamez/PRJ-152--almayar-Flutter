@@ -1,10 +1,16 @@
 part of '../../feature_imports.dart';
 
 class InspectionServiceCard extends StatefulWidget {
-  const InspectionServiceCard({super.key, required this.isEnabled, required this.onToggle});
+  const InspectionServiceCard({
+    super.key,
+    required this.isEnabled,
+    required this.onToggle,
+    required this.inspectionNoteController,
+  });
 
   final bool isEnabled;
   final ValueChanged<bool> onToggle;
+  final TextEditingController inspectionNoteController;
 
   @override
   State<InspectionServiceCard> createState() => _InspectionServiceCardState();
@@ -13,89 +19,107 @@ class InspectionServiceCard extends StatefulWidget {
 class _InspectionServiceCardState extends State<InspectionServiceCard> {
   @override
   Widget build(BuildContext context) {
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 200),
-      padding: EdgeInsets.all(AppSizes.w16),
-      decoration: BoxDecoration(
-        color: widget.isEnabled
-            ? AppColors.green.withValues(alpha: 0.05)
-            : AppColors.white,
-        borderRadius: BorderRadius.circular(AppSizes.radiusMd),
-        border: Border.all(
-          color: widget.isEnabled ? AppColors.green : AppColors.gray,
-        ),
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  LocaleKeys.receive_shipment_inspection_service.tr(),
-                  style: AppTextStyleFactory.create(
-                    size: 16,
-                    weight: FontWeight.w700,
-                    color: AppColors.deepViolet,
-                  ),
-                ),
-                verticalSpace(AppSizes.h8),
-                Text.rich(
-                  TextSpan(
-                    text: LocaleKeys.receive_shipment_inspection_service_desc
-                        .tr(),
-
-                    style: AppTextStyleFactory.create(
-                      size: 12,
-                      weight: FontWeight.w400,
-
-                      color: AppColors.deepViolet,
+    return Column(
+      children: [
+        AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
+          padding: EdgeInsets.all(AppSizes.w16),
+          decoration: BoxDecoration(
+            color: widget.isEnabled
+                ? AppColors.green.withValues(alpha: 0.05)
+                : AppColors.white,
+            borderRadius: BorderRadius.circular(AppSizes.radiusMd),
+            border: Border.all(
+              color: widget.isEnabled ? AppColors.green : AppColors.gray,
+            ),
+          ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      LocaleKeys.receive_shipment_inspection_service.tr(),
+                      style: AppTextStyleFactory.create(
+                        size: 16,
+                        weight: FontWeight.w700,
+                        color: AppColors.deepViolet,
+                      ),
                     ),
-                    children: [
+                    verticalSpace(AppSizes.h8),
+                    Text.rich(
                       TextSpan(
-                        text: r'(تكلفة الخدمة 2$)',
+                        text: LocaleKeys
+                            .receive_shipment_inspection_service_desc
+                            .tr(),
+
                         style: AppTextStyleFactory.create(
                           size: 12,
                           weight: FontWeight.w400,
-                          color: AppColors.orange,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-          horizontalSpace(AppSizes.w12),
-          Column(
-            children: [
-              CustomIconRoundedBox(
-                iconPath: AppAssets.svgCube,
-                width: AppSizes.w44,
-                height: AppSizes.h44,
-                backgroundColor: AppColors.grey,
-              ),
-              verticalSpace(AppSizes.h8),
-              Transform.scale(
-                scale: 0.8,
-                child: Switch(
-                  value: widget.isEnabled,
-                  activeThumbColor: AppColors.green,
-                  inactiveThumbColor: AppColors.deepViolet,
-                  activeTrackColor: AppColors.green.withValues(alpha: 0.5),
-                  inactiveTrackColor: AppColors.white,
-                  trackOutlineColor: WidgetStateProperty.all(
-                    widget.isEnabled ? AppColors.green : AppColors.deepViolet,
-                  ),
 
-                  onChanged: widget.onToggle,
+                          color: AppColors.deepViolet,
+                        ),
+                        children: [
+                          TextSpan(
+                            text: r'(تكلفة الخدمة 2$)',
+                            style: AppTextStyleFactory.create(
+                              size: 12,
+                              weight: FontWeight.w400,
+                              color: AppColors.orange,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
+              ),
+              horizontalSpace(AppSizes.w12),
+              Column(
+                children: [
+                  CustomIconRoundedBox(
+                    iconPath: AppAssets.svgCube,
+                    width: AppSizes.w44,
+                    height: AppSizes.h44,
+                    backgroundColor: AppColors.grey,
+                  ),
+                  verticalSpace(AppSizes.h8),
+                  Transform.scale(
+                    scale: 0.8,
+                    child: Switch(
+                      value: widget.isEnabled,
+                      activeThumbColor: AppColors.green,
+                      inactiveThumbColor: AppColors.deepViolet,
+                      activeTrackColor: AppColors.green.withValues(alpha: 0.5),
+                      inactiveTrackColor: AppColors.white,
+                      trackOutlineColor: WidgetStateProperty.all(
+                        widget.isEnabled
+                            ? AppColors.green
+                            : AppColors.deepViolet,
+                      ),
+
+                      onChanged: widget.onToggle,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
+        ),
+        if (widget.isEnabled) ...[
+          verticalSpace(AppSizes.h20),
+          AppTextFormField(
+            controller: widget.inspectionNoteController,
+            title: LocaleKeys.receive_shipment_inspection_note.tr(),
+            hintText: LocaleKeys.receive_shipment_note_hint.tr(),
+            validator: (value) => null,
+            isRequired: false,
+            maxLines: 6,
+          ),
         ],
-      ),
+      ],
     );
   }
 }

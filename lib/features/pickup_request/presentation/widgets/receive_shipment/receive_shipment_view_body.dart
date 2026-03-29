@@ -151,16 +151,9 @@ class _ReceiveShipmentViewBodyState extends State<ReceiveShipmentViewBody> {
                       InspectionServiceCard(
                         isEnabled: state.inspectionEnabled,
                         onToggle: (val) => cubit.updateInspectionStatus(val),
+                        inspectionNoteController: _inspectionNoteController,
                       ),
-                      verticalSpace(AppSizes.h20),
-                      AppTextFormField(
-                        controller: _inspectionNoteController,
-                        title: LocaleKeys.receive_shipment_inspection_note.tr(),
-                        hintText: LocaleKeys.receive_shipment_note_hint.tr(),
-                        validator: (value) => null,
-                        isRequired: false,
-                        maxLines: 6,
-                      ),
+
                       verticalSpace(AppSizes.h20),
                       UploadMediaSection(
                         title: LocaleKeys.receive_shipment_photos.tr(),
