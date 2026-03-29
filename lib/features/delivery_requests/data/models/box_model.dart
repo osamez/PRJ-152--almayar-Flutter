@@ -36,6 +36,8 @@ class BoxModel {
   @JsonKey(name: 'box_image')
   @NullableStringConverter()
   final String? boxImage;
+  @JsonKey(name: 'shipment_type')
+  final BoxShipmentType? shipmentType;
 
   const BoxModel({
     this.id,
@@ -45,6 +47,7 @@ class BoxModel {
     this.tripCode,
     this.weight,
     this.dimensions,
+    this.shipmentType,
     this.size,
     this.price,
     this.priceAfterDiscount,
@@ -59,4 +62,17 @@ class BoxModel {
       _$BoxModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$BoxModelToJson(this);
+}
+
+@JsonSerializable(checked: true)
+class BoxShipmentType {
+  final int? id;
+  final String? name;
+
+  BoxShipmentType({this.id, this.name});
+
+  factory BoxShipmentType.fromJson(Map<String, dynamic> json) =>
+      _$BoxShipmentTypeFromJson(json);
+
+  Map<String, dynamic> toJson() => _$BoxShipmentTypeToJson(this);
 }

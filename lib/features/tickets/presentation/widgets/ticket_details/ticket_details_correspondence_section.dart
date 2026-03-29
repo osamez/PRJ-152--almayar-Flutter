@@ -20,7 +20,7 @@ class TicketDetailsCorrespondenceSection extends StatelessWidget {
           ),
         ),
         verticalSpace(AppSizes.h16),
-        ...replies.reversed.map((reply) {
+        ...replies.map((reply) {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [

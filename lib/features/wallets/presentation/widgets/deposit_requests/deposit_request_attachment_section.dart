@@ -93,6 +93,7 @@ class DepositRequestAttachmentSection extends StatelessWidget {
         ),
         verticalSpace(AppSizes.h8),
         FileUploadItem(
+          title: 'مرفق اثبات التحويل',
           text: state.selectedFiles.isEmpty
               ? LocaleKeys.deposit_requests_transfer_proof_attach_hint.tr()
               : '${state.selectedFiles.length} ${LocaleKeys.files_selected_label.tr()}',

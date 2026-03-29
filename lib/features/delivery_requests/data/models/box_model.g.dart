@@ -26,6 +26,12 @@ BoxModel _$BoxModelFromJson(Map<String, dynamic> json) => $checkedCreate(
             ? null
             : DimensionsModel.fromJson(v as Map<String, dynamic>),
       ),
+      shipmentType: $checkedConvert(
+        'shipment_type',
+        (v) => v == null
+            ? null
+            : BoxShipmentType.fromJson(v as Map<String, dynamic>),
+      ),
       size: $checkedConvert(
         'size',
         (v) => const NullableStringConverter().fromJson(v),
@@ -64,6 +70,7 @@ BoxModel _$BoxModelFromJson(Map<String, dynamic> json) => $checkedCreate(
     'shipmentCode': 'shipment_code',
     'receivingBranch': 'receiving_branch',
     'tripCode': 'trip_code',
+    'shipmentType': 'shipment_type',
     'priceAfterDiscount': 'price_after_discount',
     'financialStatus': 'financial_status',
     'deliveryDate': 'delivery_date',
@@ -92,4 +99,17 @@ Map<String, dynamic> _$BoxModelToJson(BoxModel instance) => <String, dynamic>{
     instance.discountValue,
   ),
   'box_image': const NullableStringConverter().toJson(instance.boxImage),
+  'shipment_type': instance.shipmentType,
 };
+
+BoxShipmentType _$BoxShipmentTypeFromJson(Map<String, dynamic> json) =>
+    $checkedCreate('BoxShipmentType', json, ($checkedConvert) {
+      final val = BoxShipmentType(
+        id: $checkedConvert('id', (v) => (v as num?)?.toInt()),
+        name: $checkedConvert('name', (v) => v as String?),
+      );
+      return val;
+    });
+
+Map<String, dynamic> _$BoxShipmentTypeToJson(BoxShipmentType instance) =>
+    <String, dynamic>{'id': instance.id, 'name': instance.name};

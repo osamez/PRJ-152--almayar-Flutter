@@ -15,7 +15,9 @@ class RequestItemDetailsBoxHeaderRow extends StatelessWidget {
     return Row(
       children: [
         CustomIconRoundedBox(
-          iconPath: AppAssets.svgBoat,
+          iconPath: shippingType.contains('جوي')
+              ? AppAssets.svgAirplane
+              : AppAssets.svgBoat,
           iconColor: AppColors.darkText,
           width: AppSizes.w48,
           height: AppSizes.h48,
@@ -37,7 +39,9 @@ class RequestItemDetailsBoxHeaderRow extends StatelessWidget {
             ),
             verticalSpace(AppSizes.h4),
             IconTextRow(
-              iconPath: AppAssets.svgBoat,
+              iconPath: shippingType.contains('جوي')
+                  ? AppAssets.svgAirplane
+                  : AppAssets.svgBoat,
               text: shippingType,
               iconColor: AppColors.orange,
               textColor: AppColors.orange,

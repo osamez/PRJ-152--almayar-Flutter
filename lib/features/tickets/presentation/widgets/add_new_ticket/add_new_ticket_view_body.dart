@@ -80,8 +80,7 @@ class _AddNewTicketViewBodyState extends State<AddNewTicketViewBody> {
                         AppTextFormField(
                           controller: _shipmentCodeController,
                           isRequired: false,
-                          hintText: LocaleKeys.add_ticket_shipment_code_hint
-                              .tr(),
+                          hintText: 'ادخل كود الشحنة او الرحلة',
                           title: LocaleKeys.add_ticket_shipment_code.tr(),
                           titleColor: AppColors.darkText,
                           validator: (value) => null,

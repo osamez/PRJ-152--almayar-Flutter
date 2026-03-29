@@ -13,6 +13,7 @@ class AddNewTicketMediaSection extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             FileUploadItem(
+              title: 'مرفق (اختياري)',
               text: state.selectedFiles.isEmpty
                   ? LocaleKeys.add_ticket_attachment_hint.tr()
                   : '${state.selectedFiles.length} ${LocaleKeys.files_selected_label.tr()}',
@@ -20,15 +21,18 @@ class AddNewTicketMediaSection extends StatelessWidget {
             ),
             if (state.selectedFiles.isNotEmpty) ...[
               verticalSpace(AppSizes.h8),
-              Wrap(
-                spacing: AppSizes.w8,
-                runSpacing: AppSizes.h8,
-                children: List.generate(
-                  state.selectedFiles.length,
-                  (index) => MediaListItem(
-                    file: state.selectedFiles[index],
-                    onRemove: () =>
-                        context.read<AddNewTicketCubit>().removeFile(index),
+              Padding(
+                padding: const EdgeInsets.only(right: 2),
+                child: Wrap(
+                  spacing: AppSizes.w8,
+                  runSpacing: AppSizes.h8,
+                  children: List.generate(
+                    state.selectedFiles.length,
+                    (index) => MediaListItem(
+                      file: state.selectedFiles[index],
+                      onRemove: () =>
+                          context.read<AddNewTicketCubit>().removeFile(index),
+                    ),
                   ),
                 ),
               ),

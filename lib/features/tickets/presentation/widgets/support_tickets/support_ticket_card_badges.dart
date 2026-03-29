@@ -16,14 +16,16 @@ class SupportTicketCardBadges extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        StatusBadge(label: statusLabel, color: statusColor),
-        verticalSpace(AppSizes.h6),
-        StatusBadge(label: priorityLabel, color: priorityColor),
-      ],
+    return IntrinsicWidth(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          StatusBadge(label: statusLabel, color: statusColor),
+          verticalSpace(AppSizes.h6),
+          StatusBadge(label: priorityLabel, color: priorityColor),
+        ],
+      ),
     );
   }
 }

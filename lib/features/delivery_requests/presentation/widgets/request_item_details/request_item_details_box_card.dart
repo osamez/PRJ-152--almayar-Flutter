@@ -33,7 +33,7 @@ class RequestItemDetailsBoxCard extends StatelessWidget {
                 Expanded(
                   child: RequestItemDetailsBoxHeaderRow(
                     date: box.deliveryDate ?? '-',
-                    shippingType: '-',
+                    shippingType: box.shipmentType?.name ?? '-',
                   ),
                 ),
                 ShipmentDetailsBoxStatusBadges(

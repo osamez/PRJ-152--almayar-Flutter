@@ -28,8 +28,15 @@ class TicketDetailsCubit extends Cubit<TicketDetailsState> {
     final result = await _ticketsRepo.getTicketDetails(ticketId);
 
     result.when(
-      onSuccess: (data) =>
-          emit(state.copyWith(getTicketDetailsState: AsyncData(data.data!))),
+      onSuccess: (data) => emit(
+        state.copyWith(
+          getTicketDetailsState: AsyncData(
+            data.data!.copyWith(
+              replies: data.data!.replies?.reversed.toList(),
+            ),
+          ),
+        ),
+      ),
       onFailure: (error) =>
           emit(state.copyWith(getTicketDetailsState: AsyncError(error))),
     );
